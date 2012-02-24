@@ -15,9 +15,5 @@ namespace ERP_Palmeiras_RH.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
     }
 }
