@@ -19,6 +19,19 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Model", "EntradasCartaoPontoCartoesPonto", "EntradasCartaoPonto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.EntradasCartaoPonto), "CartoesPonto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.CartoesPonto), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosCredenciais", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Credenciais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Credenciais))]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosPermissoes", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Permissoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Permissoes), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosCurricula", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Curricula", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Curricula))]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosDadosPessoais", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "DadosPessoais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadosPessoais))]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosCartoesPonto", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "CartoesPonto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.CartoesPonto))]
+[assembly: EdmRelationshipAttribute("Model", "DadosPessoaisEnderecos", "DadosPessoais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadosPessoais), "Enderecos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Enderecos))]
+[assembly: EdmRelationshipAttribute("Model", "DadosPessoaisTelefones", "DadosPessoais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadosPessoais), "Telefones", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Telefones), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosBeneficios", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Beneficios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Beneficios), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosCargos", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Cargos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Cargos), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosEspecialidades", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Especialidades", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Especialidades), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosDadosBancarios", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "DadosBancarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadosBancarios))]
+[assembly: EdmRelationshipAttribute("Model", "FuncionariosAdmissoes", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), "Admissoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissoes))]
+[assembly: EdmRelationshipAttribute("Model", "PagamentoFuncionarios", "Pagamento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Pagamento), "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionarios), true)]
 
 #endregion
 
@@ -181,6 +194,134 @@ namespace ERP_Palmeiras_RH.Models
             }
         }
         private ObjectSet<EntradasCartaoPonto> _EntradasCartaoPontoSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DadosPessoais> DadosPessoaisSet
+        {
+            get
+            {
+                if ((_DadosPessoaisSet == null))
+                {
+                    _DadosPessoaisSet = base.CreateObjectSet<DadosPessoais>("DadosPessoaisSet");
+                }
+                return _DadosPessoaisSet;
+            }
+        }
+        private ObjectSet<DadosPessoais> _DadosPessoaisSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Enderecos> EnderecosSet
+        {
+            get
+            {
+                if ((_EnderecosSet == null))
+                {
+                    _EnderecosSet = base.CreateObjectSet<Enderecos>("EnderecosSet");
+                }
+                return _EnderecosSet;
+            }
+        }
+        private ObjectSet<Enderecos> _EnderecosSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Telefones> TelefonesSet
+        {
+            get
+            {
+                if ((_TelefonesSet == null))
+                {
+                    _TelefonesSet = base.CreateObjectSet<Telefones>("TelefonesSet");
+                }
+                return _TelefonesSet;
+            }
+        }
+        private ObjectSet<Telefones> _TelefonesSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Beneficios> BeneficiosSet
+        {
+            get
+            {
+                if ((_BeneficiosSet == null))
+                {
+                    _BeneficiosSet = base.CreateObjectSet<Beneficios>("BeneficiosSet");
+                }
+                return _BeneficiosSet;
+            }
+        }
+        private ObjectSet<Beneficios> _BeneficiosSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Cargos> CargosSet
+        {
+            get
+            {
+                if ((_CargosSet == null))
+                {
+                    _CargosSet = base.CreateObjectSet<Cargos>("CargosSet");
+                }
+                return _CargosSet;
+            }
+        }
+        private ObjectSet<Cargos> _CargosSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Especialidades> EspecialidadesSet
+        {
+            get
+            {
+                if ((_EspecialidadesSet == null))
+                {
+                    _EspecialidadesSet = base.CreateObjectSet<Especialidades>("EspecialidadesSet");
+                }
+                return _EspecialidadesSet;
+            }
+        }
+        private ObjectSet<Especialidades> _EspecialidadesSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DadosBancarios> DadosBancariosSet
+        {
+            get
+            {
+                if ((_DadosBancariosSet == null))
+                {
+                    _DadosBancariosSet = base.CreateObjectSet<DadosBancarios>("DadosBancariosSet");
+                }
+                return _DadosBancariosSet;
+            }
+        }
+        private ObjectSet<DadosBancarios> _DadosBancariosSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Admissoes> AdmissoesSet
+        {
+            get
+            {
+                if ((_AdmissoesSet == null))
+                {
+                    _AdmissoesSet = base.CreateObjectSet<Admissoes>("AdmissoesSet");
+                }
+                return _AdmissoesSet;
+            }
+        }
+        private ObjectSet<Admissoes> _AdmissoesSet;
 
         #endregion
         #region AddTo Methods
@@ -240,6 +381,70 @@ namespace ERP_Palmeiras_RH.Models
         {
             base.AddObject("EntradasCartaoPontoSet", entradasCartaoPonto);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DadosPessoaisSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDadosPessoaisSet(DadosPessoais dadosPessoais)
+        {
+            base.AddObject("DadosPessoaisSet", dadosPessoais);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EnderecosSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEnderecosSet(Enderecos enderecos)
+        {
+            base.AddObject("EnderecosSet", enderecos);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TelefonesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTelefonesSet(Telefones telefones)
+        {
+            base.AddObject("TelefonesSet", telefones);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BeneficiosSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBeneficiosSet(Beneficios beneficios)
+        {
+            base.AddObject("BeneficiosSet", beneficios);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CargosSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCargosSet(Cargos cargos)
+        {
+            base.AddObject("CargosSet", cargos);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EspecialidadesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEspecialidadesSet(Especialidades especialidades)
+        {
+            base.AddObject("EspecialidadesSet", especialidades);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DadosBancariosSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDadosBancariosSet(DadosBancarios dadosBancarios)
+        {
+            base.AddObject("DadosBancariosSet", dadosBancarios);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AdmissoesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAdmissoesSet(Admissoes admissoes)
+        {
+            base.AddObject("AdmissoesSet", admissoes);
+        }
 
         #endregion
     }
@@ -248,6 +453,431 @@ namespace ERP_Palmeiras_RH.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Admissoes")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Admissoes : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Admissoes object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="dataAdmissao">Initial value of the dataAdmissao property.</param>
+        /// <param name="dataDesligamento">Initial value of the dataDesligamento property.</param>
+        /// <param name="motivoDesligamento">Initial value of the motivoDesligamento property.</param>
+        /// <param name="ultimoCargo">Initial value of the ultimoCargo property.</param>
+        /// <param name="ultimoSalario">Initial value of the ultimoSalario property.</param>
+        public static Admissoes CreateAdmissoes(global::System.Int32 id, global::System.DateTime dataAdmissao, global::System.DateTime dataDesligamento, global::System.String motivoDesligamento, global::System.String ultimoCargo, global::System.String ultimoSalario)
+        {
+            Admissoes admissoes = new Admissoes();
+            admissoes.id = id;
+            admissoes.dataAdmissao = dataAdmissao;
+            admissoes.dataDesligamento = dataDesligamento;
+            admissoes.motivoDesligamento = motivoDesligamento;
+            admissoes.ultimoCargo = ultimoCargo;
+            admissoes.ultimoSalario = ultimoSalario;
+            return admissoes;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dataAdmissao
+        {
+            get
+            {
+                return _dataAdmissao;
+            }
+            set
+            {
+                OndataAdmissaoChanging(value);
+                ReportPropertyChanging("dataAdmissao");
+                _dataAdmissao = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dataAdmissao");
+                OndataAdmissaoChanged();
+            }
+        }
+        private global::System.DateTime _dataAdmissao;
+        partial void OndataAdmissaoChanging(global::System.DateTime value);
+        partial void OndataAdmissaoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dataDesligamento
+        {
+            get
+            {
+                return _dataDesligamento;
+            }
+            set
+            {
+                OndataDesligamentoChanging(value);
+                ReportPropertyChanging("dataDesligamento");
+                _dataDesligamento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dataDesligamento");
+                OndataDesligamentoChanged();
+            }
+        }
+        private global::System.DateTime _dataDesligamento;
+        partial void OndataDesligamentoChanging(global::System.DateTime value);
+        partial void OndataDesligamentoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String motivoDesligamento
+        {
+            get
+            {
+                return _motivoDesligamento;
+            }
+            set
+            {
+                OnmotivoDesligamentoChanging(value);
+                ReportPropertyChanging("motivoDesligamento");
+                _motivoDesligamento = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("motivoDesligamento");
+                OnmotivoDesligamentoChanged();
+            }
+        }
+        private global::System.String _motivoDesligamento;
+        partial void OnmotivoDesligamentoChanging(global::System.String value);
+        partial void OnmotivoDesligamentoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ultimoCargo
+        {
+            get
+            {
+                return _ultimoCargo;
+            }
+            set
+            {
+                OnultimoCargoChanging(value);
+                ReportPropertyChanging("ultimoCargo");
+                _ultimoCargo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ultimoCargo");
+                OnultimoCargoChanged();
+            }
+        }
+        private global::System.String _ultimoCargo;
+        partial void OnultimoCargoChanging(global::System.String value);
+        partial void OnultimoCargoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ultimoSalario
+        {
+            get
+            {
+                return _ultimoSalario;
+            }
+            set
+            {
+                OnultimoSalarioChanging(value);
+                ReportPropertyChanging("ultimoSalario");
+                _ultimoSalario = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ultimoSalario");
+                OnultimoSalarioChanged();
+            }
+        }
+        private global::System.String _ultimoSalario;
+        partial void OnultimoSalarioChanging(global::System.String value);
+        partial void OnultimoSalarioChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Beneficios")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Beneficios : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Beneficios object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="nome">Initial value of the nome property.</param>
+        /// <param name="valor">Initial value of the valor property.</param>
+        /// <param name="funcionarioId">Initial value of the funcionarioId property.</param>
+        public static Beneficios CreateBeneficios(global::System.Int32 id, global::System.String nome, global::System.Double valor, global::System.Int32 funcionarioId)
+        {
+            Beneficios beneficios = new Beneficios();
+            beneficios.id = id;
+            beneficios.nome = nome;
+            beneficios.valor = valor;
+            beneficios.funcionarioId = funcionarioId;
+            return beneficios;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                OnnomeChanging(value);
+                ReportPropertyChanging("nome");
+                _nome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nome");
+                OnnomeChanged();
+            }
+        }
+        private global::System.String _nome;
+        partial void OnnomeChanging(global::System.String value);
+        partial void OnnomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double valor
+        {
+            get
+            {
+                return _valor;
+            }
+            set
+            {
+                OnvalorChanging(value);
+                ReportPropertyChanging("valor");
+                _valor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("valor");
+                OnvalorChanged();
+            }
+        }
+        private global::System.Double _valor;
+        partial void OnvalorChanging(global::System.Double value);
+        partial void OnvalorChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 funcionarioId
+        {
+            get
+            {
+                return _funcionarioId;
+            }
+            set
+            {
+                OnfuncionarioIdChanging(value);
+                ReportPropertyChanging("funcionarioId");
+                _funcionarioId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("funcionarioId");
+                OnfuncionarioIdChanged();
+            }
+        }
+        private global::System.Int32 _funcionarioId;
+        partial void OnfuncionarioIdChanging(global::System.Int32 value);
+        partial void OnfuncionarioIdChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Cargos")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Cargos : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Cargos object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="nome">Initial value of the nome property.</param>
+        /// <param name="salarioBase">Initial value of the salarioBase property.</param>
+        public static Cargos CreateCargos(global::System.Int32 id, global::System.String nome, global::System.Double salarioBase)
+        {
+            Cargos cargos = new Cargos();
+            cargos.id = id;
+            cargos.nome = nome;
+            cargos.salarioBase = salarioBase;
+            return cargos;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                OnnomeChanging(value);
+                ReportPropertyChanging("nome");
+                _nome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nome");
+                OnnomeChanged();
+            }
+        }
+        private global::System.String _nome;
+        partial void OnnomeChanging(global::System.String value);
+        partial void OnnomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double salarioBase
+        {
+            get
+            {
+                return _salarioBase;
+            }
+            set
+            {
+                OnsalarioBaseChanging(value);
+                ReportPropertyChanging("salarioBase");
+                _salarioBase = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("salarioBase");
+                OnsalarioBaseChanged();
+            }
+        }
+        private global::System.Double _salarioBase;
+        partial void OnsalarioBaseChanging(global::System.Double value);
+        partial void OnsalarioBaseChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -262,13 +892,13 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new CartoesPonto object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="mes">Initial value of the mes property.</param>
         /// <param name="ano">Initial value of the ano property.</param>
-        public static CartoesPonto CreateCartoesPonto(global::System.Int32 id, global::System.String mes, global::System.String ano)
+        public static CartoesPonto CreateCartoesPonto(global::System.Int32 id, global::System.Int32 mes, global::System.Int32 ano)
         {
             CartoesPonto cartoesPonto = new CartoesPonto();
-            cartoesPonto.Id = id;
+            cartoesPonto.id = id;
             cartoesPonto.mes = mes;
             cartoesPonto.ano = ano;
             return cartoesPonto;
@@ -282,34 +912,34 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String mes
+        public global::System.Int32 mes
         {
             get
             {
@@ -319,13 +949,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnmesChanging(value);
                 ReportPropertyChanging("mes");
-                _mes = StructuralObject.SetValidValue(value, false);
+                _mes = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("mes");
                 OnmesChanged();
             }
         }
-        private global::System.String _mes;
-        partial void OnmesChanging(global::System.String value);
+        private global::System.Int32 _mes;
+        partial void OnmesChanging(global::System.Int32 value);
         partial void OnmesChanged();
     
         /// <summary>
@@ -333,7 +963,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ano
+        public global::System.Int32 ano
         {
             get
             {
@@ -343,13 +973,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnanoChanging(value);
                 ReportPropertyChanging("ano");
-                _ano = StructuralObject.SetValidValue(value, false);
+                _ano = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ano");
                 OnanoChanged();
             }
         }
-        private global::System.String _ano;
-        partial void OnanoChanging(global::System.String value);
+        private global::System.Int32 _ano;
+        partial void OnanoChanging(global::System.Int32 value);
         partial void OnanoChanged();
 
         #endregion
@@ -369,13 +999,13 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new Credenciais object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="usuario">Initial value of the usuario property.</param>
         /// <param name="senha">Initial value of the senha property.</param>
         public static Credenciais CreateCredenciais(global::System.Int32 id, global::System.String usuario, global::System.String senha)
         {
             Credenciais credenciais = new Credenciais();
-            credenciais.Id = id;
+            credenciais.id = id;
             credenciais.usuario = usuario;
             credenciais.senha = senha;
             return credenciais;
@@ -389,27 +1019,27 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -476,13 +1106,13 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new Curricula object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="formacao">Initial value of the formacao property.</param>
         /// <param name="arquivo">Initial value of the arquivo property.</param>
-        public static Curricula CreateCurricula(global::System.Int32 id, global::System.String formacao, global::System.String arquivo)
+        public static Curricula CreateCurricula(global::System.Int32 id, global::System.String formacao, global::System.Byte arquivo)
         {
             Curricula curricula = new Curricula();
-            curricula.Id = id;
+            curricula.id = id;
             curricula.formacao = formacao;
             curricula.arquivo = arquivo;
             return curricula;
@@ -496,27 +1126,27 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -547,7 +1177,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String arquivo
+        public global::System.Byte arquivo
         {
             get
             {
@@ -557,14 +1187,762 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnarquivoChanging(value);
                 ReportPropertyChanging("arquivo");
-                _arquivo = StructuralObject.SetValidValue(value, false);
+                _arquivo = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("arquivo");
                 OnarquivoChanged();
             }
         }
-        private global::System.String _arquivo;
-        partial void OnarquivoChanging(global::System.String value);
+        private global::System.Byte _arquivo;
+        partial void OnarquivoChanging(global::System.Byte value);
         partial void OnarquivoChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="DadosBancarios")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DadosBancarios : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DadosBancarios object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="banco">Initial value of the banco property.</param>
+        /// <param name="contaCorrente">Initial value of the contaCorrente property.</param>
+        /// <param name="agencia">Initial value of the agencia property.</param>
+        public static DadosBancarios CreateDadosBancarios(global::System.Int32 id, global::System.Int32 banco, global::System.Double contaCorrente, global::System.Double agencia)
+        {
+            DadosBancarios dadosBancarios = new DadosBancarios();
+            dadosBancarios.id = id;
+            dadosBancarios.banco = banco;
+            dadosBancarios.contaCorrente = contaCorrente;
+            dadosBancarios.agencia = agencia;
+            return dadosBancarios;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 banco
+        {
+            get
+            {
+                return _banco;
+            }
+            set
+            {
+                OnbancoChanging(value);
+                ReportPropertyChanging("banco");
+                _banco = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("banco");
+                OnbancoChanged();
+            }
+        }
+        private global::System.Int32 _banco;
+        partial void OnbancoChanging(global::System.Int32 value);
+        partial void OnbancoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double contaCorrente
+        {
+            get
+            {
+                return _contaCorrente;
+            }
+            set
+            {
+                OncontaCorrenteChanging(value);
+                ReportPropertyChanging("contaCorrente");
+                _contaCorrente = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("contaCorrente");
+                OncontaCorrenteChanged();
+            }
+        }
+        private global::System.Double _contaCorrente;
+        partial void OncontaCorrenteChanging(global::System.Double value);
+        partial void OncontaCorrenteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double agencia
+        {
+            get
+            {
+                return _agencia;
+            }
+            set
+            {
+                OnagenciaChanging(value);
+                ReportPropertyChanging("agencia");
+                _agencia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("agencia");
+                OnagenciaChanged();
+            }
+        }
+        private global::System.Double _agencia;
+        partial void OnagenciaChanging(global::System.Double value);
+        partial void OnagenciaChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="DadosPessoais")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DadosPessoais : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DadosPessoais object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="nome">Initial value of the nome property.</param>
+        /// <param name="sobrenome">Initial value of the sobrenome property.</param>
+        /// <param name="dataNascimento">Initial value of the dataNascimento property.</param>
+        /// <param name="sexo">Initial value of the sexo property.</param>
+        /// <param name="cpf">Initial value of the cpf property.</param>
+        /// <param name="rg">Initial value of the rg property.</param>
+        /// <param name="clt">Initial value of the clt property.</param>
+        /// <param name="email">Initial value of the email property.</param>
+        /// <param name="enderecosId">Initial value of the EnderecosId property.</param>
+        public static DadosPessoais CreateDadosPessoais(global::System.Int32 id, global::System.String nome, global::System.String sobrenome, global::System.String dataNascimento, global::System.String sexo, global::System.Double cpf, global::System.Double rg, global::System.String clt, global::System.String email, global::System.Int32 enderecosId)
+        {
+            DadosPessoais dadosPessoais = new DadosPessoais();
+            dadosPessoais.id = id;
+            dadosPessoais.nome = nome;
+            dadosPessoais.sobrenome = sobrenome;
+            dadosPessoais.dataNascimento = dataNascimento;
+            dadosPessoais.sexo = sexo;
+            dadosPessoais.cpf = cpf;
+            dadosPessoais.rg = rg;
+            dadosPessoais.clt = clt;
+            dadosPessoais.email = email;
+            dadosPessoais.EnderecosId = enderecosId;
+            return dadosPessoais;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                OnnomeChanging(value);
+                ReportPropertyChanging("nome");
+                _nome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nome");
+                OnnomeChanged();
+            }
+        }
+        private global::System.String _nome;
+        partial void OnnomeChanging(global::System.String value);
+        partial void OnnomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String sobrenome
+        {
+            get
+            {
+                return _sobrenome;
+            }
+            set
+            {
+                OnsobrenomeChanging(value);
+                ReportPropertyChanging("sobrenome");
+                _sobrenome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("sobrenome");
+                OnsobrenomeChanged();
+            }
+        }
+        private global::System.String _sobrenome;
+        partial void OnsobrenomeChanging(global::System.String value);
+        partial void OnsobrenomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String dataNascimento
+        {
+            get
+            {
+                return _dataNascimento;
+            }
+            set
+            {
+                OndataNascimentoChanging(value);
+                ReportPropertyChanging("dataNascimento");
+                _dataNascimento = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("dataNascimento");
+                OndataNascimentoChanged();
+            }
+        }
+        private global::System.String _dataNascimento;
+        partial void OndataNascimentoChanging(global::System.String value);
+        partial void OndataNascimentoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String sexo
+        {
+            get
+            {
+                return _sexo;
+            }
+            set
+            {
+                OnsexoChanging(value);
+                ReportPropertyChanging("sexo");
+                _sexo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("sexo");
+                OnsexoChanged();
+            }
+        }
+        private global::System.String _sexo;
+        partial void OnsexoChanging(global::System.String value);
+        partial void OnsexoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double cpf
+        {
+            get
+            {
+                return _cpf;
+            }
+            set
+            {
+                OncpfChanging(value);
+                ReportPropertyChanging("cpf");
+                _cpf = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cpf");
+                OncpfChanged();
+            }
+        }
+        private global::System.Double _cpf;
+        partial void OncpfChanging(global::System.Double value);
+        partial void OncpfChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double rg
+        {
+            get
+            {
+                return _rg;
+            }
+            set
+            {
+                OnrgChanging(value);
+                ReportPropertyChanging("rg");
+                _rg = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rg");
+                OnrgChanged();
+            }
+        }
+        private global::System.Double _rg;
+        partial void OnrgChanging(global::System.Double value);
+        partial void OnrgChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String clt
+        {
+            get
+            {
+                return _clt;
+            }
+            set
+            {
+                OncltChanging(value);
+                ReportPropertyChanging("clt");
+                _clt = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("clt");
+                OncltChanged();
+            }
+        }
+        private global::System.String _clt;
+        partial void OncltChanging(global::System.String value);
+        partial void OncltChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                OnemailChanging(value);
+                ReportPropertyChanging("email");
+                _email = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("email");
+                OnemailChanged();
+            }
+        }
+        private global::System.String _email;
+        partial void OnemailChanging(global::System.String value);
+        partial void OnemailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EnderecosId
+        {
+            get
+            {
+                return _EnderecosId;
+            }
+            set
+            {
+                OnEnderecosIdChanging(value);
+                ReportPropertyChanging("EnderecosId");
+                _EnderecosId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EnderecosId");
+                OnEnderecosIdChanged();
+            }
+        }
+        private global::System.Int32 _EnderecosId;
+        partial void OnEnderecosIdChanging(global::System.Int32 value);
+        partial void OnEnderecosIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "DadosPessoaisEnderecos", "Enderecos")]
+        public Enderecos endereco
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Enderecos>("Model.DadosPessoaisEnderecos", "Enderecos").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Enderecos>("Model.DadosPessoaisEnderecos", "Enderecos").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Enderecos> enderecoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Enderecos>("Model.DadosPessoaisEnderecos", "Enderecos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Enderecos>("Model.DadosPessoaisEnderecos", "Enderecos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "DadosPessoaisTelefones", "Telefones")]
+        public EntityCollection<Telefones> telefones
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Telefones>("Model.DadosPessoaisTelefones", "Telefones");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Telefones>("Model.DadosPessoaisTelefones", "Telefones", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Enderecos")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Enderecos : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Enderecos object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="rua">Initial value of the rua property.</param>
+        /// <param name="numero">Initial value of the numero property.</param>
+        /// <param name="complemento">Initial value of the complemento property.</param>
+        /// <param name="bairro">Initial value of the bairro property.</param>
+        /// <param name="cep">Initial value of the cep property.</param>
+        /// <param name="cidade">Initial value of the cidade property.</param>
+        /// <param name="estado">Initial value of the estado property.</param>
+        /// <param name="pais">Initial value of the pais property.</param>
+        public static Enderecos CreateEnderecos(global::System.Int32 id, global::System.String rua, global::System.Int32 numero, global::System.String complemento, global::System.String bairro, global::System.String cep, global::System.String cidade, global::System.String estado, global::System.String pais)
+        {
+            Enderecos enderecos = new Enderecos();
+            enderecos.id = id;
+            enderecos.rua = rua;
+            enderecos.numero = numero;
+            enderecos.complemento = complemento;
+            enderecos.bairro = bairro;
+            enderecos.cep = cep;
+            enderecos.cidade = cidade;
+            enderecos.estado = estado;
+            enderecos.pais = pais;
+            return enderecos;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String rua
+        {
+            get
+            {
+                return _rua;
+            }
+            set
+            {
+                OnruaChanging(value);
+                ReportPropertyChanging("rua");
+                _rua = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("rua");
+                OnruaChanged();
+            }
+        }
+        private global::System.String _rua;
+        partial void OnruaChanging(global::System.String value);
+        partial void OnruaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 numero
+        {
+            get
+            {
+                return _numero;
+            }
+            set
+            {
+                OnnumeroChanging(value);
+                ReportPropertyChanging("numero");
+                _numero = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numero");
+                OnnumeroChanged();
+            }
+        }
+        private global::System.Int32 _numero;
+        partial void OnnumeroChanging(global::System.Int32 value);
+        partial void OnnumeroChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String complemento
+        {
+            get
+            {
+                return _complemento;
+            }
+            set
+            {
+                OncomplementoChanging(value);
+                ReportPropertyChanging("complemento");
+                _complemento = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("complemento");
+                OncomplementoChanged();
+            }
+        }
+        private global::System.String _complemento;
+        partial void OncomplementoChanging(global::System.String value);
+        partial void OncomplementoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String bairro
+        {
+            get
+            {
+                return _bairro;
+            }
+            set
+            {
+                OnbairroChanging(value);
+                ReportPropertyChanging("bairro");
+                _bairro = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("bairro");
+                OnbairroChanged();
+            }
+        }
+        private global::System.String _bairro;
+        partial void OnbairroChanging(global::System.String value);
+        partial void OnbairroChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String cep
+        {
+            get
+            {
+                return _cep;
+            }
+            set
+            {
+                OncepChanging(value);
+                ReportPropertyChanging("cep");
+                _cep = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("cep");
+                OncepChanged();
+            }
+        }
+        private global::System.String _cep;
+        partial void OncepChanging(global::System.String value);
+        partial void OncepChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String cidade
+        {
+            get
+            {
+                return _cidade;
+            }
+            set
+            {
+                OncidadeChanging(value);
+                ReportPropertyChanging("cidade");
+                _cidade = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("cidade");
+                OncidadeChanged();
+            }
+        }
+        private global::System.String _cidade;
+        partial void OncidadeChanging(global::System.String value);
+        partial void OncidadeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String estado
+        {
+            get
+            {
+                return _estado;
+            }
+            set
+            {
+                OnestadoChanging(value);
+                ReportPropertyChanging("estado");
+                _estado = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("estado");
+                OnestadoChanged();
+            }
+        }
+        private global::System.String _estado;
+        partial void OnestadoChanging(global::System.String value);
+        partial void OnestadoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String pais
+        {
+            get
+            {
+                return _pais;
+            }
+            set
+            {
+                OnpaisChanging(value);
+                ReportPropertyChanging("pais");
+                _pais = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("pais");
+                OnpaisChanged();
+            }
+        }
+        private global::System.String _pais;
+        partial void OnpaisChanging(global::System.String value);
+        partial void OnpaisChanged();
 
         #endregion
     
@@ -583,7 +1961,7 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new EntradasCartaoPonto object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="dia">Initial value of the dia property.</param>
         /// <param name="entradaManha">Initial value of the entradaManha property.</param>
         /// <param name="saidaManha">Initial value of the saidaManha property.</param>
@@ -591,11 +1969,11 @@ namespace ERP_Palmeiras_RH.Models
         /// <param name="saidaTarde">Initial value of the saidaTarde property.</param>
         /// <param name="entradaNoite">Initial value of the entradaNoite property.</param>
         /// <param name="saidaNoite">Initial value of the saidaNoite property.</param>
-        /// <param name="cartoesPontoId">Initial value of the CartoesPontoId property.</param>
-        public static EntradasCartaoPonto CreateEntradasCartaoPonto(global::System.Int32 id, global::System.String dia, global::System.String entradaManha, global::System.String saidaManha, global::System.String entradaTarde, global::System.String saidaTarde, global::System.String entradaNoite, global::System.String saidaNoite, global::System.Int32 cartoesPontoId)
+        /// <param name="cartoesPontoId">Initial value of the cartoesPontoId property.</param>
+        public static EntradasCartaoPonto CreateEntradasCartaoPonto(global::System.Int32 id, global::System.DateTime dia, global::System.TimeSpan entradaManha, global::System.TimeSpan saidaManha, global::System.TimeSpan entradaTarde, global::System.TimeSpan saidaTarde, global::System.TimeSpan entradaNoite, global::System.TimeSpan saidaNoite, global::System.Int32 cartoesPontoId)
         {
             EntradasCartaoPonto entradasCartaoPonto = new EntradasCartaoPonto();
-            entradasCartaoPonto.Id = id;
+            entradasCartaoPonto.id = id;
             entradasCartaoPonto.dia = dia;
             entradasCartaoPonto.entradaManha = entradaManha;
             entradasCartaoPonto.saidaManha = saidaManha;
@@ -603,7 +1981,7 @@ namespace ERP_Palmeiras_RH.Models
             entradasCartaoPonto.saidaTarde = saidaTarde;
             entradasCartaoPonto.entradaNoite = entradaNoite;
             entradasCartaoPonto.saidaNoite = saidaNoite;
-            entradasCartaoPonto.CartoesPontoId = cartoesPontoId;
+            entradasCartaoPonto.cartoesPontoId = cartoesPontoId;
             return entradasCartaoPonto;
         }
 
@@ -615,34 +1993,34 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String dia
+        public global::System.DateTime dia
         {
             get
             {
@@ -652,13 +2030,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OndiaChanging(value);
                 ReportPropertyChanging("dia");
-                _dia = StructuralObject.SetValidValue(value, false);
+                _dia = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("dia");
                 OndiaChanged();
             }
         }
-        private global::System.String _dia;
-        partial void OndiaChanging(global::System.String value);
+        private global::System.DateTime _dia;
+        partial void OndiaChanging(global::System.DateTime value);
         partial void OndiaChanged();
     
         /// <summary>
@@ -666,7 +2044,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String entradaManha
+        public global::System.TimeSpan entradaManha
         {
             get
             {
@@ -676,13 +2054,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnentradaManhaChanging(value);
                 ReportPropertyChanging("entradaManha");
-                _entradaManha = StructuralObject.SetValidValue(value, false);
+                _entradaManha = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("entradaManha");
                 OnentradaManhaChanged();
             }
         }
-        private global::System.String _entradaManha;
-        partial void OnentradaManhaChanging(global::System.String value);
+        private global::System.TimeSpan _entradaManha;
+        partial void OnentradaManhaChanging(global::System.TimeSpan value);
         partial void OnentradaManhaChanged();
     
         /// <summary>
@@ -690,7 +2068,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String saidaManha
+        public global::System.TimeSpan saidaManha
         {
             get
             {
@@ -700,13 +2078,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnsaidaManhaChanging(value);
                 ReportPropertyChanging("saidaManha");
-                _saidaManha = StructuralObject.SetValidValue(value, false);
+                _saidaManha = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("saidaManha");
                 OnsaidaManhaChanged();
             }
         }
-        private global::System.String _saidaManha;
-        partial void OnsaidaManhaChanging(global::System.String value);
+        private global::System.TimeSpan _saidaManha;
+        partial void OnsaidaManhaChanging(global::System.TimeSpan value);
         partial void OnsaidaManhaChanged();
     
         /// <summary>
@@ -714,7 +2092,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String entradaTarde
+        public global::System.TimeSpan entradaTarde
         {
             get
             {
@@ -724,13 +2102,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnentradaTardeChanging(value);
                 ReportPropertyChanging("entradaTarde");
-                _entradaTarde = StructuralObject.SetValidValue(value, false);
+                _entradaTarde = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("entradaTarde");
                 OnentradaTardeChanged();
             }
         }
-        private global::System.String _entradaTarde;
-        partial void OnentradaTardeChanging(global::System.String value);
+        private global::System.TimeSpan _entradaTarde;
+        partial void OnentradaTardeChanging(global::System.TimeSpan value);
         partial void OnentradaTardeChanged();
     
         /// <summary>
@@ -738,7 +2116,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String saidaTarde
+        public global::System.TimeSpan saidaTarde
         {
             get
             {
@@ -748,13 +2126,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnsaidaTardeChanging(value);
                 ReportPropertyChanging("saidaTarde");
-                _saidaTarde = StructuralObject.SetValidValue(value, false);
+                _saidaTarde = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("saidaTarde");
                 OnsaidaTardeChanged();
             }
         }
-        private global::System.String _saidaTarde;
-        partial void OnsaidaTardeChanging(global::System.String value);
+        private global::System.TimeSpan _saidaTarde;
+        partial void OnsaidaTardeChanging(global::System.TimeSpan value);
         partial void OnsaidaTardeChanged();
     
         /// <summary>
@@ -762,7 +2140,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String entradaNoite
+        public global::System.TimeSpan entradaNoite
         {
             get
             {
@@ -772,13 +2150,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnentradaNoiteChanging(value);
                 ReportPropertyChanging("entradaNoite");
-                _entradaNoite = StructuralObject.SetValidValue(value, false);
+                _entradaNoite = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("entradaNoite");
                 OnentradaNoiteChanged();
             }
         }
-        private global::System.String _entradaNoite;
-        partial void OnentradaNoiteChanging(global::System.String value);
+        private global::System.TimeSpan _entradaNoite;
+        partial void OnentradaNoiteChanging(global::System.TimeSpan value);
         partial void OnentradaNoiteChanged();
     
         /// <summary>
@@ -786,7 +2164,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String saidaNoite
+        public global::System.TimeSpan saidaNoite
         {
             get
             {
@@ -796,13 +2174,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnsaidaNoiteChanging(value);
                 ReportPropertyChanging("saidaNoite");
-                _saidaNoite = StructuralObject.SetValidValue(value, false);
+                _saidaNoite = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("saidaNoite");
                 OnsaidaNoiteChanged();
             }
         }
-        private global::System.String _saidaNoite;
-        partial void OnsaidaNoiteChanging(global::System.String value);
+        private global::System.TimeSpan _saidaNoite;
+        partial void OnsaidaNoiteChanging(global::System.TimeSpan value);
         partial void OnsaidaNoiteChanged();
     
         /// <summary>
@@ -810,24 +2188,24 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CartoesPontoId
+        public global::System.Int32 cartoesPontoId
         {
             get
             {
-                return _CartoesPontoId;
+                return _cartoesPontoId;
             }
             set
             {
-                OnCartoesPontoIdChanging(value);
-                ReportPropertyChanging("CartoesPontoId");
-                _CartoesPontoId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CartoesPontoId");
-                OnCartoesPontoIdChanged();
+                OncartoesPontoIdChanging(value);
+                ReportPropertyChanging("cartoesPontoId");
+                _cartoesPontoId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cartoesPontoId");
+                OncartoesPontoIdChanged();
             }
         }
-        private global::System.Int32 _CartoesPontoId;
-        partial void OnCartoesPontoIdChanging(global::System.Int32 value);
-        partial void OnCartoesPontoIdChanged();
+        private global::System.Int32 _cartoesPontoId;
+        partial void OncartoesPontoIdChanging(global::System.Int32 value);
+        partial void OncartoesPontoIdChanged();
 
         #endregion
     
@@ -840,7 +2218,7 @@ namespace ERP_Palmeiras_RH.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "EntradasCartaoPontoCartoesPonto", "CartoesPonto")]
-        public CartoesPonto CartaoPonto
+        public CartoesPonto cartaoPonto
         {
             get
             {
@@ -856,7 +2234,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<CartoesPonto> CartaoPontoReference
+        public EntityReference<CartoesPonto> cartaoPontoReference
         {
             get
             {
@@ -877,6 +2255,87 @@ namespace ERP_Palmeiras_RH.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Especialidades")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Especialidades : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Especialidades object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="nome">Initial value of the nome property.</param>
+        public static Especialidades CreateEspecialidades(global::System.Int32 id, global::System.String nome)
+        {
+            Especialidades especialidades = new Especialidades();
+            especialidades.id = id;
+            especialidades.nome = nome;
+            return especialidades;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                OnnomeChanging(value);
+                ReportPropertyChanging("nome");
+                _nome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nome");
+                OnnomeChanged();
+            }
+        }
+        private global::System.String _nome;
+        partial void OnnomeChanging(global::System.String value);
+        partial void OnnomeChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model", Name="Funcionarios")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -887,21 +2346,23 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new Funcionarios object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="status">Initial value of the status property.</param>
         /// <param name="salario">Initial value of the salario property.</param>
-        /// <param name="email">Initial value of the email property.</param>
         /// <param name="ramal">Initial value of the ramal property.</param>
-        /// <param name="codCLT">Initial value of the codCLT property.</param>
-        public static Funcionarios CreateFuncionarios(global::System.Int32 id, global::System.String status, global::System.Double salario, global::System.String email, global::System.String ramal, global::System.String codCLT)
+        /// <param name="permissaoId">Initial value of the permissaoId property.</param>
+        /// <param name="cargoId">Initial value of the cargoId property.</param>
+        /// <param name="especialidadeId">Initial value of the especialidadeId property.</param>
+        public static Funcionarios CreateFuncionarios(global::System.Int32 id, global::System.String status, global::System.Double salario, global::System.Int32 ramal, global::System.Int32 permissaoId, global::System.Int32 cargoId, global::System.Int32 especialidadeId)
         {
             Funcionarios funcionarios = new Funcionarios();
-            funcionarios.Id = id;
+            funcionarios.id = id;
             funcionarios.status = status;
             funcionarios.salario = salario;
-            funcionarios.email = email;
             funcionarios.ramal = ramal;
-            funcionarios.codCLT = codCLT;
+            funcionarios.permissaoId = permissaoId;
+            funcionarios.cargoId = cargoId;
+            funcionarios.especialidadeId = especialidadeId;
             return funcionarios;
         }
 
@@ -913,27 +2374,27 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -988,31 +2449,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                OnemailChanging(value);
-                ReportPropertyChanging("email");
-                _email = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("email");
-                OnemailChanged();
-            }
-        }
-        private global::System.String _email;
-        partial void OnemailChanging(global::System.String value);
-        partial void OnemailChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ramal
+        public global::System.Int32 ramal
         {
             get
             {
@@ -1022,13 +2459,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnramalChanging(value);
                 ReportPropertyChanging("ramal");
-                _ramal = StructuralObject.SetValidValue(value, false);
+                _ramal = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ramal");
                 OnramalChanged();
             }
         }
-        private global::System.String _ramal;
-        partial void OnramalChanging(global::System.String value);
+        private global::System.Int32 _ramal;
+        partial void OnramalChanging(global::System.Int32 value);
         partial void OnramalChanged();
     
         /// <summary>
@@ -1036,27 +2473,466 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String codCLT
+        public global::System.Int32 permissaoId
         {
             get
             {
-                return _codCLT;
+                return _permissaoId;
             }
             set
             {
-                OncodCLTChanging(value);
-                ReportPropertyChanging("codCLT");
-                _codCLT = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("codCLT");
-                OncodCLTChanged();
+                OnpermissaoIdChanging(value);
+                ReportPropertyChanging("permissaoId");
+                _permissaoId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("permissaoId");
+                OnpermissaoIdChanged();
             }
         }
-        private global::System.String _codCLT;
-        partial void OncodCLTChanging(global::System.String value);
-        partial void OncodCLTChanged();
+        private global::System.Int32 _permissaoId;
+        partial void OnpermissaoIdChanging(global::System.Int32 value);
+        partial void OnpermissaoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 cargoId
+        {
+            get
+            {
+                return _cargoId;
+            }
+            set
+            {
+                OncargoIdChanging(value);
+                ReportPropertyChanging("cargoId");
+                _cargoId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cargoId");
+                OncargoIdChanged();
+            }
+        }
+        private global::System.Int32 _cargoId;
+        partial void OncargoIdChanging(global::System.Int32 value);
+        partial void OncargoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String crm
+        {
+            get
+            {
+                return _crm;
+            }
+            set
+            {
+                OncrmChanging(value);
+                ReportPropertyChanging("crm");
+                _crm = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("crm");
+                OncrmChanged();
+            }
+        }
+        private global::System.String _crm;
+        partial void OncrmChanging(global::System.String value);
+        partial void OncrmChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 especialidadeId
+        {
+            get
+            {
+                return _especialidadeId;
+            }
+            set
+            {
+                OnespecialidadeIdChanging(value);
+                ReportPropertyChanging("especialidadeId");
+                _especialidadeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("especialidadeId");
+                OnespecialidadeIdChanged();
+            }
+        }
+        private global::System.Int32 _especialidadeId;
+        partial void OnespecialidadeIdChanging(global::System.Int32 value);
+        partial void OnespecialidadeIdChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosCredenciais", "Credenciais")]
+        public Credenciais credencial
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Credenciais>("Model.FuncionariosCredenciais", "Credenciais").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Credenciais>("Model.FuncionariosCredenciais", "Credenciais").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Credenciais> credencialReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Credenciais>("Model.FuncionariosCredenciais", "Credenciais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Credenciais>("Model.FuncionariosCredenciais", "Credenciais", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosPermissoes", "Permissoes")]
+        public Permissoes permissao
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permissoes>("Model.FuncionariosPermissoes", "Permissoes").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permissoes>("Model.FuncionariosPermissoes", "Permissoes").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Permissoes> permissaoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permissoes>("Model.FuncionariosPermissoes", "Permissoes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Permissoes>("Model.FuncionariosPermissoes", "Permissoes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosCurricula", "Curricula")]
+        public Curricula curriculum
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Curricula>("Model.FuncionariosCurricula", "Curricula").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Curricula>("Model.FuncionariosCurricula", "Curricula").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Curricula> curriculumReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Curricula>("Model.FuncionariosCurricula", "Curricula");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Curricula>("Model.FuncionariosCurricula", "Curricula", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosDadosPessoais", "DadosPessoais")]
+        public DadosPessoais dadosPessoais
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosPessoais>("Model.FuncionariosDadosPessoais", "DadosPessoais").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosPessoais>("Model.FuncionariosDadosPessoais", "DadosPessoais").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DadosPessoais> dadosPessoaisReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosPessoais>("Model.FuncionariosDadosPessoais", "DadosPessoais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DadosPessoais>("Model.FuncionariosDadosPessoais", "DadosPessoais", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosCartoesPonto", "CartoesPonto")]
+        public CartoesPonto cartaoPonto
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CartoesPonto>("Model.FuncionariosCartoesPonto", "CartoesPonto").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CartoesPonto>("Model.FuncionariosCartoesPonto", "CartoesPonto").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CartoesPonto> cartaoPontoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CartoesPonto>("Model.FuncionariosCartoesPonto", "CartoesPonto");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CartoesPonto>("Model.FuncionariosCartoesPonto", "CartoesPonto", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosBeneficios", "Beneficios")]
+        public EntityCollection<Beneficios> beneficios
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Beneficios>("Model.FuncionariosBeneficios", "Beneficios");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Beneficios>("Model.FuncionariosBeneficios", "Beneficios", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosCargos", "Cargos")]
+        public Cargos cargo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargos>("Model.FuncionariosCargos", "Cargos").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargos>("Model.FuncionariosCargos", "Cargos").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Cargos> cargoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargos>("Model.FuncionariosCargos", "Cargos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cargos>("Model.FuncionariosCargos", "Cargos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosEspecialidades", "Especialidades")]
+        public Especialidades especialidade
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Especialidades>("Model.FuncionariosEspecialidades", "Especialidades").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Especialidades>("Model.FuncionariosEspecialidades", "Especialidades").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Especialidades> especialidadeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Especialidades>("Model.FuncionariosEspecialidades", "Especialidades");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Especialidades>("Model.FuncionariosEspecialidades", "Especialidades", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosDadosBancarios", "DadosBancarios")]
+        public DadosBancarios dadosBancarios
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosBancarios>("Model.FuncionariosDadosBancarios", "DadosBancarios").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosBancarios>("Model.FuncionariosDadosBancarios", "DadosBancarios").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DadosBancarios> dadosBancariosReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DadosBancarios>("Model.FuncionariosDadosBancarios", "DadosBancarios");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DadosBancarios>("Model.FuncionariosDadosBancarios", "DadosBancarios", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosAdmissoes", "Admissoes")]
+        public Admissoes admissao
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Admissoes>("Model.FuncionariosAdmissoes", "Admissoes").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Admissoes>("Model.FuncionariosAdmissoes", "Admissoes").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Admissoes> admissaoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Admissoes>("Model.FuncionariosAdmissoes", "Admissoes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Admissoes>("Model.FuncionariosAdmissoes", "Admissoes", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1072,11 +2948,25 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new Pagamento object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        public static Pagamento CreatePagamento(global::System.Int32 id)
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="salario">Initial value of the salario property.</param>
+        /// <param name="adicionais">Initial value of the adicionais property.</param>
+        /// <param name="descontos">Initial value of the descontos property.</param>
+        /// <param name="total">Initial value of the total property.</param>
+        /// <param name="dataPagamento">Initial value of the dataPagamento property.</param>
+        /// <param name="cargo">Initial value of the cargo property.</param>
+        /// <param name="funcionariosId">Initial value of the funcionariosId property.</param>
+        public static Pagamento CreatePagamento(global::System.Int32 id, global::System.Double salario, global::System.Double adicionais, global::System.Double descontos, global::System.Double total, global::System.DateTime dataPagamento, global::System.String cargo, global::System.Int32 funcionariosId)
         {
             Pagamento pagamento = new Pagamento();
-            pagamento.Id = id;
+            pagamento.id = id;
+            pagamento.salario = salario;
+            pagamento.adicionais = adicionais;
+            pagamento.descontos = descontos;
+            pagamento.total = total;
+            pagamento.dataPagamento = dataPagamento;
+            pagamento.cargo = cargo;
+            pagamento.funcionariosId = funcionariosId;
             return pagamento;
         }
 
@@ -1088,30 +2978,239 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double salario
+        {
+            get
+            {
+                return _salario;
+            }
+            set
+            {
+                OnsalarioChanging(value);
+                ReportPropertyChanging("salario");
+                _salario = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("salario");
+                OnsalarioChanged();
+            }
+        }
+        private global::System.Double _salario;
+        partial void OnsalarioChanging(global::System.Double value);
+        partial void OnsalarioChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double adicionais
+        {
+            get
+            {
+                return _adicionais;
+            }
+            set
+            {
+                OnadicionaisChanging(value);
+                ReportPropertyChanging("adicionais");
+                _adicionais = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("adicionais");
+                OnadicionaisChanged();
+            }
+        }
+        private global::System.Double _adicionais;
+        partial void OnadicionaisChanging(global::System.Double value);
+        partial void OnadicionaisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double descontos
+        {
+            get
+            {
+                return _descontos;
+            }
+            set
+            {
+                OndescontosChanging(value);
+                ReportPropertyChanging("descontos");
+                _descontos = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("descontos");
+                OndescontosChanged();
+            }
+        }
+        private global::System.Double _descontos;
+        partial void OndescontosChanging(global::System.Double value);
+        partial void OndescontosChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double total
+        {
+            get
+            {
+                return _total;
+            }
+            set
+            {
+                OntotalChanging(value);
+                ReportPropertyChanging("total");
+                _total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("total");
+                OntotalChanged();
+            }
+        }
+        private global::System.Double _total;
+        partial void OntotalChanging(global::System.Double value);
+        partial void OntotalChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dataPagamento
+        {
+            get
+            {
+                return _dataPagamento;
+            }
+            set
+            {
+                OndataPagamentoChanging(value);
+                ReportPropertyChanging("dataPagamento");
+                _dataPagamento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dataPagamento");
+                OndataPagamentoChanged();
+            }
+        }
+        private global::System.DateTime _dataPagamento;
+        partial void OndataPagamentoChanging(global::System.DateTime value);
+        partial void OndataPagamentoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String cargo
+        {
+            get
+            {
+                return _cargo;
+            }
+            set
+            {
+                OncargoChanging(value);
+                ReportPropertyChanging("cargo");
+                _cargo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("cargo");
+                OncargoChanged();
+            }
+        }
+        private global::System.String _cargo;
+        partial void OncargoChanging(global::System.String value);
+        partial void OncargoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 funcionariosId
+        {
+            get
+            {
+                return _funcionariosId;
+            }
+            set
+            {
+                OnfuncionariosIdChanging(value);
+                ReportPropertyChanging("funcionariosId");
+                _funcionariosId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("funcionariosId");
+                OnfuncionariosIdChanged();
+            }
+        }
+        private global::System.Int32 _funcionariosId;
+        partial void OnfuncionariosIdChanging(global::System.Int32 value);
+        partial void OnfuncionariosIdChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "PagamentoFuncionarios", "Funcionarios")]
+        public Funcionarios funcionario
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionarios>("Model.PagamentoFuncionarios", "Funcionarios").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionarios>("Model.PagamentoFuncionarios", "Funcionarios").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Funcionarios> funcionarioReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Funcionarios>("Model.PagamentoFuncionarios", "Funcionarios");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Funcionarios>("Model.PagamentoFuncionarios", "Funcionarios", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1127,12 +3226,12 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// Create a new Permissoes object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the id property.</param>
         /// <param name="nome">Initial value of the nome property.</param>
         public static Permissoes CreatePermissoes(global::System.Int32 id, global::System.String nome)
         {
             Permissoes permissoes = new Permissoes();
-            permissoes.Id = id;
+            permissoes.id = id;
             permissoes.nome = nome;
             return permissoes;
         }
@@ -1145,27 +3244,27 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 id
         {
             get
             {
-                return _Id;
+                return _id;
             }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1190,6 +3289,139 @@ namespace ERP_Palmeiras_RH.Models
         private global::System.String _nome;
         partial void OnnomeChanging(global::System.String value);
         partial void OnnomeChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Telefones")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Telefones : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Telefones object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="ddd">Initial value of the ddd property.</param>
+        /// <param name="numero">Initial value of the numero property.</param>
+        /// <param name="dadosPessoaisId">Initial value of the dadosPessoaisId property.</param>
+        public static Telefones CreateTelefones(global::System.Int32 id, global::System.Int32 ddd, global::System.Int32 numero, global::System.Int32 dadosPessoaisId)
+        {
+            Telefones telefones = new Telefones();
+            telefones.id = id;
+            telefones.ddd = ddd;
+            telefones.numero = numero;
+            telefones.dadosPessoaisId = dadosPessoaisId;
+            return telefones;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ddd
+        {
+            get
+            {
+                return _ddd;
+            }
+            set
+            {
+                OndddChanging(value);
+                ReportPropertyChanging("ddd");
+                _ddd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ddd");
+                OndddChanged();
+            }
+        }
+        private global::System.Int32 _ddd;
+        partial void OndddChanging(global::System.Int32 value);
+        partial void OndddChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 numero
+        {
+            get
+            {
+                return _numero;
+            }
+            set
+            {
+                OnnumeroChanging(value);
+                ReportPropertyChanging("numero");
+                _numero = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numero");
+                OnnumeroChanged();
+            }
+        }
+        private global::System.Int32 _numero;
+        partial void OnnumeroChanging(global::System.Int32 value);
+        partial void OnnumeroChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 dadosPessoaisId
+        {
+            get
+            {
+                return _dadosPessoaisId;
+            }
+            set
+            {
+                OndadosPessoaisIdChanging(value);
+                ReportPropertyChanging("dadosPessoaisId");
+                _dadosPessoaisId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dadosPessoaisId");
+                OndadosPessoaisIdChanged();
+            }
+        }
+        private global::System.Int32 _dadosPessoaisId;
+        partial void OndadosPessoaisIdChanging(global::System.Int32 value);
+        partial void OndadosPessoaisIdChanged();
 
         #endregion
     
