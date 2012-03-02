@@ -80,6 +80,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\bg_header_shine.png" />
+    <Content Include="Content\images\bg_navi_hover.png" />
+    <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\logo_bif.png" />
+    <Content Include="Content\images\logo_finf.png" />
+    <Content Include="Content\images\logo_homef.png" />
+    <Content Include="Content\images\logo_laf.png" />
+    <Content Include="Content\images\logo_opf.png" />
+    <Content Include="Content\images\logo_rhf.png" />
+    <Content Include="Content\images\navi_separator.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -128,7 +139,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -139,10 +150,10 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Shared\Error.aspx">
+    <Content Include="Views\Home\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\Site.Master">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

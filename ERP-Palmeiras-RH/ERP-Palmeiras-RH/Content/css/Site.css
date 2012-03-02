@@ -1,0 +1,280 @@
+﻿/* REnas*/
+
+*{
+	text-align: justify;
+	font-size: 14px;
+	margin:0;
+	padding:0;
+	font-family: "Frutiger LT Std", Verdana, monospace;
+}
+
+body, html{
+	margin:0;
+	padding:0;
+	background:#e7e7e7;
+	text-align:center;
+	margin-bottom:10px;
+}
+
+h1 {
+	color: #009900;
+	font-weight: bold;
+}
+
+#container{
+	margin-bottom: auto;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 800px;
+	min-width: 880px;
+}
+
+#logo {
+	margin: 0;
+	padding: 0;
+	float: left;
+	max-height: 50px;
+	max-width: 50px;
+}
+
+#header {
+	margin: 0;
+	padding: 0;
+	border-bottom-color: #5a6064;
+	min-height: 90px;
+	min-width: 800px;
+	height: 25%;
+	width: 100%;
+	background-image: url(../images/bg_header.jpg);
+	border-bottom: 1px solid;
+	background: initial url(../images/bg_header.jpg) repeat initial 0px;
+}
+
+#shining {
+	margin: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+	height: 90px;
+	background-position: 50% 100%;
+	background-image: url(../images/bg_header_shine.png);
+	background: initial url(../images/bg_header.jpg) no-repeat initial;
+}
+
+#mainMenuWrapper { height: 90px;}
+
+#mainMenu li {
+	line-height: 20px;
+	border-right-color: #5a6064;
+	border-right-width: 1px;
+	border-right-style: solid;
+	text-align: center;
+	float: right;
+	list-style-type: none;
+}
+
+#mainMenu li a {
+	text-align: center;
+	line-height: 20px;
+	min-width: 50px;
+	display: block;
+	position: relative;
+	height: 90px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 13px;
+
+	padding: 0 18px;
+	
+}
+
+#mainMenu li a:hover {
+	height: 90px;
+	background: url(../images/bg_navi_hover.png) 50% 1px repeat-x
+}
+
+#itemHOME {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_homef.png);
+}
+
+#itemOP {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_opf.png);
+}
+
+#itemFIN {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_finf.png);
+}
+
+#itemLA {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_laf.png);
+}
+
+#itemRH {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_rhf.png);
+}
+
+#itemBI {
+	text-align: center;
+	position: relative;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-image: url(../images/logo_bif.png);
+}
+
+
+
+#side-navigation {
+    background-color: #cccccc;
+    background-repeat: repeat;
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    min-width: 100px;
+    height: 75%;
+    width: 20%;
+}
+
+#side-navigation li a {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: #484848;
+	background: #cccccc url(../images/bullet.png) 12px 12px no-repeat;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #5a6064;
+    padding-left: 28px;
+    list-style-type : none;
+}
+
+
+#side-navigation li a:hover {
+	background: #b5b5b5 url(../images/bullet.png) 12px 12px no-repeat;
+	list-style-type : none;
+}
+
+#side-navigation li a:active {
+	background: #7F7F7F url(../images/bullet.png) 12px 12px no-repeat;
+	text-decoration: underline;
+}
+
+#side-navigation li ul 
+{
+    list-style: none none inside;
+    padding: 0px;
+}
+
+#side-navigation li ul li a {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: #484848;
+	background-image: none;
+	background-color: #c0c0D0;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    list-style-type : none;
+    list-style-position: inside;
+}
+
+#side-navigation li ul li a:hover {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: #FFFFFF;
+	background-image: none;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #5a6064;
+    list-style-type : none;
+    background-color: #cccccc;
+}
+
+.accordion 
+{
+    cursor : pointer;
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: #484848;
+	background: #cccccc url(../images/bullet.png) 12px 12px no-repeat;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #5a6064;
+    padding-left: 0px;
+
+}
+
+.accordionSubItem
+{
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: #484848;
+	background: #ccccccc   no-repeat;
+    list-style-type: none;
+    padding-left: 0px;
+
+}
+
+.accordionSubItem a{
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: White;
+	background: #cccccc no-repeat;
+    list-style-type: none;
+    padding-left: 20px;
+    border-bottom: 1px none #000000; 
+
+
+}
+
+.accordionSubItem ul{
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 27px;
+    color: White;
+	background: #cccccc no-repeat;
+    list-style-type: none;
+    padding-left: 20px;
+
+}
+
+
+
+
+.accordionSubItem a:hover {
+	background: #FFFFFF  12px 12px no-repeat;
+	list-style-type: none; 
+}
+
+.accordion:hover{
+	background: #b5b5b5 url(../images/bullet.png) 12px 12px no-repeat;
+}
+
+
