@@ -70,10 +70,6 @@
       <End Role="Pagamento" EntitySet="TblPagamentos" />
       <End Role="Funcionarios" EntitySet="TblFuncionarios" />
     </AssociationSet>
-    <AssociationSet Name="MedicoEspecialidade" Association="Model.Store.MedicoEspecialidade">
-      <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
-      <End Role="Especialidade" EntitySet="TblEspecialidades" />
-    </AssociationSet>
     <AssociationSet Name="DadoPessoalTelefone" Association="Model.Store.DadoPessoalTelefone">
       <End Role="DadoPessoal" EntitySet="TblDadosPessoais" />
       <End Role="Telefone" EntitySet="TblTelefones" />
@@ -81,6 +77,10 @@
     <AssociationSet Name="AdmissaoCargo" Association="Model.Store.AdmissaoCargo">
       <End Role="Admissao" EntitySet="TblAdmissoes" />
       <End Role="Cargo" EntitySet="TblCargos" />
+    </AssociationSet>
+    <AssociationSet Name="MedicoEspecialidade" Association="Model.Store.MedicoEspecialidade">
+      <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
+      <End Role="Especialidade" EntitySet="TblEspecialidades" />
     </AssociationSet>
     <AssociationSet Name="FK_Medico_inherits_Funcionario" Association="Model.Store.FK_Medico_inherits_Funcionario">
       <End Role="Funcionario" EntitySet="TblFuncionarios" />
@@ -249,8 +249,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="CRM" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EspecialidadeId" Type="int" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Especialidade_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="EntradasCartaoPontoCartoesPonto">
     <End Role="EntradasCartaoPonto" Type="Model.Store.TblEntradasCartaoPonto" Multiplicity="*" />
@@ -396,18 +396,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="MedicoEspecialidade">
-    <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="*" />
-    <End Role="Especialidade" Type="Model.Store.TblEspecialidades" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Especialidade">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Medico">
-        <PropertyRef Name="Especialidade_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="DadoPessoalTelefone">
     <End Role="DadoPessoal" Type="Model.Store.TblDadosPessoais" Multiplicity="1" />
     <End Role="Telefone" Type="Model.Store.TblTelefones" Multiplicity="*" />
@@ -429,6 +417,18 @@
       </Principal>
       <Dependent Role="Cargo">
         <PropertyRef Name="AdmissaoCargo_Cargo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicoEspecialidade">
+    <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="*" />
+    <End Role="Especialidade" Type="Model.Store.TblEspecialidades" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="EspecialidadeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -512,10 +512,6 @@
             <End Role="Pagamento" EntitySet="TblPagamentos" />
             <End Role="Funcionarios" EntitySet="TblFuncionarios" />
           </AssociationSet>
-          <AssociationSet Name="MedicoEspecialidade" Association="Model.MedicoEspecialidade">
-            <End Role="Medico" EntitySet="TblFuncionarios" />
-            <End Role="Especialidade" EntitySet="TblEspecialidades" />
-          </AssociationSet>
           <AssociationSet Name="DadoPessoalTelefone" Association="Model.DadoPessoalTelefone">
             <End Role="DadoPessoal" EntitySet="TblDadosPessoais" />
             <End Role="Telefone" EntitySet="TblTelefones" />
@@ -523,6 +519,10 @@
           <AssociationSet Name="AdmissaoCargo" Association="Model.AdmissaoCargo">
             <End Role="Admissao" EntitySet="TblAdmissoes" />
             <End Role="Cargo" EntitySet="TblCargos" />
+          </AssociationSet>
+          <AssociationSet Name="MedicoEspecialidade" Association="Model.MedicoEspecialidade">
+            <End Role="Medico" EntitySet="TblFuncionarios" />
+            <End Role="Especialidade" EntitySet="TblEspecialidades" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Funcionario">
@@ -788,11 +788,8 @@
         <EntityType Name="Medico" BaseType="Model.Funcionario">
           <Property Type="String" Name="CRM" Nullable="false" />
           <NavigationProperty Name="Especialidade" Relationship="Model.MedicoEspecialidade" FromRole="Medico" ToRole="Especialidade" />
+          <Property Type="Int32" Name="EspecialidadeId" Nullable="false" />
         </EntityType>
-        <Association Name="MedicoEspecialidade">
-          <End Type="Model.Medico" Role="Medico" Multiplicity="1" />
-          <End Type="Model.Especialidade" Role="Especialidade" Multiplicity="1" />
-        </Association>
         <Association Name="DadoPessoalTelefone">
           <End Type="Model.DadoPessoal" Role="DadoPessoal" Multiplicity="1" />
           <End Type="Model.Telefone" Role="Telefone" Multiplicity="*" />
@@ -808,6 +805,18 @@
         <Association Name="AdmissaoCargo">
           <End Type="Model.Admissao" Role="Admissao" Multiplicity="1" />
           <End Type="Model.Cargo" Role="Cargo" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MedicoEspecialidade">
+          <End Type="Model.Medico" Role="Medico" Multiplicity="*" />
+          <End Type="Model.Especialidade" Role="Especialidade" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medico">
+              <PropertyRef Name="EspecialidadeId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -831,6 +840,7 @@
         <MappingFragment StoreEntitySet="TblFuncionarios_Medico">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CRM" ColumnName="CRM" />
+          <ScalarProperty Name="EspecialidadeId" ColumnName="EspecialidadeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1034,14 +1044,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="MedicoEspecialidade" TypeName="Model.MedicoEspecialidade" StoreEntitySet="TblFuncionarios_Medico">
-      <EndProperty Name="Especialidade">
-        <ScalarProperty Name="Id" ColumnName="Especialidade_Id" />
-      </EndProperty>
-      <EndProperty Name="Medico">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="AdmissaoCargo" TypeName="Model.AdmissaoCargo" StoreEntitySet="TblCargos">
       <EndProperty Name="Admissao">
         <ScalarProperty Name="Id" ColumnName="AdmissaoCargo_Cargo_Id" />
@@ -1102,12 +1104,12 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.DadoPessoal" Width="1.5" PointX="0.625" PointY="4.25" Height="3.1340950520833326" />
         <AssociationConnector Association="Model.FuncionariosDadosPessoais">
-          <ConnectorPoint PointX="5.625" PointY="5.4545544059437514" />
-          <ConnectorPoint PointX="4.864583333333333" PointY="5.4545544059437505" />
-          <ConnectorPoint PointX="4.697916666666667" PointY="5.4545544059437514" />
-          <ConnectorPoint PointX="3.8958333333333335" PointY="5.4545544059437505" />
-          <ConnectorPoint PointX="3.7291666666666665" PointY="5.4545544059437514" />
-          <ConnectorPoint PointX="2.125" PointY="5.4545544059437514" />
+          <ConnectorPoint PointX="5.625" PointY="5.15625" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="5.1562499999999991" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="5.15625" />
+          <ConnectorPoint PointX="3.8958333333333335" PointY="5.1562499999999991" />
+          <ConnectorPoint PointX="3.7291666666666665" PointY="5.15625" />
+          <ConnectorPoint PointX="2.125" PointY="5.15625" />
         </AssociationConnector>
         <AssociationConnector Association="Model.FuncionariosCartoesPonto" ManuallyRouted="false">
           <ConnectorPoint PointX="6.46875" PointY="6.9706022135416656" />
@@ -1154,22 +1156,18 @@
           <ConnectorPoint PointX="5.8125" PointY="10.75" />
           <ConnectorPoint PointX="5.8125" PointY="6.9706022135416656" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model.Medico" Width="1.5" PointX="2.875" PointY="6.125" Height="1.4033821614583335" />
-        <AssociationConnector Association="Model.MedicoEspecialidade">
-          <ConnectorPoint PointX="3.8125" PointY="6.125" />
-          <ConnectorPoint PointX="3.8125" PointY="1.9033821614583333" />
-        </AssociationConnector>
-        <InheritanceConnector EntityType="Model.Medico">
-          <ConnectorPoint PointX="5.625" PointY="6.5478011067708328" />
-          <ConnectorPoint PointX="4.864583333333333" PointY="6.5478011067708319" />
-          <ConnectorPoint PointX="4.697916666666667" PointY="6.5478011067708328" />
-          <ConnectorPoint PointX="4.375" PointY="6.5478011067708328" />
+        <EntityTypeShape EntityType="Model.Medico" Width="1.5" PointX="2.875" PointY="6" Height="1.5956835937499996" />
+        <InheritanceConnector EntityType="Model.Medico" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.625" PointY="6.4853011067708337" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="6.4853011067708328" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="6.4853011067708337" />
+          <ConnectorPoint PointX="4.375" PointY="6.4853011067708337" />
         </InheritanceConnector>
         <AssociationConnector Association="Model.DadoPessoalTelefone">
-          <ConnectorPoint PointX="2.125" PointY="4.8210247029718749" />
-          <ConnectorPoint PointX="3.7291666666666665" PointY="4.821024702971874" />
-          <ConnectorPoint PointX="3.8958333333333335" PointY="4.8210247029718749" />
-          <ConnectorPoint PointX="4.78125" PointY="4.8210247029718749" />
+          <ConnectorPoint PointX="2.125" PointY="4.6718725000000063" />
+          <ConnectorPoint PointX="3.7291666666666665" PointY="4.6718725000000054" />
+          <ConnectorPoint PointX="3.8958333333333335" PointY="4.6718725000000063" />
+          <ConnectorPoint PointX="4.78125" PointY="4.6718725000000063" />
           <ConnectorPoint PointX="4.78125" PointY="8.125" />
         </AssociationConnector>
         <AssociationConnector Association="Model.AdmissaoCargo">
@@ -1177,6 +1175,10 @@
           <ConnectorPoint PointX="12.125" PointY="3.1714330444711543" />
           <ConnectorPoint PointX="12.125" PointY="4.75" />
           <ConnectorPoint PointX="11.75" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MedicoEspecialidade">
+          <ConnectorPoint PointX="3.8125" PointY="6" />
+          <ConnectorPoint PointX="3.8125" PointY="1.9033821614583333" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

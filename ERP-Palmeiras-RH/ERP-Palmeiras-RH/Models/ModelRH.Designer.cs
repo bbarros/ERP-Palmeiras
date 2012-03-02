@@ -30,9 +30,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosDadosBancarios", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "DadosBancarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoBancario))]
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosAdmissoes", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Admissoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao))]
 [assembly: EdmRelationshipAttribute("Model", "PagamentoFuncionarios", "Pagamento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Pagamento), "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), true)]
-[assembly: EdmRelationshipAttribute("Model", "MedicoEspecialidade", "Medico", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Medico), "Especialidade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Especialidade))]
 [assembly: EdmRelationshipAttribute("Model", "DadoPessoalTelefone", "DadoPessoal", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoPessoal), "Telefone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Telefone), true)]
 [assembly: EdmRelationshipAttribute("Model", "AdmissaoCargo", "Admissao", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao), "Cargo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ERP_Palmeiras_RH.Models.Cargo))]
+[assembly: EdmRelationshipAttribute("Model", "MedicoEspecialidade", "Medico", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Medico), "Especialidade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Especialidade), true)]
 
 #endregion
 
@@ -2876,7 +2876,8 @@ namespace ERP_Palmeiras_RH.Models
         /// <param name="salario">Initial value of the Salario property.</param>
         /// <param name="ramal">Initial value of the Ramal property.</param>
         /// <param name="cRM">Initial value of the CRM property.</param>
-        public static Medico CreateMedico(global::System.Int32 id, global::System.Int32 status, global::System.Double salario, global::System.Int32 ramal, global::System.String cRM)
+        /// <param name="especialidadeId">Initial value of the EspecialidadeId property.</param>
+        public static Medico CreateMedico(global::System.Int32 id, global::System.Int32 status, global::System.Double salario, global::System.Int32 ramal, global::System.String cRM, global::System.Int32 especialidadeId)
         {
             Medico medico = new Medico();
             medico.Id = id;
@@ -2884,6 +2885,7 @@ namespace ERP_Palmeiras_RH.Models
             medico.Salario = salario;
             medico.Ramal = ramal;
             medico.CRM = cRM;
+            medico.EspecialidadeId = especialidadeId;
             return medico;
         }
 
@@ -2913,6 +2915,30 @@ namespace ERP_Palmeiras_RH.Models
         private global::System.String _CRM;
         partial void OnCRMChanging(global::System.String value);
         partial void OnCRMChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EspecialidadeId
+        {
+            get
+            {
+                return _EspecialidadeId;
+            }
+            set
+            {
+                OnEspecialidadeIdChanging(value);
+                ReportPropertyChanging("EspecialidadeId");
+                _EspecialidadeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EspecialidadeId");
+                OnEspecialidadeIdChanged();
+            }
+        }
+        private global::System.Int32 _EspecialidadeId;
+        partial void OnEspecialidadeIdChanging(global::System.Int32 value);
+        partial void OnEspecialidadeIdChanged();
 
         #endregion
     
