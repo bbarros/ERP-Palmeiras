@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
+using System.Web;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
@@ -29,7 +30,11 @@ namespace ERP_Palmeiras_RH.Controllers
             String strSexo, DateTime dtDataNascimento, String strEmail,
             String strRua, int strNumero, String strComplemento, String strBairro,
             String strCep, String strCidade, String strEstado, String strPais, long lgCpf, long lgRg,
-            String strCrm, String strFormacao)
+            String strCrm, String strFormacao, HttpPostedFileBase flCurriculum, 
+            int intBanco, String strAgencia, String strContaCorrente, double dbSalario,
+            int[] intArrayBeneficios, int intStatusFuncionario, String strCLT, DateTime? dtDataAdmissao,
+            DateTime? dtDataDemissao
+            )
         {
             return View();
         }

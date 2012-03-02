@@ -172,8 +172,8 @@
     <Property Name="Sobrenome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DataNascimento" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CPF" Type="float" Nullable="false" />
-    <Property Name="RG" Type="float" Nullable="false" />
+    <Property Name="CPF" Type="bigint" Nullable="false" />
+    <Property Name="RG" Type="bigint" Nullable="false" />
     <Property Name="CLT" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
