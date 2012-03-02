@@ -1,4 +1,225 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelRH" />
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelRH">
+    <EntitySetMapping Name="tblFuncionarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Funcionario)">
+        <MappingFragment StoreEntitySet="FuncionariosSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Status" ColumnName="status" />
+          <ScalarProperty Name="Salario" ColumnName="salario" />
+          <ScalarProperty Name="Ramal" ColumnName="ramal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Model.Medico">
+        <MappingFragment StoreEntitySet="FuncionariosSet">
+          <ScalarProperty Name="CRM" ColumnName="crm" />
+          <ScalarProperty Name="Id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPagamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Pagamento)">
+        <MappingFragment StoreEntitySet="PagamentoSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Salario" ColumnName="salario" />
+          <ScalarProperty Name="Adicionais" ColumnName="adicionais" />
+          <ScalarProperty Name="Descontos" ColumnName="descontos" />
+          <ScalarProperty Name="Total" ColumnName="total" />
+          <ScalarProperty Name="DataPagamento" ColumnName="dataPagamento" />
+          <ScalarProperty Name="Cargo" ColumnName="cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCredenciais">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Credencial)">
+        <MappingFragment StoreEntitySet="CredenciaisSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Usuario" ColumnName="usuario" />
+          <ScalarProperty Name="Senha" ColumnName="senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPermissoes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Permissao)">
+        <MappingFragment StoreEntitySet="PermissoesSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCurricula">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Curriculum)">
+        <MappingFragment StoreEntitySet="CurriculaSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Formacao" ColumnName="formacao" />
+          <ScalarProperty Name="Arquivo" ColumnName="arquivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCartoesPonto">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CartaoPonto)">
+        <MappingFragment StoreEntitySet="CartoesPontoSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Mes" ColumnName="mes" />
+          <ScalarProperty Name="Ano" ColumnName="ano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEntradasCartaoPonto">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.EntradasCartaoPonto)">
+        <MappingFragment StoreEntitySet="EntradasCartaoPontoSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Dia" ColumnName="dia" />
+          <ScalarProperty Name="EntradaManha" ColumnName="entradaManha" />
+          <ScalarProperty Name="SaidaManha" ColumnName="saidaManha" />
+          <ScalarProperty Name="EntradaTarde" ColumnName="entradaTarde" />
+          <ScalarProperty Name="SaidaTarde" ColumnName="saidaTarde" />
+          <ScalarProperty Name="EntradaNoite" ColumnName="entradaNoite" />
+          <ScalarProperty Name="SaidaNoite" ColumnName="saidaNoite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDadosPessoais">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DadoPessoal)">
+        <MappingFragment StoreEntitySet="DadosPessoaisSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Nome" ColumnName="nome" />
+          <ScalarProperty Name="Sobrenome" ColumnName="sobrenome" />
+          <ScalarProperty Name="DataNascimento" ColumnName="dataNascimento" />
+          <ScalarProperty Name="Sexo" ColumnName="sexo" />
+          <ScalarProperty Name="CPF" ColumnName="cpf" />
+          <ScalarProperty Name="RG" ColumnName="rg" />
+          <ScalarProperty Name="CLT" ColumnName="clt" />
+          <ScalarProperty Name="Email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEnderecos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Endereco)">
+        <MappingFragment StoreEntitySet="EnderecosSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Rua" ColumnName="rua" />
+          <ScalarProperty Name="Numero" ColumnName="numero" />
+          <ScalarProperty Name="Complemento" ColumnName="complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="bairro" />
+          <ScalarProperty Name="CEP" ColumnName="cep" />
+          <ScalarProperty Name="Cidade" ColumnName="cidade" />
+          <ScalarProperty Name="Estado" ColumnName="estado" />
+          <ScalarProperty Name="Pais" ColumnName="pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTelefones">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Telefone)">
+        <MappingFragment StoreEntitySet="TelefonesSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="DDD" ColumnName="ddd" />
+          <ScalarProperty Name="Numero" ColumnName="numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBeneficios">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Beneficio)">
+        <MappingFragment StoreEntitySet="BeneficiosSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Nome" ColumnName="nome" />
+          <ScalarProperty Name="Valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCargos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Cargo)">
+        <MappingFragment StoreEntitySet="CargosSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Nome" ColumnName="nome" />
+          <ScalarProperty Name="SalarioBase" ColumnName="salarioBase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEspecialidades">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Especialidade)">
+        <MappingFragment StoreEntitySet="EspecialidadesSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDadosBancarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DadoBancario)">
+        <MappingFragment StoreEntitySet="DadosBancariosSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Banco" ColumnName="banco" />
+          <ScalarProperty Name="ContaCorrente" ColumnName="contaCorrente" />
+          <ScalarProperty Name="Agencia" ColumnName="agencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAdmissoes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Admissao)">
+        <MappingFragment StoreEntitySet="AdmissoesSet">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="DataAdmissao" ColumnName="dataAdmissao" />
+          <ScalarProperty Name="DataDesligamento" ColumnName="dataDesligamento" />
+          <ScalarProperty Name="MotivoDesligamento" ColumnName="motivoDesligamento" />
+          <ScalarProperty Name="UltimoSalario" ColumnName="ultimoSalario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FuncionariosCredenciais" TypeName="Model.FuncionariosCredenciais" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="Credenciais">
+        <ScalarProperty Name="Id" ColumnName="credencial_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionariosCurricula" TypeName="Model.FuncionariosCurricula" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="Curricula">
+        <ScalarProperty Name="Id" ColumnName="curriculum_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionariosDadosPessoais" TypeName="Model.FuncionariosDadosPessoais" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="DadosPessoais">
+        <ScalarProperty Name="Id" ColumnName="dadosPessoais_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionariosCartoesPonto" TypeName="Model.FuncionariosCartoesPonto" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="CartoesPonto">
+        <ScalarProperty Name="Id" ColumnName="cartaoPonto_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DadosPessoaisEnderecos" TypeName="Model.DadosPessoaisEnderecos" StoreEntitySet="DadosPessoaisSet">
+      <EndProperty Name="Enderecos">
+        <ScalarProperty Name="Id" ColumnName="endereco_id" />
+      </EndProperty>
+      <EndProperty Name="DadosPessoais">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionariosDadosBancarios" TypeName="Model.FuncionariosDadosBancarios" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="DadosBancarios">
+        <ScalarProperty Name="Id" ColumnName="dadosBancarios_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionariosAdmissoes" TypeName="Model.FuncionariosAdmissoes" StoreEntitySet="FuncionariosSet">
+      <EndProperty Name="Admissoes">
+        <ScalarProperty Name="Id" ColumnName="admissao_id" />
+      </EndProperty>
+      <EndProperty Name="Funcionarios">
+        <ScalarProperty Name="Id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
 </Mapping>

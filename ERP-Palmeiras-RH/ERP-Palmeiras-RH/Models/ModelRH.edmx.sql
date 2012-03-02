@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/01/2012 12:37:59
--- Generated from EDMX file: C:\Users\Bruno\Documents\github\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\Models\ModelRH.edmx
+-- Date Created: 03/01/2012 22:42:56
+-- Generated from EDMX file: C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\Models\ModelRH.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -114,163 +114,168 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'FuncionariosSet'
-CREATE TABLE [dbo].[FuncionariosSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [status] nvarchar(max)  NOT NULL,
-    [salario] float  NOT NULL,
-    [ramal] int  NOT NULL,
-    [permissaoId] int  NOT NULL,
-    [cargoId] int  NOT NULL,
-    [crm] nvarchar(max)  NULL,
-    [especialidadeId] int  NOT NULL,
-    [credencial_id] int  NOT NULL,
-    [curriculum_id] int  NOT NULL,
-    [dadosPessoais_id] int  NOT NULL,
-    [cartaoPonto_id] int  NOT NULL,
-    [dadosBancarios_id] int  NOT NULL,
-    [admissao_id] int  NOT NULL
+-- Creating table 'tblFuncionarios'
+CREATE TABLE [dbo].[tblFuncionarios] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Status] int  NOT NULL,
+    [Salario] float  NOT NULL,
+    [Ramal] int  NOT NULL,
+    [EntityType] nvarchar(max)  NOT NULL,
+    [PermissaoId] int  NOT NULL,
+    [CargoId] int  NOT NULL,
+    [Credencial_Id] int  NOT NULL,
+    [Curriculum_Id] int  NOT NULL,
+    [DadosPessoais_Id] int  NOT NULL,
+    [CartaoPonto_Id] int  NOT NULL,
+    [DadosBancarios_Id] int  NOT NULL,
+    [Admissao_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'PagamentoSet'
-CREATE TABLE [dbo].[PagamentoSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [salario] float  NOT NULL,
-    [adicionais] float  NOT NULL,
-    [descontos] float  NOT NULL,
-    [total] float  NOT NULL,
-    [dataPagamento] datetime  NOT NULL,
-    [cargo] nvarchar(max)  NOT NULL,
+-- Creating table 'tblPagamentos'
+CREATE TABLE [dbo].[tblPagamentos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Salario] float  NOT NULL,
+    [Adicionais] float  NOT NULL,
+    [Descontos] float  NOT NULL,
+    [Total] float  NOT NULL,
+    [DataPagamento] datetime  NOT NULL,
+    [Cargo] nvarchar(max)  NOT NULL,
     [funcionariosId] int  NOT NULL
 );
 GO
 
--- Creating table 'CredenciaisSet'
-CREATE TABLE [dbo].[CredenciaisSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [usuario] nvarchar(max)  NOT NULL,
-    [senha] nvarchar(max)  NOT NULL
+-- Creating table 'tblCredenciais'
+CREATE TABLE [dbo].[tblCredenciais] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Usuario] nvarchar(max)  NOT NULL,
+    [Senha] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'PermissoesSet'
-CREATE TABLE [dbo].[PermissoesSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL
+-- Creating table 'tblPermissoes'
+CREATE TABLE [dbo].[tblPermissoes] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'CurriculaSet'
-CREATE TABLE [dbo].[CurriculaSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [formacao] nvarchar(max)  NOT NULL,
-    [arquivo] tinyint  NOT NULL
+-- Creating table 'tblCurricula'
+CREATE TABLE [dbo].[tblCurricula] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Formacao] nvarchar(max)  NOT NULL,
+    [Arquivo] varbinary(max)  NOT NULL
 );
 GO
 
--- Creating table 'CartoesPontoSet'
-CREATE TABLE [dbo].[CartoesPontoSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [mes] int  NOT NULL,
-    [ano] int  NOT NULL
+-- Creating table 'tblCartoesPonto'
+CREATE TABLE [dbo].[tblCartoesPonto] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Mes] int  NOT NULL,
+    [Ano] int  NOT NULL
 );
 GO
 
--- Creating table 'EntradasCartaoPontoSet'
-CREATE TABLE [dbo].[EntradasCartaoPontoSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [dia] datetime  NOT NULL,
-    [entradaManha] time  NOT NULL,
-    [saidaManha] time  NOT NULL,
-    [entradaTarde] time  NOT NULL,
-    [saidaTarde] time  NOT NULL,
-    [entradaNoite] time  NOT NULL,
-    [saidaNoite] time  NOT NULL,
+-- Creating table 'tblEntradasCartaoPonto'
+CREATE TABLE [dbo].[tblEntradasCartaoPonto] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Dia] datetime  NOT NULL,
+    [EntradaManha] time  NOT NULL,
+    [SaidaManha] time  NOT NULL,
+    [EntradaTarde] time  NOT NULL,
+    [SaidaTarde] time  NOT NULL,
+    [EntradaNoite] time  NOT NULL,
+    [SaidaNoite] time  NOT NULL,
     [cartoesPontoId] int  NOT NULL
 );
 GO
 
--- Creating table 'DadosPessoaisSet'
-CREATE TABLE [dbo].[DadosPessoaisSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL,
-    [sobrenome] nvarchar(max)  NOT NULL,
-    [dataNascimento] nvarchar(max)  NOT NULL,
-    [sexo] nvarchar(max)  NOT NULL,
-    [cpf] float  NOT NULL,
-    [rg] float  NOT NULL,
-    [clt] nvarchar(max)  NOT NULL,
-    [email] nvarchar(max)  NOT NULL,
-    [EnderecosId] int  NOT NULL,
-    [endereco_id] int  NOT NULL
+-- Creating table 'tblDadosPessoais'
+CREATE TABLE [dbo].[tblDadosPessoais] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL,
+    [Sobrenome] nvarchar(max)  NOT NULL,
+    [DataNascimento] nvarchar(max)  NOT NULL,
+    [Sexo] nvarchar(max)  NOT NULL,
+    [CPF] float  NOT NULL,
+    [RG] float  NOT NULL,
+    [CLT] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'EnderecosSet'
-CREATE TABLE [dbo].[EnderecosSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [rua] nvarchar(max)  NOT NULL,
-    [numero] int  NOT NULL,
-    [complemento] nvarchar(max)  NOT NULL,
-    [bairro] nvarchar(max)  NOT NULL,
-    [cep] nvarchar(max)  NOT NULL,
-    [cidade] nvarchar(max)  NOT NULL,
-    [estado] nvarchar(max)  NOT NULL,
-    [pais] nvarchar(max)  NOT NULL
+-- Creating table 'tblEnderecos'
+CREATE TABLE [dbo].[tblEnderecos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Rua] nvarchar(max)  NOT NULL,
+    [Numero] int  NOT NULL,
+    [Complemento] nvarchar(max)  NOT NULL,
+    [Bairro] nvarchar(max)  NOT NULL,
+    [CEP] nvarchar(max)  NOT NULL,
+    [Cidade] nvarchar(max)  NOT NULL,
+    [Estado] nvarchar(max)  NOT NULL,
+    [Pais] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'TelefonesSet'
-CREATE TABLE [dbo].[TelefonesSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [ddd] int  NOT NULL,
-    [numero] int  NOT NULL,
-    [dadosPessoaisId] int  NOT NULL
+-- Creating table 'tblTelefones'
+CREATE TABLE [dbo].[tblTelefones] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [DDD] int  NOT NULL,
+    [Numero] int  NOT NULL,
+    [DadoPessoalId] int  NOT NULL
 );
 GO
 
--- Creating table 'BeneficiosSet'
-CREATE TABLE [dbo].[BeneficiosSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL,
-    [valor] float  NOT NULL,
+-- Creating table 'tblBeneficios'
+CREATE TABLE [dbo].[tblBeneficios] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL,
+    [Valor] float  NOT NULL,
     [funcionarioId] int  NOT NULL
 );
 GO
 
--- Creating table 'CargosSet'
-CREATE TABLE [dbo].[CargosSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL,
-    [salarioBase] float  NOT NULL
+-- Creating table 'tblCargos'
+CREATE TABLE [dbo].[tblCargos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL,
+    [SalarioBase] float  NOT NULL,
+    [AdmissaoCargo_Cargo_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'EspecialidadesSet'
-CREATE TABLE [dbo].[EspecialidadesSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL
+-- Creating table 'tblEspecialidades'
+CREATE TABLE [dbo].[tblEspecialidades] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'DadosBancariosSet'
-CREATE TABLE [dbo].[DadosBancariosSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [banco] int  NOT NULL,
-    [contaCorrente] float  NOT NULL,
-    [agencia] float  NOT NULL
+-- Creating table 'tblDadosBancarios'
+CREATE TABLE [dbo].[tblDadosBancarios] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Banco] int  NOT NULL,
+    [ContaCorrente] float  NOT NULL,
+    [Agencia] float  NOT NULL
 );
 GO
 
--- Creating table 'AdmissoesSet'
-CREATE TABLE [dbo].[AdmissoesSet] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [dataAdmissao] datetime  NOT NULL,
-    [dataDesligamento] datetime  NOT NULL,
-    [motivoDesligamento] nvarchar(max)  NOT NULL,
-    [ultimoCargo] nvarchar(max)  NOT NULL,
-    [ultimoSalario] nvarchar(max)  NOT NULL
+-- Creating table 'tblAdmissoes'
+CREATE TABLE [dbo].[tblAdmissoes] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [DataAdmissao] datetime  NOT NULL,
+    [DataDesligamento] datetime  NOT NULL,
+    [MotivoDesligamento] nvarchar(max)  NOT NULL,
+    [UltimoSalario] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'tblFuncionarios_Medico'
+CREATE TABLE [dbo].[tblFuncionarios_Medico] (
+    [CRM] nvarchar(max)  NOT NULL,
+    [Id] int  NOT NULL,
+    [Especialidade_Id] int  NOT NULL
 );
 GO
 
@@ -278,294 +283,318 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
-ADD CONSTRAINT [PK_FuncionariosSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
+ADD CONSTRAINT [PK_tblFuncionarios]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'PagamentoSet'
-ALTER TABLE [dbo].[PagamentoSet]
-ADD CONSTRAINT [PK_PagamentoSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblPagamentos'
+ALTER TABLE [dbo].[tblPagamentos]
+ADD CONSTRAINT [PK_tblPagamentos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'CredenciaisSet'
-ALTER TABLE [dbo].[CredenciaisSet]
-ADD CONSTRAINT [PK_CredenciaisSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblCredenciais'
+ALTER TABLE [dbo].[tblCredenciais]
+ADD CONSTRAINT [PK_tblCredenciais]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'PermissoesSet'
-ALTER TABLE [dbo].[PermissoesSet]
-ADD CONSTRAINT [PK_PermissoesSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblPermissoes'
+ALTER TABLE [dbo].[tblPermissoes]
+ADD CONSTRAINT [PK_tblPermissoes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'CurriculaSet'
-ALTER TABLE [dbo].[CurriculaSet]
-ADD CONSTRAINT [PK_CurriculaSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblCurricula'
+ALTER TABLE [dbo].[tblCurricula]
+ADD CONSTRAINT [PK_tblCurricula]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'CartoesPontoSet'
-ALTER TABLE [dbo].[CartoesPontoSet]
-ADD CONSTRAINT [PK_CartoesPontoSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblCartoesPonto'
+ALTER TABLE [dbo].[tblCartoesPonto]
+ADD CONSTRAINT [PK_tblCartoesPonto]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'EntradasCartaoPontoSet'
-ALTER TABLE [dbo].[EntradasCartaoPontoSet]
-ADD CONSTRAINT [PK_EntradasCartaoPontoSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblEntradasCartaoPonto'
+ALTER TABLE [dbo].[tblEntradasCartaoPonto]
+ADD CONSTRAINT [PK_tblEntradasCartaoPonto]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'DadosPessoaisSet'
-ALTER TABLE [dbo].[DadosPessoaisSet]
-ADD CONSTRAINT [PK_DadosPessoaisSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblDadosPessoais'
+ALTER TABLE [dbo].[tblDadosPessoais]
+ADD CONSTRAINT [PK_tblDadosPessoais]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'EnderecosSet'
-ALTER TABLE [dbo].[EnderecosSet]
-ADD CONSTRAINT [PK_EnderecosSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblEnderecos'
+ALTER TABLE [dbo].[tblEnderecos]
+ADD CONSTRAINT [PK_tblEnderecos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'TelefonesSet'
-ALTER TABLE [dbo].[TelefonesSet]
-ADD CONSTRAINT [PK_TelefonesSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblTelefones'
+ALTER TABLE [dbo].[tblTelefones]
+ADD CONSTRAINT [PK_tblTelefones]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'BeneficiosSet'
-ALTER TABLE [dbo].[BeneficiosSet]
-ADD CONSTRAINT [PK_BeneficiosSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblBeneficios'
+ALTER TABLE [dbo].[tblBeneficios]
+ADD CONSTRAINT [PK_tblBeneficios]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'CargosSet'
-ALTER TABLE [dbo].[CargosSet]
-ADD CONSTRAINT [PK_CargosSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblCargos'
+ALTER TABLE [dbo].[tblCargos]
+ADD CONSTRAINT [PK_tblCargos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'EspecialidadesSet'
-ALTER TABLE [dbo].[EspecialidadesSet]
-ADD CONSTRAINT [PK_EspecialidadesSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblEspecialidades'
+ALTER TABLE [dbo].[tblEspecialidades]
+ADD CONSTRAINT [PK_tblEspecialidades]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'DadosBancariosSet'
-ALTER TABLE [dbo].[DadosBancariosSet]
-ADD CONSTRAINT [PK_DadosBancariosSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblDadosBancarios'
+ALTER TABLE [dbo].[tblDadosBancarios]
+ADD CONSTRAINT [PK_tblDadosBancarios]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'AdmissoesSet'
-ALTER TABLE [dbo].[AdmissoesSet]
-ADD CONSTRAINT [PK_AdmissoesSet]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'tblAdmissoes'
+ALTER TABLE [dbo].[tblAdmissoes]
+ADD CONSTRAINT [PK_tblAdmissoes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'tblFuncionarios_Medico'
+ALTER TABLE [dbo].[tblFuncionarios_Medico]
+ADD CONSTRAINT [PK_tblFuncionarios_Medico]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [cartoesPontoId] in table 'EntradasCartaoPontoSet'
-ALTER TABLE [dbo].[EntradasCartaoPontoSet]
+-- Creating foreign key on [cartoesPontoId] in table 'tblEntradasCartaoPonto'
+ALTER TABLE [dbo].[tblEntradasCartaoPonto]
 ADD CONSTRAINT [FK_EntradasCartaoPontoCartoesPonto]
     FOREIGN KEY ([cartoesPontoId])
-    REFERENCES [dbo].[CartoesPontoSet]
-        ([id])
+    REFERENCES [dbo].[tblCartoesPonto]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EntradasCartaoPontoCartoesPonto'
 CREATE INDEX [IX_FK_EntradasCartaoPontoCartoesPonto]
-ON [dbo].[EntradasCartaoPontoSet]
+ON [dbo].[tblEntradasCartaoPonto]
     ([cartoesPontoId]);
 GO
 
--- Creating foreign key on [credencial_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [Credencial_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosCredenciais]
-    FOREIGN KEY ([credencial_id])
-    REFERENCES [dbo].[CredenciaisSet]
-        ([id])
+    FOREIGN KEY ([Credencial_Id])
+    REFERENCES [dbo].[tblCredenciais]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosCredenciais'
 CREATE INDEX [IX_FK_FuncionariosCredenciais]
-ON [dbo].[FuncionariosSet]
-    ([credencial_id]);
+ON [dbo].[tblFuncionarios]
+    ([Credencial_Id]);
 GO
 
--- Creating foreign key on [permissaoId] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [PermissaoId] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosPermissoes]
-    FOREIGN KEY ([permissaoId])
-    REFERENCES [dbo].[PermissoesSet]
-        ([id])
+    FOREIGN KEY ([PermissaoId])
+    REFERENCES [dbo].[tblPermissoes]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosPermissoes'
 CREATE INDEX [IX_FK_FuncionariosPermissoes]
-ON [dbo].[FuncionariosSet]
-    ([permissaoId]);
+ON [dbo].[tblFuncionarios]
+    ([PermissaoId]);
 GO
 
--- Creating foreign key on [curriculum_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [Curriculum_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosCurricula]
-    FOREIGN KEY ([curriculum_id])
-    REFERENCES [dbo].[CurriculaSet]
-        ([id])
+    FOREIGN KEY ([Curriculum_Id])
+    REFERENCES [dbo].[tblCurricula]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosCurricula'
 CREATE INDEX [IX_FK_FuncionariosCurricula]
-ON [dbo].[FuncionariosSet]
-    ([curriculum_id]);
+ON [dbo].[tblFuncionarios]
+    ([Curriculum_Id]);
 GO
 
--- Creating foreign key on [dadosPessoais_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [DadosPessoais_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosDadosPessoais]
-    FOREIGN KEY ([dadosPessoais_id])
-    REFERENCES [dbo].[DadosPessoaisSet]
-        ([id])
+    FOREIGN KEY ([DadosPessoais_Id])
+    REFERENCES [dbo].[tblDadosPessoais]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosDadosPessoais'
 CREATE INDEX [IX_FK_FuncionariosDadosPessoais]
-ON [dbo].[FuncionariosSet]
-    ([dadosPessoais_id]);
+ON [dbo].[tblFuncionarios]
+    ([DadosPessoais_Id]);
 GO
 
--- Creating foreign key on [cartaoPonto_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [CartaoPonto_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosCartoesPonto]
-    FOREIGN KEY ([cartaoPonto_id])
-    REFERENCES [dbo].[CartoesPontoSet]
-        ([id])
+    FOREIGN KEY ([CartaoPonto_Id])
+    REFERENCES [dbo].[tblCartoesPonto]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosCartoesPonto'
 CREATE INDEX [IX_FK_FuncionariosCartoesPonto]
-ON [dbo].[FuncionariosSet]
-    ([cartaoPonto_id]);
+ON [dbo].[tblFuncionarios]
+    ([CartaoPonto_Id]);
 GO
 
--- Creating foreign key on [endereco_id] in table 'DadosPessoaisSet'
-ALTER TABLE [dbo].[DadosPessoaisSet]
+-- Creating foreign key on [Id] in table 'tblEnderecos'
+ALTER TABLE [dbo].[tblEnderecos]
 ADD CONSTRAINT [FK_DadosPessoaisEnderecos]
-    FOREIGN KEY ([endereco_id])
-    REFERENCES [dbo].[EnderecosSet]
-        ([id])
+    FOREIGN KEY ([Id])
+    REFERENCES [dbo].[tblDadosPessoais]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_DadosPessoaisEnderecos'
-CREATE INDEX [IX_FK_DadosPessoaisEnderecos]
-ON [dbo].[DadosPessoaisSet]
-    ([endereco_id]);
 GO
 
--- Creating foreign key on [dadosPessoaisId] in table 'TelefonesSet'
-ALTER TABLE [dbo].[TelefonesSet]
-ADD CONSTRAINT [FK_DadosPessoaisTelefones]
-    FOREIGN KEY ([dadosPessoaisId])
-    REFERENCES [dbo].[DadosPessoaisSet]
-        ([id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_DadosPessoaisTelefones'
-CREATE INDEX [IX_FK_DadosPessoaisTelefones]
-ON [dbo].[TelefonesSet]
-    ([dadosPessoaisId]);
-GO
-
--- Creating foreign key on [funcionarioId] in table 'BeneficiosSet'
-ALTER TABLE [dbo].[BeneficiosSet]
+-- Creating foreign key on [funcionarioId] in table 'tblBeneficios'
+ALTER TABLE [dbo].[tblBeneficios]
 ADD CONSTRAINT [FK_FuncionariosBeneficios]
     FOREIGN KEY ([funcionarioId])
-    REFERENCES [dbo].[FuncionariosSet]
-        ([id])
+    REFERENCES [dbo].[tblFuncionarios]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosBeneficios'
 CREATE INDEX [IX_FK_FuncionariosBeneficios]
-ON [dbo].[BeneficiosSet]
+ON [dbo].[tblBeneficios]
     ([funcionarioId]);
 GO
 
--- Creating foreign key on [cargoId] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [CargoId] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosCargos]
-    FOREIGN KEY ([cargoId])
-    REFERENCES [dbo].[CargosSet]
-        ([id])
+    FOREIGN KEY ([CargoId])
+    REFERENCES [dbo].[tblCargos]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosCargos'
 CREATE INDEX [IX_FK_FuncionariosCargos]
-ON [dbo].[FuncionariosSet]
-    ([cargoId]);
+ON [dbo].[tblFuncionarios]
+    ([CargoId]);
 GO
 
--- Creating foreign key on [especialidadeId] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
-ADD CONSTRAINT [FK_FuncionariosEspecialidades]
-    FOREIGN KEY ([especialidadeId])
-    REFERENCES [dbo].[EspecialidadesSet]
-        ([id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosEspecialidades'
-CREATE INDEX [IX_FK_FuncionariosEspecialidades]
-ON [dbo].[FuncionariosSet]
-    ([especialidadeId]);
-GO
-
--- Creating foreign key on [dadosBancarios_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [DadosBancarios_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosDadosBancarios]
-    FOREIGN KEY ([dadosBancarios_id])
-    REFERENCES [dbo].[DadosBancariosSet]
-        ([id])
+    FOREIGN KEY ([DadosBancarios_Id])
+    REFERENCES [dbo].[tblDadosBancarios]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosDadosBancarios'
 CREATE INDEX [IX_FK_FuncionariosDadosBancarios]
-ON [dbo].[FuncionariosSet]
-    ([dadosBancarios_id]);
+ON [dbo].[tblFuncionarios]
+    ([DadosBancarios_Id]);
 GO
 
--- Creating foreign key on [admissao_id] in table 'FuncionariosSet'
-ALTER TABLE [dbo].[FuncionariosSet]
+-- Creating foreign key on [Admissao_Id] in table 'tblFuncionarios'
+ALTER TABLE [dbo].[tblFuncionarios]
 ADD CONSTRAINT [FK_FuncionariosAdmissoes]
-    FOREIGN KEY ([admissao_id])
-    REFERENCES [dbo].[AdmissoesSet]
-        ([id])
+    FOREIGN KEY ([Admissao_Id])
+    REFERENCES [dbo].[tblAdmissoes]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FuncionariosAdmissoes'
 CREATE INDEX [IX_FK_FuncionariosAdmissoes]
-ON [dbo].[FuncionariosSet]
-    ([admissao_id]);
+ON [dbo].[tblFuncionarios]
+    ([Admissao_Id]);
 GO
 
--- Creating foreign key on [funcionariosId] in table 'PagamentoSet'
-ALTER TABLE [dbo].[PagamentoSet]
+-- Creating foreign key on [funcionariosId] in table 'tblPagamentos'
+ALTER TABLE [dbo].[tblPagamentos]
 ADD CONSTRAINT [FK_PagamentoFuncionarios]
     FOREIGN KEY ([funcionariosId])
-    REFERENCES [dbo].[FuncionariosSet]
-        ([id])
+    REFERENCES [dbo].[tblFuncionarios]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PagamentoFuncionarios'
 CREATE INDEX [IX_FK_PagamentoFuncionarios]
-ON [dbo].[PagamentoSet]
+ON [dbo].[tblPagamentos]
     ([funcionariosId]);
+GO
+
+-- Creating foreign key on [Especialidade_Id] in table 'tblFuncionarios_Medico'
+ALTER TABLE [dbo].[tblFuncionarios_Medico]
+ADD CONSTRAINT [FK_MedicoEspecialidade]
+    FOREIGN KEY ([Especialidade_Id])
+    REFERENCES [dbo].[tblEspecialidades]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MedicoEspecialidade'
+CREATE INDEX [IX_FK_MedicoEspecialidade]
+ON [dbo].[tblFuncionarios_Medico]
+    ([Especialidade_Id]);
+GO
+
+-- Creating foreign key on [DadoPessoalId] in table 'tblTelefones'
+ALTER TABLE [dbo].[tblTelefones]
+ADD CONSTRAINT [FK_DadoPessoalTelefone]
+    FOREIGN KEY ([DadoPessoalId])
+    REFERENCES [dbo].[tblDadosPessoais]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DadoPessoalTelefone'
+CREATE INDEX [IX_FK_DadoPessoalTelefone]
+ON [dbo].[tblTelefones]
+    ([DadoPessoalId]);
+GO
+
+-- Creating foreign key on [AdmissaoCargo_Cargo_Id] in table 'tblCargos'
+ALTER TABLE [dbo].[tblCargos]
+ADD CONSTRAINT [FK_AdmissaoCargo]
+    FOREIGN KEY ([AdmissaoCargo_Cargo_Id])
+    REFERENCES [dbo].[tblAdmissoes]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AdmissaoCargo'
+CREATE INDEX [IX_FK_AdmissaoCargo]
+ON [dbo].[tblCargos]
+    ([AdmissaoCargo_Cargo_Id]);
+GO
+
+-- Creating foreign key on [Id] in table 'tblFuncionarios_Medico'
+ALTER TABLE [dbo].[tblFuncionarios_Medico]
+ADD CONSTRAINT [FK_Medico_inherits_Funcionario]
+    FOREIGN KEY ([Id])
+    REFERENCES [dbo].[tblFuncionarios]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- --------------------------------------------------

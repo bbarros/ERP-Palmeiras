@@ -5,3 +5,4 @@ C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeir
 C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\obj\Debug\ERP-Palmeiras-RH.dll
 C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\obj\Debug\ERP-Palmeiras-RH.pdb
+C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\bin\ERP-Palmeiras-RH.dll.config

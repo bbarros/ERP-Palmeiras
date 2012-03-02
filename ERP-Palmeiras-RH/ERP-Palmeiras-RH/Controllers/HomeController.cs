@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ERP_Palmeiras_RH.Models;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
@@ -10,8 +11,6 @@ namespace ERP_Palmeiras_RH.Controllers
     {
         public ActionResult Index()
         {
-            
-
             return View();
         }
 
