@@ -78,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelRH.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\StatusFuncionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
