@@ -1369,7 +1369,7 @@ namespace ERP_Palmeiras_RH.Models
         /// <param name="rG">Initial value of the RG property.</param>
         /// <param name="cLT">Initial value of the CLT property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static DadoPessoal CreateDadoPessoal(global::System.Int32 id, global::System.String nome, global::System.String sobrenome, global::System.String dataNascimento, global::System.String sexo, global::System.Double cPF, global::System.Double rG, global::System.String cLT, global::System.String email)
+        public static DadoPessoal CreateDadoPessoal(global::System.Int32 id, global::System.String nome, global::System.String sobrenome, global::System.String dataNascimento, global::System.String sexo, global::System.Int64 cPF, global::System.Int64 rG, global::System.String cLT, global::System.String email)
         {
             DadoPessoal dadoPessoal = new DadoPessoal();
             dadoPessoal.Id = id;
@@ -1515,7 +1515,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double CPF
+        public global::System.Int64 CPF
         {
             get
             {
@@ -1530,8 +1530,8 @@ namespace ERP_Palmeiras_RH.Models
                 OnCPFChanged();
             }
         }
-        private global::System.Double _CPF;
-        partial void OnCPFChanging(global::System.Double value);
+        private global::System.Int64 _CPF;
+        partial void OnCPFChanging(global::System.Int64 value);
         partial void OnCPFChanged();
     
         /// <summary>
@@ -1539,7 +1539,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double RG
+        public global::System.Int64 RG
         {
             get
             {
@@ -1554,8 +1554,8 @@ namespace ERP_Palmeiras_RH.Models
                 OnRGChanged();
             }
         }
-        private global::System.Double _RG;
-        partial void OnRGChanging(global::System.Double value);
+        private global::System.Int64 _RG;
+        partial void OnRGChanging(global::System.Int64 value);
         partial void OnRGChanged();
     
         /// <summary>

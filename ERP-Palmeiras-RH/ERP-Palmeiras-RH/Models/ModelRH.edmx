@@ -647,8 +647,8 @@
           <Property Type="String" Name="Sobrenome" Nullable="false" />
           <Property Type="String" Name="DataNascimento" Nullable="false" />
           <Property Type="String" Name="Sexo" Nullable="false" />
-          <Property Type="Double" Name="CPF" Nullable="false" />
-          <Property Type="Double" Name="RG" Nullable="false" />
+          <Property Type="Int64" Name="CPF" Nullable="false" />
+          <Property Type="Int64" Name="RG" Nullable="false" />
           <Property Type="String" Name="CLT" Nullable="false" />
           <Property Type="String" Name="Email" Nullable="false" />
           <NavigationProperty Name="Endereco" Relationship="Model.DadosPessoaisEnderecos" FromRole="DadosPessoais" ToRole="Enderecos" />
