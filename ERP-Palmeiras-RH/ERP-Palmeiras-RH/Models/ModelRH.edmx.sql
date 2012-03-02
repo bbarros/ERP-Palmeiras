@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/02/2012 00:40:10
--- Generated from EDMX file: C:\Users\Bruno\Documents\github\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\Models\ModelRH.edmx
+-- Date Created: 03/02/2012 09:16:55
+-- Generated from EDMX file: C:\Users\Mauricio\Documents\Poli\Cooperativo\4o Quadrimestre\PCS2044\ERP-Palmeiras\ERP-Palmeiras\ERP-Palmeiras-RH\ERP-Palmeiras-RH\Models\ModelRH.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -53,14 +53,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PagamentoFuncionarios]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TblPagamentos] DROP CONSTRAINT [FK_PagamentoFuncionarios];
 GO
-IF OBJECT_ID(N'[dbo].[FK_MedicoEspecialidade]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TblFuncionarios_Medico] DROP CONSTRAINT [FK_MedicoEspecialidade];
-GO
 IF OBJECT_ID(N'[dbo].[FK_DadoPessoalTelefone]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TblTelefones] DROP CONSTRAINT [FK_DadoPessoalTelefone];
 GO
 IF OBJECT_ID(N'[dbo].[FK_AdmissaoCargo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TblCargos] DROP CONSTRAINT [FK_AdmissaoCargo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MedicoEspecialidade]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TblFuncionarios_Medico] DROP CONSTRAINT [FK_MedicoEspecialidade];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Medico_inherits_Funcionario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TblFuncionarios_Medico] DROP CONSTRAINT [FK_Medico_inherits_Funcionario];
@@ -265,8 +265,8 @@ GO
 CREATE TABLE [dbo].[TblDadosBancarios] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Banco] int  NOT NULL,
-    [ContaCorrente] float  NOT NULL,
-    [Agencia] float  NOT NULL
+    [ContaCorrente] nvarchar(max)  NOT NULL,
+    [Agencia] nvarchar(max)  NOT NULL
 );
 GO
 

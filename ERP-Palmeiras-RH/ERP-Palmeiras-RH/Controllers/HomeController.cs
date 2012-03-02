@@ -11,6 +11,7 @@ namespace ERP_Palmeiras_RH.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
