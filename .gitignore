@@ -7,9 +7,10 @@
 *.o
 *.so
 *.pdb
-/bin
-/obj
+bin/
+obj/
 *.csproj.user
+*.suo
 
 # Packages #
 ############
