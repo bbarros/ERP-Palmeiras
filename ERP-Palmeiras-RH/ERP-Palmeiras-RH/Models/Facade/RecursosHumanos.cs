@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Runtime.CompilerServices;
 using ERP_Palmeiras_RH.Core;
+using ERP_Palmeiras_RH.Models;
+using System.Data;
+using System.Data.Entity;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
@@ -32,7 +35,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
             if (result == null || result.Count<Funcionario>() == 0)
             {
-                model.AddToTblFuncionarios(funcionario);
+                model.TblFuncionarios.Add(funcionario);
             }
             else
             {
@@ -46,7 +49,8 @@ namespace ERP_Palmeiras_RH.Models.Facade
         {
             ModelRH model = new ModelRH();
 
-            //IEnumerable<Funcionario> oldFunc = model.TblFuncionarios.Where(f => f.DadosPessoais.CPF = funcionario.DadosPessoais.CPF);
+            model.Entry(funcionario).State = EntityState.Modified;
+            model.SaveChanges();
         }
 
     }
