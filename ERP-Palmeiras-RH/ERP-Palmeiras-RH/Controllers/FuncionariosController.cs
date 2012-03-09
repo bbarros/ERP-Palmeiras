@@ -63,10 +63,13 @@ namespace ERP_Palmeiras_RH.Controllers
             adm.MotivoDesligamento = motivo;
             func.Admissao = adm;
 
-            foreach (int beneficioId in beneficios)
+            if (beneficios != null && beneficios.Count<int>() > 0)
             {
-                Beneficio b = facade.BuscarBeneficio(beneficioId);
-                func.Beneficios.Add(b);
+                foreach (int beneficioId in beneficios)
+                {
+                    Beneficio b = facade.BuscarBeneficio(beneficioId);
+                    func.Beneficios.Add(b);
+                }
             }
 
             DadoPessoal dp = new DadoPessoal();

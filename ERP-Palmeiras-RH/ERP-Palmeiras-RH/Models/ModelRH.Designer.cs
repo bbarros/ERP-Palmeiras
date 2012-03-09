@@ -30,7 +30,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosAdmissoes", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Admissoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao))]
 [assembly: EdmRelationshipAttribute("Model", "PagamentoFuncionarios", "Pagamento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Pagamento), "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), true)]
 [assembly: EdmRelationshipAttribute("Model", "DadoPessoalTelefone", "DadoPessoal", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoPessoal), "Telefone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Telefone), true)]
-[assembly: EdmRelationshipAttribute("Model", "AdmissaoCargo", "Admissao", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao), "Cargo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ERP_Palmeiras_RH.Models.Cargo))]
 [assembly: EdmRelationshipAttribute("Model", "MedicoEspecialidade", "Medico", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Medico), "Especialidade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Especialidade), true)]
 [assembly: EdmRelationshipAttribute("Model", "FuncionarioBeneficio", "Funcionario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Beneficio", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Beneficio))]
 
@@ -608,47 +607,6 @@ namespace ERP_Palmeiras_RH.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "AdmissaoCargo", "Cargo")]
-        public Cargo UltimoCargo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargo>("Model.AdmissaoCargo", "Cargo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargo>("Model.AdmissaoCargo", "Cargo").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Cargo> UltimoCargoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Cargo>("Model.AdmissaoCargo", "Cargo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Cargo>("Model.AdmissaoCargo", "Cargo", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>

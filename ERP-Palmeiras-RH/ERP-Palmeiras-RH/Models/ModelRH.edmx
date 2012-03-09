@@ -71,10 +71,6 @@
       <End Role="DadoPessoal" EntitySet="TblDadosPessoais" />
       <End Role="Telefone" EntitySet="TblTelefones" />
     </AssociationSet>
-    <AssociationSet Name="AdmissaoCargo" Association="Model.Store.AdmissaoCargo">
-      <End Role="Admissao" EntitySet="TblAdmissoes" />
-      <End Role="Cargo" EntitySet="TblCargos" />
-    </AssociationSet>
     <AssociationSet Name="MedicoEspecialidade" Association="Model.Store.MedicoEspecialidade">
       <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
       <End Role="Especialidade" EntitySet="TblEspecialidades" />
@@ -221,7 +217,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SalarioBase" Type="float" Nullable="false" />
-    <Property Name="AdmissaoCargo_Cargo_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblEspecialidades">
     <Key>
@@ -409,18 +404,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AdmissaoCargo">
-    <End Role="Admissao" Type="Model.Store.TblAdmissoes" Multiplicity="1" />
-    <End Role="Cargo" Type="Model.Store.TblCargos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admissao">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cargo">
-        <PropertyRef Name="AdmissaoCargo_Cargo_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="MedicoEspecialidade">
     <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="*" />
     <End Role="Especialidade" Type="Model.Store.TblEspecialidades" Multiplicity="1" />
@@ -536,10 +519,6 @@
           <AssociationSet Name="DadoPessoalTelefone" Association="Model.DadoPessoalTelefone">
             <End Role="DadoPessoal" EntitySet="TblDadosPessoais" />
             <End Role="Telefone" EntitySet="TblTelefones" />
-          </AssociationSet>
-          <AssociationSet Name="AdmissaoCargo" Association="Model.AdmissaoCargo">
-            <End Role="Admissao" EntitySet="TblAdmissoes" />
-            <End Role="Cargo" EntitySet="TblCargos" />
           </AssociationSet>
           <AssociationSet Name="MedicoEspecialidade" Association="Model.MedicoEspecialidade">
             <End Role="Medico" EntitySet="TblFuncionarios" />
@@ -780,7 +759,6 @@
           <Property Type="DateTime" Name="DataDesligamento" Nullable="true" />
           <Property Type="String" Name="MotivoDesligamento" Nullable="true" />
           <Property Type="String" Name="UltimoSalario" Nullable="false" />
-          <NavigationProperty Name="UltimoCargo" Relationship="Model.AdmissaoCargo" FromRole="Admissao" ToRole="Cargo" />
         </EntityType>
         <Association Name="FuncionariosAdmissoes">
           <End Type="Model.Funcionario" Role="Funcionarios" Multiplicity="1" />
@@ -814,10 +792,6 @@
               <PropertyRef Name="DadoPessoalId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="AdmissaoCargo">
-          <End Type="Model.Admissao" Role="Admissao" Multiplicity="1" />
-          <End Type="Model.Cargo" Role="Cargo" Multiplicity="0..1" />
         </Association>
         <Association Name="MedicoEspecialidade">
           <End Type="Model.Medico" Role="Medico" Multiplicity="*" />
@@ -1061,14 +1035,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AdmissaoCargo" TypeName="Model.AdmissaoCargo" StoreEntitySet="TblCargos">
-      <EndProperty Name="Admissao">
-        <ScalarProperty Name="Id" ColumnName="AdmissaoCargo_Cargo_Id" />
-      </EndProperty>
-      <EndProperty Name="Cargo">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="FuncionarioBeneficio" TypeName="Model.FuncionarioBeneficio" StoreEntitySet="FuncionarioBeneficio">
       <EndProperty Name="Funcionario">
         <ScalarProperty Name="Id" ColumnName="FuncionarioBeneficio_Beneficio_Id" />
@@ -1190,12 +1156,6 @@
           <ConnectorPoint PointX="3.8958333333333335" PointY="4.6718725000000063" />
           <ConnectorPoint PointX="4.78125" PointY="4.6718725000000063" />
           <ConnectorPoint PointX="4.78125" PointY="8.125" />
-        </AssociationConnector>
-        <AssociationConnector Association="Model.AdmissaoCargo">
-          <ConnectorPoint PointX="11.75" PointY="2.7964330444711538" />
-          <ConnectorPoint PointX="12.125" PointY="3.1714330444711543" />
-          <ConnectorPoint PointX="12.125" PointY="4.75" />
-          <ConnectorPoint PointX="11.75" PointY="5.125" />
         </AssociationConnector>
         <AssociationConnector Association="Model.MedicoEspecialidade">
           <ConnectorPoint PointX="3.8125" PointY="6" />
