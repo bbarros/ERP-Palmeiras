@@ -17,6 +17,5 @@ namespace ERP_Palmeiras_RH.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public double Valor { get; set; }
-        private int funcionarioId { get; set; }
     }
 }

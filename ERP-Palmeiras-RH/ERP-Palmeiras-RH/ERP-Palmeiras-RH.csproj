@@ -111,6 +111,7 @@
     <Compile Include="Models\Medico.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MedicoFromFuncionario.cs" />
     <Compile Include="Models\ModelRH.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +191,7 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Funcionarios\Cadastro.aspx" />
+    <Content Include="Views\Funcionarios\Editar.aspx" />
     <Content Include="Views\Funcionarios\IndexFuncionarios.aspx" />
     <Content Include="Views\Home\Welcome.aspx">
       <SubType>ASPXCodeBehind</SubType>

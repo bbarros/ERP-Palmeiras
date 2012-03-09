@@ -208,7 +208,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Valor" Type="float" Nullable="false" />
-    <Property Name="funcionarioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblCargos">
     <Key>
@@ -708,7 +707,6 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Nome" Nullable="false" />
           <Property Type="Double" Name="Valor" Nullable="false" />
-          <Property Type="Int32" Name="funcionarioId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -945,7 +943,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
-          <ScalarProperty Name="funcionarioId" ColumnName="funcionarioId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1116,7 +1113,7 @@
           <ConnectorPoint PointX="1.3437475" PointY="7.3840950520833326" />
           <ConnectorPoint PointX="1.3437475" PointY="8.5" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model.Beneficio" Width="1.5" PointX="8" PointY="10.75" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="Model.Beneficio" Width="1.5" PointX="8" PointY="10.75" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="Model.Cargo" Width="1.5" PointX="10.25" PointY="5.125" Height="1.5956835937499996" />
         <AssociationConnector Association="Model.FuncionariosCargos">
           <ConnectorPoint PointX="7.125" PointY="5.922841796875" />
