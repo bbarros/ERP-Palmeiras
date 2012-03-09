@@ -10,7 +10,7 @@ namespace ERP_Palmeiras_RH.Controllers
     /// <summary>
     /// Controller para Actions de Cadastro de Funcionarios.
     /// </summary>
-    public class FuncionariosController : BaseController
+    public class FuncionariosController : Controller
     {
 
         /// <summary>
@@ -25,6 +25,13 @@ namespace ERP_Palmeiras_RH.Controllers
         {
             return View();
         }
+
+        public ActionResult Cadastro()
+        {
+
+            return View();
+        }
+        
 
         public ActionResult Cadastrar(String strNome, String strSobrenome, 
             String strSexo, DateTime dtDataNascimento, String strEmail,
