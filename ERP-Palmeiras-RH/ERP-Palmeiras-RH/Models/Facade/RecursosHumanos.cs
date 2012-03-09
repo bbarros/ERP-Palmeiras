@@ -65,5 +65,53 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         }
 
+        public IEnumerable<Cargo> BuscarCargos()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblCargos.Where<Cargo>(c => true);
+        }
+
+        public Cargo BuscarCargo(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblCargos.Where<Cargo>(c => c.Id == id).First<Cargo>();
+        }
+
+        public IEnumerable<Beneficio> BuscarBeneficios()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblBeneficios.Where<Beneficio>(b => true);
+        }
+
+        public Beneficio BuscarBeneficio(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblBeneficios.Where<Beneficio>(b => b.Id == id).First<Beneficio>();
+        }
+
+        public IEnumerable<Especialidade> BuscarEspecialidades()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblEspecialidades.Where<Especialidade>(e => true);
+        }
+
+        public Especialidade BuscarEspecialidade(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblEspecialidades.Where<Especialidade>(b => b.Id == id).First<Especialidade>();
+        }
+
+        public IEnumerable<Permissao> BuscarPermissoes()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblPermissoes.Where<Permissao>(e => true);
+        }
+
+        public Permissao BuscarPermissao(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblPermissoes.Where<Permissao>(p => p.Id == id).First<Permissao>();
+        }
+
     }
 }

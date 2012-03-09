@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class DadoPessoal
     {
         public DadoPessoal()
@@ -22,7 +22,7 @@ namespace ERP_Palmeiras_RH.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public string DataNascimento { get; set; }
+        public System.DateTime DataNascimento { get; set; }
         public string Sexo { get; set; }
         public long CPF { get; set; }
         public long RG { get; set; }
@@ -32,5 +32,4 @@ namespace ERP_Palmeiras_RH.Models
         public virtual Endereco Endereco { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }
     }
-    
 }

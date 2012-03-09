@@ -7,20 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Admissao
     {
         public int Id { get; set; }
         public System.DateTime DataAdmissao { get; set; }
-        public System.DateTime DataDesligamento { get; set; }
+        public Nullable<System.DateTime> DataDesligamento { get; set; }
         public string MotivoDesligamento { get; set; }
         public string UltimoSalario { get; set; }
-    
-        public virtual Cargo UltimoCargo { get; set; }
     }
-    
 }
