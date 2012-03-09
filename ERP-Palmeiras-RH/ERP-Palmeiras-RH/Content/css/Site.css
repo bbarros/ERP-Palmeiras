@@ -11,9 +11,24 @@
 body, html{
 	margin:0;
 	padding:0;
-	background:#e7e7e7;
+	background:#cccccc;
 	text-align:center;
 	margin-bottom:10px;
+}
+
+
+td, th {
+display: table-cell;
+vertical-align: inherit;
+padding: 3px;
+}
+
+table
+{
+
+border-spacing: 0px;
+padding: 0px;
+
 }
 
 h1 {
@@ -150,8 +165,10 @@ h1 {
     padding: 0px;
     margin: 0px;
     min-width: 100px;
+    min-height: 1000px;
     height: 75%;
     width: 20%;
+    
 }
 
 #side-navigation li a {
@@ -160,7 +177,7 @@ h1 {
     font-size: 12px;
     line-height: 27px;
     color: #484848;
-	background: #cccccc url(../images/bullet.png) 12px 12px no-repeat;
+	background: #e7e7e7 url(../images/bullet.png) 12px 12px no-repeat;
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #5a6064;
     padding-left: 28px;
@@ -182,6 +199,13 @@ h1 {
 {
     list-style: none none inside;
     padding: 0px;
+}
+
+#side-navigation li  
+{
+    list-style: none none inside;
+    padding: 0px;
+    height: 70%;
 }
 
 #side-navigation li ul li a {
@@ -219,7 +243,7 @@ h1 {
     font-size: 12px;
     line-height: 27px;
     color: #484848;
-	background: #cccccc url(../images/bullet.png) 12px 12px no-repeat;
+	background: #e7e7e7 url(../images/bullet.png) 12px 12px no-repeat;
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #5a6064;
     padding-left: 0px;
@@ -233,7 +257,7 @@ h1 {
     font-size: 12px;
     line-height: 27px;
     color: #484848;
-	background: #ccccccc   no-repeat;
+	background: #e7e7e7   no-repeat;
     list-style-type: none;
     padding-left: 0px;
 
@@ -245,23 +269,11 @@ h1 {
     font-size: 12px;
     line-height: 27px;
     color: White;
-	background: #cccccc no-repeat;
+	background: #e7e7e7 no-repeat;
     list-style-type: none;
     padding-left: 20px;
     border-bottom: 1px none #000000; 
 
-
-}
-
-.accordionSubItem ul{
-    display: block;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 27px;
-    color: White;
-	background: #cccccc no-repeat;
-    list-style-type: none;
-    padding-left: 20px;
 
 }
 
@@ -278,3 +290,34 @@ h1 {
 }
 
 
+/*/////////////////// Main Content ///////////////////*/
+
+#main{
+
+    width:953px;
+    
+    
+    }
+
+#formulario{
+  
+    border:1px solid #000000;
+    margin: 10px;
+    background-color: #e7e7e7;
+    padding-left: 5px;
+    
+    
+}
+#infoPessoais{
+  
+    padding: 5px;   
+    
+}
+    
+    
+.formPadrao
+{
+    font-weight: bold; 
+        
+}
+    
