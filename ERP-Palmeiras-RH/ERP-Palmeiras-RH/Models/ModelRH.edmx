@@ -22,6 +22,7 @@
     <EntitySet Name="TblDadosBancarios" EntityType="Model.Store.TblDadosBancarios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TblAdmissoes" EntityType="Model.Store.TblAdmissoes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TblFuncionarios_Medico" EntityType="Model.Store.TblFuncionarios_Medico" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FuncionarioBeneficio" EntityType="Model.Store.FuncionarioBeneficio" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="EntradasCartaoPontoCartoesPonto" Association="Model.Store.EntradasCartaoPontoCartoesPonto">
       <End Role="EntradasCartaoPonto" EntitySet="TblEntradasCartaoPonto" />
       <End Role="CartoesPonto" EntitySet="TblCartoesPonto" />
@@ -50,10 +51,6 @@
       <End Role="DadosPessoais" EntitySet="TblDadosPessoais" />
       <End Role="Enderecos" EntitySet="TblEnderecos" />
     </AssociationSet>
-    <AssociationSet Name="FuncionariosBeneficios" Association="Model.Store.FuncionariosBeneficios">
-      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
-      <End Role="Beneficios" EntitySet="TblBeneficios" />
-    </AssociationSet>
     <AssociationSet Name="FuncionariosCargos" Association="Model.Store.FuncionariosCargos">
       <End Role="Funcionarios" EntitySet="TblFuncionarios" />
       <End Role="Cargos" EntitySet="TblCargos" />
@@ -81,6 +78,14 @@
     <AssociationSet Name="MedicoEspecialidade" Association="Model.Store.MedicoEspecialidade">
       <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
       <End Role="Especialidade" EntitySet="TblEspecialidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionarioBeneficio_Funcionario" Association="Model.Store.FK_FuncionarioBeneficio_Funcionario">
+      <End Role="Funcionario" EntitySet="TblFuncionarios" />
+      <End Role="FuncionarioBeneficio" EntitySet="FuncionarioBeneficio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionarioBeneficio_Beneficio" Association="Model.Store.FK_FuncionarioBeneficio_Beneficio">
+      <End Role="Beneficio" EntitySet="TblBeneficios" />
+      <End Role="FuncionarioBeneficio" EntitySet="FuncionarioBeneficio" />
     </AssociationSet>
     <AssociationSet Name="FK_Medico_inherits_Funcionario" Association="Model.Store.FK_Medico_inherits_Funcionario">
       <End Role="Funcionario" EntitySet="TblFuncionarios" />
@@ -170,7 +175,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Sobrenome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataNascimento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNascimento" Type="datetime" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CPF" Type="bigint" Nullable="false" />
     <Property Name="RG" Type="bigint" Nullable="false" />
@@ -240,8 +245,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DataAdmissao" Type="datetime" Nullable="false" />
-    <Property Name="DataDesligamento" Type="datetime" Nullable="false" />
-    <Property Name="MotivoDesligamento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataDesligamento" Type="datetime" Nullable="true" />
+    <Property Name="MotivoDesligamento" Type="nvarchar(max)" Nullable="true" />
     <Property Name="UltimoSalario" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="TblFuncionarios_Medico">
@@ -251,6 +256,14 @@
     <Property Name="CRM" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EspecialidadeId" Type="int" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FuncionarioBeneficio">
+    <Key>
+      <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
+      <PropertyRef Name="Beneficios_Id" />
+    </Key>
+    <Property Name="FuncionarioBeneficio_Beneficio_Id" Type="int" Nullable="false" />
+    <Property Name="Beneficios_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="EntradasCartaoPontoCartoesPonto">
     <End Role="EntradasCartaoPonto" Type="Model.Store.TblEntradasCartaoPonto" Multiplicity="*" />
@@ -333,18 +346,6 @@
       </Principal>
       <Dependent Role="Enderecos">
         <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FuncionariosBeneficios">
-    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
-    <End Role="Beneficios" Type="Model.Store.TblBeneficios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Funcionarios">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Beneficios">
-        <PropertyRef Name="funcionarioId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -432,6 +433,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_FuncionarioBeneficio_Funcionario">
+    <End Role="Funcionario" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
+    <End Role="FuncionarioBeneficio" Type="Model.Store.FuncionarioBeneficio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionarioBeneficio">
+        <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionarioBeneficio_Beneficio">
+    <End Role="FuncionarioBeneficio" Type="Model.Store.FuncionarioBeneficio" Multiplicity="*" />
+    <End Role="Beneficio" Type="Model.Store.TblBeneficios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionarioBeneficio">
+        <PropertyRef Name="Beneficios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Medico_inherits_Funcionario">
     <End Role="Funcionario" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
     <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="0..1" />
@@ -488,10 +513,6 @@
             <End Role="Enderecos" EntitySet="TblEnderecos" />
           </AssociationSet>
           <EntitySet Name="TblBeneficios" EntityType="Model.Beneficio" />
-          <AssociationSet Name="FuncionariosBeneficios" Association="Model.FuncionariosBeneficios">
-            <End Role="Funcionarios" EntitySet="TblFuncionarios" />
-            <End Role="Beneficios" EntitySet="TblBeneficios" />
-          </AssociationSet>
           <EntitySet Name="TblCargos" EntityType="Model.Cargo" />
           <AssociationSet Name="FuncionariosCargos" Association="Model.FuncionariosCargos">
             <End Role="Funcionarios" EntitySet="TblFuncionarios" />
@@ -524,6 +545,10 @@
             <End Role="Medico" EntitySet="TblFuncionarios" />
             <End Role="Especialidade" EntitySet="TblEspecialidades" />
           </AssociationSet>
+          <AssociationSet Name="FuncionarioBeneficio" Association="Model.FuncionarioBeneficio">
+            <End Role="Funcionario" EntitySet="TblFuncionarios" />
+            <End Role="Beneficio" EntitySet="TblBeneficios" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Funcionario">
           <Key>
@@ -538,13 +563,13 @@
           <NavigationProperty Name="Curriculum" Relationship="Model.FuncionariosCurricula" FromRole="Funcionarios" ToRole="Curricula" />
           <NavigationProperty Name="DadosPessoais" Relationship="Model.FuncionariosDadosPessoais" FromRole="Funcionarios" ToRole="DadosPessoais" />
           <NavigationProperty Name="CartaoPonto" Relationship="Model.FuncionariosCartoesPonto" FromRole="Funcionarios" ToRole="CartoesPonto" />
-          <NavigationProperty Name="Beneficios" Relationship="Model.FuncionariosBeneficios" FromRole="Funcionarios" ToRole="Beneficios" />
           <NavigationProperty Name="Cargo" Relationship="Model.FuncionariosCargos" FromRole="Funcionarios" ToRole="Cargos" />
           <NavigationProperty Name="DadosBancarios" Relationship="Model.FuncionariosDadosBancarios" FromRole="Funcionarios" ToRole="DadosBancarios" />
           <NavigationProperty Name="Admissao" Relationship="Model.FuncionariosAdmissoes" FromRole="Funcionarios" ToRole="Admissoes" />
           <Property Type="String" Name="EntityType" Nullable="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
           <Property Type="Int32" Name="PermissaoId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <Property Type="Int32" Name="CargoId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Beneficios" Relationship="Model.FuncionarioBeneficio" FromRole="Funcionario" ToRole="Beneficio" />
         </EntityType>
         <EntityType Name="Pagamento">
           <Key>
@@ -645,7 +670,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Nome" Nullable="false" />
           <Property Type="String" Name="Sobrenome" Nullable="false" />
-          <Property Type="String" Name="DataNascimento" Nullable="false" />
+          <Property Type="DateTime" Name="DataNascimento" Nullable="false" />
           <Property Type="String" Name="Sexo" Nullable="false" />
           <Property Type="Int64" Name="CPF" Nullable="false" />
           <Property Type="Int64" Name="RG" Nullable="false" />
@@ -706,18 +731,6 @@
           <Property Type="Double" Name="Valor" Nullable="false" />
           <Property Type="Int32" Name="funcionarioId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
         </EntityType>
-        <Association Name="FuncionariosBeneficios">
-          <End Type="Model.Funcionario" Role="Funcionarios" Multiplicity="1" />
-          <End Type="Model.Beneficio" Role="Beneficios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Funcionarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Beneficios">
-              <PropertyRef Name="funcionarioId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Cargo">
           <Key>
             <PropertyRef Name="Id" />
@@ -764,8 +777,8 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="DataAdmissao" Nullable="false" />
-          <Property Type="DateTime" Name="DataDesligamento" Nullable="false" />
-          <Property Type="String" Name="MotivoDesligamento" Nullable="false" />
+          <Property Type="DateTime" Name="DataDesligamento" Nullable="true" />
+          <Property Type="String" Name="MotivoDesligamento" Nullable="true" />
           <Property Type="String" Name="UltimoSalario" Nullable="false" />
           <NavigationProperty Name="UltimoCargo" Relationship="Model.AdmissaoCargo" FromRole="Admissao" ToRole="Cargo" />
         </EntityType>
@@ -817,6 +830,10 @@
               <PropertyRef Name="EspecialidadeId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="FuncionarioBeneficio">
+          <End Type="Model.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <End Type="Model.Beneficio" Role="Beneficio" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1052,6 +1069,14 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="FuncionarioBeneficio" TypeName="Model.FuncionarioBeneficio" StoreEntitySet="FuncionarioBeneficio">
+      <EndProperty Name="Funcionario">
+        <ScalarProperty Name="Id" ColumnName="FuncionarioBeneficio_Beneficio_Id" />
+      </EndProperty>
+      <EndProperty Name="Beneficio">
+        <ScalarProperty Name="Id" ColumnName="Beneficios_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -1126,11 +1151,6 @@
           <ConnectorPoint PointX="1.3437475" PointY="8.5" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Beneficio" Width="1.5" PointX="8" PointY="10.75" Height="1.7879850260416657" />
-        <AssociationConnector Association="Model.FuncionariosBeneficios">
-          <ConnectorPoint PointX="7.125" PointY="4.985341796875" />
-          <ConnectorPoint PointX="8.75" PointY="4.985341796875" />
-          <ConnectorPoint PointX="8.75" PointY="10.75" />
-        </AssociationConnector>
         <EntityTypeShape EntityType="Model.Cargo" Width="1.5" PointX="10.25" PointY="5.125" Height="1.5956835937499996" />
         <AssociationConnector Association="Model.FuncionariosCargos">
           <ConnectorPoint PointX="7.125" PointY="5.922841796875" />
@@ -1180,6 +1200,11 @@
         <AssociationConnector Association="Model.MedicoEspecialidade">
           <ConnectorPoint PointX="3.8125" PointY="6" />
           <ConnectorPoint PointX="3.8125" PointY="1.9033821614583333" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FuncionarioBeneficio">
+          <ConnectorPoint PointX="7.125" PointY="4.985341796875" />
+          <ConnectorPoint PointX="8.75" PointY="4.985341796875" />
+          <ConnectorPoint PointX="8.75" PointY="10.75" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

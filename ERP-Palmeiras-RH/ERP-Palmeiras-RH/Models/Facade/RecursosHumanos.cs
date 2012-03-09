@@ -24,7 +24,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             return instance;
         }
 
-        public static void InserirFuncionario(Funcionario funcionario)
+        public void InserirFuncionario(Funcionario funcionario)
         {
             ModelRH model = new ModelRH();
 
@@ -42,11 +42,59 @@ namespace ERP_Palmeiras_RH.Models.Facade
             model.SaveChanges();
         }
 
-        public static void AtualizarFuncionario(Funcionario funcionario)
+        public void AtualizarFuncionario(Funcionario funcionario)
         {
             ModelRH model = new ModelRH();
 
             //IEnumerable<Funcionario> oldFunc = model.TblFuncionarios.Where(f => f.DadosPessoais.CPF = funcionario.DadosPessoais.CPF);
+        }
+
+        public IEnumerable<Cargo> BuscarCargos()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblCargos.Where<Cargo>(c => true);
+        }
+
+        public Cargo BuscarCargo(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblCargos.Where<Cargo>(c => c.Id == id).First<Cargo>();
+        }
+
+        public IEnumerable<Beneficio> BuscarBeneficios()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblBeneficios.Where<Beneficio>(b => true);
+        }
+
+        public Beneficio BuscarBeneficio(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblBeneficios.Where<Beneficio>(b => b.Id == id).First<Beneficio>();
+        }
+
+        public IEnumerable<Especialidade> BuscarEspecialidades()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblEspecialidades.Where<Especialidade>(e => true);
+        }
+
+        public Especialidade BuscarEspecialidade(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblEspecialidades.Where<Especialidade>(b => b.Id == id).First<Especialidade>();
+        }
+
+        public IEnumerable<Permissao> BuscarPermissoes()
+        {
+            ModelRH model = new ModelRH();
+            return model.TblPermissoes.Where<Permissao>(e => true);
+        }
+
+        public Permissao BuscarPermissao(int id)
+        {
+            ModelRH model = new ModelRH();
+            return model.TblPermissoes.Where<Permissao>(p => p.Id == id).First<Permissao>();
         }
 
     }

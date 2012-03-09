@@ -25,7 +25,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosDadosPessoais", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "DadosPessoais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoPessoal))]
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosCartoesPonto", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "CartoesPonto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.CartaoPonto))]
 [assembly: EdmRelationshipAttribute("Model", "DadosPessoaisEnderecos", "DadosPessoais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoPessoal), "Enderecos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Endereco), true)]
-[assembly: EdmRelationshipAttribute("Model", "FuncionariosBeneficios", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Beneficios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Beneficio), true)]
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosCargos", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Cargos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Cargo), true)]
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosDadosBancarios", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "DadosBancarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoBancario))]
 [assembly: EdmRelationshipAttribute("Model", "FuncionariosAdmissoes", "Funcionarios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Admissoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao))]
@@ -33,6 +32,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "DadoPessoalTelefone", "DadoPessoal", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.DadoPessoal), "Telefone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Telefone), true)]
 [assembly: EdmRelationshipAttribute("Model", "AdmissaoCargo", "Admissao", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Admissao), "Cargo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ERP_Palmeiras_RH.Models.Cargo))]
 [assembly: EdmRelationshipAttribute("Model", "MedicoEspecialidade", "Medico", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Medico), "Especialidade", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP_Palmeiras_RH.Models.Especialidade), true)]
+[assembly: EdmRelationshipAttribute("Model", "FuncionarioBeneficio", "Funcionario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Funcionario), "Beneficio", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP_Palmeiras_RH.Models.Beneficio))]
 
 #endregion
 
@@ -470,16 +470,12 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="dataAdmissao">Initial value of the DataAdmissao property.</param>
-        /// <param name="dataDesligamento">Initial value of the DataDesligamento property.</param>
-        /// <param name="motivoDesligamento">Initial value of the MotivoDesligamento property.</param>
         /// <param name="ultimoSalario">Initial value of the UltimoSalario property.</param>
-        public static Admissao CreateAdmissao(global::System.Int32 id, global::System.DateTime dataAdmissao, global::System.DateTime dataDesligamento, global::System.String motivoDesligamento, global::System.String ultimoSalario)
+        public static Admissao CreateAdmissao(global::System.Int32 id, global::System.DateTime dataAdmissao, global::System.String ultimoSalario)
         {
             Admissao admissao = new Admissao();
             admissao.Id = id;
             admissao.DataAdmissao = dataAdmissao;
-            admissao.DataDesligamento = dataDesligamento;
-            admissao.MotivoDesligamento = motivoDesligamento;
             admissao.UltimoSalario = ultimoSalario;
             return admissao;
         }
@@ -541,9 +537,9 @@ namespace ERP_Palmeiras_RH.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataDesligamento
+        public Nullable<global::System.DateTime> DataDesligamento
         {
             get
             {
@@ -558,14 +554,14 @@ namespace ERP_Palmeiras_RH.Models
                 OnDataDesligamentoChanged();
             }
         }
-        private global::System.DateTime _DataDesligamento;
-        partial void OnDataDesligamentoChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _DataDesligamento;
+        partial void OnDataDesligamentoChanging(Nullable<global::System.DateTime> value);
         partial void OnDataDesligamentoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MotivoDesligamento
         {
@@ -577,7 +573,7 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnMotivoDesligamentoChanging(value);
                 ReportPropertyChanging("MotivoDesligamento");
-                _MotivoDesligamento = StructuralObject.SetValidValue(value, false);
+                _MotivoDesligamento = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("MotivoDesligamento");
                 OnMotivoDesligamentoChanged();
             }
@@ -1369,7 +1365,7 @@ namespace ERP_Palmeiras_RH.Models
         /// <param name="rG">Initial value of the RG property.</param>
         /// <param name="cLT">Initial value of the CLT property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static DadoPessoal CreateDadoPessoal(global::System.Int32 id, global::System.String nome, global::System.String sobrenome, global::System.String dataNascimento, global::System.String sexo, global::System.Int64 cPF, global::System.Int64 rG, global::System.String cLT, global::System.String email)
+        public static DadoPessoal CreateDadoPessoal(global::System.Int32 id, global::System.String nome, global::System.String sobrenome, global::System.DateTime dataNascimento, global::System.String sexo, global::System.Int64 cPF, global::System.Int64 rG, global::System.String cLT, global::System.String email)
         {
             DadoPessoal dadoPessoal = new DadoPessoal();
             dadoPessoal.Id = id;
@@ -1467,7 +1463,7 @@ namespace ERP_Palmeiras_RH.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String DataNascimento
+        public global::System.DateTime DataNascimento
         {
             get
             {
@@ -1477,13 +1473,13 @@ namespace ERP_Palmeiras_RH.Models
             {
                 OnDataNascimentoChanging(value);
                 ReportPropertyChanging("DataNascimento");
-                _DataNascimento = StructuralObject.SetValidValue(value, false);
+                _DataNascimento = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DataNascimento");
                 OnDataNascimentoChanged();
             }
         }
-        private global::System.String _DataNascimento;
-        partial void OnDataNascimentoChanging(global::System.String value);
+        private global::System.DateTime _DataNascimento;
+        partial void OnDataNascimentoChanging(global::System.DateTime value);
         partial void OnDataNascimentoChanged();
     
         /// <summary>
@@ -2725,28 +2721,6 @@ namespace ERP_Palmeiras_RH.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosBeneficios", "Beneficios")]
-        public EntityCollection<Beneficio> Beneficios
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Beneficio>("Model.FuncionariosBeneficios", "Beneficios");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Beneficio>("Model.FuncionariosBeneficios", "Beneficios", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionariosCargos", "Cargos")]
         public Cargo Cargo
         {
@@ -2851,6 +2825,28 @@ namespace ERP_Palmeiras_RH.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Admissao>("Model.FuncionariosAdmissoes", "Admissoes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FuncionarioBeneficio", "Beneficio")]
+        public EntityCollection<Beneficio> Beneficios
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Beneficio>("Model.FuncionarioBeneficio", "Beneficio");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Beneficio>("Model.FuncionarioBeneficio", "Beneficio", value);
                 }
             }
         }

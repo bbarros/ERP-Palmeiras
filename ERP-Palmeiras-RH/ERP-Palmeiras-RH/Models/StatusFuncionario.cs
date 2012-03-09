@@ -7,6 +7,6 @@ namespace ERP_Palmeiras_RH.Models
 {
     public enum StatusFuncionario
     {
-        ATIVO, DESLIGADO, APOSENTADO
+        ATIVO = 1, DESLIGADO = 2, APOSENTADO = 3
     }
 }
