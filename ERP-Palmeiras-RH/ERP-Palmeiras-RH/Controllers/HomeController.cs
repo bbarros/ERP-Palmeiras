@@ -4,9 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ERP_Palmeiras_RH.Models;
+using ERP_Palmeiras_RH.Models.Facade;
+using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
+    [HandleERPException]
     public class HomeController : Controller
     {
         GerenciadorDeSessao sessao = GerenciadorDeSessao.GetInstance();
@@ -16,6 +19,7 @@ namespace ERP_Palmeiras_RH.Controllers
         /// </summary>
         public ActionResult Index()
         {
+            
             if (sessao.SessaoAtiva)
                 return View("Welcome");
             return View();
@@ -28,6 +32,16 @@ namespace ERP_Palmeiras_RH.Controllers
         [HttpPost]
         public ActionResult Login(String usuario, String senha)
         {
+
+            RecursosHumanos facadeRH = RecursosHumanos.GetInstance();
+
+            sessao.Funcionario = facadeRH.AutenticaUsuario(usuario, senha);
+
+            if (sessao.Funcionario == null)
+            {
+                ViewData["Message"] = "Usuário inválido!";
+                return View("Error");
+            }
             return View("Welcome");
         }
 
@@ -44,6 +58,11 @@ namespace ERP_Palmeiras_RH.Controllers
         /// Tela de boas vindas.
         /// </summary>
         public ActionResult Welcome()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
         {
             return View();
         }
