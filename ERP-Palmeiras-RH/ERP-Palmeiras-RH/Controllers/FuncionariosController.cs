@@ -7,6 +7,7 @@ using System.Web;
 using ERP_Palmeiras_RH.Models;
 using ERP_Palmeiras_RH.Models.Facade;
 
+
 namespace ERP_Palmeiras_RH.Controllers
 {
     /// <summary>
@@ -117,6 +118,22 @@ namespace ERP_Palmeiras_RH.Controllers
             facade.InserirFuncionario(func);
 
             return View();
+        }
+
+        public ActionResult IndexFuncionarios()
+        {
+            RecursosHumanos facadeRH = RecursosHumanos.GetInstance();
+            IEnumerable<Funcionario> listaFuncionarios = facadeRH.BuscarFuncionarios();
+
+            return View(listaFuncionarios);
+        }
+
+        public ActionResult Editar(int id)
+        {
+            RecursosHumanos facadeRH = RecursosHumanos.GetInstance();
+            Funcionario funcionario = facadeRH.BuscarFuncionario(id);
+
+            return View(funcionario);
         }
     }
 }

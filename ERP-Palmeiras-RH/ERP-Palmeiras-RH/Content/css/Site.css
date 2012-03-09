@@ -1,6 +1,4 @@
-﻿/* REnas*/
-
-*{
+﻿*{
 	text-align: justify;
 	font-size: 14px;
 	margin:0;
@@ -159,7 +157,7 @@ h1 {
 
 
 #side-navigation {
-    background-color: #cccccc;
+    background-color: #e7e7e7;
     background-repeat: repeat;
     border-width: 0px;
     padding: 0px;
@@ -168,7 +166,7 @@ h1 {
     min-height: 1000px;
     height: 75%;
     width: 20%;
-    
+    float: left;
 }
 
 #side-navigation li a {
@@ -232,7 +230,7 @@ h1 {
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #5a6064;
     list-style-type : none;
-    background-color: #cccccc;
+    background-color: #e7e7e7;
 }
 
 .accordion 
@@ -289,35 +287,63 @@ h1 {
 	background: #b5b5b5 url(../images/bullet.png) 12px 12px no-repeat;
 }
 
+#main 
+{
+    float: right;
+    width: 78.3%;
+    margin: 0.5%;
+    padding: 0.3%;
+    background-color: #e7e7e7;
+    border:1px solid #000000;
+}
+
+.odd
+{
+	background-color:#ffffff;
+}
+
+.even
+{
+    background-color: #d3d3d3;
+}
+
+#funcionariosTable
+{
+    border-collapse:collapse;
+    margin: auto;
+}
+
+#funcionariosTable tr th
+{
+    background-color: #778899;
+    padding: 3px 5px 3px 5px;
+    color: #ffffff;
+    text-align: center;
+}
+
+#funcionariosTable tr td
+{
+    padding: 2px 5px 2px 5px;
+    color: #000000;
+    text-align: center;
+    border-bottom: 1px solid #778899;
+}
 
 /*/////////////////// Main Content ///////////////////*/
 
-#main{
-
-    width:953px;
-    
-    
-    }
-
-#formulario{
-  
-    border:1px solid #000000;
-    margin: 10px;
-    background-color: #e7e7e7;
-    padding-left: 5px;
-    
-    
-}
-#infoPessoais{
-  
+#infoPessoais
+{
     padding: 5px;   
-    
 }
     
     
 .formPadrao
 {
-    font-weight: bold; 
-        
+    font-weight: bold;
 }
-    
+
+.editIcon
+{
+    width: 20px;
+    height: 20px;
+}

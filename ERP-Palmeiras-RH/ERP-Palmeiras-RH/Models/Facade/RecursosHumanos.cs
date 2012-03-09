@@ -113,5 +113,23 @@ namespace ERP_Palmeiras_RH.Models.Facade
             return model.TblPermissoes.Where<Permissao>(p => p.Id == id).First<Permissao>();
         }
 
+        public IEnumerable<Funcionario> BuscarFuncionarios()
+        {
+            ModelRH model = new ModelRH();
+
+            IEnumerable<Funcionario> funcionarios = model.TblFuncionarios.Where<Funcionario>(f => true);
+
+            return funcionarios;
+        }
+
+        public Funcionario BuscarFuncionario(int id)
+        {
+            ModelRH model = new ModelRH();
+
+            Funcionario funcionario = model.TblFuncionarios.Single(f => f.Id == id);
+
+            return funcionario;
+        }
+
     }
 }
