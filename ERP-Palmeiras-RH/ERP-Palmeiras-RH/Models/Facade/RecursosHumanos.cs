@@ -27,7 +27,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             return instance;
         }
 
-        public static void InserirFuncionario(Funcionario funcionario)
+        public void InserirFuncionario(Funcionario funcionario)
         {
             ModelRH model = new ModelRH();
 
@@ -45,12 +45,24 @@ namespace ERP_Palmeiras_RH.Models.Facade
             model.SaveChanges();
         }
 
-        public static void AtualizarFuncionario(Funcionario funcionario)
+        public void AtualizarFuncionario(Funcionario funcionario)
         {
             ModelRH model = new ModelRH();
 
             model.Entry(funcionario).State = EntityState.Modified;
             model.SaveChanges();
+        }
+
+        public Funcionario AutenticaUsuario(string user, string password)
+        {
+            ModelRH model = new ModelRH();
+            IEnumerable<Funcionario> result = model.TblFuncionarios.Where(f => f.Credencial.Usuario == user && f.Credencial.Senha == password);
+
+            if (result != null && result.Count<Funcionario>() > 0)
+                return result.First<Funcionario>();
+            else 
+                 return null;
+
         }
 
     }

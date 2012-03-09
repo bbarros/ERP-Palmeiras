@@ -1072,7 +1072,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ModelRH" ZoomLevel="86" DisplayType="true" >
+      <Diagram Name="ModelRH" ZoomLevel="64" DisplayType="true" >
         <EntityTypeShape EntityType="Model.Funcionario" Width="1.5" PointX="5.625" PointY="2.875" Height="4.0956022135416656" />
         <EntityTypeShape EntityType="Model.Pagamento" Width="1.5" PointX="4.5" PointY="10.75" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="Model.Credencial" Width="1.5" PointX="10.25" PointY="3.25" Height="1.5956835937499996" />
