@@ -75,7 +75,7 @@
         }
     </script>
     <div id="formulario">
-        <form method="post" action="<%= Url.Action("Funcionarios", "Cadastrar") %>">
+        <form method="post" action="<%= Url.Action("Cadastrar", "Funcionarios") %>" enctype="multipart/form-data">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Funcionário</p>
         <div id="infoPessoais">

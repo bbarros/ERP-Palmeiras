@@ -11,10 +11,10 @@
         <script type="text/javascript">
             $(document).ready(function () {
 
-                $("li.accordionSubItem").hide();
+                $("ul.accordionSubItem").hide();
 
                 $('li.accordion').click(function () {
-                    $(this).parent().find('.accordionSubItem').slideToggle("slow");
+                    $(this).find('.accordionSubItem').slideToggle("slow");
                 });
             });
         

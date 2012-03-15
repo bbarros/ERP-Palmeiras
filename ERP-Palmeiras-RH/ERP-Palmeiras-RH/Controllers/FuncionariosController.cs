@@ -137,8 +137,9 @@ namespace ERP_Palmeiras_RH.Controllers
             func.DadosPessoais = dp;
 
             Curriculum curriculum = new Curriculum();
-            curriculum.Arquivo = new byte[flCurriculum.ContentLength];
-            flCurriculum.InputStream.Read(curriculum.Arquivo, 0, flCurriculum.ContentLength);
+            byte[] cv = new byte[flCurriculum.ContentLength];
+            flCurriculum.InputStream.Read(cv, 0, flCurriculum.ContentLength);
+            curriculum.Arquivo = cv;
             curriculum.Formacao = formacao;
             func.Curriculum = curriculum;
 
