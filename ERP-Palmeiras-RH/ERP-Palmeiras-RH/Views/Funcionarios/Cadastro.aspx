@@ -73,9 +73,18 @@
                     campo.value = vr.substr(0, 2) + '/' + vr.substr(2, 2) + '/';
             }
         }
+
+        $(document).ready(function () {
+            $("#addTelefone").click(function () {
+                $("#telefones").append("<input name=\"telefone\" type=\"text\" onkeyup=\"FormataTel(this,event)\" maxlength=\"13\" />")
+            });
+        });
+
     </script>
+
+
     <div id="formulario">
-        <form method="post" action="<%= Url.Action("Cadastrar", "Funcionarios") %>" enctype="multipart/form-data">
+        <form method="post" action="<%= Url.Action("Funcionarios", "Cadastrar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Funcionário</p>
         <div id="infoPessoais">
@@ -120,11 +129,12 @@
                         <p>
                             Telefone</p>
                     </th>
-                    <th style="padding-left: 50px;">
-                        <input id="telefone" name="telefone" type="text" onkeyup="FormataTel(this,event)"
+                    <th id="telefones" style="padding-left: 50px;">
+                        <input name="telefone" type="text" onkeyup="FormataTel(this,event)"
                             maxlength="13" />
                     </th>
                     <th style="padding-left: 15px;">
+                        <input id="addTelefone" type="button" value="+" style="padding-left: 3px;" />
                     </th>
                     <th>
                     </th>
@@ -408,11 +418,7 @@
             </table>
         </div>
         <br />
+        </form>
     </div>
     <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
-    </form>
-</asp:Content>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
-    <% Html.RenderPartial("MenuFuncionarios"); %>
 </asp:Content>
