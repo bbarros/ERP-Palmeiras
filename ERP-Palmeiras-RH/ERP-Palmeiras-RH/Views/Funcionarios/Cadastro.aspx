@@ -73,7 +73,18 @@
                     campo.value = vr.substr(0, 2) + '/' + vr.substr(2, 2) + '/';
             }
         }
+
+        $(document).ready(function ()
+        {
+            $("#addTelefone").click(function ()
+            {
+                $("#telefones").append("<input name=\"telefone\" type=\"text\" onkeyup=\"FormataTel(this,event)\" maxlength=\"13\" />")
+            });
+        });
+
     </script>
+
+
     <div id="formulario">
         <form method="post" action="<%= Url.Action("Funcionarios", "Cadastrar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
@@ -120,11 +131,12 @@
                         <p>
                             Telefone</p>
                     </th>
-                    <th style="padding-left: 50px;">
-                        <input id="telefone" name="telefone" type="text" onkeyup="FormataTel(this,event)"
+                    <th id="telefones" style="padding-left: 50px; max-width: 27px;">
+                        <input name="telefone" type="text" onkeyup="FormataTel(this,event)"
                             maxlength="13" />
                     </th>
                     <th style="padding-left: 15px;">
+                        <input id="addTelefone" type="button" value="+" style="padding-left: 3px;" />
                     </th>
                     <th>
                     </th>
@@ -276,11 +288,7 @@
                     </th>
                     <th style="padding-left: 87px;">
                         <select id="beneficios" name="beneficios" multiple="multiple">
-                            <% foreach (ERP_Palmeiras_RH.Models.Beneficio b in beneficios)
-                               { %>
-                            <option value="<%= b.Id %>">
-                                <%= b.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
@@ -354,10 +362,7 @@
                     </th>
                     <th style="padding-left: 55px;">
                         <select id="cargo" name="cargo">
-                            <% foreach (ERP_Palmeiras_RH.Models.Cargo c in cargos)
-                               { %>
-                            <option value="<%= c.Id %>"><%= c.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
@@ -368,10 +373,7 @@
                     <th style="padding-left: 55px;">
                         <select id="especialidade" name="especialidade">
                         <option value="0">Nao se aplica</option>
-                            <% foreach (ERP_Palmeiras_RH.Models.Especialidade e in especialidades)
-                               { %>
-                            <option value="<%= e.Id %>"><%= e.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
@@ -397,18 +399,14 @@
                     </th>
                     <th style="padding-left: 87px;">
                         <select id="permissao" name="permissao">
-                            <% foreach (ERP_Palmeiras_RH.Models.Permissao p in permissoes)
-                               { %>
-                            <option value="<%= p.Id %>">
-                                <%= p.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
             </table>
         </div>
         <br />
+        </form>
     </div>
     <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
-    </form>
 </asp:Content>

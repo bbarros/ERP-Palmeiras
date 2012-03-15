@@ -57,11 +57,12 @@ h1 {
 	border-bottom-color: #5a6064;
 	min-height: 90px;
 	min-width: 800px;
-	height: 25%;
+	height: 90px;
 	width: 100%;
 	background-image: url(../images/bg_header.jpg);
 	border-bottom: 1px solid;
 	background: initial url(../images/bg_header.jpg) repeat initial 0px;
+	position: fixed;
 }
 
 #shining {
@@ -154,147 +155,78 @@ h1 {
 	background-image: url(../images/logo_bif.png);
 }
 
-
-
 #side-navigation {
-    background-color: #e7e7e7;
-    background-repeat: repeat;
     border-width: 0px;
     padding: 0px;
-    margin: 0px;
-    min-width: 100px;
-    min-height: 1000px;
-    height: 75%;
+    margin: 90px 0 0 0;
+    min-width: 170px;
     width: 20%;
     float: left;
+    position: fixed;
 }
 
-#side-navigation li a {
+#side-navigation ul li{
     display: block;
     text-decoration: none;
     font-size: 12px;
     line-height: 27px;
-    color: #484848;
 	background: #e7e7e7 url(../images/bullet.png) 12px 12px no-repeat;
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #5a6064;
-    padding-left: 28px;
-    list-style-type : none;
+    padding-left: 0px;
+    list-style-type : none none inside;
 }
 
-
-#side-navigation li a:hover {
+#side-navigation ul li:hover {
 	background: #b5b5b5 url(../images/bullet.png) 12px 12px no-repeat;
 	list-style-type : none;
 }
 
-#side-navigation li a:active {
+#side-navigation ul li:active {
 	background: #7F7F7F url(../images/bullet.png) 12px 12px no-repeat;
-	text-decoration: underline;
 }
 
-#side-navigation li ul 
+#side-navigation ul li ul 
 {
     list-style: none none inside;
     padding: 0px;
 }
 
-#side-navigation li  
+#side-navigation ul li ul li a
 {
-    list-style: none none inside;
-    padding: 0px;
-    height: 70%;
-}
-
-#side-navigation li ul li a {
     display: block;
     text-decoration: none;
     font-size: 12px;
-    line-height: 27px;
-    color: #484848;
-	background-image: none;
-	background-color: #c0c0D0;
-    border-top: 1px solid #FFFFFF;
+    line-height: 20px;
+    color: #ffffff;
+	background-color: #7f7f7f;
+	border-top: none;
     border-bottom: 1px solid #FFFFFF;
     list-style-type : none;
     list-style-position: inside;
 }
 
-#side-navigation li ul li a:hover {
-    display: block;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 27px;
-    color: #FFFFFF;
-	background-image: none;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #5a6064;
-    list-style-type : none;
-    background-color: #e7e7e7;
+#side-navigation ul li ul li a:hover
+{
+    font-weight: bold;
 }
-
 .accordion 
 {
     cursor : pointer;
     display: block;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 27px;
-    color: #484848;
-	background: #e7e7e7 url(../images/bullet.png) 12px 12px no-repeat;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #5a6064;
-    padding-left: 0px;
-
-}
-
-.accordionSubItem
-{
-    display: block;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 27px;
-    color: #484848;
-	background: #e7e7e7   no-repeat;
-    list-style-type: none;
-    padding-left: 0px;
-
-}
-
-.accordionSubItem a{
-    display: block;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 27px;
-    color: White;
-	background: #e7e7e7 no-repeat;
-    list-style-type: none;
-    padding-left: 20px;
-    border-bottom: 1px none #000000; 
-
-
-}
-
-
-
-
-.accordionSubItem a:hover {
-	background: #FFFFFF  12px 12px no-repeat;
-	list-style-type: none; 
-}
-
-.accordion:hover{
-	background: #b5b5b5 url(../images/bullet.png) 12px 12px no-repeat;
 }
 
 #main 
 {
     float: right;
+    min-width: 600px;
     width: 78.3%;
-    margin: 0.5%;
+    height:auto;
+    margin: 95px 5px 5px 5px;
     padding: 0.3%;
     background-color: #e7e7e7;
     border:1px solid #000000;
+    overflow:auto;
 }
 
 .odd

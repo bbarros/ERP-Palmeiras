@@ -79,7 +79,15 @@
                     campo.value = vr.substr(0, 2) + '/' + vr.substr(2, 2) + '/';
             }
         }
+
+        $(document).ready(function () {
+            $("#addTelefone").click(function () {
+                $("#telefones").append("<input name=\"telefone\" type=\"text\" onkeyup=\"FormataTel(this,event)\" maxlength=\"13\" />")
+            });
+        });
+
     </script>
+
     <div id="formulario">
         <form method="post" action="<%= Url.Action("Funcionarios", "Cadastrar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
@@ -126,11 +134,12 @@
                         <p>
                             Telefone</p>
                     </th>
-                    <th style="padding-left: 50px;">
-                        <input id="telefone" name="telefone" value="<%= func.DadosPessoais.Nome %>" type="text" onkeyup="FormataTel(this,event)"
+                    <th id="telefones" style="padding-left: 50px; max-width: 27px;">
+                        <input name="telefone" type="text" onkeyup="FormataTel(this,event)"
                             maxlength="13" />
                     </th>
                     <th style="padding-left: 15px;">
+                        <input id="addTelefone" type="button" value="+" style="padding-left: 3px;" />
                     </th>
                     <th>
                     </th>
@@ -140,7 +149,7 @@
                         E-mail Pessoal
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="emailpes" name="emailpes" type="text" />
+                        <input id="emailpes" name="emailpes" type="text" value="<%= func.DadosPessoais.Email %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -148,13 +157,13 @@
                         Rua
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="rua" name="rua" type="text" />
+                        <input id="rua" name="rua" type="text" value="<%= func.DadosPessoais.Endereco.Rua %>"/>
                     </th>
                     <th style="padding-left: 15px;">
                         Num.
                     </th>
                     <th style="padding-left: 60px;">
-                        <input id="num" name="num" type="text" />
+                        <input id="num" name="num" type="text" value="<%= func.DadosPessoais.Endereco.Numero %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -162,7 +171,7 @@
                         Complemento
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="complemento" name="complemento" type="text" />
+                        <input id="complemento" name="complemento" type="text" value="<%= func.DadosPessoais.Endereco.Complemento %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -170,7 +179,7 @@
                         Bairro
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="bairro" name="bairro" type="text" />
+                        <input id="bairro" name="bairro" type="text" value="<%= func.DadosPessoais.Endereco.Bairro %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -178,7 +187,7 @@
                         CEP
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="cep" name="cep" type="text" onkeyup="FormataCEP(this,event)" maxlength="9" />
+                        <input id="cep" name="cep" type="text" onkeyup="FormataCEP(this,event)" maxlength="9" value="<%= func.DadosPessoais.Endereco.CEP %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -186,13 +195,13 @@
                         Cidade
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="cidade" name="cidade" type="text" />
+                        <input id="cidade" name="cidade" type="text" value="<%= func.DadosPessoais.Endereco.Cidade %>"/>
                     </th>
                     <th style="padding-left: 15px;">
                         Estado
                     </th>
                     <th style="padding-left: 60px;">
-                        <input id="estado" name="estado" type="text" />
+                        <input id="estado" name="estado" type="text" value="<%= func.DadosPessoais.Endereco.Estado %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -200,7 +209,7 @@
                         País
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="pais" name="pais" type="text" />
+                        <input id="pais" name="pais" type="text" value="<%= func.DadosPessoais.Endereco.Pais %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -208,13 +217,13 @@
                         RG
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="rg" name="rg" type="text" onkeyup="FormataRG(this,event)" maxlength="12" />
+                        <input id="rg" name="rg" type="text" onkeyup="FormataRG(this,event)" maxlength="12" value="<%= func.DadosPessoais.RG %>"/>
                     </th>
                     <th style="padding-left: 15px;">
                         CPF
                     </th>
                     <th style="padding-left: 60px;">
-                        <input id="cpf" name="cpf" type="text" onkeyup="FormataCpf(this,event)" maxlength="14" />
+                        <input id="cpf" name="cpf" type="text" onkeyup="FormataCpf(this,event)" maxlength="14" value="<%= func.DadosPessoais.CPF %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -222,7 +231,14 @@
                         CRM
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="crm" name="crm" type="text" />
+                        <%  String CRM = "";
+                            if (func is ERP_Palmeiras_RH.Models.Medico)
+                            {
+                                ERP_Palmeiras_RH.Models.Medico m = (ERP_Palmeiras_RH.Models.Medico) func;
+                                CRM = m.CRM;
+                            }
+                            %>
+                        <input id="crm" name="crm" type="text" value="<%= CRM %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -230,13 +246,13 @@
                         Formação
                     </th>
                     <th style="padding-left: 50px;">
-                        <input id="formacao" name="formacao" type="text" />
+                        <input id="formacao" name="formacao" type="text" value="<%= func.Curriculum.Formacao %>"/>
                     </th>
                 </tr>
                 <tr>
                     <th colspan="2">
                         <b>CV </b>
-                        <input id="flCurriculum" name="flCurriculum" type="file" value="Anexar CV" />
+                        <input id="flCurriculum" name="flCurriculum" type="file" value="<%= func.Curriculum.Arquivo %>" />
                     </th>
                 </tr>
             </table>
@@ -253,7 +269,7 @@
                         Banco
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="banco" name="banco" type="text" />
+                        <input id="banco" name="banco" type="text" value="<%= func.DadoBancario.Banco %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -261,13 +277,13 @@
                         Agência
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="agencia" name="agencia" type="text" />
+                        <input id="agencia" name="agencia" type="text" value="<%= func.DadoBancario.Agencia %>"/>
                     </th>
                     <th style="padding-left: 100px;">
                         Conta
                     </th>
                     <th style="padding-left: 87px;">
-                        <input id="conta" name="conta" type="text" />
+                        <input id="conta" name="conta" type="text" value="<%= func.DadoBancario.Conta %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -275,18 +291,14 @@
                         Salário
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="salario" name="salario" type="text" />
+                        <input id="salario" name="salario" type="text" value="<%= func.Salario %>"/>
                     </th>
                     <th style="padding-left: 100px;">
                         Benefícios
                     </th>
                     <th style="padding-left: 87px;">
                         <select id="beneficios" name="beneficios" multiple="multiple">
-                            <% foreach (ERP_Palmeiras_RH.Models.Beneficio b in beneficios)
-                               { %>
-                            <option value="<%= b.Id %>">
-                                <%= b.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
@@ -305,9 +317,9 @@
                     </th>
                     <th style="padding-left: 55px; width: 500px">
                         <select id="status" name="status">
-                            <option value="1">Ativo</option>
-                            <option value="2">Desligado</option>
-                            <option value="3">Aposentado</option>
+                            <option value="1" <%= func.Status == "Ativo" ? "SELECTED" : "" %>>Ativo</option>
+                            <option value="2" <%= func.Status == "Desligado" ? "SELECTED" : "" %>>Desligado</option>
+                            <option value="3" <%= func.Status == "Aposentado" ? "SELECTED" : "" %>>Aposentado</option>
                         </select>
                     </th>
                 </tr>
@@ -316,7 +328,7 @@
                         Num. Carteira de Trabalho
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="carteira" name="carteira" type="text" />
+                        <input id="carteira" name="carteira" type="text" value="<%= func.DadosPessoais.CLT %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -325,7 +337,7 @@
                     </th>
                     <th style="padding-left: 55px;">
                         <input id="dataadmissao" name="dataadmissao" type="text" onkeyup="FormataData(this,event)"
-                            maxlength="10" />
+                            maxlength="10" value="<%= func.Admissao.DataAdmissao %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -334,7 +346,7 @@
                     </th>
                     <th style="padding-left: 55px;">
                         <input id="datademissao" name="datademissao" type="text" onkeyup="FormataData(this,event)"
-                            maxlength="10" />
+                            maxlength="10" value="<%= func.Admissao.DataDesligamento %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -342,7 +354,7 @@
                         Motivo de Desligamento
                     </th>
                     <th style="padding-left: 55px;">
-                        <textarea cols="60" rows="5" id="motivo" name="motivo" type="text">
+                        <textarea cols="60" rows="5" id="motivo" name="motivo" type="text" value="<%= func.Admissao.MotivoDesligamento %>">
                         </textarea>
                     </th>
                 </tr>
@@ -351,7 +363,7 @@
                         Ramal
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="ramal" name="ramal" type="text" />
+                        <input id="ramal" name="ramal" type="text" value="<%= func.Ramal %>"/>
                     </th>
                 </tr>
                 <tr>
@@ -359,11 +371,8 @@
                         Cargo
                     </th>
                     <th style="padding-left: 55px;">
-                        <select id="cargo" name="cargo">
-                            <% foreach (ERP_Palmeiras_RH.Models.Cargo c in cargos)
-                               { %>
-                            <option value="<%= c.Id %>"><%= c.Nome %></option>
-                            <% } %>
+                        <select id="cargo" name="cargo" value="<%= func.Cargo.Nome %>">
+
                         </select>
                     </th>
                 </tr>
@@ -374,10 +383,7 @@
                     <th style="padding-left: 55px;">
                         <select id="especialidade" name="especialidade">
                         <option value="0">Nao se aplica</option>
-                            <% foreach (ERP_Palmeiras_RH.Models.Especialidade e in especialidades)
-                               { %>
-                            <option value="<%= e.Id %>"><%= e.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
@@ -403,18 +409,13 @@
                     </th>
                     <th style="padding-left: 87px;">
                         <select id="permissao" name="permissao">
-                            <% foreach (ERP_Palmeiras_RH.Models.Permissao p in permissoes)
-                               { %>
-                            <option value="<%= p.Id %>">
-                                <%= p.Nome %></option>
-                            <% } %>
+
                         </select>
                     </th>
                 </tr>
             </table>
         </div>
         <br />
+        </form>
     </div>
-    <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
-    </form>
 </asp:Content>
