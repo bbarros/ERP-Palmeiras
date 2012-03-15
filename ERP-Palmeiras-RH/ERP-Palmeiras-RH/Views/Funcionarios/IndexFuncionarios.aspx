@@ -51,3 +51,7 @@
 				</table>
 
 </asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="SideMenu" runat="server">
+    <% Html.RenderPartial("MenuFuncionarios"); %>
+</asp:Content>

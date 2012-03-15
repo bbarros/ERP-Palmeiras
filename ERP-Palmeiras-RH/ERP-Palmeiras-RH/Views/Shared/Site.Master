@@ -11,8 +11,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
 
-                $("ul.accordionSubItem").hide();
-
+                $("li.accordionSubItem").hide();
 
                 $('li.accordion').click(function () {
                     $(this).parent().find('.accordionSubItem').slideToggle("slow");
@@ -49,8 +48,7 @@
 			
 			<!-- side-navigation: lista de botoes que compoem o menu lateral -->
 			<div style="float:left; border-right: 3px solid #000000" id="side-navigation" >          
-		        <li class="accordion"><a href="">Lista de Funcionários</a></li>     
-                <li class="accordion"><a href="">Folha de Pagamentos</a></li>	
+			    <asp:ContentPlaceHolder ID="SideMenu" runat="server" />
 			</div>
 			<!-- side-navigation: end -->
 			

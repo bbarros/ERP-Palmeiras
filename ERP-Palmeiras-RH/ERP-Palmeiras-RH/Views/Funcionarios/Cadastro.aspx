@@ -412,3 +412,7 @@
     <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
     </form>
 </asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
+    <% Html.RenderPartial("MenuFuncionarios"); %>
+</asp:Content>

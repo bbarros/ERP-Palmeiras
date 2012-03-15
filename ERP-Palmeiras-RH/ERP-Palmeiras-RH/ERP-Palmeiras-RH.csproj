@@ -191,8 +191,12 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Funcionarios\Cadastro.aspx" />
+    <Content Include="Views\Funcionarios\CriarPermissao.aspx" />
     <Content Include="Views\Funcionarios\Editar.aspx" />
+    <Content Include="Views\Funcionarios\ExcluirPermissao.aspx" />
     <Content Include="Views\Funcionarios\IndexFuncionarios.aspx" />
+    <Content Include="Views\Funcionarios\MenuFuncionarios.ascx" />
+    <Content Include="Views\Funcionarios\Permissoes.aspx" />
     <Content Include="Views\Home\Welcome.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

@@ -179,5 +179,32 @@ namespace ERP_Palmeiras_RH.Controllers
             ViewData["Especialidades"] = especialidades;
             ViewData["Permissoes"] = permissoes;
         }
+
+        public ActionResult Permissoes()
+        {
+            IEnumerable<Permissao> permissoes = facade.BuscarPermissoes();
+            ViewBag.permissoes = permissoes;
+            return View();
+        }
+
+        public ActionResult CriarPermissao(String nome)
+        {
+            if (nome != null)
+            {
+                Permissao perm = new Permissao();
+                perm.Nome = nome;
+                facade.InserirPermissao(perm);
+                return RedirectToAction("Permissoes", "Funcionarios");
+            }
+
+            return View();
+
+        }
+
+        public ActionResult ExcluirPermissao(Int32 pid)
+        {
+            facade.EscluirPermissao(pid);
+            return RedirectToAction("Permissoes", "Funcionarios");
+        }
     }
 }

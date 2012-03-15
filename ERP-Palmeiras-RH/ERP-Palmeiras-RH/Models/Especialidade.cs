@@ -7,14 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace ERP_Palmeiras_RH.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class Especialidade
     {
         public int Id { get; set; }
         public string Nome { get; set; }
     }
+    
 }
