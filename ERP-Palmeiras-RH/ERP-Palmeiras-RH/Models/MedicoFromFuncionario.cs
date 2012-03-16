@@ -29,5 +29,10 @@ namespace ERP_Palmeiras_RH.Models
             Salario = func.Salario;
             Status = func.Status;
         }
+
+        public Medico()
+        {
+
+        }
     }
 }
