@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.Data.Entity.Infrastructure;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
@@ -169,6 +170,38 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
 
             model.SaveChanges();
+        }
+
+        public void InserirBeneficio(Beneficio beneficio)
+        {
+            ModelRH model = new ModelRH();
+            IEnumerable<Beneficio> result = model.TblBeneficios.Where(b => (b.Nome == beneficio.Nome && b.Valor == beneficio.Valor));
+
+            if (result == null || result.Count<Beneficio>() == 0)
+            {
+                model.TblBeneficios.Add(beneficio);
+            }
+            else
+            {
+                //throw new ERPException("Benefício já cadastrado.");
+            }
+
+            model.SaveChanges();
+        }
+
+        public void ExcluirBeneficio(Int32 bid)
+        {
+            try
+            {
+                ModelRH model = new ModelRH();
+                Beneficio beneficio = model.TblBeneficios.Find(bid);
+                model.TblBeneficios.Remove(beneficio);
+                model.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                throw new ERPException("O benefício não pode ser excluído pois está atribuído a algum funcionário");
+            }
         }
 
 

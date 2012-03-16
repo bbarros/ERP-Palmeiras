@@ -83,7 +83,6 @@
                 $("#telefones").append("<input name=\"telefone\" type=\"text\" onkeyup=\"FormataTel(this,event)\" maxlength=\"13\" />")
             });
         });
-
     </script>
 
 
@@ -296,6 +295,7 @@
                                 <%= b.Nome %></option>
                             <% } %>
                         </select>
+                        <input id="adicionaBeneficiosBtn" type="button" value="+" style="padding-left: 3px;" />
                     </th>
                 </tr>
             </table>
@@ -420,6 +420,8 @@
                     </th>
                 </tr>
             </table>
+            <div id="adicionarBeneficiosDiv" style="display: none"></div>
+            <input id="adicionarBeneficiosUrl" type="hidden" value="<%= Url.Action("Visualizar", "Beneficios") %>" />
         </div>
         <br />
         <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />

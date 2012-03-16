@@ -1,6 +1,13 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 
     <ul>
+        <li class="accordion"><a href="#">Beneficios</a>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "Beneficios") %>">Visualizar Benefícios</a></li>
+                <li><a href="<%= Url.Action("Criar", "Beneficios") %>">Criar Benefício</a></li>     
+            </ul>
+        </li>
+
         <li class="accordion"><a href="#">Permissoes</a>
             <ul class="accordionSubItem">
                 <li><a href="<%= Url.Action("Index", "Permissoes") %>">Visualizar Permissões</a></li>
