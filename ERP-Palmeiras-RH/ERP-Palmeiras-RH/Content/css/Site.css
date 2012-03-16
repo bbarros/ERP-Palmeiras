@@ -239,13 +239,13 @@ h1 {
     background-color: #d3d3d3;
 }
 
-#funcionariosTable
+.decoratedTable
 {
     border-collapse:collapse;
     margin: auto;
 }
 
-#funcionariosTable tr th
+.decoratedTable tr th
 {
     background-color: #778899;
     padding: 3px 5px 3px 5px;
@@ -253,7 +253,7 @@ h1 {
     text-align: center;
 }
 
-#funcionariosTable tr td
+.decoratedTable tr td
 {
     padding: 2px 5px 2px 5px;
     color: #000000;
