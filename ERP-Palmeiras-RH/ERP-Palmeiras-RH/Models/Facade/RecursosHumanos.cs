@@ -116,6 +116,14 @@ namespace ERP_Palmeiras_RH.Models.Facade
             return model.TblEspecialidades.Where<Especialidade>(b => b.Id == id).First<Especialidade>();
         }
 
+        public void ExcluirEspecialidade(Int32 eid)
+        {
+            ModelRH model = new ModelRH();
+            Especialidade e = model.TblEspecialidades.Find(eid);
+            model.TblEspecialidades.Remove(e);
+            model.SaveChanges();
+        }
+
         public IEnumerable<Permissao> BuscarPermissoes()
         {
             ModelRH model = new ModelRH();
@@ -165,11 +173,29 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
             else
             {
-                //throw new ERPException("Permissão já cadastrada.");
+                throw new ERPException("Permissão já cadastrada.");
             }
 
             model.SaveChanges();
         }
+
+        public void InserirEspecialidade(Especialidade espec)
+        {
+            ModelRH model = new ModelRH();
+            IEnumerable<Especialidade> result = model.TblEspecialidades.Where(e => e.Nome == espec.Nome);
+
+            if (result == null || result.Count<Especialidade>() == 0)
+            {
+                model.TblEspecialidades.Add(espec);
+            }
+            else
+            {
+                throw new ERPException("Especialidade já cadastrada.");
+            }
+
+            model.SaveChanges();
+        }
+
 
 
     }

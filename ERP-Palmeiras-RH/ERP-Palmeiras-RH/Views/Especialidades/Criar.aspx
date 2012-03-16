@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Permissao</h2>
+<h2>Especialidade</h2>
 <br />
 
-<form id="PermissaoForm" action="<%= Url.Action("Criar", "Permissoes") %>">
+<form id="PermissaoForm" action="<%= Url.Action("Criar", "Especialidades") %>">
     <label for="nome">Nome</label>
     <input id="nome" type="text" name="nome" />
     <input id="submit" type="submit" value="Criar" />

@@ -8,15 +8,14 @@ using ERP_Palmeiras_RH.Models.Facade;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
-    [HandleERPException]
-    public class PermissoesController : Controller
+    public class EspecialidadesController : Controller
     {
         private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult Index()
         {
-            IEnumerable<Permissao> permissoes = facade.BuscarPermissoes();
-            ViewBag.permissoes = permissoes;
+            IEnumerable<Especialidade> especialidades = facade.BuscarEspecialidades();
+            ViewBag.especialidades = especialidades;
             return View();
         }
 
@@ -24,20 +23,15 @@ namespace ERP_Palmeiras_RH.Controllers
         {
             if (nome != null)
             {
-                Permissao perm = new Permissao();
-                perm.Nome = nome;
-                facade.InserirPermissao(perm);
+                Especialidade espec = new Especialidade();
+                espec.Nome = nome;
+                facade.InserirEspecialidade(espec);
+
                 return RedirectToAction("Index");
             }
 
             return View();
 
-        }
-
-        public ActionResult Excluir(Int32 pid)
-        {
-            facade.ExcluirPermissao(pid);
-            return RedirectToAction("Index");
         }
 
     }

@@ -31,7 +31,7 @@
 						<!-- mainMenu: lista de botoes que compoem o menu superior -->					
                     	<ul id="mainMenu">
 							<li id="itemBI"><a href="">BI</a></li>
-							<li id="itemRH"><a href="<%= Url.Action("IndexFuncionarios", "Funcionarios") %>">RH</a></li>
+							<li id="itemRH"><a href="<%= Url.Action("Index", "Funcionarios") %>">RH</a></li>
 							<li id="itemLA"><a href="">L&A</a></li>
 							<li id="itemFIN"><a href="">Finanças</a></li>
 							<li id="itemOP"><a href="">Operacional</a></li>
