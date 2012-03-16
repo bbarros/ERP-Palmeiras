@@ -37,6 +37,10 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
             if (result == null || result.Count<Funcionario>() == 0)
             {
+                foreach (Beneficio b in funcionario.Beneficios)
+                {
+                    model.TblBeneficios.Attach(b);
+                }
                 model.TblFuncionarios.Add(funcionario);
             }
             else
@@ -44,20 +48,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
                 throw new ERPException("Funcionário já cadastrado.");
             }
 
-            try
-            {
-                model.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
-            }
+            model.SaveChanges();
         }
 
         public void AtualizarFuncionario(Funcionario funcionario)

@@ -544,8 +544,8 @@
           <NavigationProperty Name="Cargo" Relationship="Model.FuncionariosCargos" FromRole="Funcionarios" ToRole="Cargos" />
           <NavigationProperty Name="DadosBancarios" Relationship="Model.FuncionariosDadosBancarios" FromRole="Funcionarios" ToRole="DadosBancarios" />
           <NavigationProperty Name="Admissao" Relationship="Model.FuncionariosAdmissoes" FromRole="Funcionarios" ToRole="Admissoes" />
-          <Property Type="Int32" Name="PermissaoId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Type="Int32" Name="CargoId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Type="Int32" Name="PermissaoId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
+          <Property Type="Int32" Name="CargoId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
           <NavigationProperty Name="Beneficios" Relationship="Model.FuncionarioBeneficio" FromRole="Funcionario" ToRole="Beneficio" />
         </EntityType>
         <EntityType Name="Pagamento">
@@ -560,7 +560,7 @@
           <Property Type="DateTime" Name="DataPagamento" Nullable="false" />
           <Property Type="String" Name="Cargo" Nullable="false" />
           <NavigationProperty Name="Funcionario" Relationship="Model.PagamentoFuncionarios" FromRole="Pagamento" ToRole="Funcionarios" />
-          <Property Type="Int32" Name="funcionariosId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
+          <Property Type="Int32" Name="funcionariosId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
         </EntityType>
         <EntityType Name="Credencial">
           <Key>
@@ -606,7 +606,7 @@
           <Property Type="Time" Name="EntradaNoite" Nullable="false" />
           <Property Type="Time" Name="SaidaNoite" Nullable="false" />
           <NavigationProperty Name="CartaoPonto" Relationship="Model.EntradasCartaoPontoCartoesPonto" FromRole="EntradasCartaoPonto" ToRole="CartoesPonto" />
-          <Property Type="Int32" Name="cartoesPontoId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
+          <Property Type="Int32" Name="cartoesPontoId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
         </EntityType>
         <Association Name="EntradasCartaoPontoCartoesPonto">
           <End Type="Model.EntradasCartaoPonto" Role="EntradasCartaoPonto" Multiplicity="*" />
@@ -685,7 +685,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="DDD" Nullable="false" />
           <Property Type="Int32" Name="Numero" Nullable="false" />
-          <Property Type="Int32" Name="DadoPessoalId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
+          <Property Type="Int32" Name="DadoPessoalId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
         </EntityType>
         <Association Name="DadosPessoaisEnderecos">
           <End Type="Model.DadoPessoal" Role="DadosPessoais" Multiplicity="1" />
@@ -768,7 +768,7 @@
         <EntityType Name="Medico" BaseType="Model.Funcionario">
           <Property Type="String" Name="CRM" Nullable="false" />
           <NavigationProperty Name="Especialidade" Relationship="Model.MedicoEspecialidade" FromRole="Medico" ToRole="Especialidade" />
-          <Property Type="Int32" Name="EspecialidadeId" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
+          <Property Type="Int32" Name="EspecialidadeId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
         </EntityType>
         <Association Name="DadoPessoalTelefone">
           <End Type="Model.DadoPessoal" Role="DadoPessoal" Multiplicity="1" />

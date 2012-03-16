@@ -87,7 +87,7 @@
 
     </script>
     <div id="formulario">
-        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Editar") %>">
+        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Alterar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Funcionário</p>
         <div id="infoPessoais">
@@ -136,7 +136,10 @@
                             Telefone</p>
                     </th>
                     <th id="telefones" style="padding-left: 50px; max-width: 27px;">
-                        <input name="telefone" type="text" onkeyup="FormataTel(this,event)" maxlength="13" />
+                        <% foreach (ERP_Palmeiras_RH.Models.Telefone tel in func.DadosPessoais.Telefones)
+                               { %>
+                            <input name="telefone" type="text" onkeyup="FormataTel(this,event)" maxlength="13" value="<%= tel %>" />
+                            <% } %>
                     </th>
                     <th style="padding-left: 15px;">
                         <input id="addTelefone" type="button" value="+" style="padding-left: 3px;" />
@@ -412,7 +415,7 @@
                         Login
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="usuario" name="usuario" type="text" />
+                        <input id="usuario" name="usuario" type="text" <%= func.Credencial.Usuario %> />
                     </th>
                 </tr>
                 <tr>
@@ -420,7 +423,7 @@
                         Senha
                     </th>
                     <th style="padding-left: 55px;">
-                        <input id="senha" name="senha" type="password" />
+                        <input id="senha" name="senha" type="password" <%= func.Credencial.Senha %> />
                     </th>
                 </tr>
                 <tr>

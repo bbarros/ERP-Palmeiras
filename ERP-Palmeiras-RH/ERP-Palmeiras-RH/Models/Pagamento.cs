@@ -21,7 +21,7 @@ namespace ERP_Palmeiras_RH.Models
         public double Total { get; set; }
         public System.DateTime DataPagamento { get; set; }
         public string Cargo { get; set; }
-        private int funcionariosId { get; set; }
+        internal int funcionariosId { get; set; }
     
         public virtual Funcionario Funcionario { get; set; }
     }

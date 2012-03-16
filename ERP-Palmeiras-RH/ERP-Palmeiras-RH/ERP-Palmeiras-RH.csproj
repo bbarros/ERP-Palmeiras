@@ -69,6 +69,7 @@
     <Compile Include="Controllers\HandleERPException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PermissoesController.cs" />
+    <Compile Include="Controllers\TestesController.cs" />
     <Compile Include="Core\ERPException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +197,7 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Funcionarios\Cadastrar.aspx" />
+    <Content Include="Views\Funcionarios\Alterar.aspx" />
     <Content Include="Views\Funcionarios\Criar.aspx" />
     <Content Include="Views\Permissoes\Criar.aspx" />
     <Content Include="Views\Funcionarios\Editar.aspx" />

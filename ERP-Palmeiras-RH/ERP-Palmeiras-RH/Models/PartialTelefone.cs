@@ -9,7 +9,7 @@ namespace ERP_Palmeiras_RH.Models
     {
         public override String ToString()
         {
-            return "(" + this.DDD + ")" + this.Numero.ToString().Substring(0, 4) + " - " + this.Numero.ToString().Substring(3);
+            return "(" + this.DDD + ")" + this.Numero.ToString().Substring(0, 4) + "-" + this.Numero.ToString().Substring(3);
         }
     }
 }
