@@ -24,6 +24,13 @@
                 <li><a href="<%= Url.Action("Criar", "Especialidades") %>">Cadastrar Especialidade</a></li>     
             </ul>
         </li>
+
+        <li class="accordion">
+            <h3>Pagamentos</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "Pagamento") %>">Pagamentos a Realizar</a></li>
+            </ul>
+        </li>
     </ul>
 
 

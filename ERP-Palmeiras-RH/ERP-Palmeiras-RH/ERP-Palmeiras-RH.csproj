@@ -69,6 +69,7 @@
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
     <Compile Include="Controllers\HandleERPException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PagamentoController.cs" />
     <Compile Include="Controllers\PermissoesController.cs" />
     <Compile Include="Core\ERPException.cs" />
     <Compile Include="Global.asax.cs">
@@ -107,6 +108,7 @@
     <Compile Include="Models\Especialidade.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\PagamentoFacade.cs" />
     <Compile Include="Models\Facade\RecursosHumanos.cs" />
     <Compile Include="Models\Funcionario.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
@@ -201,6 +203,7 @@
     <Content Include="Views\Especialidades\Index.aspx" />
     <Content Include="Views\Funcionarios\Cadastrar.aspx" />
     <Content Include="Views\Funcionarios\Criar.aspx" />
+    <Content Include="Views\Pagamento\Index.aspx" />
     <Content Include="Views\Permissoes\Criar.aspx" />
     <Content Include="Views\Funcionarios\Editar.aspx" />
     <Content Include="Views\Permissoes\Excluir.aspx" />
