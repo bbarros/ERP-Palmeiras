@@ -4,10 +4,11 @@
 
 <h2>Permissoes</h2>
 
-<table id="tabelaPermissoes">
+<table id="tabelaPermissoes" class="decoratedTable">
     <tr>
         <th>ID</th>
         <th>Nome</th>
+        <th>Excluir</th>
     </tr>
 
     <% foreach (ERP_Palmeiras_RH.Models.Permissao permissao in ViewBag.permissoes)
