@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Funcionario
     {
         public Funcionario()
@@ -23,7 +23,6 @@ namespace ERP_Palmeiras_RH.Models
         public int Status { get; set; }
         public double Salario { get; set; }
         public int Ramal { get; set; }
-        internal string EntityType { get; set; }
         public int PermissaoId { get; private set; }
         public int CargoId { get; private set; }
     
@@ -37,5 +36,4 @@ namespace ERP_Palmeiras_RH.Models
         public virtual Admissao Admissao { get; set; }
         public virtual ICollection<Beneficio> Beneficios { get; set; }
     }
-    
 }

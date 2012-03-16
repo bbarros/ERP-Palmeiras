@@ -7,6 +7,8 @@ using ERP_Palmeiras_RH.Core;
 using ERP_Palmeiras_RH.Models;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
@@ -42,7 +44,20 @@ namespace ERP_Palmeiras_RH.Models.Facade
                 throw new ERPException("Funcionário já cadastrado.");
             }
 
-            model.SaveChanges();
+            try
+            {
+                model.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
         }
 
         public void AtualizarFuncionario(Funcionario funcionario)
@@ -113,7 +128,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             return model.TblPermissoes.Where<Permissao>(p => p.Id == id).First<Permissao>();
         }
 
-        public void EscluirPermissao(Int32 pid)
+        public void ExcluirPermissao(Int32 pid)
         {
             ModelRH model = new ModelRH();
             Permissao p = model.TblPermissoes.Find(pid);

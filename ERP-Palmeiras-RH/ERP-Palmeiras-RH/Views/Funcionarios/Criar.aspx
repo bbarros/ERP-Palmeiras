@@ -1,5 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
+    <% Html.RenderPartial("MenuFuncionarios"); %>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%
         IEnumerable<ERP_Palmeiras_RH.Models.Cargo> cargos = (IEnumerable<ERP_Palmeiras_RH.Models.Cargo>) ViewData["Cargos"];
@@ -84,7 +88,7 @@
 
 
     <div id="formulario">
-        <form method="post" action="<%= Url.Action("Funcionarios", "Cadastrar") %>">
+        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Cadastrar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Funcionário</p>
         <div id="infoPessoais">
@@ -402,10 +406,10 @@
                     </th>
                 </tr>
                 <tr>
-                <th style="padding-left: 100px;">
+                <th>
                         Permissoes
                     </th>
-                    <th style="padding-left: 87px;">
+                    <th style="padding-left: 55px;">
                         <select id="permissao" name="permissao">
                             <% foreach (ERP_Palmeiras_RH.Models.Permissao p in permissoes)
                                { %>
@@ -418,7 +422,7 @@
             </table>
         </div>
         <br />
+        <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
         </form>
     </div>
-    <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
 </asp:Content>

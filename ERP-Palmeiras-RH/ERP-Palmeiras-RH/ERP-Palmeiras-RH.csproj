@@ -68,6 +68,7 @@
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
     <Compile Include="Controllers\HandleERPException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PermissoesController.cs" />
     <Compile Include="Core\ERPException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -112,7 +113,8 @@
     <Compile Include="Models\Medico.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MedicoFromFuncionario.cs" />
+    <Compile Include="Models\PartialCargo.cs" />
+    <Compile Include="Models\PartialMedico.cs" />
     <Compile Include="Models\ModelRH.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +133,8 @@
     <Compile Include="Models\Pagamento.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialEndereco.cs" />
+    <Compile Include="Models\PartialTelefone.cs" />
     <Compile Include="Models\Permissao.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
@@ -191,16 +195,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Views\Funcionarios\Cadastro.aspx" />
-    <Content Include="Views\Funcionarios\CriarPermissao.aspx" />
+    <Content Include="Views\Funcionarios\Cadastrar.aspx" />
+    <Content Include="Views\Funcionarios\Criar.aspx" />
+    <Content Include="Views\Permissoes\Criar.aspx" />
     <Content Include="Views\Funcionarios\Editar.aspx" />
-    <Content Include="Views\Funcionarios\ExcluirPermissao.aspx" />
-    <Content Include="Views\Funcionarios\IndexFuncionarios.aspx" />
-    <Content Include="Views\Funcionarios\MenuFuncionarios.ascx" />
-    <Content Include="Views\Funcionarios\Permissoes.aspx" />
+    <Content Include="Views\Permissoes\Excluir.aspx" />
+    <Content Include="Views\Funcionarios\Index.aspx" />
+    <Content Include="Views\Permissoes\Index.aspx" />
     <Content Include="Views\Home\Welcome.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Shared\MenuFuncionarios.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

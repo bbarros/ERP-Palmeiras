@@ -7,17 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Medico : Funcionario
     {
         public string CRM { get; set; }
-        public int EspecialidadeId { get; set; }
+        private int EspecialidadeId { get; set; }
     
         public virtual Especialidade Especialidade { get; set; }
     }
-    
 }
