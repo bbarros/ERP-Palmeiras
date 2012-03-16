@@ -17,6 +17,6 @@ namespace ERP_Palmeiras_RH.Models
         public int Id { get; set; }
         public int DDD { get; set; }
         public int Numero { get; set; }
-        private int DadoPessoalId { get; set; }
+        internal int DadoPessoalId { get; set; }
     }
 }

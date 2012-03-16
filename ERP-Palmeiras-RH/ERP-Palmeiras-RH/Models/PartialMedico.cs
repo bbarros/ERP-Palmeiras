@@ -13,7 +13,7 @@ namespace ERP_Palmeiras_RH.Models
         /// Se este objeto for persistido posteriormente e o objeto funcionário estiver persistido, recomenda-se remover o objeto funcionário.
         /// </summary>
         /// <param name="func"></param>
-        public Medico(Funcionario func, String crm, Especialidade e)
+        public Medico(Funcionario func, String crm, int especialidadeId)
         {
             Admissao = func.Admissao;
             Beneficios = func.Beneficios;
@@ -23,7 +23,7 @@ namespace ERP_Palmeiras_RH.Models
             CRM = crm;
             DadosPessoais = func.DadosPessoais;
             DadosBancarios = func.DadosBancarios;
-            Especialidade = e;
+            EspecialidadeId = especialidadeId;
             Permissao = func.Permissao;
             Ramal = func.Ramal;
             Salario = func.Salario;

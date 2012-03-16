@@ -15,7 +15,7 @@ namespace ERP_Palmeiras_RH.Models
     public partial class Medico : Funcionario
     {
         public string CRM { get; set; }
-        private int EspecialidadeId { get; set; }
+        internal int EspecialidadeId { get; set; }
     
         public virtual Especialidade Especialidade { get; set; }
     }

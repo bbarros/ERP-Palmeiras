@@ -49,7 +49,7 @@ namespace ERP_Palmeiras_RH.Controllers
             DateTime? datademissao, int ramal, int cargo, int especialidade, String usuario, String senha, int permissao)
         {
 
-            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, salario, 0.0f, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
+            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, 0.0f, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
             func.CartaoPonto = new CartaoPonto();
 
             facade.InserirFuncionario(func);
@@ -78,18 +78,19 @@ namespace ERP_Palmeiras_RH.Controllers
         {
 
             Funcionario old = facade.BuscarFuncionario(id);
-            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
+            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
 
             facade.AtualizarFuncionario(func);
 
             return View();
         }
 
-        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, double salario,  double ultimoSalario, String sexo, DateTime nascimento, String emailpes, String rua, int num, String telefone, String complemento, String cep, String bairro, String cidade, String estado, String pais, String cpf, String rg, String crm, String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, String senha, int permissao)
+        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, int ramal, double salario,  double ultimoSalario, String sexo, DateTime nascimento, String emailpes, String rua, int num, String telefone, String complemento, String cep, String bairro, String cidade, String estado, String pais, String cpf, String rg, String crm, String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, String senha, int permissao)
         {
             Funcionario func;
             func = new Funcionario();
 
+            func.Ramal = ramal;
             func.Salario = salario;
 
             Admissao adm = new Admissao();
@@ -109,7 +110,7 @@ namespace ERP_Palmeiras_RH.Controllers
             }
 
             Cargo cg = facade.BuscarCargo(cargo);
-            func.Cargo = cg;
+            func.CargoId = cargo;            
 
             DadoPessoal dp = new DadoPessoal();
             dp.Nome = nome;
@@ -133,8 +134,8 @@ namespace ERP_Palmeiras_RH.Controllers
 
             Telefone tel = new Telefone();
             telefone = telefone.Replace("(", "").Replace(")", "").Replace("-", "");
-            String ddd = telefone.Remove(1); // deixa os 2 primeiros numeros apenas
-            String telStr = telefone.Remove(0, 2); // os demais numeros apenas
+            String ddd = telefone.Substring(0, 2); // deixa os 2 primeiros numeros apenas
+            String telStr = telefone.Substring(2); // os demais numeros apenas
             tel.DDD = int.Parse(ddd);
             tel.Numero = int.Parse(telStr);
             dp.Telefones.Add(tel);
@@ -158,7 +159,7 @@ namespace ERP_Palmeiras_RH.Controllers
             func.Credencial = c;
 
             Permissao p = facade.BuscarPermissao(permissao);
-            func.Permissao = p;
+            func.PermissaoId = permissao;
 
             DadoBancario db = new DadoBancario();
             db.Agencia = agencia;
@@ -172,7 +173,7 @@ namespace ERP_Palmeiras_RH.Controllers
             {
                 // é um médico.. converter o func para médico!
                 Especialidade e = facade.BuscarEspecialidade(especialidade);
-                func = new Medico(func, crm, e);
+                return new Medico(func, crm, especialidade);
             }
             return func;
         }

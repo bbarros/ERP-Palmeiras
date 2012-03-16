@@ -23,8 +23,8 @@ namespace ERP_Palmeiras_RH.Models
         public int Status { get; set; }
         public double Salario { get; set; }
         public int Ramal { get; set; }
-        public int PermissaoId { get; private set; }
-        public int CargoId { get; private set; }
+        internal int PermissaoId { get; set; }
+        internal int CargoId { get; set; }
     
         public virtual Credencial Credencial { get; set; }
         public virtual Permissao Permissao { get; set; }
