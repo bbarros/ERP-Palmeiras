@@ -109,7 +109,12 @@
     <Compile Include="Models\Especialidade.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\BeneficiosFacade.cs" />
+    <Compile Include="Models\Facade\CargosFacade.cs" />
+    <Compile Include="Models\Facade\EspecialidadesFacade.cs" />
+    <Compile Include="Models\Facade\FuncionariosFacade.cs" />
     <Compile Include="Models\Facade\PagamentoFacade.cs" />
+    <Compile Include="Models\Facade\PermissoesFacade.cs" />
     <Compile Include="Models\Facade\RecursosHumanos.cs" />
     <Compile Include="Models\Funcionario.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
@@ -147,6 +152,13 @@
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebServices\EspecialidadeDTO.cs" />
+    <Compile Include="WebServices\FuncionarioDTO.cs" />
+    <Compile Include="WebServices\FuncionariosWS.asmx.cs">
+      <DependentUpon>FuncionariosWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServices\MedicoDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\bg_header.jpg" />
@@ -243,6 +255,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="WebServices\FuncionariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
