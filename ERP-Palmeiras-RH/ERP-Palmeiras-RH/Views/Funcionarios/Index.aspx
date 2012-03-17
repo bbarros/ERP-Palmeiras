@@ -12,7 +12,7 @@
     });
 </script>
 
-<table id="funcionariosTable">
+<table id="funcionariosTable" class="decoratedTable">
                     <tr>
 						<th>Nome</th>
                         <th>Sobrenome</th>

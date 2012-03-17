@@ -13,13 +13,17 @@ namespace ERP_Palmeiras_RH.Controllers
         //
         // GET: /Testes/
 
-        RecursosHumanos facade = RecursosHumanos.GetInstance();
+        PermissoesFacade permissoesFacade = PermissoesFacade.GetInstance();
+        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
+        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
+        CargosFacade cargosFacade = CargosFacade.GetInstance();
+        BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
 
         public ActionResult CadastrarCenario()
         {
             Permissao p = new Permissao();
             p.Nome = "Administrador";
-            facade.InserirPermissao(p);
+            permissoesFacade.InserirPermissao(p);
 
             Cargo c = new Cargo();
             c.Nome = "Médico";
@@ -48,7 +52,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
         public ActionResult CadastrarMedico()
         {
-            facade.InserirFuncionario(CriarMedico());
+            funcFacade.InserirFuncionario(CriarMedico());
 
             return RedirectToAction("Index", "Funcionarios");
         }
@@ -68,13 +72,13 @@ namespace ERP_Palmeiras_RH.Controllers
             adm.UltimoSalario = null;
             func.Admissao = adm;
 
-            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
+            IEnumerable<Beneficio> beneficios = beneficiosFacade.BuscarBeneficios();
             foreach (Beneficio b in beneficios)
             {
                 func.Beneficios.Add(b);
             }
 
-            Cargo cg = facade.BuscarCargos().First<Cargo>();
+            Cargo cg = cargosFacade.BuscarCargos().First<Cargo>();
             func.Cargo = cg;
 
             Random rd = new Random();
@@ -121,7 +125,7 @@ namespace ERP_Palmeiras_RH.Controllers
             c.Usuario = "joao" + sulfixNome.ToString();
             func.Credencial = c;
 
-            Permissao p = facade.BuscarPermissoes().First<Permissao>();
+            Permissao p = permissoesFacade.BuscarPermissoes().First<Permissao>();
             func.Permissao = p;
 
             DadoBancario db = new DadoBancario();
@@ -132,7 +136,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             func.Status = 1;
             func.CRM = "CRMSP-" + rd.Next().ToString().ToLower();
-            func.Especialidade = facade.BuscarEspecialidades().First<Especialidade>();
+            func.Especialidade = especFacade.BuscarEspecialidades().First<Especialidade>();
 
             func.CartaoPonto = new CartaoPonto();
 

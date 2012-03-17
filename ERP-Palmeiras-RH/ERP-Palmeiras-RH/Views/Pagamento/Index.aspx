@@ -2,17 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Permissao</h2>
-<br />
+<h2>Pagamentos a Realizar:</h2>
 
-<form id="PermissaoForm" action="<%= Url.Action("Criar", "Permissoes") %>">
-    <label for="nome">Nome</label>
-    <input id="nome" type="text" name="nome" />
-    <input id="submit" type="submit" value="Criar" />
-</form>
+<table id="pagamentoTable" class="decoratedTable">
+    <tr>
+        <th>Nome</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Status</th>
+        <th>Pagar</th>
+    </tr>
+</table>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="SideMenu" runat="server">
-    <% Html.RenderPartial("MenuFuncionarios"); %>
 </asp:Content>

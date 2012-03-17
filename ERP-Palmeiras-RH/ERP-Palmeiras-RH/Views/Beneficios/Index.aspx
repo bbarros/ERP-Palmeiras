@@ -2,21 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Permissoes</h2>
+<h2>Beneficios</h2>
 
-<table id="tabelaPermissoes" class="decoratedTable">
+<table id="tabelaBeneficios" class="decoratedTable">
     <tr>
         <th>ID</th>
         <th>Nome</th>
+        <th>Valor</th>
         <th>Excluir</th>
     </tr>
 
-    <% foreach (ERP_Palmeiras_RH.Models.Permissao permissao in ViewBag.permissoes)
+    <% foreach (ERP_Palmeiras_RH.Models.Beneficio beneficio in ViewBag.beneficios)
        { %>
         <tr>
-            <td><%= permissao.Id%></td>
-            <td><%= permissao.Nome%></td>
-            <td><a href="<%= Url.Action("Excluir", "Permissoes", new {pid = permissao.Id}) %>" >excluir</a></td>
+            <td><%= beneficio.Id%></td>
+            <td><%= beneficio.Nome%></td>
+            <td><%= beneficio.Valor %></td>
+            <td><a href="<%= Url.Action("ExcluirBeneficio", "Beneficios", new {bid = beneficio.Id}) %>" >excluir</a></td>
         </tr>
     <%  } %>
 

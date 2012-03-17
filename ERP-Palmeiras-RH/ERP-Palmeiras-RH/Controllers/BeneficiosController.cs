@@ -3,27 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ERP_Palmeiras_RH.Models.Facade;
 using ERP_Palmeiras_RH.Models;
+using ERP_Palmeiras_RH.Models.Facade;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
+    [HandleERPException]
     public class BeneficiosController : Controller
     {
-        private RecursosHumanos facade = RecursosHumanos.GetInstance();
+        private BeneficiosFacade facade = BeneficiosFacade.GetInstance();
 
         public ActionResult Index()
         {
+            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
+            ViewBag.beneficios = beneficios;
             return View();
         }
 
-        public Beneficio CadastrarBeneficio(String nome, double valor)
+        public ActionResult Criar(String nome, String valor)
         {
-            Beneficio b = new Beneficio();
-            b.Nome = nome;
-            b.Valor = valor;
+            if (!String.IsNullOrEmpty(nome) && !String.IsNullOrEmpty(valor))
+            {
+                Beneficio b = new Beneficio();
+                b.Nome = nome;
+                b.Valor = Double.Parse(valor);
+                facade.InserirBeneficio(b);
+                return RedirectToAction("Index");
+            }
 
-            return b;
+            return View();
+        }
+
+        public ActionResult ExcluirBeneficio(Int32 bid)
+        {
+            facade.ExcluirBeneficio(bid);
+            return RedirectToAction("Index");
         }
     }
 }

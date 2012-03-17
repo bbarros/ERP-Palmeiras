@@ -11,7 +11,7 @@ namespace ERP_Palmeiras_RH.Controllers
     [HandleERPException]
     public class PermissoesController : Controller
     {
-        private RecursosHumanos facade = RecursosHumanos.GetInstance();
+        private PermissoesFacade facade = PermissoesFacade.GetInstance();
 
         public ActionResult Index()
         {
@@ -34,7 +34,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
         }
 
-        public ActionResult ExcluirPermissao(Int32 pid)
+        public ActionResult Excluir(Int32 pid)
         {
             facade.ExcluirPermissao(pid);
             return RedirectToAction("Index");
