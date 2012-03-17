@@ -32,20 +32,20 @@ namespace ERP_Palmeiras_RH.Controllers
             Beneficio b1 = new Beneficio();
             b1.Nome = "Vale-Refeição";
             b1.Valor = 300;
-            facade.InserirBeneficio(b1);
+            beneficiosFacade.InserirBeneficio(b1);
 
             Beneficio b2 = new Beneficio();
             b2.Nome = "Vale-Transporte";
             b2.Valor = 300;
-            facade.InserirBeneficio(b2);
+            beneficiosFacade.InserirBeneficio(b2);
 
             Especialidade e1 = new Especialidade();
             e1.Nome = "Urologia";
-            facade.InserirEspecialidade(e1);
+            especFacade.InserirEspecialidade(e1);
 
             Especialidade e2 = new Especialidade();
             e2.Nome = "Pediatria";
-            facade.InserirEspecialidade(e2);
+            especFacade.InserirEspecialidade(e2);
 
             return RedirectToAction("CadastrarMedico");
         }
