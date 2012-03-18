@@ -12,6 +12,7 @@
     });
 </script>
 
+<h2>Funcionários</h2>
 <table id="funcionariosTable" class="decoratedTable">
                     <tr>
 						<th>Nome</th>
@@ -45,7 +46,7 @@
 						<td><%= f.DadosPessoais.Email %></td>
 						<td><%= f.DadosPessoais.Telefones.First<ERP_Palmeiras_RH.Models.Telefone>() %></td>
                         <td><%= f.DadosPessoais.Endereco %></td>
-                        <td><a href="<%= Url.Action("Editar", "Funcionarios", new { id = f.Id }) %>"><img alt="Editar dados" class="editIcon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
+                        <td><a href="<%= Url.Action("Editar", "Funcionarios", new { id = f.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>
 				</table>
