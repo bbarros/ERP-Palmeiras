@@ -21,13 +21,23 @@ namespace ERP_Palmeiras_RH.Controllers
 
         public ActionResult CadastrarCenario()
         {
-            Permissao p = new Permissao();
-            p.Nome = "Administrador";
-            permissoesFacade.InserirPermissao(p);
+            Permissao p1 = new Permissao();
+            p1.Nome = "Administrador";
+            permissoesFacade.InserirPermissao(p1);
 
-            Cargo c = new Cargo();
-            c.Nome = "Médico";
-            c.SalarioBase = 2000;
+            Permissao p2 = new Permissao();
+            p2.Nome = "Convidado";
+            permissoesFacade.InserirPermissao(p2);
+
+            Cargo c1 = new Cargo();
+            c1.Nome = "Médico";
+            c1.SalarioBase = 2000;
+            cargosFacade.InserirCargo(c1);
+
+            Cargo c2 = new Cargo();
+            c2.Nome = "Gerente RH";
+            c2.SalarioBase = 5000;
+            cargosFacade.InserirCargo(c2);
 
             Beneficio b1 = new Beneficio();
             b1.Nome = "Vale-Refeição";
