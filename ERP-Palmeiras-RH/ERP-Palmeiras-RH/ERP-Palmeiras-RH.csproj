@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BeneficiosController.cs" />
+    <Compile Include="Controllers\CargosController.cs" />
     <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
@@ -213,6 +214,8 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Beneficios\Criar.aspx" />
     <Content Include="Views\Beneficios\Index.aspx" />
+    <Content Include="Views\Cargos\Criar.aspx" />
+    <Content Include="Views\Cargos\Index.aspx" />
     <Content Include="Views\Especialidades\Criar.aspx" />
     <Content Include="Views\Especialidades\Excluir.aspx" />
     <Content Include="Views\Especialidades\Index.aspx" />
