@@ -14,6 +14,11 @@ namespace ERP_Palmeiras_RH.WebServices
         public Boolean IsMedico;
         public String Cargo;
 
+        public FuncionarioDTO(String nome, String sobrenome, long cpf, String login, String cargo)
+            : this(nome, sobrenome, cpf, login, cargo, false)
+        {
+        }
+
         public FuncionarioDTO(String nome, String sobrenome, long cpf, String login, String cargo, Boolean isMedico)
         {
             Nome = nome;

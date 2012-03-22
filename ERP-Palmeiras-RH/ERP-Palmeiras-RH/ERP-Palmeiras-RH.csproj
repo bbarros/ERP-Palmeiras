@@ -160,6 +160,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebServices\MedicoDTO.cs" />
+    <Compile Include="WebServices\UsuariosWS.asmx.cs">
+      <DependentUpon>UsuariosWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\bg_header.jpg" />
@@ -259,6 +263,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="WebServices\FuncionariosWS.asmx" />
+    <Content Include="WebServices\UsuariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
