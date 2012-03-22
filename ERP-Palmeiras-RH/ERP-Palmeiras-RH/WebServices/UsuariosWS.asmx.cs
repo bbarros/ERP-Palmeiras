@@ -23,6 +23,7 @@ namespace ERP_Palmeiras_RH.WebServices
         FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
         CargosFacade cargosFacade = CargosFacade.GetInstance();
         BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
+        PendenciasFacade pendFacade = PendenciasFacade.GetInstance();
 
         [WebMethod]
         public Boolean InserirUsuario(String login, String senha)
@@ -34,10 +35,14 @@ namespace ERP_Palmeiras_RH.WebServices
             // de forma que se mantenha a consistência de existência
             // dos logins nos módulos.
             // No entanto, as informações deste usuário devem ser editadas no módulo de RH.
+            // Para isto, cria-se uma pendência de cadastro. Há uma tela de monitoramento de pendências.
             try
             {
                 Funcionario f = CriarFuncionarioExterno(login, senha);
                 funcFacade.InserirFuncionario(f);
+                Pendencia p = new Pendencia();
+                p.Funcionario = f;
+                pendFacade.InserirPendencia(p);
                 return true;
             }
             catch (Exception)
