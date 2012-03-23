@@ -47,6 +47,13 @@
                 <li><a href="<%= Url.Action("Index", "Pagamento") %>">Pagamentos a Realizar</a></li>
             </ul>
         </li>
+
+        <li class="accordion">
+            <h3>Pendências</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "Pendencias") %>">Cadastros Pendentes</a></li>
+            </ul>
+        </li>
     </ul>
 
 

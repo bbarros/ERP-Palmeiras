@@ -18,6 +18,7 @@ namespace ERP_Palmeiras_RH.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class UsuariosWS : System.Web.Services.WebService
     {
+
         RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         [WebMethod]
@@ -30,10 +31,16 @@ namespace ERP_Palmeiras_RH.WebServices
             // de forma que se mantenha a consistência de existência
             // dos logins nos módulos.
             // No entanto, as informações deste usuário devem ser editadas no módulo de RH.
+            // Para isto, cria-se uma pendência de cadastro. Há uma tela de monitoramento de pendências.
             try
             {
                 Funcionario f = CriarFuncionarioExterno(login, senha);
                 facade.InserirFuncionario(f);
+
+                Pendencia p = new Pendencia();
+                p.Funcionario = f;
+                facade.InserirPendencia(p);
+
                 return true;
             }
             catch (Exception)
