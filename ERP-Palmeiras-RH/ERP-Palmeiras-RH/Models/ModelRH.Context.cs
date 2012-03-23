@@ -40,5 +40,6 @@ namespace ERP_Palmeiras_RH.Models
         public DbSet<Especialidade> TblEspecialidades { get; set; }
         public DbSet<DadoBancario> TblDadosBancarios { get; set; }
         public DbSet<Admissao> TblAdmissoes { get; set; }
+        public DbSet<Pendencia> TblPendencias { get; set; }
     }
 }

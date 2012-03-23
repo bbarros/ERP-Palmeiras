@@ -7,23 +7,21 @@
         $("#tabelaBeneficios tr:even").addClass("even");
     });
 </script>
-<h2>Beneficios</h2>
+<h2>Cadastros Pendentes</h2>
 
 <table id="tabelaBeneficios" class="decoratedTable">
     <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Valor</th>
+        <th>Funcionário</th>
+        <th>Login</th>
         <th>Excluir</th>
     </tr>
 
-    <% foreach (ERP_Palmeiras_RH.Models.Beneficio beneficio in ViewBag.beneficios)
+    <% foreach (ERP_Palmeiras_RH.Models.Pendencia pendencia in ViewBag.pendencias)
        { %>
         <tr>
-            <td><%= beneficio.Id%></td>
-            <td><%= beneficio.Nome%></td>
-            <td><%= beneficio.Valor %></td>
-            <td><a href="<%= Url.Action("ExcluirBeneficio", "Beneficios", new {bid = beneficio.Id}) %>" ><img alt="Excluir benefício" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
+            <td><a href="<%= Url.Action("Editar", "Funcionarios", new { id = pendencia.Funcionario.Id }) %>"><%= pendencia.Funcionario.Id%></a></td>
+            <td><%= pendencia.Funcionario.Credencial.Usuario%></td>
+            <td><a href="<%= Url.Action("Excluir", "Pendencias", new {pid = pendencia.Id}) %>" ><img alt="Excluir Pendência" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
         </tr>
     <%  } %>
 

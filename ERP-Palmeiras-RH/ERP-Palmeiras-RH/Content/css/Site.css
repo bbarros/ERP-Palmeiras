@@ -155,8 +155,10 @@ h1 {
 	background-image: url(../images/logo_bif.png);
 }
 
-#side-navigation {
-    border-width: 0px;
+#side-navigation 
+{
+    margin-top: 1px;
+    border-right: 3px solid #000000;
     padding: 0px;
     margin: 90px 0 0 0;
     min-width: 170px;
@@ -273,7 +275,7 @@ h1 {
     font-weight: bold;
 }
 
-.editIcon
+.icon
 {
     width: 20px;
     height: 20px;

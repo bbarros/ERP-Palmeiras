@@ -10,7 +10,7 @@ namespace ERP_Palmeiras_RH.Controllers
 {
     public class EspecialidadesController : Controller
     {
-        private RecursosHumanos facade = RecursosHumanos.GetInstance();
+        private EspecialidadesFacade facade = EspecialidadesFacade.GetInstance();
 
         public ActionResult Index()
         {
