@@ -174,7 +174,6 @@ h1 {
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #5a6064;
     padding-left: 0px;
-    list-style-type : none none inside;
 }
 
 #side-navigation ul li:hover {
@@ -278,4 +277,14 @@ h1 {
 {
     width: 20px;
     height: 20px;
+}
+
+#FormLogin
+{
+    width: 30%;
+    height:20%;   
+    margin: 10% 45% 15% 30%;
+    border: 2px solid white;
+    padding: 5% 5% 5% 5%;
+    
 }

@@ -5,15 +5,20 @@
 
     <div id="Login">
         
-        <form action="<%= Url.Action("Login","Home") %>" method="post">
+        
+        <form  id="FormLogin" action="<%= Url.Action("Login","Home") %>" method="post">
+        <p style="font-family: Verdana; font-size: large; font-style:oblique" >Login</p>
+        <p>Para prossiguir, é necessário o login.</p>    
+        <hr />
+        <br />
         <p>Usuario </p>
         <input id="user" name="usuario" type="text" />
         <br />
         <p>Senha </p>
-        <input id="senha" name="senha" type="text" />
+        <input id="senha" name="senha" type="password" />
 
-        <br />
-        <input id="loginSubmit" name="Login" type="submit" value="submit" />
+        <br /><br />
+        <input id="loginSubmit" name="Login" type="submit" value=" Login " />
         </form>
     
     </div> 

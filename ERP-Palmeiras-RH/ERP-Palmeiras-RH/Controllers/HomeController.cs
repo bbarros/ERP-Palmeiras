@@ -48,6 +48,7 @@ namespace ERP_Palmeiras_RH.Controllers
         /// <summary>
         /// Action de Logout.
         /// </summary>
+        [HttpPost]
         public ActionResult Logout()
         {
             sessao.Funcionario = null;
