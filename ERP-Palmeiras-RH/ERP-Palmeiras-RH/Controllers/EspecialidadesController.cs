@@ -34,5 +34,10 @@ namespace ERP_Palmeiras_RH.Controllers
 
         }
 
+        public ActionResult Excluir(Int32 eid)
+        {
+            facade.ExcluirEspecialidade(eid);
+            return RedirectToAction("Index");
+        }
     }
 }

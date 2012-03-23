@@ -8,7 +8,7 @@
         
         <form  id="FormLogin" action="<%= Url.Action("Login","Home") %>" method="post">
         <p style="font-family: Verdana; font-size: large; font-style:oblique" >Login</p>
-        <p>Para prossiguir, é necessário o login.</p>    
+        <p>Para prosseguir, é necessário realizar o login.</p>    
         <hr />
         <br />
         <p>Usuario </p>

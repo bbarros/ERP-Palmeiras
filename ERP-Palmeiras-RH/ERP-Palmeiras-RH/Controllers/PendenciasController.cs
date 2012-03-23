@@ -11,7 +11,7 @@ namespace ERP_Palmeiras_RH.Controllers
     [HandleERPException]
     public class PendenciasController : Controller
     {
-        private PendenciasFacade facade = PendenciasFacade.GetInstance();
+        private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult Index()
         {
