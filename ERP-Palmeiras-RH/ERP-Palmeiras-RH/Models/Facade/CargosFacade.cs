@@ -8,22 +8,8 @@ using System.Data.Entity.Infrastructure;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class CargosFacade
+    public partial class RecursosHumanos
     {
-        private static volatile CargosFacade instance;
-
-        private CargosFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static CargosFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new CargosFacade();
-            }
-
-            return instance;
-        }
 
         public IEnumerable<Cargo> BuscarCargos()
         {

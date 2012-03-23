@@ -8,22 +8,8 @@ using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class FuncionariosFacade
+    public partial class RecursosHumanos
     {
-        private static volatile FuncionariosFacade instance;
-
-        private FuncionariosFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static FuncionariosFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new FuncionariosFacade();
-            }
-
-            return instance;
-        }
 
         public void InserirFuncionario(Funcionario funcionario)
         {

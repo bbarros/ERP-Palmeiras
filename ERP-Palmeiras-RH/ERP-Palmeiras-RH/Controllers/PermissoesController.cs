@@ -11,7 +11,7 @@ namespace ERP_Palmeiras_RH.Controllers
     [HandleERPException]
     public class PermissoesController : Controller
     {
-        private PermissoesFacade facade = PermissoesFacade.GetInstance();
+        private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult Index()
         {

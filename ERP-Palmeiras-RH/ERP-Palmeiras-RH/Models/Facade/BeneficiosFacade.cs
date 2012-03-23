@@ -8,22 +8,8 @@ using System.Data.Entity.Infrastructure;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class BeneficiosFacade
+    public partial class RecursosHumanos
     {
-        private static volatile BeneficiosFacade instance;
-
-        private BeneficiosFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static BeneficiosFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new BeneficiosFacade();
-            }
-
-            return instance;
-        }
 
         public IEnumerable<Beneficio> BuscarBeneficios()
         {

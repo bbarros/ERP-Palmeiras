@@ -350,7 +350,7 @@
                         Motivo de Desligamento
                     </th>
                     <th style="padding-left: 55px;">
-                        <textarea cols="60" rows="5" id="motivo" name="motivo" type="text">
+                        <textarea cols="60" rows="5" id="motivo" name="motivo">
                         </textarea>
                     </th>
                 </tr>

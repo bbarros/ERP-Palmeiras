@@ -13,7 +13,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class RecursosHumanos
+    public partial class RecursosHumanos
     {
         private static volatile RecursosHumanos instance;
 

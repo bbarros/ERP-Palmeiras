@@ -6,22 +6,8 @@ using System.Runtime.CompilerServices;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class PagamentoFacade
+    public partial class RecursosHumanos
     {
-        private static volatile PagamentoFacade instance;
-
-        private PagamentoFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static PagamentoFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new PagamentoFacade();
-            }
-
-            return instance;
-        }
 
         public IEnumerable<Pagamento> GetPagamentos()
         {

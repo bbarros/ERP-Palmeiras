@@ -18,11 +18,7 @@ namespace ERP_Palmeiras_RH.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class UsuariosWS : System.Web.Services.WebService
     {
-        PermissoesFacade permissoesFacade = PermissoesFacade.GetInstance();
-        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
-        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
-        CargosFacade cargosFacade = CargosFacade.GetInstance();
-        BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
+        RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         [WebMethod]
         public Boolean InserirUsuario(String login, String senha)
@@ -37,7 +33,7 @@ namespace ERP_Palmeiras_RH.WebServices
             try
             {
                 Funcionario f = CriarFuncionarioExterno(login, senha);
-                funcFacade.InserirFuncionario(f);
+                facade.InserirFuncionario(f);
                 return true;
             }
             catch (Exception)
@@ -51,10 +47,10 @@ namespace ERP_Palmeiras_RH.WebServices
         {
             try
             {
-                Funcionario f = funcFacade.BuscarFuncionario(loginAntigo);
+                Funcionario f = facade.BuscarFuncionario(loginAntigo);
                 f.Credencial.Usuario = loginNovo;
                 f.Credencial.Senha = senhaNova;
-                funcFacade.AtualizarFuncionario(f);
+                facade.AtualizarFuncionario(f);
                 return true;
             }
             catch (Exception)
@@ -78,13 +74,13 @@ namespace ERP_Palmeiras_RH.WebServices
             adm.UltimoSalario = null;
             func.Admissao = adm;
 
-            IEnumerable<Beneficio> beneficios = beneficiosFacade.BuscarBeneficios();
+            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
             foreach (Beneficio b in beneficios)
             {
                 func.Beneficios.Add(b);
             }
 
-            Cargo cg = cargosFacade.BuscarCargos().First<Cargo>();
+            Cargo cg = facade.BuscarCargos().First<Cargo>();
             func.Cargo = cg;
 
             Random rd = new Random();
@@ -131,7 +127,7 @@ namespace ERP_Palmeiras_RH.WebServices
             c.Usuario = login;
             func.Credencial = c;
 
-            Permissao p = permissoesFacade.BuscarPermissoes().First<Permissao>();
+            Permissao p = facade.BuscarPermissoes().First<Permissao>();
             func.Permissao = p;
 
             DadoBancario db = new DadoBancario();

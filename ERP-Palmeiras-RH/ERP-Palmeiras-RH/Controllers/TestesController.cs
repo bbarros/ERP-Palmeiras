@@ -13,56 +13,52 @@ namespace ERP_Palmeiras_RH.Controllers
         //
         // GET: /Testes/
 
-        PermissoesFacade permissoesFacade = PermissoesFacade.GetInstance();
-        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
-        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
-        CargosFacade cargosFacade = CargosFacade.GetInstance();
-        BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
+        RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult CadastrarCenario()
         {
             Permissao p1 = new Permissao();
             p1.Nome = "Administrador";
-            permissoesFacade.InserirPermissao(p1);
+            facade.InserirPermissao(p1);
 
             Permissao p2 = new Permissao();
             p2.Nome = "Convidado";
-            permissoesFacade.InserirPermissao(p2);
+            facade.InserirPermissao(p2);
 
             Cargo c1 = new Cargo();
             c1.Nome = "Médico";
             c1.SalarioBase = 2000;
-            cargosFacade.InserirCargo(c1);
+            facade.InserirCargo(c1);
 
             Cargo c2 = new Cargo();
             c2.Nome = "Gerente RH";
             c2.SalarioBase = 5000;
-            cargosFacade.InserirCargo(c2);
+            facade.InserirCargo(c2);
 
             Beneficio b1 = new Beneficio();
             b1.Nome = "Vale-Refeição";
             b1.Valor = 300;
-            beneficiosFacade.InserirBeneficio(b1);
+            facade.InserirBeneficio(b1);
 
             Beneficio b2 = new Beneficio();
             b2.Nome = "Vale-Transporte";
             b2.Valor = 300;
-            beneficiosFacade.InserirBeneficio(b2);
+            facade.InserirBeneficio(b2);
 
             Especialidade e1 = new Especialidade();
             e1.Nome = "Urologia";
-            especFacade.InserirEspecialidade(e1);
+            facade.InserirEspecialidade(e1);
 
             Especialidade e2 = new Especialidade();
             e2.Nome = "Pediatria";
-            especFacade.InserirEspecialidade(e2);
+            facade.InserirEspecialidade(e2);
 
             return RedirectToAction("CadastrarMedico");
         }
 
         public ActionResult CadastrarMedico()
         {
-            funcFacade.InserirFuncionario(CriarMedico());
+            facade.InserirFuncionario(CriarMedico());
 
             return RedirectToAction("Index", "Funcionarios");
         }
@@ -82,13 +78,13 @@ namespace ERP_Palmeiras_RH.Controllers
             adm.UltimoSalario = null;
             func.Admissao = adm;
 
-            IEnumerable<Beneficio> beneficios = beneficiosFacade.BuscarBeneficios();
+            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
             foreach (Beneficio b in beneficios)
             {
                 func.Beneficios.Add(b);
             }
 
-            Cargo cg = cargosFacade.BuscarCargos().First<Cargo>();
+            Cargo cg = facade.BuscarCargos().First<Cargo>();
             func.Cargo = cg;
 
             Random rd = new Random();
@@ -135,7 +131,7 @@ namespace ERP_Palmeiras_RH.Controllers
             c.Usuario = "joao" + sulfixNome.ToString();
             func.Credencial = c;
 
-            Permissao p = permissoesFacade.BuscarPermissoes().First<Permissao>();
+            Permissao p = facade.BuscarPermissoes().First<Permissao>();
             func.Permissao = p;
 
             DadoBancario db = new DadoBancario();
@@ -146,7 +142,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             func.Status = 1;
             func.CRM = "CRMSP-" + rd.Next().ToString().ToLower();
-            func.Especialidade = especFacade.BuscarEspecialidades().First<Especialidade>();
+            func.Especialidade = facade.BuscarEspecialidades().First<Especialidade>();
 
             func.CartaoPonto = new CartaoPonto();
 

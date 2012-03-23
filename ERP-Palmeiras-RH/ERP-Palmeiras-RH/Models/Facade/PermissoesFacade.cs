@@ -7,23 +7,8 @@ using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class PermissoesFacade
+    public partial class RecursosHumanos
     {
-
-        private static volatile PermissoesFacade instance;
-
-        private PermissoesFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static PermissoesFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new PermissoesFacade();
-            }
-
-            return instance;
-        }
 
         public IEnumerable<Permissao> BuscarPermissoes()
         {

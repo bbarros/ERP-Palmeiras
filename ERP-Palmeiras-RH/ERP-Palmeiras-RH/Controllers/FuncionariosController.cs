@@ -19,11 +19,7 @@ namespace ERP_Palmeiras_RH.Controllers
     public class FuncionariosController : Controller
     {
 
-        PermissoesFacade permissoesFacade = PermissoesFacade.GetInstance();
-        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
-        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
-        CargosFacade cargosFacade = CargosFacade.GetInstance();
-        BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
+        RecursosHumanos facade = RecursosHumanos.GetInstance();
 
 
         /// <summary>
@@ -31,7 +27,7 @@ namespace ERP_Palmeiras_RH.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            IEnumerable<Funcionario> listaFuncionarios = funcFacade.BuscarFuncionarios();
+            IEnumerable<Funcionario> listaFuncionarios = facade.BuscarFuncionarios();
 
             return View(listaFuncionarios);
         }
@@ -56,14 +52,14 @@ namespace ERP_Palmeiras_RH.Controllers
             Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, 0.0f, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
             func.CartaoPonto = new CartaoPonto();
 
-            funcFacade.InserirFuncionario(func);
+            facade.InserirFuncionario(func);
 
             return View();
         }
 
         public ActionResult Editar(int id)
         {
-            Funcionario funcionario = funcFacade.BuscarFuncionario(id);
+            Funcionario funcionario = facade.BuscarFuncionario(id);
             PopularViewDataCadastro();
             ViewData["Id"] = id;
             return View(funcionario);
@@ -80,10 +76,10 @@ namespace ERP_Palmeiras_RH.Controllers
             DateTime? datademissao, int ramal, int cargo, int especialidade, String usuario, String senha, int permissao)
         {
 
-            Funcionario old = funcFacade.BuscarFuncionario(id);
+            Funcionario old = facade.BuscarFuncionario(id);
             Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
 
-            funcFacade.AtualizarFuncionario(func);
+            facade.AtualizarFuncionario(func);
 
             return View();
         }
@@ -107,12 +103,12 @@ namespace ERP_Palmeiras_RH.Controllers
             {
                 foreach (int beneficioId in beneficios)
                 {
-                    Beneficio b = beneficiosFacade.BuscarBeneficio(beneficioId);
+                    Beneficio b = facade.BuscarBeneficio(beneficioId);
                     func.Beneficios.Add(b);
                 }
             }
 
-            Cargo cg = cargosFacade.BuscarCargo(cargo);
+            Cargo cg = facade.BuscarCargo(cargo);
             func.CargoId = cargo;            
 
             DadoPessoal dp = new DadoPessoal();
@@ -161,7 +157,7 @@ namespace ERP_Palmeiras_RH.Controllers
             c.Usuario = usuario;
             func.Credencial = c;
 
-            Permissao p = permissoesFacade.BuscarPermissao(permissao);
+            Permissao p = facade.BuscarPermissao(permissao);
             func.PermissaoId = permissao;
 
             DadoBancario db = new DadoBancario();
@@ -175,7 +171,7 @@ namespace ERP_Palmeiras_RH.Controllers
             if (especialidade != 0 && !String.IsNullOrEmpty(crm))
             {
                 // é um médico.. converter o func para médico!
-                Especialidade e = especFacade.BuscarEspecialidade(especialidade);
+                Especialidade e = facade.BuscarEspecialidade(especialidade);
                 return new Medico(func, crm, especialidade);
             }
             return func;
@@ -183,10 +179,10 @@ namespace ERP_Palmeiras_RH.Controllers
 
         private void PopularViewDataCadastro()
         {
-            IEnumerable<Cargo> cargos = cargosFacade.BuscarCargos();
-            IEnumerable<Beneficio> beneficios = beneficiosFacade.BuscarBeneficios();
-            IEnumerable<Especialidade> especialidades = especFacade.BuscarEspecialidades();
-            IEnumerable<Permissao> permissoes = permissoesFacade.BuscarPermissoes();
+            IEnumerable<Cargo> cargos = facade.BuscarCargos();
+            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
+            IEnumerable<Especialidade> especialidades = facade.BuscarEspecialidades();
+            IEnumerable<Permissao> permissoes = facade.BuscarPermissoes();
 
             ViewData["Cargos"] = cargos;
             ViewData["Beneficios"] = beneficios;

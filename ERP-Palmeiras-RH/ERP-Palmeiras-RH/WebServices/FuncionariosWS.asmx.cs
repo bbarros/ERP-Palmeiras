@@ -19,8 +19,7 @@ namespace ERP_Palmeiras_RH.WebServices
     public class FuncionariosWS : System.Web.Services.WebService
     {
 
-        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
-        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
+        RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         /// <summary>
         /// Busca todas as especialidades.
@@ -29,7 +28,7 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public List<EspecialidadeDTO> BuscarEspecialidades()
         {
-            IEnumerable<Especialidade> result = especFacade.BuscarEspecialidades();
+            IEnumerable<Especialidade> result = facade.BuscarEspecialidades();
             List<EspecialidadeDTO> dtos = new List<EspecialidadeDTO>();
             if (result != null && result.Count<Especialidade>() > 0)
             {
@@ -49,7 +48,7 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public List<MedicoDTO> BuscarMedicos()
         {
-            IEnumerable<Funcionario> result = funcFacade.BuscarFuncionarios();
+            IEnumerable<Funcionario> result = facade.BuscarFuncionarios();
             List<MedicoDTO> dtos = new List<MedicoDTO>();
             if (result != null && result.Count<Funcionario>() > 0)
             {
@@ -80,7 +79,7 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public MedicoDTO BuscarMedico(long cpf)
         {
-            Funcionario result = funcFacade.BuscarFuncionario(cpf);
+            Funcionario result = facade.BuscarFuncionario(cpf);
             if (result != null)
             {
                 if (result is Medico)
@@ -107,7 +106,7 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public FuncionarioDTO BuscarFuncionario(String login)
         {
-            Funcionario result = funcFacade.BuscarFuncionario(login);
+            Funcionario result = facade.BuscarFuncionario(login);
             if (result != null)
             {
                 if (result is Medico)
