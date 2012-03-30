@@ -186,14 +186,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Dia" Type="datetime" Nullable="false" />
-          <Property Name="EntradaManha" Type="time" Nullable="false" />
-          <Property Name="SaidaManha" Type="time" Nullable="false" />
-          <Property Name="EntradaTarde" Type="time" Nullable="false" />
-          <Property Name="SaidaTarde" Type="time" Nullable="false" />
-          <Property Name="EntradaNoite" Type="time" Nullable="false" />
-          <Property Name="SaidaNoite" Type="time" Nullable="false" />
           <Property Name="cartoesPontoId" Type="int" Nullable="false" />
+          <Property Name="Entrada" Type="datetime" Nullable="false" />
+          <Property Name="Saida" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TblEspecialidades">
           <Key>
@@ -247,7 +242,7 @@
           <Property Name="DataPagamento" Type="datetime" Nullable="false" />
           <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="funcionariosId" Type="int" Nullable="false" />
-          <Property Name="DataOrdem" Type="datetime" Nullable="false" />
+          <Property Name="DataOrdem" Type="datetime2" Nullable="false" />
         </EntityType>
         <EntityType Name="TblPendencias">
           <Key>
@@ -638,6 +633,8 @@
           <Property Type="Time" Name="SaidaNoite" Nullable="false" />
           <NavigationProperty Name="CartaoPonto" Relationship="Model.EntradasCartaoPontoCartoesPonto" FromRole="EntradasCartaoPonto" ToRole="CartoesPonto" />
           <Property Type="Int32" Name="cartoesPontoId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
+          <Property Type="DateTime" Name="Entrada" Nullable="false" />
+          <Property Type="DateTime" Name="Saida" Nullable="false" />
         </EntityType>
         <Association Name="EntradasCartaoPontoCartoesPonto">
           <End Type="Model.EntradasCartaoPonto" Role="EntradasCartaoPonto" Multiplicity="*" />
@@ -918,14 +915,9 @@
     <EntitySetMapping Name="TblEntradasCartaoPonto">
       <EntityTypeMapping TypeName="IsTypeOf(Model.EntradasCartaoPonto)">
         <MappingFragment StoreEntitySet="TblEntradasCartaoPonto">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Dia" ColumnName="Dia" />
-          <ScalarProperty Name="EntradaManha" ColumnName="EntradaManha" />
-          <ScalarProperty Name="SaidaManha" ColumnName="SaidaManha" />
-          <ScalarProperty Name="EntradaTarde" ColumnName="EntradaTarde" />
-          <ScalarProperty Name="SaidaTarde" ColumnName="SaidaTarde" />
-          <ScalarProperty Name="EntradaNoite" ColumnName="EntradaNoite" />
-          <ScalarProperty Name="SaidaNoite" ColumnName="SaidaNoite" />
+          <ScalarProperty Name="Saida" ColumnName="Saida" />
+                <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="cartoesPontoId" ColumnName="cartoesPontoId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1159,8 +1151,8 @@
           <ConnectorPoint PointX="2.125" PointY="5.3671862500000032" />
         </AssociationConnector>
         <AssociationConnector Association="Model.FuncionariosCartoesPonto" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.5000025" PointY="6.77830078125" />
-          <ConnectorPoint PointX="6.5000025" PointY="7.922841796875" />
+          <ConnectorPoint PointX="6.46094" PointY="6.77830078125" />
+          <ConnectorPoint PointX="6.46094" PointY="7.922841796875" />
           <ConnectorPoint PointX="8.6666666666666661" PointY="7.9228417968749989" />
           <ConnectorPoint PointX="8.8333333333333339" PointY="7.922841796875" />
           <ConnectorPoint PointX="10.25" PointY="7.922841796875" />
@@ -1195,8 +1187,8 @@
           <ConnectorPoint PointX="10.25" PointY="2.4778857421874996" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PagamentoFuncionarios">
-          <ConnectorPoint PointX="5.8125" PointY="10.75" />
-          <ConnectorPoint PointX="5.8125" PointY="6.77830078125" />
+          <ConnectorPoint PointX="5.734375" PointY="10.75" />
+          <ConnectorPoint PointX="5.734375" PointY="6.77830078125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Medico" Width="1.5" PointX="2.875" PointY="6" Height="1.5956835937499996" />
         <InheritanceConnector EntityType="Model.Medico" ManuallyRouted="false">

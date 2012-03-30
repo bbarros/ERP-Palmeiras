@@ -23,6 +23,8 @@ namespace ERP_Palmeiras_RH.Models
         public System.TimeSpan EntradaNoite { get; set; }
         public System.TimeSpan SaidaNoite { get; set; }
         internal int cartoesPontoId { get; set; }
+        public System.DateTime Entrada { get; set; }
+        public System.DateTime Saida { get; set; }
     
         public virtual CartaoPonto CartaoPonto { get; set; }
     }
