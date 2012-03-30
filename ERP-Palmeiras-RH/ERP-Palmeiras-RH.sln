@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP-Palmeiras-RH", "ERP-Palmeiras-RH\ERP-Palmeiras-RH.csproj", "{CBFC933B-D360-4013-AA8F-42362382EFA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP-Palmeiras-LA", "..\ERP-Palmeiras-LA\ERP-Palmeiras-LA\ERP-Palmeiras-LA.csproj", "{76D1AED0-9B61-4DE5-AD15-62F71A2C8FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CBFC933B-D360-4013-AA8F-42362382EFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBFC933B-D360-4013-AA8F-42362382EFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBFC933B-D360-4013-AA8F-42362382EFA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D1AED0-9B61-4DE5-AD15-62F71A2C8FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D1AED0-9B61-4DE5-AD15-62F71A2C8FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D1AED0-9B61-4DE5-AD15-62F71A2C8FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D1AED0-9B61-4DE5-AD15-62F71A2C8FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
