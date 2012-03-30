@@ -14,11 +14,17 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class SolicitacaoCompraEquipamento
     {
+        public SolicitacaoCompraEquipamento()
+        {
+            this.Status = new StatusSolicitacaoCompraWrapper();
+        }
+    
         public int Id { get; set; }
         public double Preco { get; set; }
-        public int Status { get; set; }
         public long DataValidade { get; set; }
         public int EquipamentoId { get; set; }
+    
+        public StatusSolicitacaoCompraWrapper Status { get; set; }
     
         public virtual CompraEquipamento CompraEquipamento { get; set; }
         public virtual Equipamento Equipamento { get; set; }

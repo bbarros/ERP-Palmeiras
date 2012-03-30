@@ -14,12 +14,19 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class PendenciaManutencao
     {
+        public PendenciaManutencao()
+        {
+            this.Status = new StatusPendenciaManutencaoWrapper();
+        }
+    
         public int Id { get; set; }
         public string Motivo { get; set; }
         public int UsuarioId { get; set; }
         public int EquipamentoClinicaId { get; set; }
     
-        public virtual Menutencao Menutencao { get; set; }
+        public StatusPendenciaManutencaoWrapper Status { get; set; }
+    
+        public virtual SolicitacaoMenutencao Menutencao { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual EquipamentoClinica EquipamentoClinica { get; set; }
     }

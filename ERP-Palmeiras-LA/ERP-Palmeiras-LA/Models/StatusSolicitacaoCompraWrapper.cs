@@ -10,21 +10,9 @@
 namespace ERP_Palmeiras_LA.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CompraEquipamento
+    public partial class StatusSolicitacaoCompraWrapper
     {
-        public CompraEquipamento()
-        {
-            this.Status = new StatusCompraWrapper();
-        }
-    
-        public int Id { get; set; }
-        public Nullable<long> DataEntrega { get; set; }
-        public long DataPrevista { get; set; }
-    
-        public StatusCompraWrapper Status { get; set; }
-    
-        public virtual SolicitacaoCompraEquipamento SolicitacaoCompraEquipamento { get; set; }
+        
     }
 }

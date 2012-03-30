@@ -14,10 +14,16 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class CompraMaterial
     {
+        public CompraMaterial()
+        {
+            this.Status = new StatusCompraWrapper();
+        }
+    
         public int Id { get; set; }
         public Nullable<long> DataEntrega { get; set; }
         public long DataPrevista { get; set; }
-        public int StatusCompra { get; set; }
+    
+        public StatusCompraWrapper Status { get; set; }
     
         public virtual SolicitacaoCompraMaterial SolicitacaoCompraMaterial { get; set; }
     }

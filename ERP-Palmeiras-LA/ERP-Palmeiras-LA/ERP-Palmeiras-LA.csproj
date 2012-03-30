@@ -97,9 +97,6 @@
     <Compile Include="Models\MaterialClinica.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Menutencao.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ModelLA.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +119,25 @@
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SolicitacaoCompraMaterial.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SolicitacaoMenutencao.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusCompra.cs" />
+    <Compile Include="Models\StatusCompraWrapper.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusPendenciaManutencao.cs" />
+    <Compile Include="Models\StatusPendenciaManutencaoWrapper.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusSolicitacaoCompra.cs" />
+    <Compile Include="Models\StatusSolicitacaoCompraWrapper.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusSolicitacaoManutencao.cs" />
+    <Compile Include="Models\StatusSolicitacaoManutencaoWrapper.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">

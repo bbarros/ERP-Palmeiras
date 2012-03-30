@@ -12,19 +12,21 @@ namespace ERP_Palmeiras_LA.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CompraEquipamento
+    public partial class SolicitacaoMenutencao
     {
-        public CompraEquipamento()
+        public SolicitacaoMenutencao()
         {
-            this.Status = new StatusCompraWrapper();
+            this.Status = new StatusSolicitacaoManutencaoWrapper();
         }
     
         public int Id { get; set; }
-        public Nullable<long> DataEntrega { get; set; }
         public long DataPrevista { get; set; }
+        public string Motivo { get; set; }
+        public double Custo { get; set; }
+        public long DataTerminoManutencao { get; set; }
     
-        public StatusCompraWrapper Status { get; set; }
+        public StatusSolicitacaoManutencaoWrapper Status { get; set; }
     
-        public virtual SolicitacaoCompraEquipamento SolicitacaoCompraEquipamento { get; set; }
+        public virtual PendenciaManutencao PendenciaManutencao { get; set; }
     }
 }

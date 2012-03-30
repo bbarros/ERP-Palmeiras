@@ -10,16 +10,9 @@
 namespace ERP_Palmeiras_LA.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Menutencao
+    public partial class StatusCompraWrapper
     {
-        public int Id { get; set; }
-        public long DataPrevista { get; set; }
-        public string Motivo { get; set; }
-        public double Custo { get; set; }
-        public int StatusManutencao { get; set; }
-    
-        public virtual PendenciaManutencao PendenciaManutencao { get; set; }
+        
     }
 }
