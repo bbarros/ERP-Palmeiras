@@ -85,7 +85,7 @@ namespace ERP_Palmeiras_RH.Controllers
             }
 
             Cargo cg = facade.BuscarCargos().First<Cargo>();
-            func.Cargo = cg;
+            func.CargoId = cg.Id;
 
             Random rd = new Random();
 
@@ -132,7 +132,8 @@ namespace ERP_Palmeiras_RH.Controllers
             func.Credencial = c;
 
             Permissao p = facade.BuscarPermissoes().First<Permissao>();
-            func.Permissao = p;
+            func.PermissaoId = p.Id;
+            //func.Permissao = p;
 
             DadoBancario db = new DadoBancario();
             db.Agencia = rd.Next().ToString().ToLower() + "-2";
@@ -142,7 +143,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             func.Status = 1;
             func.CRM = "CRMSP-" + rd.Next().ToString().ToLower();
-            func.Especialidade = facade.BuscarEspecialidades().First<Especialidade>();
+            func.EspecialidadeId = facade.BuscarEspecialidades().First<Especialidade>().Id;
 
             func.CartaoPonto = new CartaoPonto();
 
