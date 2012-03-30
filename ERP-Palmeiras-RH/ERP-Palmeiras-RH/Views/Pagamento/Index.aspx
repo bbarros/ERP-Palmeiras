@@ -9,6 +9,7 @@
         <th>Nome</th>
         <th>Cargo</th>
         <th>Salário</th>
+        <th>Mês/Ano</th>
         <th>Status</th>
         <th>Pagar</th>
     </tr>
