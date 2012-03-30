@@ -26,7 +26,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
         public void InserirCargo(Cargo Cargo)
         {
             ModelRH model = new ModelRH();
-            IEnumerable<Cargo> result = model.TblCargos.Where(c => (c.Nome == Cargo.Nome && c.SalarioBase == Cargo.SalarioBase));
+            IEnumerable<Cargo> result = model.TblCargos.Where(c => (c.Nome == Cargo.Nome));
 
             if (result == null || result.Count<Cargo>() == 0)
             {
