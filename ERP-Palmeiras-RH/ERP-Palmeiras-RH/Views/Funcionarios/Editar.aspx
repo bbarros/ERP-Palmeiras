@@ -306,7 +306,7 @@
                         <select id="beneficios" name="beneficios" multiple="multiple">
                             <% foreach (ERP_Palmeiras_RH.Models.Beneficio b in beneficios)
                                { %>
-                            <option <%= (func.Beneficios.Where<ERP_Palmeiras_RH.Models.Beneficio>(ben => ben.Id == b.Id).Count<ERP_Palmeiras_RH.Models.Beneficio>() > 0)? "SELECTED" : "" %>value="<%= b.Id %>">
+                            <option <%= (func.Beneficios.Where<ERP_Palmeiras_RH.Models.Beneficio>(ben => ben.Id == b.Id).Count<ERP_Palmeiras_RH.Models.Beneficio>() > 0)? "SELECTED" : "" %> value="<%= b.Id %>">
                                 <%= b.Nome %></option>
                             <% } %>
                         </select>

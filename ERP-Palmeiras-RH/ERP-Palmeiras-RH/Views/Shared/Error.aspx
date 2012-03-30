@@ -9,5 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="SideMenu" runat="server">
+<% if(ERP_Palmeiras_RH.Controllers.GerenciadorDeSessao.GetInstance().SessaoAtiva) { %>
     <% Html.RenderPartial("MenuFuncionarios"); %>
+    <% } %>
 </asp:Content>

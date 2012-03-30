@@ -36,7 +36,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
         public void AtualizarFuncionario(Funcionario funcionario)
         {
             ModelRH model = new ModelRH();
-
             model.Entry(funcionario).State = EntityState.Modified;
             model.SaveChanges();
         }

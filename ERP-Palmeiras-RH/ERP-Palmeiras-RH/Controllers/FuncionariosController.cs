@@ -78,7 +78,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             Funcionario old = facade.BuscarFuncionario(id);
             Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
-
+            func.Id = old.Id;
             facade.AtualizarFuncionario(func);
 
             return View();
@@ -98,7 +98,7 @@ namespace ERP_Palmeiras_RH.Controllers
             adm.MotivoDesligamento = motivo;
             adm.UltimoSalario = ultimoSalario.ToString();
             func.Admissao = adm;
-
+            func.Beneficios.Clear();
             if (beneficios != null && beneficios.Count<int>() > 0)
             {
                 foreach (int beneficioId in beneficios)
