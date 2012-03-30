@@ -7,15 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace ERP_Palmeiras_RH.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class Beneficio
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         public double Valor { get; set; }
     }
+    
 }
