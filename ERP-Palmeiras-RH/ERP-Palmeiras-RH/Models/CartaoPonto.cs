@@ -14,9 +14,16 @@ namespace ERP_Palmeiras_RH.Models
 {
     public partial class CartaoPonto
     {
+        public CartaoPonto()
+        {
+            this.EntradasPonto = new HashSet<EntradasCartaoPonto>();
+        }
+    
         public int Id { get; set; }
         public int Mes { get; set; }
         public int Ano { get; set; }
+    
+        public virtual ICollection<EntradasCartaoPonto> EntradasPonto { get; set; }
     }
     
 }
