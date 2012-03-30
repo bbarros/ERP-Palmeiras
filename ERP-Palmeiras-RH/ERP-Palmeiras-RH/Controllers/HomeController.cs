@@ -37,7 +37,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             sessao.Funcionario = facadeRH.AutenticaUsuario(usuario, senha);
 
-            if (sessao.Funcionario == null)
+            if (!sessao.SessaoAtiva)
             {
                 ViewData["Message"] = "Usuário inválido!";
                 return View("Error");
@@ -60,6 +60,11 @@ namespace ERP_Palmeiras_RH.Controllers
         /// </summary>
         public ActionResult Welcome()
         {
+            if (!sessao.SessaoAtiva)
+            {
+                ViewData["Message"] = "É necessário se autenticar!";
+                return View("Error");
+            }
             return View();
         }
 

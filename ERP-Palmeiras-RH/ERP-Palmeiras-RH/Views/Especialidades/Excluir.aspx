@@ -2,9 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Excluir</h2>
+<h2>Especialidade excluída com sucesso.</h2>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="SideMenu" runat="server">
+    <% Html.RenderPartial("MenuFuncionarios"); %>
 </asp:Content>

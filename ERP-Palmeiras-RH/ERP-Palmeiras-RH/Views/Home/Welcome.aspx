@@ -6,4 +6,7 @@
     <p>Wielkommen auf der System!!!!! </p>
 </asp:Content>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
+    <% Html.RenderPartial("MenuFuncionarios"); %>
+</asp:Content>
 

@@ -16,7 +16,7 @@ namespace ERP_Palmeiras_RH.Controllers
     /// Controller para Actions de Cadastro de Funcionarios.
     /// </summary>
     [HandleERPException]
-    public class FuncionariosController : Controller
+    public class FuncionariosController : BaseController
     {
 
         RecursosHumanos facade = RecursosHumanos.GetInstance();

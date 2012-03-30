@@ -9,7 +9,7 @@ using ERP_Palmeiras_RH.Models.Facade;
 namespace ERP_Palmeiras_RH.Controllers
 {
     [HandleERPException]
-    public class PermissoesController : Controller
+    public class PermissoesController : BaseController
     {
         private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
