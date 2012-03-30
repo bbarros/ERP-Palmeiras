@@ -46,7 +46,7 @@ namespace ERP_Palmeiras_LA.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
-            //sessao.Funcionario = null;
+            sessao.Usuario = null;
             return View("Index");
         }
 
