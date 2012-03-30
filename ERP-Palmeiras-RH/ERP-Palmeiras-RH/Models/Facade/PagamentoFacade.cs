@@ -13,7 +13,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
         {
             ModelRH model = new ModelRH();
 
-            IEnumerable<Pagamento> pagamentos = model.TblPagamentos.Where(p => p. <= DateTime.Now);
+            IEnumerable<Pagamento> pagamentos = model.TblPagamentos.Where(p => p.DataOrdem <= DateTime.Now);
 
             return pagamentos;
         }
