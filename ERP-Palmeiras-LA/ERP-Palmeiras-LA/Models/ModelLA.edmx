@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelLA.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelLAStoreContainer">
+    <EntitySet Name="TblUsuarios" EntityType="ModelLA.Store.TblUsuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblPendenciasManutencao" EntityType="ModelLA.Store.TblPendenciasManutencao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEquipamentos" EntityType="ModelLA.Store.TblEquipamentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblFabricantes" EntityType="ModelLA.Store.TblFabricantes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEquipamentosClinica" EntityType="ModelLA.Store.TblEquipamentosClinica" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblInventario" EntityType="ModelLA.Store.TblInventario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEstoque" EntityType="ModelLA.Store.TblEstoque" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblMaterial" EntityType="ModelLA.Store.TblMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblMateriaisClinica" EntityType="ModelLA.Store.TblMateriaisClinica" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblMenutencoes" EntityType="ModelLA.Store.TblMenutencoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblSolicitacoesCompraEquipamento" EntityType="ModelLA.Store.TblSolicitacoesCompraEquipamento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCompraEquipamento" EntityType="ModelLA.Store.TblCompraEquipamento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblSolicitacoesCompraMaterial" EntityType="ModelLA.Store.TblSolicitacoesCompraMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCompraMaterial" EntityType="ModelLA.Store.TblCompraMaterial" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PendenciaManutencaoMenutencao" Association="ModelLA.Store.PendenciaManutencaoMenutencao">
+      <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+      <End Role="Menutencao" EntitySet="TblMenutencoes" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioPendenciaManutencao" Association="ModelLA.Store.UsuarioPendenciaManutencao">
+      <End Role="Usuario" EntitySet="TblUsuarios" />
+      <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+    </AssociationSet>
+    <AssociationSet Name="EquipamentoClinicaPendenciaManutencao" Association="ModelLA.Store.EquipamentoClinicaPendenciaManutencao">
+      <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+      <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+    </AssociationSet>
+    <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.Store.EquipamentoClinicaEquipamento">
+      <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+      <End Role="Equipamento" EntitySet="TblEquipamentos" />
+    </AssociationSet>
+    <AssociationSet Name="InventarioEquipamentoClinica" Association="ModelLA.Store.InventarioEquipamentoClinica">
+      <End Role="Inventario" EntitySet="TblInventario" />
+      <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+    </AssociationSet>
+    <AssociationSet Name="FabricanteEquipamento" Association="ModelLA.Store.FabricanteEquipamento">
+      <End Role="Fabricante" EntitySet="TblFabricantes" />
+      <End Role="Equipamento" EntitySet="TblEquipamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FabricanteMaterial" Association="ModelLA.Store.FabricanteMaterial">
+      <End Role="Fabricante" EntitySet="TblFabricantes" />
+      <End Role="Material" EntitySet="TblMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="EstoqueMaterialClinica" Association="ModelLA.Store.EstoqueMaterialClinica">
+      <End Role="Estoque" EntitySet="TblEstoque" />
+      <End Role="MaterialClinica" EntitySet="TblMateriaisClinica" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialMaterialClinica" Association="ModelLA.Store.MaterialMaterialClinica">
+      <End Role="Material" EntitySet="TblMaterial" />
+      <End Role="MaterialClinica" EntitySet="TblMateriaisClinica" />
+    </AssociationSet>
+    <AssociationSet Name="SolicitacaoCompraMaterialCompraMaterial" Association="ModelLA.Store.SolicitacaoCompraMaterialCompraMaterial">
+      <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+      <End Role="CompraMaterial" EntitySet="TblCompraMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="SolicitacaoCompraEquipamentoCompraEquipamento" Association="ModelLA.Store.SolicitacaoCompraEquipamentoCompraEquipamento">
+      <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+      <End Role="CompraEquipamento" EntitySet="TblCompraEquipamento" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialSolicitacaoCompraMaterial" Association="ModelLA.Store.MaterialSolicitacaoCompraMaterial">
+      <End Role="Material" EntitySet="TblMaterial" />
+      <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="EquipamentoSolicitacaoCompraEquipamento" Association="ModelLA.Store.EquipamentoSolicitacaoCompraEquipamento">
+      <End Role="Equipamento" EntitySet="TblEquipamentos" />
+      <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TblUsuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblPendenciasManutencao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="EquipamentoClinicaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEquipamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumeroSerie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FabricanteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblFabricantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CNPJ" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEquipamentosClinica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusEquipamento" Type="int" Nullable="false" />
+    <Property Name="InventarioId" Type="int" Nullable="false" />
+    <Property Name="CodigoAtivo" Type="int" Nullable="false" />
+    <Property Name="Equipamento_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblInventario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEstoque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FabricanteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMateriaisClinica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstoqueId" Type="int" Nullable="false" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+    <Property Name="CodigoEstoque" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMenutencoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataPrevista" Type="bigint" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Custo" Type="float" Nullable="false" />
+    <Property Name="StatusManutencao" Type="int" Nullable="false" />
+    <Property Name="PendenciaManutencao_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSolicitacoesCompraEquipamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Preco" Type="float" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="DataValidade" Type="bigint" Nullable="false" />
+    <Property Name="EquipamentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCompraEquipamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataEntrega" Type="bigint" Nullable="true" />
+    <Property Name="DataPrevista" Type="bigint" Nullable="false" />
+    <Property Name="StatusCompra" Type="int" Nullable="false" />
+    <Property Name="SolicitacaoCompraEquipamento_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSolicitacoesCompraMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrecoUnitario" Type="float" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Quantidade" Type="int" Nullable="false" />
+    <Property Name="DataValidade" Type="bigint" Nullable="false" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCompraMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataEntrega" Type="bigint" Nullable="true" />
+    <Property Name="DataPrevista" Type="bigint" Nullable="false" />
+    <Property Name="StatusCompra" Type="int" Nullable="false" />
+    <Property Name="SolicitacaoCompraMaterial_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PendenciaManutencaoMenutencao">
+    <End Role="PendenciaManutencao" Type="ModelLA.Store.TblPendenciasManutencao" Multiplicity="1" />
+    <End Role="Menutencao" Type="ModelLA.Store.TblMenutencoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PendenciaManutencao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menutencao">
+        <PropertyRef Name="PendenciaManutencao_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioPendenciaManutencao">
+    <End Role="Usuario" Type="ModelLA.Store.TblUsuarios" Multiplicity="1" />
+    <End Role="PendenciaManutencao" Type="ModelLA.Store.TblPendenciasManutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PendenciaManutencao">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EquipamentoClinicaPendenciaManutencao">
+    <End Role="EquipamentoClinica" Type="ModelLA.Store.TblEquipamentosClinica" Multiplicity="1" />
+    <End Role="PendenciaManutencao" Type="ModelLA.Store.TblPendenciasManutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipamentoClinica">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PendenciaManutencao">
+        <PropertyRef Name="EquipamentoClinicaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EquipamentoClinicaEquipamento">
+    <End Role="EquipamentoClinica" Type="ModelLA.Store.TblEquipamentosClinica" Multiplicity="*" />
+    <End Role="Equipamento" Type="ModelLA.Store.TblEquipamentos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipamentoClinica">
+        <PropertyRef Name="Equipamento_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InventarioEquipamentoClinica">
+    <End Role="Inventario" Type="ModelLA.Store.TblInventario" Multiplicity="1" />
+    <End Role="EquipamentoClinica" Type="ModelLA.Store.TblEquipamentosClinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipamentoClinica">
+        <PropertyRef Name="InventarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FabricanteEquipamento">
+    <End Role="Fabricante" Type="ModelLA.Store.TblFabricantes" Multiplicity="1" />
+    <End Role="Equipamento" Type="ModelLA.Store.TblEquipamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fabricante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipamento">
+        <PropertyRef Name="FabricanteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FabricanteMaterial">
+    <End Role="Fabricante" Type="ModelLA.Store.TblFabricantes" Multiplicity="1" />
+    <End Role="Material" Type="ModelLA.Store.TblMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fabricante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="FabricanteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstoqueMaterialClinica">
+    <End Role="Estoque" Type="ModelLA.Store.TblEstoque" Multiplicity="1" />
+    <End Role="MaterialClinica" Type="ModelLA.Store.TblMateriaisClinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estoque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaterialClinica">
+        <PropertyRef Name="EstoqueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialMaterialClinica">
+    <End Role="Material" Type="ModelLA.Store.TblMaterial" Multiplicity="1" />
+    <End Role="MaterialClinica" Type="ModelLA.Store.TblMateriaisClinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaterialClinica">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SolicitacaoCompraMaterialCompraMaterial">
+    <End Role="SolicitacaoCompraMaterial" Type="ModelLA.Store.TblSolicitacoesCompraMaterial" Multiplicity="1" />
+    <End Role="CompraMaterial" Type="ModelLA.Store.TblCompraMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SolicitacaoCompraMaterial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompraMaterial">
+        <PropertyRef Name="SolicitacaoCompraMaterial_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SolicitacaoCompraEquipamentoCompraEquipamento">
+    <End Role="SolicitacaoCompraEquipamento" Type="ModelLA.Store.TblSolicitacoesCompraEquipamento" Multiplicity="1" />
+    <End Role="CompraEquipamento" Type="ModelLA.Store.TblCompraEquipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SolicitacaoCompraEquipamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompraEquipamento">
+        <PropertyRef Name="SolicitacaoCompraEquipamento_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialSolicitacaoCompraMaterial">
+    <End Role="Material" Type="ModelLA.Store.TblMaterial" Multiplicity="1" />
+    <End Role="SolicitacaoCompraMaterial" Type="ModelLA.Store.TblSolicitacoesCompraMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SolicitacaoCompraMaterial">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EquipamentoSolicitacaoCompraEquipamento">
+    <End Role="Equipamento" Type="ModelLA.Store.TblEquipamentos" Multiplicity="1" />
+    <End Role="SolicitacaoCompraEquipamento" Type="ModelLA.Store.TblSolicitacoesCompraEquipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SolicitacaoCompraEquipamento">
+        <PropertyRef Name="EquipamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelLA" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelLAContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblUsuarios" EntityType="ModelLA.Usuario" />
+          <EntitySet Name="TblPendenciasManutencao" EntityType="ModelLA.PendenciaManutencao" />
+          <EntitySet Name="TblEquipamentos" EntityType="ModelLA.Equipamento" />
+          <EntitySet Name="TblFabricantes" EntityType="ModelLA.Fabricante" />
+          <EntitySet Name="TblEquipamentosClinica" EntityType="ModelLA.EquipamentoClinica" />
+          <EntitySet Name="TblInventario" EntityType="ModelLA.Inventario" />
+          <EntitySet Name="TblEstoque" EntityType="ModelLA.Estoque" />
+          <EntitySet Name="TblMaterial" EntityType="ModelLA.Material" />
+          <EntitySet Name="TblMateriaisClinica" EntityType="ModelLA.MaterialClinica" />
+          <EntitySet Name="TblMenutencoes" EntityType="ModelLA.Menutencao" />
+          <EntitySet Name="TblSolicitacoesCompraEquipamento" EntityType="ModelLA.SolicitacaoCompraEquipamento" />
+          <EntitySet Name="TblCompraEquipamento" EntityType="ModelLA.CompraEquipamento" />
+          <EntitySet Name="TblSolicitacoesCompraMaterial" EntityType="ModelLA.SolicitacaoCompraMaterial" />
+          <EntitySet Name="TblCompraMaterial" EntityType="ModelLA.CompraMaterial" />
+          <AssociationSet Name="PendenciaManutencaoMenutencao" Association="ModelLA.PendenciaManutencaoMenutencao">
+            <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+            <End Role="Menutencao" EntitySet="TblMenutencoes" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPendenciaManutencao" Association="ModelLA.UsuarioPendenciaManutencao">
+            <End Role="Usuario" EntitySet="TblUsuarios" />
+            <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+          </AssociationSet>
+          <AssociationSet Name="EquipamentoClinicaPendenciaManutencao" Association="ModelLA.EquipamentoClinicaPendenciaManutencao">
+            <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+            <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
+          </AssociationSet>
+          <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.EquipamentoClinicaEquipamento">
+            <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+            <End Role="Equipamento" EntitySet="TblEquipamentos" />
+          </AssociationSet>
+          <AssociationSet Name="InventarioEquipamentoClinica" Association="ModelLA.InventarioEquipamentoClinica">
+            <End Role="Inventario" EntitySet="TblInventario" />
+            <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+          </AssociationSet>
+          <AssociationSet Name="FabricanteEquipamento" Association="ModelLA.FabricanteEquipamento">
+            <End Role="Fabricante" EntitySet="TblFabricantes" />
+            <End Role="Equipamento" EntitySet="TblEquipamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FabricanteMaterial" Association="ModelLA.FabricanteMaterial">
+            <End Role="Fabricante" EntitySet="TblFabricantes" />
+            <End Role="Material" EntitySet="TblMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="EstoqueMaterialClinica" Association="ModelLA.EstoqueMaterialClinica">
+            <End Role="Estoque" EntitySet="TblEstoque" />
+            <End Role="MaterialClinica" EntitySet="TblMateriaisClinica" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialMaterialClinica" Association="ModelLA.MaterialMaterialClinica">
+            <End Role="Material" EntitySet="TblMaterial" />
+            <End Role="MaterialClinica" EntitySet="TblMateriaisClinica" />
+          </AssociationSet>
+          <AssociationSet Name="SolicitacaoCompraMaterialCompraMaterial" Association="ModelLA.SolicitacaoCompraMaterialCompraMaterial">
+            <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+            <End Role="CompraMaterial" EntitySet="TblCompraMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="SolicitacaoCompraEquipamentoCompraEquipamento" Association="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento">
+            <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+            <End Role="CompraEquipamento" EntitySet="TblCompraEquipamento" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialSolicitacaoCompraMaterial" Association="ModelLA.MaterialSolicitacaoCompraMaterial">
+            <End Role="Material" EntitySet="TblMaterial" />
+            <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="EquipamentoSolicitacaoCompraEquipamento" Association="ModelLA.EquipamentoSolicitacaoCompraEquipamento">
+            <End Role="Equipamento" EntitySet="TblEquipamentos" />
+            <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Login" Nullable="false" />
+          <Property Type="String" Name="Senha" Nullable="false" />
+          <NavigationProperty Name="PendenciaManutencao" Relationship="ModelLA.UsuarioPendenciaManutencao" FromRole="Usuario" ToRole="PendenciaManutencao" />
+        </EntityType>
+        <EntityType Name="PendenciaManutencao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Motivo" Nullable="false" />
+          <NavigationProperty Name="Menutencao" Relationship="ModelLA.PendenciaManutencaoMenutencao" FromRole="PendenciaManutencao" ToRole="Menutencao" />
+          <NavigationProperty Name="Usuario" Relationship="ModelLA.UsuarioPendenciaManutencao" FromRole="PendenciaManutencao" ToRole="Usuario" />
+          <Property Type="Int32" Name="UsuarioId" Nullable="false" />
+          <NavigationProperty Name="EquipamentoClinica" Relationship="ModelLA.EquipamentoClinicaPendenciaManutencao" FromRole="PendenciaManutencao" ToRole="EquipamentoClinica" />
+          <Property Type="Int32" Name="EquipamentoClinicaId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" />
+          <Property Type="String" Name="NumeroSerie" Nullable="false" />
+          <Property Type="String" Name="Descricao" Nullable="false" />
+          <NavigationProperty Name="Fabricante" Relationship="ModelLA.FabricanteEquipamento" FromRole="Equipamento" ToRole="Fabricante" />
+          <Property Type="Int32" Name="FabricanteId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fabricante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" />
+          <Property Type="String" Name="CNPJ" Nullable="false" />
+          <NavigationProperty Name="Equipamentos" Relationship="ModelLA.FabricanteEquipamento" FromRole="Fabricante" ToRole="Equipamento" />
+          <NavigationProperty Name="Materiais" Relationship="ModelLA.FabricanteMaterial" FromRole="Fabricante" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="EquipamentoClinica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StatusEquipamento" Nullable="false" />
+          <NavigationProperty Name="Equipamento" Relationship="ModelLA.EquipamentoClinicaEquipamento" FromRole="EquipamentoClinica" ToRole="Equipamento" />
+          <Property Type="Int32" Name="InventarioId" Nullable="false" />
+          <Property Type="Int32" Name="CodigoAtivo" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="EquipamentosClinica" Relationship="ModelLA.InventarioEquipamentoClinica" FromRole="Inventario" ToRole="EquipamentoClinica" />
+        </EntityType>
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MateriaisClinica" Relationship="ModelLA.EstoqueMaterialClinica" FromRole="Estoque" ToRole="MaterialClinica" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" />
+          <Property Type="String" Name="Descricao" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" />
+          <NavigationProperty Name="Fabricante" Relationship="ModelLA.FabricanteMaterial" FromRole="Material" ToRole="Fabricante" />
+          <Property Type="Int32" Name="FabricanteId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialClinica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EstoqueId" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="ModelLA.MaterialMaterialClinica" FromRole="MaterialClinica" ToRole="Material" />
+          <Property Type="Int32" Name="MaterialId" Nullable="false" />
+          <Property Type="String" Name="CodigoEstoque" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menutencao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="DataPrevista" Nullable="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" />
+          <Property Type="Double" Name="Custo" Nullable="false" />
+          <Property Type="Int32" Name="StatusManutencao" Nullable="false" />
+          <NavigationProperty Name="PendenciaManutencao" Relationship="ModelLA.PendenciaManutencaoMenutencao" FromRole="Menutencao" ToRole="PendenciaManutencao" />
+        </EntityType>
+        <EntityType Name="SolicitacaoCompraEquipamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="Preco" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int64" Name="DataValidade" Nullable="false" />
+          <NavigationProperty Name="CompraEquipamento" Relationship="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento" FromRole="SolicitacaoCompraEquipamento" ToRole="CompraEquipamento" />
+          <NavigationProperty Name="Equipamento" Relationship="ModelLA.EquipamentoSolicitacaoCompraEquipamento" FromRole="SolicitacaoCompraEquipamento" ToRole="Equipamento" />
+          <Property Type="Int32" Name="EquipamentoId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompraEquipamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="DataEntrega" Nullable="true" />
+          <Property Type="Int64" Name="DataPrevista" Nullable="false" />
+          <Property Type="Int32" Name="StatusCompra" Nullable="false" />
+          <NavigationProperty Name="SolicitacaoCompraEquipamento" Relationship="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento" FromRole="CompraEquipamento" ToRole="SolicitacaoCompraEquipamento" />
+        </EntityType>
+        <EntityType Name="SolicitacaoCompraMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="PrecoUnitario" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Quantidade" Nullable="false" />
+          <Property Type="Int64" Name="DataValidade" Nullable="false" />
+          <NavigationProperty Name="CompraMaterial" Relationship="ModelLA.SolicitacaoCompraMaterialCompraMaterial" FromRole="SolicitacaoCompraMaterial" ToRole="CompraMaterial" />
+          <NavigationProperty Name="Material" Relationship="ModelLA.MaterialSolicitacaoCompraMaterial" FromRole="SolicitacaoCompraMaterial" ToRole="Material" />
+          <Property Type="Int32" Name="MaterialId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompraMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="DataEntrega" Nullable="true" />
+          <Property Type="Int64" Name="DataPrevista" Nullable="false" />
+          <Property Type="Int32" Name="StatusCompra" Nullable="false" />
+          <NavigationProperty Name="SolicitacaoCompraMaterial" Relationship="ModelLA.SolicitacaoCompraMaterialCompraMaterial" FromRole="CompraMaterial" ToRole="SolicitacaoCompraMaterial" />
+        </EntityType>
+        <Association Name="PendenciaManutencaoMenutencao">
+          <End Type="ModelLA.PendenciaManutencao" Role="PendenciaManutencao" Multiplicity="1" />
+          <End Type="ModelLA.Menutencao" Role="Menutencao" Multiplicity="0..1" />
+        </Association>
+        <Association Name="UsuarioPendenciaManutencao">
+          <End Type="ModelLA.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ModelLA.PendenciaManutencao" Role="PendenciaManutencao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PendenciaManutencao">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EquipamentoClinicaPendenciaManutencao">
+          <End Type="ModelLA.EquipamentoClinica" Role="EquipamentoClinica" Multiplicity="1" />
+          <End Type="ModelLA.PendenciaManutencao" Role="PendenciaManutencao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipamentoClinica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PendenciaManutencao">
+              <PropertyRef Name="EquipamentoClinicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EquipamentoClinicaEquipamento">
+          <End Type="ModelLA.EquipamentoClinica" Role="EquipamentoClinica" Multiplicity="*" />
+          <End Type="ModelLA.Equipamento" Role="Equipamento" Multiplicity="1" />
+        </Association>
+        <Association Name="InventarioEquipamentoClinica">
+          <End Type="ModelLA.Inventario" Role="Inventario" Multiplicity="1" />
+          <End Type="ModelLA.EquipamentoClinica" Role="EquipamentoClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EquipamentoClinica">
+              <PropertyRef Name="InventarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FabricanteEquipamento">
+          <End Type="ModelLA.Fabricante" Role="Fabricante" Multiplicity="1" />
+          <End Type="ModelLA.Equipamento" Role="Equipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipamento">
+              <PropertyRef Name="FabricanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FabricanteMaterial">
+          <End Type="ModelLA.Fabricante" Role="Fabricante" Multiplicity="1" />
+          <End Type="ModelLA.Material" Role="Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="FabricanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EstoqueMaterialClinica">
+          <End Type="ModelLA.Estoque" Role="Estoque" Multiplicity="1" />
+          <End Type="ModelLA.MaterialClinica" Role="MaterialClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estoque">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialClinica">
+              <PropertyRef Name="EstoqueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialMaterialClinica">
+          <End Type="ModelLA.Material" Role="Material" Multiplicity="1" />
+          <End Type="ModelLA.MaterialClinica" Role="MaterialClinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialClinica">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SolicitacaoCompraMaterialCompraMaterial">
+          <End Type="ModelLA.SolicitacaoCompraMaterial" Role="SolicitacaoCompraMaterial" Multiplicity="1" />
+          <End Type="ModelLA.CompraMaterial" Role="CompraMaterial" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SolicitacaoCompraEquipamentoCompraEquipamento">
+          <End Type="ModelLA.SolicitacaoCompraEquipamento" Role="SolicitacaoCompraEquipamento" Multiplicity="1" />
+          <End Type="ModelLA.CompraEquipamento" Role="CompraEquipamento" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MaterialSolicitacaoCompraMaterial">
+          <End Type="ModelLA.Material" Role="Material" Multiplicity="1" />
+          <End Type="ModelLA.SolicitacaoCompraMaterial" Role="SolicitacaoCompraMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SolicitacaoCompraMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EquipamentoSolicitacaoCompraEquipamento">
+          <End Type="ModelLA.Equipamento" Role="Equipamento" Multiplicity="1" />
+          <End Type="ModelLA.SolicitacaoCompraEquipamento" Role="SolicitacaoCompraEquipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SolicitacaoCompraEquipamento">
+              <PropertyRef Name="EquipamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelLAStoreContainer" CdmEntityContainer="ModelLAContainer">
+    <EntitySetMapping Name="TblUsuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Usuario)">
+        <MappingFragment StoreEntitySet="TblUsuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblPendenciasManutencao">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.PendenciaManutencao)">
+        <MappingFragment StoreEntitySet="TblPendenciasManutencao">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="EquipamentoClinicaId" ColumnName="EquipamentoClinicaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblEquipamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Equipamento)">
+        <MappingFragment StoreEntitySet="TblEquipamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="FabricanteId" ColumnName="FabricanteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricantes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Fabricante)">
+        <MappingFragment StoreEntitySet="TblFabricantes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblEquipamentosClinica">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.EquipamentoClinica)">
+        <MappingFragment StoreEntitySet="TblEquipamentosClinica">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusEquipamento" ColumnName="StatusEquipamento" />
+          <ScalarProperty Name="InventarioId" ColumnName="InventarioId" />
+          <ScalarProperty Name="CodigoAtivo" ColumnName="CodigoAtivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblInventario">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Inventario)">
+        <MappingFragment StoreEntitySet="TblInventario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblEstoque">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Estoque)">
+        <MappingFragment StoreEntitySet="TblEstoque">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Material)">
+        <MappingFragment StoreEntitySet="TblMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FabricanteId" ColumnName="FabricanteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMateriaisClinica">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.MaterialClinica)">
+        <MappingFragment StoreEntitySet="TblMateriaisClinica">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EstoqueId" ColumnName="EstoqueId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="CodigoEstoque" ColumnName="CodigoEstoque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMenutencoes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.Menutencao)">
+        <MappingFragment StoreEntitySet="TblMenutencoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataPrevista" ColumnName="DataPrevista" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Custo" ColumnName="Custo" />
+          <ScalarProperty Name="StatusManutencao" ColumnName="StatusManutencao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSolicitacoesCompraEquipamento">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.SolicitacaoCompraEquipamento)">
+        <MappingFragment StoreEntitySet="TblSolicitacoesCompraEquipamento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DataValidade" ColumnName="DataValidade" />
+          <ScalarProperty Name="EquipamentoId" ColumnName="EquipamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCompraEquipamento">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.CompraEquipamento)">
+        <MappingFragment StoreEntitySet="TblCompraEquipamento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+          <ScalarProperty Name="DataPrevista" ColumnName="DataPrevista" />
+          <ScalarProperty Name="StatusCompra" ColumnName="StatusCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSolicitacoesCompraMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.SolicitacaoCompraMaterial)">
+        <MappingFragment StoreEntitySet="TblSolicitacoesCompraMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="DataValidade" ColumnName="DataValidade" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCompraMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelLA.CompraMaterial)">
+        <MappingFragment StoreEntitySet="TblCompraMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+          <ScalarProperty Name="DataPrevista" ColumnName="DataPrevista" />
+          <ScalarProperty Name="StatusCompra" ColumnName="StatusCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PendenciaManutencaoMenutencao" TypeName="ModelLA.PendenciaManutencaoMenutencao" StoreEntitySet="TblMenutencoes">
+      <EndProperty Name="PendenciaManutencao">
+        <ScalarProperty Name="Id" ColumnName="PendenciaManutencao_Id" />
+      </EndProperty>
+      <EndProperty Name="Menutencao">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipamentoClinicaEquipamento" TypeName="ModelLA.EquipamentoClinicaEquipamento" StoreEntitySet="TblEquipamentosClinica">
+      <EndProperty Name="Equipamento">
+        <ScalarProperty Name="Id" ColumnName="Equipamento_Id" />
+      </EndProperty>
+      <EndProperty Name="EquipamentoClinica">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SolicitacaoCompraMaterialCompraMaterial" TypeName="ModelLA.SolicitacaoCompraMaterialCompraMaterial" StoreEntitySet="TblCompraMaterial">
+      <EndProperty Name="SolicitacaoCompraMaterial">
+        <ScalarProperty Name="Id" ColumnName="SolicitacaoCompraMaterial_Id" />
+      </EndProperty>
+      <EndProperty Name="CompraMaterial">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SolicitacaoCompraEquipamentoCompraEquipamento" TypeName="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento" StoreEntitySet="TblCompraEquipamento">
+      <EndProperty Name="SolicitacaoCompraEquipamento">
+        <ScalarProperty Name="Id" ColumnName="SolicitacaoCompraEquipamento_Id" />
+      </EndProperty>
+      <EndProperty Name="CompraEquipamento">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ModelLA" ZoomLevel="92" >
+        <EntityTypeShape EntityType="ModelLA.Usuario" Width="1.5" PointX="12.75" PointY="0.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="ModelLA.PendenciaManutencao" Width="1.875" PointX="3.75" PointY="0.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="ModelLA.Equipamento" Width="1.5" PointX="7" PointY="6.125" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ModelLA.Fabricante" Width="1.5" PointX="4.125" PointY="6.125" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="ModelLA.EquipamentoClinica" Width="2.125" PointX="0.5" PointY="4.125" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ModelLA.Inventario" Width="1.5" PointX="1" PointY="10.125" Height="1.4033821614583317" />
+        <EntityTypeShape EntityType="ModelLA.Estoque" Width="1.5" PointX="9.5" PointY="9.375" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="ModelLA.Material" Width="1.5" PointX="3.625" PointY="10" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ModelLA.MaterialClinica" Width="1.5" PointX="6.75" PointY="9.125" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="ModelLA.Menutencao" Width="1.5" PointX="7.625" PointY="2.25" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ModelLA.SolicitacaoCompraEquipamento" Width="1.5" PointX="10.375" PointY="5" Height="2.3648893229166665" />
+        <EntityTypeShape EntityType="ModelLA.CompraEquipamento" Width="1.5" PointX="13.5" PointY="5.125" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ModelLA.SolicitacaoCompraMaterial" Width="1.5" PointX="5.875" PointY="12.25" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="ModelLA.CompraMaterial" Width="1.5" PointX="8.875" PointY="12.5" Height="1.9802864583333317" />
+        <AssociationConnector Association="ModelLA.PendenciaManutencaoMenutencao">
+          <ConnectorPoint PointX="5.625" PointY="2.6199446614583337" />
+          <ConnectorPoint PointX="7.625" PointY="2.6199446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.UsuarioPendenciaManutencao">
+          <ConnectorPoint PointX="12.75" PointY="1.4564925130208337" />
+          <ConnectorPoint PointX="5.625" PointY="1.4564925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.EquipamentoClinicaPendenciaManutencao">
+          <ConnectorPoint PointX="1.5625" PointY="4.125" />
+          <ConnectorPoint PointX="1.5625" PointY="1.8074446614583337" />
+          <ConnectorPoint PointX="3.75" PointY="1.8074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.EquipamentoClinicaEquipamento">
+          <ConnectorPoint PointX="2.625" PointY="5.2951871744791665" />
+          <ConnectorPoint PointX="7.28125" PointY="5.2951871744791665" />
+          <ConnectorPoint PointX="7.28125" PointY="6.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.InventarioEquipamentoClinica">
+          <ConnectorPoint PointX="1.75" PointY="10.125" />
+          <ConnectorPoint PointX="1.75" PointY="6.1052864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.FabricanteEquipamento">
+          <ConnectorPoint PointX="5.625" PointY="7.1151432291666659" />
+          <ConnectorPoint PointX="7" PointY="7.1151432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.FabricanteMaterial">
+          <ConnectorPoint PointX="4.625" PointY="8.1052864583333317" />
+          <ConnectorPoint PointX="4.625" PointY="10" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.EstoqueMaterialClinica">
+          <ConnectorPoint PointX="9.5" PointY="10.076691080729166" />
+          <ConnectorPoint PointX="8.25" PointY="10.076691080729166" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.MaterialMaterialClinica">
+          <ConnectorPoint PointX="5.125" PointY="10.552643229278424" />
+          <ConnectorPoint PointX="6.75" PointY="10.552643229278424" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.SolicitacaoCompraMaterialCompraMaterial">
+          <ConnectorPoint PointX="7.375" PointY="13.490143229166666" />
+          <ConnectorPoint PointX="8.875" PointY="13.490143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento">
+          <ConnectorPoint PointX="11.875" PointY="6.1151432291666667" />
+          <ConnectorPoint PointX="13.5" PointY="6.1151432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.MaterialSolicitacaoCompraMaterial">
+          <ConnectorPoint PointX="4.40625" PointY="12.172587890625" />
+          <ConnectorPoint PointX="4.40625" PointY="13.528595377604168" />
+          <ConnectorPoint PointX="5.875" PointY="13.528595377604168" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.EquipamentoSolicitacaoCompraEquipamento">
+          <ConnectorPoint PointX="8.5" PointY="6.7449446614583337" />
+          <ConnectorPoint PointX="10.375" PointY="6.7449446614583337" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
