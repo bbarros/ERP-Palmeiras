@@ -18,6 +18,7 @@ namespace ERP_Palmeiras_RH.Models
             Admissao = func.Admissao;
             Beneficios = func.Beneficios;
             Cargo = func.Cargo;
+            CargoId = func.CargoId;
             Credencial = func.Credencial;
             Curriculum = func.Curriculum;
             CRM = crm;
@@ -25,6 +26,8 @@ namespace ERP_Palmeiras_RH.Models
             DadosBancarios = func.DadosBancarios;
             EspecialidadeId = especialidadeId;
             Permissao = func.Permissao;
+            PermissaoId = func.PermissaoId;
+            this.CartaoPonto = func.CartaoPonto;
             Ramal = func.Ramal;
             Salario = func.Salario;
             Status = func.Status;

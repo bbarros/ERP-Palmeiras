@@ -9,9 +9,9 @@ using ERP_Palmeiras_RH.Models.Facade;
 namespace ERP_Palmeiras_RH.Controllers
 {
     [HandleERPException]
-    public class PendenciasController : Controller
+    public class PendenciasController : BaseController
     {
-        private PendenciasFacade facade = PendenciasFacade.GetInstance();
+        private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult Index()
         {

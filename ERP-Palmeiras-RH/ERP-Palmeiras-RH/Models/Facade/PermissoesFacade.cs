@@ -7,39 +7,21 @@ using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class PermissoesFacade
+    public partial class RecursosHumanos
     {
-
-        private static volatile PermissoesFacade instance;
-
-        private PermissoesFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static PermissoesFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new PermissoesFacade();
-            }
-
-            return instance;
-        }
 
         public IEnumerable<Permissao> BuscarPermissoes()
         {
-            ModelRH model = new ModelRH();
             return model.TblPermissoes.Where<Permissao>(e => true);
         }
 
         public Permissao BuscarPermissao(int id)
         {
-            ModelRH model = new ModelRH();
             return model.TblPermissoes.Where<Permissao>(p => p.Id == id).First<Permissao>();
         }
 
         public void ExcluirPermissao(Int32 pid)
         {
-            ModelRH model = new ModelRH();
             Permissao p = model.TblPermissoes.Find(pid);
             model.TblPermissoes.Remove(p);
             model.SaveChanges();
@@ -47,7 +29,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public void InserirPermissao(Permissao permissao)
         {
-            ModelRH model = new ModelRH();
             IEnumerable<Permissao> result = model.TblPermissoes.Where(p => p.Nome == permissao.Nome);
 
             if (result == null || result.Count<Permissao>() == 0)

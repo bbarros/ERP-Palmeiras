@@ -9,7 +9,7 @@
 </script>
 <h2>Benefícios Cadastrados</h2>
 
-<table id="tabelaEspecialidade" class="decoratedTable">
+<table id="tabelaEspecialidades" class="decoratedTable">
     <tr>
         <th>ID</th>
         <th>Nome</th>

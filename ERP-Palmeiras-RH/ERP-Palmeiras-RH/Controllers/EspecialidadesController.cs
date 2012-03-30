@@ -8,9 +8,9 @@ using ERP_Palmeiras_RH.Models.Facade;
 
 namespace ERP_Palmeiras_RH.Controllers
 {
-    public class EspecialidadesController : Controller
+    public class EspecialidadesController : BaseController
     {
-        private EspecialidadesFacade facade = EspecialidadesFacade.GetInstance();
+        private RecursosHumanos facade = RecursosHumanos.GetInstance();
 
         public ActionResult Index()
         {
@@ -34,5 +34,10 @@ namespace ERP_Palmeiras_RH.Controllers
 
         }
 
+        public ActionResult Excluir(int eid)
+        {
+            facade.ExcluirEspecialidade(eid);
+            return View();
+        }
     }
 }

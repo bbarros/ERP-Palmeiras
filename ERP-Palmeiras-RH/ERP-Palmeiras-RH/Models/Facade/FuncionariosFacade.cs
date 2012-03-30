@@ -8,27 +8,11 @@ using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
-    public class FuncionariosFacade
+    public partial class RecursosHumanos
     {
-        private static volatile FuncionariosFacade instance;
-
-        private FuncionariosFacade() { }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static FuncionariosFacade GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new FuncionariosFacade();
-            }
-
-            return instance;
-        }
 
         public void InserirFuncionario(Funcionario funcionario)
         {
-            ModelRH model = new ModelRH();
-
             IEnumerable<Funcionario> result = model.TblFuncionarios.Where(f => f.DadosPessoais.CPF == funcionario.DadosPessoais.CPF);
 
             if (result == null || result.Count<Funcionario>() == 0)
@@ -49,16 +33,13 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public void AtualizarFuncionario(Funcionario funcionario)
         {
-            ModelRH model = new ModelRH();
-
+            model.TblFuncionarios.Attach(funcionario);
             model.Entry(funcionario).State = EntityState.Modified;
             model.SaveChanges();
         }
 
         public IEnumerable<Funcionario> BuscarFuncionarios()
         {
-            ModelRH model = new ModelRH();
-
             IEnumerable<Funcionario> funcionarios = model.TblFuncionarios.Where<Funcionario>(f => true);
 
             return funcionarios;
@@ -66,8 +47,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public Funcionario BuscarFuncionario(int id)
         {
-            ModelRH model = new ModelRH();
-
             try
             {
                 Funcionario funcionario = model.TblFuncionarios.Single(f => f.Id == id);
@@ -81,8 +60,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public Funcionario BuscarFuncionario(long cpf)
         {
-            ModelRH model = new ModelRH();
-
             try
             {
                 Funcionario funcionario = model.TblFuncionarios.Single(f => f.DadosPessoais.CPF == cpf);
@@ -96,8 +73,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public Funcionario BuscarFuncionario(String login)
         {
-            ModelRH model = new ModelRH();
-
             try
             {
                 Funcionario funcionario = model.TblFuncionarios.Single(f => f.Credencial.Usuario == login);
@@ -107,6 +82,13 @@ namespace ERP_Palmeiras_RH.Models.Facade
             {
                 throw new ERPException("Nenhum ou vários funcionários foram encontrados para o login=" + login.ToString());
             }
+        }
+
+        public void ExcluirTelefone(Telefone t)
+        {
+            Telefone tel = model.TblTelefones.Find(t.Id);
+            model.TblTelefones.Remove(tel);
+            model.SaveChanges();
         }
 
     }

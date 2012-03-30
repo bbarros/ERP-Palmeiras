@@ -16,14 +16,10 @@ namespace ERP_Palmeiras_RH.Controllers
     /// Controller para Actions de Cadastro de Funcionarios.
     /// </summary>
     [HandleERPException]
-    public class FuncionariosController : Controller
+    public class FuncionariosController : BaseController
     {
 
-        PermissoesFacade permissoesFacade = PermissoesFacade.GetInstance();
-        EspecialidadesFacade especFacade = EspecialidadesFacade.GetInstance();
-        FuncionariosFacade funcFacade = FuncionariosFacade.GetInstance();
-        CargosFacade cargosFacade = CargosFacade.GetInstance();
-        BeneficiosFacade beneficiosFacade = BeneficiosFacade.GetInstance();
+        RecursosHumanos facade = RecursosHumanos.GetInstance();
 
 
         /// <summary>
@@ -31,7 +27,7 @@ namespace ERP_Palmeiras_RH.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            IEnumerable<Funcionario> listaFuncionarios = funcFacade.BuscarFuncionarios();
+            IEnumerable<Funcionario> listaFuncionarios = facade.BuscarFuncionarios();
 
             return View(listaFuncionarios);
         }
@@ -56,14 +52,14 @@ namespace ERP_Palmeiras_RH.Controllers
             Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, 0.0f, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
             func.CartaoPonto = new CartaoPonto();
 
-            funcFacade.InserirFuncionario(func);
+            facade.InserirFuncionario(func);
 
             return View();
         }
 
         public ActionResult Editar(int id)
         {
-            Funcionario funcionario = funcFacade.BuscarFuncionario(id);
+            Funcionario funcionario = facade.BuscarFuncionario(id);
             PopularViewDataCadastro();
             ViewData["Id"] = id;
             return View(funcionario);
@@ -80,15 +76,99 @@ namespace ERP_Palmeiras_RH.Controllers
             DateTime? datademissao, int ramal, int cargo, int especialidade, String usuario, String senha, int permissao)
         {
 
-            Funcionario old = funcFacade.BuscarFuncionario(id);
-            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
-
-            funcFacade.AtualizarFuncionario(func);
+            Funcionario old = facade.BuscarFuncionario(id);
+            AlterarFuncionarioOuMedico(old, nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
+            facade.AtualizarFuncionario(old);
 
             return View();
         }
 
-        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, int ramal, double salario,  double ultimoSalario, String sexo, DateTime nascimento, String emailpes, String rua, int num, String telefone, String complemento, String cep, String bairro, String cidade, String estado, String pais, String cpf, String rg, String crm, String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, String senha, int permissao)
+        private void AlterarFuncionarioOuMedico(Funcionario f, String nome, String sobrenome, 
+            int ramal, double salario, double ultimoSalario, String sexo, 
+            DateTime nascimento, String emailpes, String rua, int num, 
+            String telefone, String complemento, String cep, String bairro, 
+            String cidade, String estado, String pais, String cpf, String rg, String crm, 
+            String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, 
+            String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, 
+            String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, 
+            String senha, int permissao)
+        {
+            f.DadosPessoais.Nome = nome;
+            f.DadosPessoais.Sobrenome = sobrenome;
+            f.Ramal = ramal;
+            f.Salario = salario;
+            f.Admissao.UltimoSalario = ultimoSalario.ToString();
+            f.DadosPessoais.Sexo = sexo;
+            Telefone[] tArray = new Telefone[f.DadosPessoais.Telefones.Count];
+            f.DadosPessoais.Telefones.CopyTo(tArray, 0);
+            foreach (Telefone t in tArray)
+            {
+                facade.ExcluirTelefone(t);
+            }
+            f.DadosPessoais.Telefones.Clear();
+            Telefone tel = new Telefone();
+            telefone = telefone.Replace("(", "").Replace(")", "").Replace("-", "");
+            String ddd = telefone.Substring(0, 2); // deixa os 2 primeiros numeros apenas
+            String telStr = telefone.Substring(2); // os demais numeros apenas
+            tel.DDD = int.Parse(ddd);
+            tel.Numero = int.Parse(telStr);
+            f.DadosPessoais.Telefones.Add(tel);
+            f.DadosPessoais.Endereco.Complemento = complemento;
+            f.DadosPessoais.Endereco.Pais = pais;
+            f.DadosPessoais.Endereco.CEP = cep;
+            f.DadosPessoais.Endereco.Numero = num;
+            f.DadosPessoais.Endereco.Bairro = bairro;
+            f.DadosPessoais.Endereco.Cidade = cidade;
+            f.DadosPessoais.Endereco.Estado = estado;
+            f.DadosPessoais.RG = long.Parse(rg.Replace(".", "").Replace("-", ""));
+            f.DadosPessoais.CPF = long.Parse(cpf.Replace(".", "").Replace("-", ""));
+            f.DadosPessoais.DataNascimento = nascimento;
+            f.DadosPessoais.Email = emailpes;
+            f.DadosPessoais.CLT = carteira;
+            f.Curriculum.Formacao = formacao;
+            byte[] cv = new byte[flCurriculum.ContentLength];
+            flCurriculum.InputStream.Read(cv, 0, flCurriculum.ContentLength);
+            f.Curriculum.Arquivo = cv;
+            f.DadosBancarios.Agencia = agencia;
+            f.DadosBancarios.ContaCorrente = conta;
+            f.DadosBancarios.Banco = banco;
+            f.Beneficios.Clear();
+            if (beneficios != null && beneficios.Count<int>() > 0)
+            {
+                foreach (int beneficioId in beneficios)
+                {
+                    Beneficio b = facade.BuscarBeneficio(beneficioId);
+                    f.Beneficios.Add(b);
+                }
+            }
+            f.Status = status;
+            f.Admissao.DataAdmissao = dataadmissao;
+            f.Admissao.MotivoDesligamento = motivo;
+            f.Admissao.DataDesligamento = datademissao;
+            f.CargoId = cargo;
+            f.PermissaoId = permissao;
+            f.Credencial.Usuario = usuario;
+            f.Credencial.Senha = senha;
+
+            if (f is Medico)
+            {
+                Medico m = (Medico)f;
+                m.EspecialidadeId = especialidade;
+                m.CRM = crm;
+            }
+
+        }
+
+        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, 
+            int ramal, double salario,  double ultimoSalario, 
+            String sexo, DateTime nascimento, String emailpes, 
+            String rua, int num, String telefone, String complemento, 
+            String cep, String bairro, String cidade, String estado, 
+            String pais, String cpf, String rg, String crm, String formacao, 
+            HttpPostedFileBase flCurriculum, int banco, String agencia, 
+            String conta, int[] beneficios, int status, String carteira, 
+            DateTime dataadmissao, String motivo, DateTime? datademissao, 
+            int especialidade, int cargo, String usuario, String senha, int permissao)
         {
             Funcionario func;
             func = new Funcionario();
@@ -102,17 +182,17 @@ namespace ERP_Palmeiras_RH.Controllers
             adm.MotivoDesligamento = motivo;
             adm.UltimoSalario = ultimoSalario.ToString();
             func.Admissao = adm;
-
+            func.Beneficios.Clear();
             if (beneficios != null && beneficios.Count<int>() > 0)
             {
                 foreach (int beneficioId in beneficios)
                 {
-                    Beneficio b = beneficiosFacade.BuscarBeneficio(beneficioId);
+                    Beneficio b = facade.BuscarBeneficio(beneficioId);
                     func.Beneficios.Add(b);
                 }
             }
 
-            Cargo cg = cargosFacade.BuscarCargo(cargo);
+            Cargo cg = facade.BuscarCargo(cargo);
             func.CargoId = cargo;            
 
             DadoPessoal dp = new DadoPessoal();
@@ -161,7 +241,7 @@ namespace ERP_Palmeiras_RH.Controllers
             c.Usuario = usuario;
             func.Credencial = c;
 
-            Permissao p = permissoesFacade.BuscarPermissao(permissao);
+            Permissao p = facade.BuscarPermissao(permissao);
             func.PermissaoId = permissao;
 
             DadoBancario db = new DadoBancario();
@@ -175,7 +255,7 @@ namespace ERP_Palmeiras_RH.Controllers
             if (especialidade != 0 && !String.IsNullOrEmpty(crm))
             {
                 // é um médico.. converter o func para médico!
-                Especialidade e = especFacade.BuscarEspecialidade(especialidade);
+                Especialidade e = facade.BuscarEspecialidade(especialidade);
                 return new Medico(func, crm, especialidade);
             }
             return func;
@@ -183,10 +263,10 @@ namespace ERP_Palmeiras_RH.Controllers
 
         private void PopularViewDataCadastro()
         {
-            IEnumerable<Cargo> cargos = cargosFacade.BuscarCargos();
-            IEnumerable<Beneficio> beneficios = beneficiosFacade.BuscarBeneficios();
-            IEnumerable<Especialidade> especialidades = especFacade.BuscarEspecialidades();
-            IEnumerable<Permissao> permissoes = permissoesFacade.BuscarPermissoes();
+            IEnumerable<Cargo> cargos = facade.BuscarCargos();
+            IEnumerable<Beneficio> beneficios = facade.BuscarBeneficios();
+            IEnumerable<Especialidade> especialidades = facade.BuscarEspecialidades();
+            IEnumerable<Permissao> permissoes = facade.BuscarPermissoes();
 
             ViewData["Cargos"] = cargos;
             ViewData["Beneficios"] = beneficios;
