@@ -12,13 +12,11 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public IEnumerable<Especialidade> BuscarEspecialidades()
         {
-            ModelRH model = new ModelRH();
             return model.TblEspecialidades.Where<Especialidade>(e => true);
         }
 
         public Especialidade BuscarEspecialidade(int id)
         {
-            ModelRH model = new ModelRH();
             try
             {
                 return model.TblEspecialidades.Where<Especialidade>(b => b.Id == id).First<Especialidade>();
@@ -31,7 +29,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public Especialidade BuscarEspecialidade(String nome)
         {
-            ModelRH model = new ModelRH();
              IEnumerable<Especialidade> result = model.TblEspecialidades.Where<Especialidade>(b => b.Nome == nome);
              if (result == null || result.Count<Especialidade>() == 0)
              {
@@ -45,7 +42,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public void ExcluirEspecialidade(Int32 eid)
         {
-            ModelRH model = new ModelRH();
             Especialidade e = model.TblEspecialidades.Find(eid);
             model.TblEspecialidades.Remove(e);
             model.SaveChanges();
@@ -53,7 +49,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public void InserirEspecialidade(Especialidade espec)
         {
-            ModelRH model = new ModelRH();
             Especialidade result = BuscarEspecialidade(espec.Nome);
 
             if (result == null)

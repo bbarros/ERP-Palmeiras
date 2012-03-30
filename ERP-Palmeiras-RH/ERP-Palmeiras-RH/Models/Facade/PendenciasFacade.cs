@@ -13,19 +13,16 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public IEnumerable<Pendencia> BuscarPendencias()
         {
-            ModelRH model = new ModelRH();
             return model.TblPendencias.Where<Pendencia>(b => true);
         }
 
         public Pendencia BuscarPendencia(int id)
         {
-            ModelRH model = new ModelRH();
             return model.TblPendencias.Where<Pendencia>(b => b.Id == id).First<Pendencia>();
         }
 
         public void InserirPendencia(Pendencia pendencia)
         {
-            ModelRH model = new ModelRH();
             IEnumerable<Pendencia> result = model.TblPendencias.Where(b => (b.Funcionario.Id == pendencia.Funcionario.Id));
 
             if (result == null || result.Count<Pendencia>() == 0)
@@ -44,7 +41,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
         {
             try
             {
-                ModelRH model = new ModelRH();
                 Pendencia pendencia = model.TblPendencias.Find(pid);
                 model.TblPendencias.Remove(pendencia);
                 model.SaveChanges();

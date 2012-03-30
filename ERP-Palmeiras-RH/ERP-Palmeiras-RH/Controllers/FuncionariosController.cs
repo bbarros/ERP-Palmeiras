@@ -77,14 +77,98 @@ namespace ERP_Palmeiras_RH.Controllers
         {
 
             Funcionario old = facade.BuscarFuncionario(id);
-            Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
-            func.Id = old.Id;
-            facade.AtualizarFuncionario(func);
+            AlterarFuncionarioOuMedico(old, nome, sobrenome, ramal, salario, old.Salario, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
+            facade.AtualizarFuncionario(old);
 
             return View();
         }
 
-        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, int ramal, double salario,  double ultimoSalario, String sexo, DateTime nascimento, String emailpes, String rua, int num, String telefone, String complemento, String cep, String bairro, String cidade, String estado, String pais, String cpf, String rg, String crm, String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, String senha, int permissao)
+        private void AlterarFuncionarioOuMedico(Funcionario f, String nome, String sobrenome, 
+            int ramal, double salario, double ultimoSalario, String sexo, 
+            DateTime nascimento, String emailpes, String rua, int num, 
+            String telefone, String complemento, String cep, String bairro, 
+            String cidade, String estado, String pais, String cpf, String rg, String crm, 
+            String formacao, HttpPostedFileBase flCurriculum, int banco, String agencia, 
+            String conta, int[] beneficios, int status, String carteira, DateTime dataadmissao, 
+            String motivo, DateTime? datademissao, int especialidade, int cargo, String usuario, 
+            String senha, int permissao)
+        {
+            f.DadosPessoais.Nome = nome;
+            f.DadosPessoais.Sobrenome = sobrenome;
+            f.Ramal = ramal;
+            f.Salario = salario;
+            f.Admissao.UltimoSalario = ultimoSalario.ToString();
+            f.DadosPessoais.Sexo = sexo;
+            Telefone[] tArray = new Telefone[f.DadosPessoais.Telefones.Count];
+            f.DadosPessoais.Telefones.CopyTo(tArray, 0);
+            foreach (Telefone t in tArray)
+            {
+                facade.ExcluirTelefone(t);
+            }
+            f.DadosPessoais.Telefones.Clear();
+            Telefone tel = new Telefone();
+            telefone = telefone.Replace("(", "").Replace(")", "").Replace("-", "");
+            String ddd = telefone.Substring(0, 2); // deixa os 2 primeiros numeros apenas
+            String telStr = telefone.Substring(2); // os demais numeros apenas
+            tel.DDD = int.Parse(ddd);
+            tel.Numero = int.Parse(telStr);
+            f.DadosPessoais.Telefones.Add(tel);
+            f.DadosPessoais.Endereco.Complemento = complemento;
+            f.DadosPessoais.Endereco.Pais = pais;
+            f.DadosPessoais.Endereco.CEP = cep;
+            f.DadosPessoais.Endereco.Numero = num;
+            f.DadosPessoais.Endereco.Bairro = bairro;
+            f.DadosPessoais.Endereco.Cidade = cidade;
+            f.DadosPessoais.Endereco.Estado = estado;
+            f.DadosPessoais.RG = long.Parse(rg.Replace(".", "").Replace("-", ""));
+            f.DadosPessoais.CPF = long.Parse(cpf.Replace(".", "").Replace("-", ""));
+            f.DadosPessoais.DataNascimento = nascimento;
+            f.DadosPessoais.Email = emailpes;
+            f.DadosPessoais.CLT = carteira;
+            f.Curriculum.Formacao = formacao;
+            byte[] cv = new byte[flCurriculum.ContentLength];
+            flCurriculum.InputStream.Read(cv, 0, flCurriculum.ContentLength);
+            f.Curriculum.Arquivo = cv;
+            f.DadosBancarios.Agencia = agencia;
+            f.DadosBancarios.ContaCorrente = conta;
+            f.DadosBancarios.Banco = banco;
+            f.Beneficios.Clear();
+            if (beneficios != null && beneficios.Count<int>() > 0)
+            {
+                foreach (int beneficioId in beneficios)
+                {
+                    Beneficio b = facade.BuscarBeneficio(beneficioId);
+                    f.Beneficios.Add(b);
+                }
+            }
+            f.Status = status;
+            f.Admissao.DataAdmissao = dataadmissao;
+            f.Admissao.MotivoDesligamento = motivo;
+            f.Admissao.DataDesligamento = datademissao;
+            f.CargoId = cargo;
+            f.PermissaoId = permissao;
+            f.Credencial.Usuario = usuario;
+            f.Credencial.Senha = senha;
+
+            if (f is Medico)
+            {
+                Medico m = (Medico)f;
+                m.EspecialidadeId = especialidade;
+                m.CRM = crm;
+            }
+
+        }
+
+        private Funcionario CriarFuncionarioOuMedico(String nome, String sobrenome, 
+            int ramal, double salario,  double ultimoSalario, 
+            String sexo, DateTime nascimento, String emailpes, 
+            String rua, int num, String telefone, String complemento, 
+            String cep, String bairro, String cidade, String estado, 
+            String pais, String cpf, String rg, String crm, String formacao, 
+            HttpPostedFileBase flCurriculum, int banco, String agencia, 
+            String conta, int[] beneficios, int status, String carteira, 
+            DateTime dataadmissao, String motivo, DateTime? datademissao, 
+            int especialidade, int cargo, String usuario, String senha, int permissao)
         {
             Funcionario func;
             func = new Funcionario();

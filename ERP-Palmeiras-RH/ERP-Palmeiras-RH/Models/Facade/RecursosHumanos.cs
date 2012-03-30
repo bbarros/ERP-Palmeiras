@@ -16,6 +16,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
     public partial class RecursosHumanos
     {
         private static volatile RecursosHumanos instance;
+        private ModelRH model;
 
         private RecursosHumanos() { }
 
@@ -25,6 +26,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             if (instance == null)
             {
                 instance = new RecursosHumanos();
+                instance.model = new ModelRH();
             }
 
             return instance;

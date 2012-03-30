@@ -13,19 +13,16 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public IEnumerable<Cargo> BuscarCargos()
         {
-            ModelRH model = new ModelRH();
             return model.TblCargos.Where<Cargo>(c => true);
         }
 
         public Cargo BuscarCargo(int id)
         {
-            ModelRH model = new ModelRH();
             return model.TblCargos.Where<Cargo>(c => c.Id == id).First<Cargo>();
         }
 
         public void InserirCargo(Cargo Cargo)
         {
-            ModelRH model = new ModelRH();
             IEnumerable<Cargo> result = model.TblCargos.Where(c => (c.Nome == Cargo.Nome));
 
             if (result == null || result.Count<Cargo>() == 0)
@@ -44,7 +41,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
         {
             try
             {
-                ModelRH model = new ModelRH();
                 Cargo Cargo = model.TblCargos.Find(cid);
                 model.TblCargos.Remove(Cargo);
                 model.SaveChanges();
