@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERP_Palmeiras_LA.Models;
 using ERP_Palmeiras_LA.Core;
+using ERP_Palmeiras_LA.Models.Facade;
 
 namespace ERP_Palmeiras_LA.Controllers
 {
@@ -31,7 +32,9 @@ namespace ERP_Palmeiras_LA.Controllers
         [HttpPost]
         public ActionResult Login(String usuario, String senha)
         {
+            LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
 
+            sessao.Usuario = facade.AutenticaUsuario(usuario, senha);
             if (!sessao.SessaoAtiva)
             {
                 ViewData["Message"] = "Usuário inválido!";
