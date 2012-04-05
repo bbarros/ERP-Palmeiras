@@ -44,5 +44,56 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         }
 
+        public EntradasCartaoPonto BuscarEntrada(Int32 id)
+        {
+            try
+            {
+                Funcionario funcionario = model.TblFuncionarios.Single(f => f.Id == id);
+                EntradasCartaoPonto cartao = model.TblEntradasCartaoPonto.First(c => c.cartoesPontoId == funcionario.CartaoPonto.Id && c.Saida == 0 );
+                return cartao;
+            }
+            catch (Exception)
+            {
+                throw new ERPException("Não foi encontrada a entrada desse Funcionário. Registre a entrada ante da saida");
+            }
+        }
+
+
+
+        public void InserirEntrada(Int32 id, DateTime tempo)
+        {
+            ModelRH model = new ModelRH();
+
+            Funcionario funcionario = BuscarFuncionario(id);
+            EntradasCartaoPonto ecp = new EntradasCartaoPonto();
+            ecp.cartoesPontoId = funcionario.CartaoPonto.Id;
+            ecp.Entrada = tempo.Ticks;
+
+   
+            //funcionario.CartaoPonto.EntradasPonto.Add(ecp);
+            model.TblEntradasCartaoPonto.Add(ecp);
+
+            model.SaveChanges();
+
+        }
+
+        public void InserirSaida(Int32 id, DateTime tempo)
+        {
+
+            Funcionario funcionario = BuscarFuncionario(id);
+            EntradasCartaoPonto cartao = BuscarEntrada(id);
+
+            model.TblEntradasCartaoPonto.Attach(cartao);
+
+            cartao.Saida = tempo.Ticks;
+
+          
+            model.Entry(cartao).State = EntityState.Modified;
+            model.SaveChanges();
+               
+
+        }
+
+
     }
 }

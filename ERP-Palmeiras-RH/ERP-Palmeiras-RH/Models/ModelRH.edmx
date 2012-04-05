@@ -122,7 +122,7 @@
     <Property Name="DataPagamento" Type="datetime" Nullable="false" />
     <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="funcionariosId" Type="int" Nullable="false" />
-    <Property Name="DataOrdem" Type="datetime" Nullable="false" />
+    <Property Name="DataOrdem" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="TblCredenciais">
     <Key>
@@ -161,8 +161,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cartoesPontoId" Type="int" Nullable="false" />
-    <Property Name="Entrada" Type="datetime" Nullable="false" />
-    <Property Name="Saida" Type="datetime" Nullable="false" />
+    <Property Name="Entrada" Type="bigint" Nullable="false" />
+    <Property Name="Saida" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="TblDadosPessoais">
     <Key>
@@ -171,7 +171,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Sobrenome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataNascimento" Type="datetime" Nullable="false" />
+    <Property Name="DataNascimento" Type="bigint" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CPF" Type="bigint" Nullable="false" />
     <Property Name="RG" Type="bigint" Nullable="false" />
@@ -239,8 +239,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DataAdmissao" Type="datetime" Nullable="false" />
-    <Property Name="DataDesligamento" Type="datetime" Nullable="true" />
+    <Property Name="DataAdmissao" Type="bigint" Nullable="false" />
+    <Property Name="DataDesligamento" Type="bigint" Nullable="true" />
     <Property Name="MotivoDesligamento" Type="nvarchar(max)" Nullable="true" />
     <Property Name="UltimoSalario" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
@@ -586,7 +586,7 @@
           <Property Type="String" Name="Cargo" Nullable="false" />
           <NavigationProperty Name="Funcionario" Relationship="Model.PagamentoFuncionarios" FromRole="Pagamento" ToRole="Funcionarios" />
           <Property Type="Int32" Name="funcionariosId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
-          <Property Type="DateTime" Name="DataOrdem" Nullable="false" />
+          <Property Type="Int64" Name="DataOrdem" Nullable="false" />
         </EntityType>
         <EntityType Name="Credencial">
           <Key>
@@ -626,8 +626,8 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="CartaoPonto" Relationship="Model.EntradasCartaoPontoCartoesPonto" FromRole="EntradasCartaoPonto" ToRole="CartoesPonto" />
           <Property Type="Int32" Name="cartoesPontoId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
-          <Property Type="DateTime" Name="Entrada" Nullable="false" />
-          <Property Type="DateTime" Name="Saida" Nullable="false" />
+          <Property Type="Int64" Name="Entrada" Nullable="false" />
+          <Property Type="Int64" Name="Saida" Nullable="false" />
         </EntityType>
         <Association Name="EntradasCartaoPontoCartoesPonto">
           <End Type="Model.EntradasCartaoPonto" Role="EntradasCartaoPonto" Multiplicity="*" />
@@ -668,7 +668,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Nome" Nullable="false" />
           <Property Type="String" Name="Sobrenome" Nullable="false" />
-          <Property Type="DateTime" Name="DataNascimento" Nullable="false" />
+          <Property Type="Int64" Name="DataNascimento" Nullable="false" />
           <Property Type="String" Name="Sexo" Nullable="false" />
           <Property Type="Int64" Name="CPF" Nullable="false" />
           <Property Type="Int64" Name="RG" Nullable="false" />
@@ -765,8 +765,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="DataAdmissao" Nullable="false" />
-          <Property Type="DateTime" Name="DataDesligamento" Nullable="true" />
+          <Property Type="Int64" Name="DataAdmissao" Nullable="false" />
+          <Property Type="Int64" Name="DataDesligamento" Nullable="true" />
           <Property Type="String" Name="MotivoDesligamento" Nullable="true" />
           <Property Type="String" Name="UltimoSalario" Nullable="true" />
         </EntityType>

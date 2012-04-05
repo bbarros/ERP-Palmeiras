@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MateriaisController.cs" />
+    <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
+    <Compile Include="Controllers\FabricantesController.cs" />
+    <Compile Include="Controllers\EquipamentosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
     <Compile Include="Controllers\HandleERPException.cs" />
@@ -91,6 +94,9 @@
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Facade\MateriaisFacade.cs" />
+    <Compile Include="Models\Facade\SolicitacoesCompraEquipamentosFacade.cs" />
+    <Compile Include="Models\Facade\FabricantesFacade.cs" />
+    <Compile Include="Models\Facade\EquipamentosFacade.cs" />
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
     <Compile Include="Models\Facade\LogisticaAbastecimento.cs" />
     <Compile Include="Models\Inventario.cs">
@@ -126,7 +132,7 @@
     <Compile Include="Models\SolicitacaoCompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SolicitacaoMenutencao.cs">
+    <Compile Include="Models\SolicitacaoManutencao.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StatusCompra.cs" />
@@ -205,6 +211,21 @@
     <Content Include="Views\Materiais\Criar.aspx" />
     <Content Include="Views\Materiais\Excluir.aspx" />
     <Content Include="Views\Materiais\Index.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Alterar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Cadastrar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Criar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Editar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Index.aspx" />
+    <Content Include="Views\Fabricantes\Alterar.aspx" />
+    <Content Include="Views\Fabricantes\Cadastrar.aspx" />
+    <Content Include="Views\Fabricantes\Criar.aspx" />
+    <Content Include="Views\Fabricantes\Editar.aspx" />
+    <Content Include="Views\Fabricantes\Index.aspx" />
+    <Content Include="Views\Equipamentos\Alterar.aspx" />
+    <Content Include="Views\Equipamentos\Cadastrar.aspx" />
+    <Content Include="Views\Equipamentos\Criar.aspx" />
+    <Content Include="Views\Equipamentos\Editar.aspx" />
+    <Content Include="Views\Equipamentos\Index.aspx" />
     <Content Include="Views\Usuarios\Alterar.aspx" />
     <Content Include="Views\Usuarios\Cadastrar.aspx" />
     <Content Include="Views\Usuarios\Criar.aspx" />

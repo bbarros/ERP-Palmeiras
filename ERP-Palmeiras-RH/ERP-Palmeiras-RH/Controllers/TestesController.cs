@@ -72,7 +72,8 @@ namespace ERP_Palmeiras_RH.Controllers
             func.Salario = 2000;
 
             Admissao adm = new Admissao();
-            adm.DataAdmissao = new DateTime(1967, 9, 12);
+            DateTime data = new DateTime(1967, 9, 12);
+            adm.DataAdmissao = data.Ticks;
             adm.DataDesligamento = null;
             adm.MotivoDesligamento = null;
             adm.UltimoSalario = null;
@@ -96,7 +97,7 @@ namespace ERP_Palmeiras_RH.Controllers
             dp.Sexo = "Masculino";
             dp.Sobrenome = "Marcelo";
             dp.CPF = rd.Next();
-            dp.DataNascimento = new DateTime(1967, 9, 12);
+            dp.DataNascimento = new DateTime(1967, 9, 12).Ticks;
             dp.Email = "joao" + sulfixNome.ToString() + "@gmail.com";
             dp.CLT = rd.Next().ToString();
 
