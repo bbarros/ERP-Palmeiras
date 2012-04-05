@@ -73,5 +73,32 @@ namespace ERP_Palmeiras_RH.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// Action de Registro de Ponto - Entrada.
+        /// </summary>
+        [HttpPost]
+        public ActionResult RegistroPontoEntrada()
+        {
+            RecursosHumanos facadeRH = RecursosHumanos.GetInstance();
+
+            facadeRH.InserirEntrada(sessao.Funcionario.Id, DateTime.Now );
+
+            return View("Welcome");
+        }
+
+        /// <summary>
+        /// Action de Registro de Ponto -  Saida.
+        /// </summary>
+        [HttpPost]
+        public ActionResult RegistroPontoSaida()
+        {
+            RecursosHumanos facadeRH = RecursosHumanos.GetInstance();
+
+            facadeRH.InserirSaida(sessao.Funcionario.Id, DateTime.Now);
+
+            return View("Welcome");
+        }
+
     }
 }

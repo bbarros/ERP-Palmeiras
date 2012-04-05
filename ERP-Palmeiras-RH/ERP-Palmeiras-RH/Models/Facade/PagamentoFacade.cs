@@ -13,7 +13,9 @@ namespace ERP_Palmeiras_RH.Models.Facade
         {
             ModelRH model = new ModelRH();
 
+
             IEnumerable<Pagamento> pagamentos = model.TblPagamentos.Where(p => true);
+
 
             return pagamentos;
         }
