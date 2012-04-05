@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERP_Palmeiras_LA.Models;
 using ERP_Palmeiras_LA.Models.Facade;
+using ERP_Palmeiras_LA.Core;
 
 namespace ERP_Palmeiras_LA.Controllers
 {
@@ -21,7 +22,7 @@ namespace ERP_Palmeiras_LA.Controllers
             return View();
         }
 
-        public ActionResult Criar(String login, String password)
+        public ActionResult Criar()
         {
             return View();
         }
@@ -37,8 +38,8 @@ namespace ERP_Palmeiras_LA.Controllers
 
                 return RedirectToAction("Index");
             }
-
-            return View();
+            else
+                throw new ERPException("Login inválido.");
 
         }
 

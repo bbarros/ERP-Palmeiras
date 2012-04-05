@@ -8,6 +8,22 @@
                 <li><a href="<%= Url.Action("Criar", "Usuarios") %>">Cadastrar Usuário</a></li>     
             </ul>
         </li>
+
+         <li class="accordion">
+            <h3>Equipamentos</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "Equipamentos") %>">Visualizar Equipamentos</a></li>
+                <li><a href="<%= Url.Action("Criar", "Equipamentos") %>">Cadastrar Equipamento</a></li>     
+            </ul>
+        </li>
+
+        <li class="accordion">
+            <h3>Fabricantes</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "Fabricantes") %>">Visualizar Fabricantes</a></li>
+                <li><a href="<%= Url.Action("Criar", "Fabricantes") %>">Cadastrar Fabricante</a></li>     
+            </ul>
+        </li>
     </ul>
 
 
