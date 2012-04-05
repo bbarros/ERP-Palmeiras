@@ -921,7 +921,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="ModelLA" ZoomLevel="92" DisplayType="true" >
+      <Diagram Name="ModelLA" ZoomLevel="69" DisplayType="true" >
         <EntityTypeShape EntityType="ModelLA.Usuario" Width="1.5" PointX="12.75" PointY="0.5" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="ModelLA.PendenciaManutencao" Width="1.875" PointX="3.75" PointY="0.625" Height="2.5571907552083331" />
         <EntityTypeShape EntityType="ModelLA.Equipamento" Width="1.5" PointX="7" PointY="6.125" Height="2.1725878906249996" />

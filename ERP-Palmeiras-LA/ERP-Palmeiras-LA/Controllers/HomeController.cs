@@ -19,7 +19,6 @@ namespace ERP_Palmeiras_LA.Controllers
         /// </summary>
         public ActionResult Index()
         {
-
             if (sessao.SessaoAtiva)
                 return View("Welcome");
             return View();

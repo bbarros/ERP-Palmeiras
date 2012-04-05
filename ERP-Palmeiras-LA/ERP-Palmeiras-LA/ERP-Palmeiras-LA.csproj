@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MateriaisController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
     <Compile Include="Controllers\HandleERPException.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Models\Fabricante.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\MateriaisFacade.cs" />
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
     <Compile Include="Models\Facade\LogisticaAbastecimento.cs" />
     <Compile Include="Models\Inventario.cs">
@@ -200,6 +202,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Materiais\Criar.aspx" />
+    <Content Include="Views\Materiais\Excluir.aspx" />
+    <Content Include="Views\Materiais\Index.aspx" />
     <Content Include="Views\Usuarios\Alterar.aspx" />
     <Content Include="Views\Usuarios\Cadastrar.aspx" />
     <Content Include="Views\Usuarios\Criar.aspx" />
