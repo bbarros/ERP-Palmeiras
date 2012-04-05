@@ -15,9 +15,8 @@ namespace ERP_Palmeiras_LA.Controllers
             GerenciadorDeSessao gerenciadorSessao = GerenciadorDeSessao.GetInstance();
             if (gerenciadorSessao.SessaoAtiva)
             {
-                //String sexoStr = gerenciadorSessao.Funcionario.DadosPessoais.Sexo.ToLower().Equals("feminino") ? "a" : String.Empty;
-                //ViewData["WelcomeMsg"] = (gerenciadorSessao.Funcionario is Medico) ? "Dr" + sexoStr + "." : "Sr" + sexoStr + ".";
-                //ViewData["Funcionario.Nome"] = gerenciadorSessao.Funcionario.DadosPessoais.Nome;
+                ViewData["WelcomeMsg"] = "Sr.";
+                ViewData["Usuario.Nome"] = gerenciadorSessao.Usuario.Login;
             }
         }
 
