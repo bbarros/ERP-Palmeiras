@@ -26,7 +26,7 @@ namespace ERP_Palmeiras_LA.Models
     
         public StatusPendenciaManutencaoWrapper Status { get; set; }
     
-        public virtual SolicitacaoMenutencao Menutencao { get; set; }
+        public virtual SolicitacaoManutencao Menutencao { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual EquipamentoClinica EquipamentoClinica { get; set; }
     }

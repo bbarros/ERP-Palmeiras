@@ -12,9 +12,9 @@ namespace ERP_Palmeiras_LA.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SolicitacaoMenutencao
+    public partial class SolicitacaoManutencao
     {
-        public SolicitacaoMenutencao()
+        public SolicitacaoManutencao()
         {
             this.Status = new StatusSolicitacaoManutencaoWrapper();
         }

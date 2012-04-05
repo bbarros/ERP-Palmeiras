@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\EquipamentosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Models\Fabricante.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\SolicitacoesCompraEquipamentosFacade.cs" />
     <Compile Include="Models\Facade\FabricantesFacade.cs" />
     <Compile Include="Models\Facade\EquipamentosFacade.cs" />
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
@@ -128,7 +130,7 @@
     <Compile Include="Models\SolicitacaoCompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SolicitacaoMenutencao.cs">
+    <Compile Include="Models\SolicitacaoManutencao.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StatusCompra.cs" />
@@ -204,6 +206,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Alterar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Cadastrar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Criar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Editar.aspx" />
+    <Content Include="Views\SolicitacoesCompraEquipamentos\Index.aspx" />
     <Content Include="Views\Fabricantes\Alterar.aspx" />
     <Content Include="Views\Fabricantes\Cadastrar.aspx" />
     <Content Include="Views\Fabricantes\Criar.aspx" />
