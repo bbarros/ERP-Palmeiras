@@ -54,6 +54,9 @@
                 <li><a href="<%= Url.Action("Index", "Pendencias") %>">Cadastros Pendentes</a></li>
             </ul>
         </li>
+        
+        <form id="FormLogoff" action="<%= Url.Action("Logout","Home") %>" method="post" style="padding-left: 40%"><input id="logoffSubmit" name="Logout" type="submit" value=" Logout " /></form>
+      
     </ul>
 
 

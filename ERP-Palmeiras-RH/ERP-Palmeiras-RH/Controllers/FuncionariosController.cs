@@ -122,7 +122,7 @@ namespace ERP_Palmeiras_RH.Controllers
             f.DadosPessoais.Endereco.Estado = estado;
             f.DadosPessoais.RG = long.Parse(rg.Replace(".", "").Replace("-", ""));
             f.DadosPessoais.CPF = long.Parse(cpf.Replace(".", "").Replace("-", ""));
-            f.DadosPessoais.DataNascimento = nascimento;
+            f.DadosPessoais.DataNascimento = nascimento.Ticks;
             f.DadosPessoais.Email = emailpes;
             f.DadosPessoais.CLT = carteira;
             f.Curriculum.Formacao = formacao;
@@ -142,9 +142,9 @@ namespace ERP_Palmeiras_RH.Controllers
                 }
             }
             f.Status = status;
-            f.Admissao.DataAdmissao = dataadmissao;
+            f.Admissao.DataAdmissao = dataadmissao.Ticks;
             f.Admissao.MotivoDesligamento = motivo;
-            f.Admissao.DataDesligamento = datademissao;
+            f.Admissao.DataDesligamento = datademissao.Value.Ticks;
             f.CargoId = cargo;
             f.PermissaoId = permissao;
             f.Credencial.Usuario = usuario;
@@ -177,8 +177,8 @@ namespace ERP_Palmeiras_RH.Controllers
             func.Salario = salario;
 
             Admissao adm = new Admissao();
-            adm.DataAdmissao = dataadmissao;
-            adm.DataDesligamento = datademissao;
+            adm.DataAdmissao = dataadmissao.Ticks;
+            adm.DataDesligamento = datademissao.Value.Ticks;
             adm.MotivoDesligamento = motivo;
             adm.UltimoSalario = ultimoSalario.ToString();
             func.Admissao = adm;
@@ -201,7 +201,7 @@ namespace ERP_Palmeiras_RH.Controllers
             dp.Sexo = sexo;
             dp.Sobrenome = sobrenome;
             dp.CPF = long.Parse(cpf.Replace(".", "").Replace("-", ""));
-            dp.DataNascimento = nascimento;
+            dp.DataNascimento = nascimento.Ticks;
             dp.Email = emailpes;
             dp.CLT = carteira;
 

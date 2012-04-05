@@ -75,7 +75,8 @@ namespace ERP_Palmeiras_RH.WebServices
             func.Salario = 2000;
 
             Admissao adm = new Admissao();
-            adm.DataAdmissao = new DateTime(1967, 9, 12);
+            DateTime DataAdmissao = new DateTime(1967, 9, 12);
+            adm.DataAdmissao = DataAdmissao.Ticks;
             adm.DataDesligamento = null;
             adm.MotivoDesligamento = null;
             adm.UltimoSalario = null;
@@ -99,7 +100,8 @@ namespace ERP_Palmeiras_RH.WebServices
             dp.Sexo = "Masculino";
             dp.Sobrenome = "Externo";
             dp.CPF = rd.Next();
-            dp.DataNascimento = new DateTime(1967, 9, 12);
+            DateTime DataNascimento = new DateTime(1967, 9, 12);
+            dp.DataNascimento = DataNascimento.Ticks;
             dp.Email = "funcionario.externo" + sulfixNome.ToString() + "@xxx.com";
             dp.CLT = rd.Next().ToString();
 

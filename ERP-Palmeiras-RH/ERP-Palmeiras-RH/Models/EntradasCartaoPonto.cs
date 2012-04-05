@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class EntradasCartaoPonto
     {
         public int Id { get; set; }
         internal int cartoesPontoId { get; set; }
-        public System.DateTime Entrada { get; set; }
-        public System.DateTime Saida { get; set; }
+        public long Entrada { get; set; }
+        public long Saida { get; set; }
     
         public virtual CartaoPonto CartaoPonto { get; set; }
     }
-    
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace ERP_Palmeiras_RH.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Endereco
     {
         public int Id { get; set; }
@@ -24,5 +24,4 @@ namespace ERP_Palmeiras_RH.Models
         public string Estado { get; set; }
         public string Pais { get; set; }
     }
-    
 }
