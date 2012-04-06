@@ -21,16 +21,17 @@
                         <th>Status</th>
                         <th>Data Validade</th>
                         <th>Editar</th>
+                        <th>Excluir</th>
 					</tr>
  
             <% foreach (ERP_Palmeiras_LA.Models.SolicitacaoCompraEquipamento s in solicitacoes)
                {
                    String statusStr = "Pendente";
-                   if (s.Status ==  ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.APROVADO)
+                   if (s.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.APROVADO)
                    {
                        statusStr = "Aprovado";
                    }
-                   if (s.Status == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.REPROVADO)
+                   if (s.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.REPROVADO)
                    {
                        statusStr = "Reprovado";
                    }
@@ -42,6 +43,7 @@
                         <td><%= statusStr%></td>
                         <td><%= new DateTime(s.DataValidade).ToString("dd/MM/yyyy") %></td>
                         <td><a href="<%= Url.Action("Editar", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
+                        <td><a href="<%= Url.Action("Excluir", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>" ><img alt="Excluir dados" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>
 				</table>

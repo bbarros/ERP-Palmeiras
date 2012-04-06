@@ -28,6 +28,7 @@ namespace ERP_Palmeiras_LA.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Cadastrar(DateTime data, double preco, int equipamentoId)
         {
             SolicitacaoCompraEquipamento s = new SolicitacaoCompraEquipamento();
@@ -35,8 +36,9 @@ namespace ERP_Palmeiras_LA.Controllers
             s.Preco = preco;
             s.EquipamentoId = equipamentoId;
             s.DataValidade = data.Ticks;
+            s.UsuarioId = GerenciadorDeSessao.GetInstance().Usuario.Id;
             facade.CriarSolicitacaoCompraEquipamento(s);
-            return RedirectToAction("Index");
+            return View();
         }
 
         public ActionResult Editar(int id)
@@ -54,8 +56,15 @@ namespace ERP_Palmeiras_LA.Controllers
             s.Preco = preco;
             s.EquipamentoId = equipamentoId;
             s.Status = status;
+            s.UsuarioId = GerenciadorDeSessao.GetInstance().Usuario.Id;
             facade.AlterarSolicitacaoCompraEquipamento(s);
             return View();
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            facade.ExcluirSolicitacaoCompraEquipamento(id);
+            return RedirectToAction("Index");
         }
     }
 }

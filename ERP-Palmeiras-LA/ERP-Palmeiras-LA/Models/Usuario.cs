@@ -14,15 +14,8 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class Usuario
     {
-        public Usuario()
-        {
-            this.PendenciaManutencao = new HashSet<PendenciaManutencao>();
-        }
-    
         public int Id { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
-    
-        public virtual ICollection<PendenciaManutencao> PendenciaManutencao { get; set; }
     }
 }

@@ -55,8 +55,8 @@ namespace ERP_Palmeiras_RH
 
                 foreach (Funcionario funcionario in listaFuncionarios)
                 {
-                    IEnumerable<Pagamento> listaPagamentoFunc = model.TblPagamentos.Where(p => p.DataOrdem <= current
-                                                                            && p.DataOrdem >= firstDayMonth
+                    IEnumerable<Pagamento> listaPagamentoFunc = model.TblPagamentos.Where(p => p.DataOrdem <= current.Ticks
+                                                                            && p.DataOrdem >= firstDayMonth.Ticks
                                                                             && p.funcionariosId == funcionario.Id);
 
                     if (listaPagamentoFunc == null || listaPagamentoFunc.Count<Pagamento>() == 0)
@@ -65,7 +65,7 @@ namespace ERP_Palmeiras_RH
                         pagamentoFunc.Funcionario = funcionario;
                         pagamentoFunc.Cargo = funcionario.Cargo.Nome;
                         pagamentoFunc.Salario = funcionario.Salario;
-                        pagamentoFunc.DataOrdem = current;
+                        pagamentoFunc.DataOrdem = current.Ticks;
                         model.TblPagamentos.Add(pagamentoFunc);
                         model.SaveChanges();
                     }

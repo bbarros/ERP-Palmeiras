@@ -125,11 +125,6 @@
     <Compile Include="Models\Medico.cs">
       <DependentUpon>ModelRH.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelRH.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRH.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\PartialCargo.cs" />
     <Compile Include="Models\PartialMedico.cs" />
     <Compile Include="Models\ModelRH.Context.cs">
