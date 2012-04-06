@@ -28,9 +28,24 @@
         <li class="accordion">
             <h3>Compra de Equipamentos</h3>
             <ul class="accordionSubItem">
-                <li><a href="<%= Url.Action("Pendencias", "SolicitacoesCompraEquipamentos") %>">Solicitações Pendentes</a></li>
-                <li><a href="<%= Url.Action("Index", "SolicitacoesCompraEquipamentos") %>">Visualizar Solicitações</a></li>
                 <li><a href="<%= Url.Action("Criar", "SolicitacoesCompraEquipamentos") %>">Cadastrar Solicitação</a></li>     
+                <li><a href="<%= Url.Action("Pendencias", "SolicitacoesCompraEquipamentos") %>">Solicitações Pendentes</a></li>
+                <li><a href="<%= Url.Action("Aprovadas", "SolicitacoesCompraEquipamentos") %>">Solicitações Aprovadas</a></li>
+                <li><a href="<%= Url.Action("Reprovadas", "SolicitacoesCompraEquipamentos") %>">Solicitações Reprovadas</a></li>
+                <li><a href="<%= Url.Action("Index", "SolicitacoesCompraEquipamentos") %>">Todas as Solicitações</a></li>
+                
+                <li><a href="<%= Url.Action("Solicitadas", "CompraEquipamentos") %>">Compras Solicitadas</a></li> 
+                <li><a href="<%= Url.Action("Entregas", "CompraEquipamentos") %>">Compras Entregues</a></li> 
+                <li><a href="<%= Url.Action("Index", "CompraEquipamentos") %>">Todas as Compras</a></li> 
+            </ul>
+        </li>
+
+        <li class="accordion">
+            <h3>Inventário</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Quebrados", "EquipamentosClinica") %>">Equipamentos Quebrados</a></li>     
+                <li><a href="<%= Url.Action("Funcionando", "EquipamentosClinica") %>">Equipamentos Funcionando</a></li>     
+                <li><a href="<%= Url.Action("Index", "EquipamentosClinica") %>">Todos os Equipamentos</a></li>
             </ul>
         </li>
     </ul>

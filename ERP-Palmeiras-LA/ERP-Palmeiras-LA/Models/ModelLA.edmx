@@ -30,10 +30,6 @@
       <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
       <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
     </AssociationSet>
-    <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.Store.EquipamentoClinicaEquipamento">
-      <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
-      <End Role="Equipamento" EntitySet="TblEquipamentos" />
-    </AssociationSet>
     <AssociationSet Name="FabricanteEquipamento" Association="ModelLA.Store.FabricanteEquipamento">
       <End Role="Fabricante" EntitySet="TblFabricantes" />
       <End Role="Equipamento" EntitySet="TblEquipamentos" />
@@ -65,6 +61,10 @@
     <AssociationSet Name="UsuarioSolicitacaoCompraEquipamento" Association="ModelLA.Store.UsuarioSolicitacaoCompraEquipamento">
       <End Role="Usuario" EntitySet="TblUsuarios" />
       <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+    </AssociationSet>
+    <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.Store.EquipamentoClinicaEquipamento">
+      <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+      <End Role="Equipamento" EntitySet="TblEquipamentos" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="TblUsuarios">
@@ -108,9 +108,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StatusEquipamento" Type="int" Nullable="false" />
-    <Property Name="CodigoAtivo" Type="int" Nullable="false" />
-    <Property Name="Equipamento_Id" Type="int" Nullable="false" />
+    <Property Name="EquipamentoId" Type="int" Nullable="false" />
+    <Property Name="Status_Value" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblMateriais">
     <Key>
@@ -128,7 +127,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaterialId" Type="int" Nullable="false" />
-    <Property Name="CodigoEstoque" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="TblSolicitacoesManutencao">
     <Key>
@@ -217,18 +215,6 @@
       </Principal>
       <Dependent Role="PendenciaManutencao">
         <PropertyRef Name="EquipamentoClinicaId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EquipamentoClinicaEquipamento">
-    <End Role="EquipamentoClinica" Type="ModelLA.Store.TblEquipamentosClinica" Multiplicity="*" />
-    <End Role="Equipamento" Type="ModelLA.Store.TblEquipamentos" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Equipamento">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EquipamentoClinica">
-        <PropertyRef Name="Equipamento_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -328,6 +314,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="EquipamentoClinicaEquipamento">
+    <End Role="EquipamentoClinica" Type="ModelLA.Store.TblEquipamentosClinica" Multiplicity="*" />
+    <End Role="Equipamento" Type="ModelLA.Store.TblEquipamentos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipamentoClinica">
+        <PropertyRef Name="EquipamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -356,10 +354,6 @@
           <AssociationSet Name="EquipamentoClinicaPendenciaManutencao" Association="ModelLA.EquipamentoClinicaPendenciaManutencao">
             <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
             <End Role="PendenciaManutencao" EntitySet="TblPendenciasManutencao" />
-          </AssociationSet>
-          <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.EquipamentoClinicaEquipamento">
-            <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
-            <End Role="Equipamento" EntitySet="TblEquipamentos" />
           </AssociationSet>
           <AssociationSet Name="FabricanteEquipamento" Association="ModelLA.FabricanteEquipamento">
             <End Role="Fabricante" EntitySet="TblFabricantes" />
@@ -392,6 +386,10 @@
           <AssociationSet Name="UsuarioSolicitacaoCompraEquipamento" Association="ModelLA.UsuarioSolicitacaoCompraEquipamento">
             <End Role="Usuario" EntitySet="TblUsuarios" />
             <End Role="SolicitacaoCompraEquipamento" EntitySet="TblSolicitacoesCompraEquipamento" />
+          </AssociationSet>
+          <AssociationSet Name="EquipamentoClinicaEquipamento" Association="ModelLA.EquipamentoClinicaEquipamento">
+            <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
+            <End Role="Equipamento" EntitySet="TblEquipamentos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Usuario">
@@ -441,9 +439,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="StatusEquipamento" Nullable="false" />
           <NavigationProperty Name="Equipamento" Relationship="ModelLA.EquipamentoClinicaEquipamento" FromRole="EquipamentoClinica" ToRole="Equipamento" />
-          <Property Type="Int32" Name="CodigoAtivo" Nullable="false" />
+          <Property Type="Int32" Name="EquipamentoId" Nullable="false" />
+          <Property Name="Status" Type="ModelLA.StatusEquipamentoWrapper" Nullable="false" />
         </EntityType>
         <EntityType Name="Material">
           <Key>
@@ -463,7 +461,6 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Material" Relationship="ModelLA.MaterialMaterialClinica" FromRole="MaterialClinica" ToRole="Material" />
           <Property Type="Int32" Name="MaterialId" Nullable="false" />
-          <Property Type="String" Name="CodigoEstoque" Nullable="false" />
         </EntityType>
         <EntityType Name="SolicitacaoManutencao">
           <Key>
@@ -551,10 +548,6 @@
               <PropertyRef Name="EquipamentoClinicaId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="EquipamentoClinicaEquipamento">
-          <End Type="ModelLA.EquipamentoClinica" Role="EquipamentoClinica" Multiplicity="*" />
-          <End Type="ModelLA.Equipamento" Role="Equipamento" Multiplicity="1" />
         </Association>
         <Association Name="FabricanteEquipamento">
           <End Type="ModelLA.Fabricante" Role="Fabricante" Multiplicity="1" />
@@ -648,6 +641,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EquipamentoClinicaEquipamento">
+          <End Type="ModelLA.EquipamentoClinica" Role="EquipamentoClinica" Multiplicity="*" />
+          <End Type="ModelLA.Equipamento" Role="Equipamento" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EquipamentoClinica">
+              <PropertyRef Name="EquipamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="StatusEquipamentoWrapper" >
+          <Property Type="Int32" Name="Value" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -700,8 +708,10 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelLA.EquipamentoClinica)">
         <MappingFragment StoreEntitySet="TblEquipamentosClinica">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StatusEquipamento" ColumnName="StatusEquipamento" />
-          <ScalarProperty Name="CodigoAtivo" ColumnName="CodigoAtivo" />
+          <ScalarProperty Name="EquipamentoId" ColumnName="EquipamentoId" />
+          <ComplexProperty Name="Status" TypeName="ModelLA.StatusEquipamentoWrapper">
+            <ScalarProperty Name="Value" ColumnName="Status_Value" />
+          </ComplexProperty>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -721,7 +731,6 @@
         <MappingFragment StoreEntitySet="TblMateriaisClinica">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
-          <ScalarProperty Name="CodigoEstoque" ColumnName="CodigoEstoque" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -799,14 +808,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="EquipamentoClinicaEquipamento" TypeName="ModelLA.EquipamentoClinicaEquipamento" StoreEntitySet="TblEquipamentosClinica">
-      <EndProperty Name="Equipamento">
-        <ScalarProperty Name="Id" ColumnName="Equipamento_Id" />
-      </EndProperty>
-      <EndProperty Name="EquipamentoClinica">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="SolicitacaoCompraMaterialCompraMaterial" TypeName="ModelLA.SolicitacaoCompraMaterialCompraMaterial" StoreEntitySet="TblCompraMaterial">
       <EndProperty Name="SolicitacaoCompraMaterial">
         <ScalarProperty Name="Id" ColumnName="SolicitacaoCompraMaterial_Id" />
@@ -849,7 +850,7 @@
         <EntityTypeShape EntityType="ModelLA.Fabricante" Width="1.5" PointX="4.125" PointY="6.125" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="ModelLA.EquipamentoClinica" Width="2.125" PointX="0.5" PointY="4.125" Height="1.7879850260416665" />
         <EntityTypeShape EntityType="ModelLA.Material" Width="1.5" PointX="3.625" PointY="10" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="ModelLA.MaterialClinica" Width="1.5" PointX="6.75" PointY="9.125" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="ModelLA.MaterialClinica" Width="1.5" PointX="6.75" PointY="9.125" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="ModelLA.SolicitacaoManutencao" Width="3" PointX="7.625" PointY="2.25" Height="2.3648893229166665" />
         <EntityTypeShape EntityType="ModelLA.SolicitacaoCompraEquipamento" Width="2.875" PointX="9.75" PointY="5" Height="2.3648893229166656" />
         <EntityTypeShape EntityType="ModelLA.CompraEquipamento" Width="2.75" PointX="13.5" PointY="5.125" Height="1.9802864583333335" />
@@ -868,11 +869,6 @@
           <ConnectorPoint PointX="1.5625" PointY="1.9035953776041663" />
           <ConnectorPoint PointX="3.75" PointY="1.9035953776041663" />
         </AssociationConnector>
-        <AssociationConnector Association="ModelLA.EquipamentoClinicaEquipamento">
-          <ConnectorPoint PointX="2.625" PointY="5.2951871744791674" />
-          <ConnectorPoint PointX="7.28125" PointY="5.2951871744791674" />
-          <ConnectorPoint PointX="7.28125" PointY="6.125" />
-        </AssociationConnector>
         <AssociationConnector Association="ModelLA.FabricanteEquipamento">
           <ConnectorPoint PointX="5.625" PointY="7.1151432291666659" />
           <ConnectorPoint PointX="7" PointY="7.1151432291666659" />
@@ -882,8 +878,8 @@
           <ConnectorPoint PointX="4.625" PointY="10" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.MaterialMaterialClinica">
-          <ConnectorPoint PointX="5.125" PointY="10.456492513020834" />
-          <ConnectorPoint PointX="6.75" PointY="10.456492513020834" />
+          <ConnectorPoint PointX="5.125" PointY="10.360341796875" />
+          <ConnectorPoint PointX="6.75" PointY="10.360341796875" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.SolicitacaoCompraMaterialCompraMaterial">
           <ConnectorPoint PointX="7.375" PointY="13.490143229166666" />
@@ -908,6 +904,11 @@
           <ConnectorPoint PointX="13.09375" PointY="2.09568359375" />
           <ConnectorPoint PointX="13.09375" PointY="7.4586393229166674" />
           <ConnectorPoint PointX="12.625" PointY="7.4586393229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.EquipamentoClinicaEquipamento">
+          <ConnectorPoint PointX="2.625" PointY="5.2951871744791674" />
+          <ConnectorPoint PointX="7.28125" PointY="5.2951871744791674" />
+          <ConnectorPoint PointX="7.28125" PointY="6.125" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

@@ -170,6 +170,8 @@
     <Content Include="Content\images\bg_header_shine.png" />
     <Content Include="Content\images\bg_navi_hover.png" />
     <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\deleteIcon.png" />
+    <Content Include="Content\images\editIcon.png" />
     <Content Include="Content\images\logo_bif.png" />
     <Content Include="Content\images\logo_finf.png" />
     <Content Include="Content\images\logo_homef.png" />

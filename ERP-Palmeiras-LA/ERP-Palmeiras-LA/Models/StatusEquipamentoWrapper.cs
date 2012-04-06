@@ -10,13 +10,9 @@
 namespace ERP_Palmeiras_LA.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class MaterialClinica
+    public partial class StatusEquipamentoWrapper
     {
-        public int Id { get; set; }
-        public int MaterialId { get; set; }
-    
-        public virtual Material Material { get; set; }
+        
     }
 }

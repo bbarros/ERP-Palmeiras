@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CompraEquipamentosController.cs" />
+    <Compile Include="Controllers\EquipamentosClinicaController.cs" />
     <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\EquipamentosController.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Models\CompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StatusEquipamento.cs" />
     <Compile Include="Models\Equipamento.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
@@ -89,6 +92,8 @@
     <Compile Include="Models\Fabricante.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\CompraEquipamentosFacade.cs" />
+    <Compile Include="Models\Facade\EquipamentosClinicaFacade.cs" />
     <Compile Include="Models\Facade\SolicitacoesCompraEquipamentosFacade.cs" />
     <Compile Include="Models\Facade\FabricantesFacade.cs" />
     <Compile Include="Models\Facade\EquipamentosFacade.cs" />
@@ -131,6 +136,9 @@
     <Compile Include="Models\StatusCompraWrapper.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StatusEquipamentoWrapper.cs">
+      <DependentUpon>ModelLA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\StatusPendenciaManutencao.cs" />
     <Compile Include="Models\StatusPendenciaManutencaoWrapper.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
@@ -150,10 +158,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\Site.css" />
+    <Content Include="Content\images\approveIcon.png" />
     <Content Include="Content\images\bg_header.jpg" />
     <Content Include="Content\images\bg_header_shine.png" />
     <Content Include="Content\images\bg_navi_hover.png" />
     <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\deleteIcon.png" />
+    <Content Include="Content\images\editIcon.png" />
     <Content Include="Content\images\logo_bif.png" />
     <Content Include="Content\images\logo_finf.png" />
     <Content Include="Content\images\logo_homef.png" />
@@ -161,6 +172,7 @@
     <Content Include="Content\images\logo_opf.png" />
     <Content Include="Content\images\logo_rhf.png" />
     <Content Include="Content\images\navi_separator.png" />
+    <Content Include="Content\images\warningIcon.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -200,6 +212,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\CompraEquipamentos\Alterar.aspx" />
+    <Content Include="Views\CompraEquipamentos\Editar.aspx" />
+    <Content Include="Views\CompraEquipamentos\Index.aspx" />
+    <Content Include="Views\EquipamentosClinica\Index.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Alterar.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Cadastrar.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Criar.aspx" />

@@ -20,8 +20,9 @@
                         <th>Preço</th>
                         <th>Status</th>
                         <th>Data Validade</th>
+                        <th>Aprovar</th>
                         <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Rejeitar</th>
 					</tr>
  
             <% foreach (ERP_Palmeiras_LA.Models.SolicitacaoCompraEquipamento s in solicitacoes)
@@ -42,8 +43,9 @@
                         <td><%= s.Preco %></td>
                         <td><%= statusStr%></td>
                         <td><%= new DateTime(s.DataValidade).ToString("dd/MM/yyyy") %></td>
+                        <td><a href="<%= Url.Action("Aprovar", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/approveIcon.png") %>" /></a></td>
                         <td><a href="<%= Url.Action("Editar", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
-                        <td><a href="<%= Url.Action("Excluir", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>" ><img alt="Excluir dados" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
+                        <td><a href="<%= Url.Action("Rejeitar", "SolicitacoesCompraEquipamentos", new { id = s.Id }) %>" ><img alt="Excluir dados" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>
 				</table>

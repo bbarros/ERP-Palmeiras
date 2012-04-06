@@ -14,9 +14,15 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class EquipamentoClinica
     {
+        public EquipamentoClinica()
+        {
+            this.Status = new StatusEquipamentoWrapper();
+        }
+    
         public int Id { get; set; }
-        public int StatusEquipamento { get; set; }
-        public int CodigoAtivo { get; set; }
+        public int EquipamentoId { get; set; }
+    
+        public StatusEquipamentoWrapper Status { get; set; }
     
         public virtual Equipamento Equipamento { get; set; }
     }

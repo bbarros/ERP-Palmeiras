@@ -39,19 +39,6 @@
                         <% } %>
                     </select>
                 </th>
-                <th style="padding-left: 15px;">
-                    Status
-                </th>
-                <th style="padding-left: 60px;">
-                    <select id="status" name="status">
-                        <option <%= (solicitacao.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE %>">Pendente</option>
-                        <option <%= (solicitacao.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.APROVADO)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.APROVADO %>">Aprovado</option>
-                        <option <%= (solicitacao.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.REPROVADO)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.REPROVADO %>">Reprovado</option>
-                    </select>
-                </th>
             </tr>
         </table>
         <br />
