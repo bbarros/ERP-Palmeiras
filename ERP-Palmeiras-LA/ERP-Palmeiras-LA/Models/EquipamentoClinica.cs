@@ -16,7 +16,6 @@ namespace ERP_Palmeiras_LA.Models
     {
         public int Id { get; set; }
         public int StatusEquipamento { get; set; }
-        public int InventarioId { get; set; }
         public int CodigoAtivo { get; set; }
     
         public virtual Equipamento Equipamento { get; set; }

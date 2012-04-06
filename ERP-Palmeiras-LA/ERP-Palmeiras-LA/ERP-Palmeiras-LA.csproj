@@ -86,9 +86,6 @@
     <Compile Include="Models\EquipamentoClinica.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estoque.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Fabricante.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
@@ -97,9 +94,6 @@
     <Compile Include="Models\Facade\EquipamentosFacade.cs" />
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
     <Compile Include="Models\Facade\LogisticaAbastecimento.cs" />
-    <Compile Include="Models\Inventario.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Material.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
