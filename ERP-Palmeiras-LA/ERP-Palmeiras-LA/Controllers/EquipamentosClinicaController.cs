@@ -43,8 +43,12 @@ namespace ERP_Palmeiras_LA.Controllers
         public ActionResult RegistrarDefeito(int id)
         {
             EquipamentoClinica eq = facade.BuscarEquipamentoClinica(id);
-            eq.Status = StatusEquipamento.QUEBRADO;
-            facade.AlterarEquipamentoClinica(eq);
+            if (eq.Status == StatusEquipamento.FUNCIONANDO)
+            {
+                eq.Status = StatusEquipamento.QUEBRADO;
+                facade.AlterarEquipamentoClinica(eq);
+                // TODO: Criar Pendencia de Manutencao!!
+            }
             return RedirectToAction("Quebrados");
         }
 
