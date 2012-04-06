@@ -12,13 +12,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
     public partial class LogisticaAbastecimento
     {
 
-        public SolicitacaoCompraEquipamento BuscarSolicitacoesCompraEquipamento(StatusSolicitacaoCompra status)
+        public IEnumerable<SolicitacaoCompraEquipamento> BuscarSolicitacoesCompraEquipamentos(StatusSolicitacaoCompra status)
         {
-            IEnumerable<SolicitacaoCompraEquipamento> result = model.TblSolicitacoesCompraEquipamento.Where(s => s.Status == status);
-            if (result != null && result.Count<SolicitacaoCompraEquipamento>() > 0)
-                return result.First<SolicitacaoCompraEquipamento>();
-            else
-                return null;
+            return model.TblSolicitacoesCompraEquipamento.Where(s => s.Status.Value == (int) status);
         }
 
         public SolicitacaoCompraEquipamento BuscarSolicitacaoCompraEquipamento(int id)

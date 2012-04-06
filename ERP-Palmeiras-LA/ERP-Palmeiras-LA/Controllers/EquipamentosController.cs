@@ -9,7 +9,7 @@ using ERP_Palmeiras_LA.Core;
 
 namespace ERP_Palmeiras_LA.Controllers
 {
-    public class EquipamentosController : Controller
+    public class EquipamentosController : BaseController
     {
         private LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
 

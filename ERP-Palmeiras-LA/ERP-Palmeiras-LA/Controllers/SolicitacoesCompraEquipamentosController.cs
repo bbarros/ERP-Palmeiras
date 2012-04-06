@@ -9,7 +9,7 @@ using ERP_Palmeiras_LA.Core;
 
 namespace ERP_Palmeiras_LA.Controllers
 {
-    public class SolicitacoesCompraEquipamentosController : Controller
+    public class SolicitacoesCompraEquipamentosController : BaseController
     {
         private LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
 
@@ -20,6 +20,15 @@ namespace ERP_Palmeiras_LA.Controllers
                 solicitacoes = new List<SolicitacaoCompraEquipamento>();
             ViewBag.solicitacoes = solicitacoes;
             return View();
+        }
+
+        public ActionResult Pendencias()
+        {
+            IEnumerable<SolicitacaoCompraEquipamento> solicitacoes = facade.BuscarSolicitacoesCompraEquipamentos(StatusSolicitacaoCompra.PENDENTE);
+            if (solicitacoes == null)
+                solicitacoes = new List<SolicitacaoCompraEquipamento>();
+            ViewBag.solicitacoes = solicitacoes;
+            return View("Index");
         }
 
         public ActionResult Criar()
