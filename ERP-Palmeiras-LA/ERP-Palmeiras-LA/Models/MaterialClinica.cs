@@ -15,9 +15,7 @@ namespace ERP_Palmeiras_LA.Models
     public partial class MaterialClinica
     {
         public int Id { get; set; }
-        public int EstoqueId { get; set; }
         public int MaterialId { get; set; }
-        public string CodigoEstoque { get; set; }
     
         public virtual Material Material { get; set; }
     }

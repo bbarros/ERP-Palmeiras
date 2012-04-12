@@ -8,7 +8,7 @@
     <% ERP_Palmeiras_LA.Models.SolicitacaoCompraEquipamento solicitacao = (ERP_Palmeiras_LA.Models.SolicitacaoCompraEquipamento)ViewData.Model; %>
     <% String dataValidade = (new DateTime(solicitacao.DataValidade)).ToString("dd/MM/yyyy"); %>
     <div id="formulario">
-        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Cadastrar") %>">
+        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Alterar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Equipamento</p>
         <table cellspacing="10" style="font-weight: normal;" class="formPadrao">
@@ -39,22 +39,10 @@
                         <% } %>
                     </select>
                 </th>
-                <th style="padding-left: 15px;">
-                    Status
-                </th>
-                <th style="padding-left: 60px;">
-                    <select id="status" name="status">
-                        <option <%= (solicitacao.Status == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE %>">Pendente</option>
-                        <option <%= (solicitacao.Status == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.APROVADO)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE %>">Aprovado</option>
-                        <option <%= (solicitacao.Status == ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.REPROVADO)? "SELECTED" : "" %>
-                            value="<%= (int)ERP_Palmeiras_LA.Models.StatusSolicitacaoCompra.PENDENTE %>">Reprovada</option>
-                    </select>
-                </th>
             </tr>
         </table>
         <br />
+        <input type="hidden" name="id" value="<%= solicitacao.Id %>" />
         <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
         </form>
     </div>

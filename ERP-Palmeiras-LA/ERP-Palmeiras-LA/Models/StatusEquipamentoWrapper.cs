@@ -10,17 +10,9 @@
 namespace ERP_Palmeiras_LA.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Estoque
+    public partial class StatusEquipamentoWrapper
     {
-        public Estoque()
-        {
-            this.MateriaisClinica = new HashSet<MaterialClinica>();
-        }
-    
-        public int Id { get; set; }
-    
-        public virtual ICollection<MaterialClinica> MateriaisClinica { get; set; }
+        
     }
 }

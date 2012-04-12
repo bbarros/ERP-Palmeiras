@@ -9,7 +9,7 @@ using ERP_Palmeiras_LA.Core;
 
 namespace ERP_Palmeiras_LA.Controllers
 {
-    public class EquipamentosController : Controller
+    public class EquipamentosController : BaseController
     {
         private LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
 
@@ -56,12 +56,11 @@ namespace ERP_Palmeiras_LA.Controllers
         [HttpPost]
         public ActionResult Alterar(int id, String nome, String nserie, String descricao, int fabricanteId)
         {
-            Equipamento eq = new Equipamento();
+            Equipamento eq = facade.BuscarEquipamento(id);
             eq.Nome = nome;
             eq.NumeroSerie = nserie;
             eq.Descricao = descricao;
             eq.FabricanteId = fabricanteId;
-            eq.Id = id;
             facade.AlterarEquipamento(eq);
             return View();
         }

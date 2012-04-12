@@ -12,13 +12,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
     public partial class LogisticaAbastecimento
     {
 
-        public SolicitacaoCompraEquipamento BuscarSolicitacoesCompraEquipamento(StatusSolicitacaoCompra status)
+        public IEnumerable<SolicitacaoCompraEquipamento> BuscarSolicitacoesCompraEquipamentos(StatusSolicitacaoCompra status)
         {
-            IEnumerable<SolicitacaoCompraEquipamento> result = model.TblSolicitacoesCompraEquipamento.Where(s => s.Status == status);
-            if (result != null && result.Count<SolicitacaoCompraEquipamento>() > 0)
-                return result.First<SolicitacaoCompraEquipamento>();
-            else
-                return null;
+            return model.TblSolicitacoesCompraEquipamento.Where(s => s.Status.Value == (int) status);
         }
 
         public SolicitacaoCompraEquipamento BuscarSolicitacaoCompraEquipamento(int id)
@@ -35,13 +31,8 @@ namespace ERP_Palmeiras_LA.Models.Facade
             IEnumerable<SolicitacaoCompraEquipamento> result = model.TblSolicitacoesCompraEquipamento.Where(sce => sce.Id == s.Id);
             if (result != null && result.Count<SolicitacaoCompraEquipamento>() > 0)
             {
-                SolicitacaoCompraEquipamento sce = result.First<SolicitacaoCompraEquipamento>();
-                sce.EquipamentoId = s.EquipamentoId;
-                sce.Preco = s.Preco;
-                sce.Status = s.Status;
-                sce.DataValidade = s.DataValidade;
-                model.TblSolicitacoesCompraEquipamento.Attach(sce);
-                model.Entry(sce).State = EntityState.Modified;
+                model.TblSolicitacoesCompraEquipamento.Attach(s);
+                model.Entry(s).State = EntityState.Modified;
                 model.SaveChanges();
             }
             else
@@ -57,6 +48,20 @@ namespace ERP_Palmeiras_LA.Models.Facade
         public IEnumerable<SolicitacaoCompraEquipamento> BuscarSolicitacoesCompraEquipamentos()
         {
             return model.TblSolicitacoesCompraEquipamento.Where<SolicitacaoCompraEquipamento>(s => true);
+        }
+
+        public void ExcluirSolicitacaoCompraEquipamento(int id)
+        {
+            SolicitacaoCompraEquipamento s = BuscarSolicitacaoCompraEquipamento(id);
+            try
+            {
+                model.TblSolicitacoesCompraEquipamento.Remove(s);
+                model.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw new ERPException("Esta solicitação de compra de equipamento já está associada a um processo de compra. Ela não pode ser removida.");
+            }
         }
     }
 }

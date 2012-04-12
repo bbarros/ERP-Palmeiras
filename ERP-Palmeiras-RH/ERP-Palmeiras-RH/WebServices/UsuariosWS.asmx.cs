@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using ERP_Palmeiras_RH.Models.Facade;
 using ERP_Palmeiras_RH.Models;
+using ERP_Palmeiras_RH.Core;
 
 namespace ERP_Palmeiras_RH.WebServices
 {
@@ -41,6 +42,11 @@ namespace ERP_Palmeiras_RH.WebServices
                 p.Funcionario = f;
                 facade.InserirPendencia(p);
 
+                return true;
+            }
+            catch (ERPException)
+            {
+                // ja existe uma pendencia para esse funcionario ou ele ja existe neste modulo.
                 return true;
             }
             catch (Exception)

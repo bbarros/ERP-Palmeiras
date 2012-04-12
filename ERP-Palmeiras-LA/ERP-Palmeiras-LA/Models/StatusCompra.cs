@@ -8,7 +8,6 @@ namespace ERP_Palmeiras_LA.Models
     public enum StatusCompra
     {
         ENTREGUE,
-        COMPRA_APROVADA,
         COMPRA_SOLICITADA
     }
 
