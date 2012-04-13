@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using ERP_Palmeiras_BI.Models;
+using ERP_Palmeiras_BI.Models;
 using ERP_Palmeiras_BI.Core;
 using ERP_Palmeiras_BI.Models.Facade;
+using System.IO;
 
 namespace ERP_Palmeiras_BI.Controllers
 {
@@ -19,7 +20,7 @@ namespace ERP_Palmeiras_BI.Controllers
         /// </summary>
         public ActionResult Index()
         {
-
+            String fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/Graphics"), "RLT" + DateTime.Now.Ticks.ToString()) + ".png";
             if (sessao.SessaoAtiva)
                 return View("Welcome");
             return View();
@@ -33,8 +34,8 @@ namespace ERP_Palmeiras_BI.Controllers
         public ActionResult Login(String usuario, String senha)
         {
             BusinessIntelligence facade = BusinessIntelligence.GetInstance();
-            //Usuario u = facade.AutenticaUsuario(usuario, senha);
-            //sessao.Usuario = u;
+            Usuario u = facade.AutenticaUsuario(usuario, senha);
+            sessao.Usuario = u;
             if (!sessao.SessaoAtiva)
             {
                 ViewData["Message"] = "Usuário inválido!";

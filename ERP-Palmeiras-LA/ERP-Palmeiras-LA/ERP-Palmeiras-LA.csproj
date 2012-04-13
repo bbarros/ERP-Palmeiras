@@ -162,6 +162,10 @@
       <DependentUpon>EquipamentosWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WebServices\UsuariosWS.asmx.cs">
+      <DependentUpon>UsuariosWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\Site.css" />
@@ -278,6 +282,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="WebServices\EquipamentosWS.asmx" />
+    <Content Include="WebServices\UsuariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

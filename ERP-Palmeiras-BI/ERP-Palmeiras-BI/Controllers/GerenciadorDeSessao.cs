@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.CompilerServices;
 using System.Web;
-//using ERP_Palmeiras_BI.Models;
+using ERP_Palmeiras_BI.Models;
 
 namespace ERP_Palmeiras_BI.Controllers
 {
@@ -27,11 +27,11 @@ namespace ERP_Palmeiras_BI.Controllers
         /// <summary>
         /// Retorna o usuário associado a sessão atual.
         /// </summary>
-        //public Usuario Usuario
-        //{
-        //    get { return (Usuario)HttpContext.Current.Session[USR_SESSION_KEY]; }
-        //    set { HttpContext.Current.Session[USR_SESSION_KEY] = value; }
-        //}
+        public Usuario Usuario
+        {
+            get { return (Usuario)HttpContext.Current.Session[USR_SESSION_KEY]; }
+            set { HttpContext.Current.Session[USR_SESSION_KEY] = value; }
+        }
 
         /// <summary>
         /// Construtor privado.

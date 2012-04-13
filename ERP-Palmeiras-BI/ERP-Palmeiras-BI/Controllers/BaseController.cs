@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-//using ERP_Palmeiras_BI.Models;
+using ERP_Palmeiras_BI.Models;
 
 namespace ERP_Palmeiras_BI.Controllers
 {
@@ -16,7 +16,7 @@ namespace ERP_Palmeiras_BI.Controllers
             if (gerenciadorSessao.SessaoAtiva)
             {
                 ViewData["WelcomeMsg"] = "Sr.";
-                //ViewData["Usuario.Nome"] = gerenciadorSessao.Usuario.Login;
+                ViewData["Usuario.Nome"] = gerenciadorSessao.Usuario.Login;
             }
         }
 
