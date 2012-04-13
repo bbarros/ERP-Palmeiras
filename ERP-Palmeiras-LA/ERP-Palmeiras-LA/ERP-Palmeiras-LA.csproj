@@ -66,7 +66,6 @@
     <Compile Include="Controllers\MateriaisController.cs" />
     <Compile Include="Controllers\CompraEquipamentosController.cs" />
     <Compile Include="Controllers\CompraMateriaisController.cs" />
-    <Compile Include="Controllers\MateriaisClinicaController.cs" />
     <Compile Include="Controllers\SolicitacoesCompraMateriaisController.cs" />
     <Compile Include="Controllers\EquipamentosClinicaController.cs" />
     <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
@@ -87,7 +86,6 @@
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Facade\CompraMateriaisFacade.cs" />
-    <Compile Include="Models\Facade\MateriaisClinicaFacade.cs" />
     <Compile Include="Models\Facade\MateriaisFacade.cs" />
     <Compile Include="Models\Facade\SolicitacoesCompraMateriaisFacade.cs" />
     <Compile Include="Models\StatusEquipamento.cs" />
@@ -108,9 +106,6 @@
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
     <Compile Include="Models\Facade\LogisticaAbastecimento.cs" />
     <Compile Include="Models\Material.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MaterialClinica.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelLA.Context.cs">
@@ -242,7 +237,6 @@
     <Content Include="Views\CompraMateriais\Alterar.aspx" />
     <Content Include="Views\CompraMateriais\Editar.aspx" />
     <Content Include="Views\CompraMateriais\Index.aspx" />
-    <Content Include="Views\MateriaisClinica\Index.aspx" />
     <Content Include="Views\SolicitacoesCompraMateriais\Alterar.aspx" />
     <Content Include="Views\SolicitacoesCompraMateriais\Cadastrar.aspx" />
     <Content Include="Views\SolicitacoesCompraMateriais\Criar.aspx" />

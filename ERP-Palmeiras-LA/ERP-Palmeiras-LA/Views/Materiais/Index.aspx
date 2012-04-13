@@ -15,6 +15,7 @@
     <tr>
         <th>Codigo</th>
         <th>Nome</th>
+        <th>Quantidade</th>
         <th>Fabricante</th>
         <th>Descrição</th>
         <th>Editar</th>
@@ -25,6 +26,7 @@
         <tr>
             <td><%= mat.Codigo%></td>
             <td><%= mat.Nome%></td>
+            <td><%= mat.QuantidadeEstoque%></td>
             <td><%= mat.Fabricante.Nome %></td>
             <td><%= mat.Descricao %></td>
             <td><a href="<%= Url.Action("Editar", "Materiais", new {materialID = mat.Id}) %>" ><img alt="Editar material" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a>

@@ -51,7 +51,7 @@ namespace ERP_Palmeiras_LA.Controllers
 
         public ActionResult Criar()
         {
-            ViewData["Materiais"] = facade.BuscarEquipamentos();
+            ViewData["Materiais"] = facade.BuscarMateriais();
             return View();
         }
 
@@ -63,6 +63,7 @@ namespace ERP_Palmeiras_LA.Controllers
             s.PrecoUnitario = preco;
             s.MaterialId = materialId;
             s.DataValidade = data.Ticks;
+            s.Quantidade = quantidade;
             s.UsuarioId = GerenciadorDeSessao.GetInstance().Usuario.Id;
             facade.CriarSolicitacaoCompraMaterial(s);
             return View();
@@ -91,7 +92,10 @@ namespace ERP_Palmeiras_LA.Controllers
         public ActionResult Rejeitar(int id)
         {
             SolicitacaoCompraMaterial s = facade.BuscarSolicitacaoCompraMaterial(id);
+            if (s.Status == StatusSolicitacaoCompra.APROVADO)
+                throw new ERPException("Está solicitação já foi aprovada!");
             s.Status = StatusSolicitacaoCompra.REPROVADO;
+            facade.AlterarSolicitacaoCompraMaterial(s);
             return RedirectToAction("Reprovadas");
         }
 

@@ -24,28 +24,29 @@ namespace ERP_Palmeiras_LA.WebServices
         public List<MaterialClinicaDTO> BuscarMateriais()
         {
             List<MaterialClinicaDTO> dtos = new List<MaterialClinicaDTO>();
-            IEnumerable<MaterialClinica> mats = facade.BuscarMateriaisClinica();
-            IEnumerable<MaterialClinica> distinctMats = mats.Distinct<MaterialClinica>();
-            foreach (MaterialClinica mat in distinctMats)
+            IEnumerable<Material> mats = facade.BuscarMateriais();
+            foreach (Material mat in mats)
             {
                 MaterialClinicaDTO dto = new MaterialClinicaDTO(
-                    mat.Material.Nome,
+                    mat.Nome,
                     mat.Id,
-                    mat.Material.Fabricante.Nome,
-                    mat.Material.Codigo,
-                    mat.Material.Descricao,
-                    mats.Count<MaterialClinica>(m => m.MaterialId == mat.MaterialId));
+                    mat.Fabricante.Nome,
+                    mat.Codigo,
+                    mat.Descricao,
+                    mat.QuantidadeEstoque);
                 dtos.Add(dto);
             }
             return dtos;
         }
 
         [WebMethod]
-        public bool DescartarMaterial(int materialId)
+        public bool DescartarMateriais(int materialId, int quantidadeDescartada)
         {
             try
             {
-                facade.ExcluirMaterial(materialId);
+                Material m = facade.BuscarMaterial(materialId);
+                m.QuantidadeEstoque -= quantidadeDescartada;
+                facade.AlterarMaterial(m);
                 return true;
             }
             catch (Exception)

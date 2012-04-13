@@ -17,13 +17,13 @@
                     Preço Unitário
                 </th>
                 <th style="padding-left: 50px;">
-                    <input id="preco" name="preco" type="text" value="" />
+                    <input id="preco" name="preco" type="text" value="<%= solicitacao.PrecoUnitario %>" />
                 </th>
                 <th style="padding-left: 15px;">
                     Data Validade
                 </th>
                 <th style="padding-left: 60px;">
-                    <input id="data" name="data" type="text" value="" />
+                    <input id="data" name="data" type="text" value="<%= new DateTime(solicitacao.DataValidade).ToString("dd/MM/yyyy") %>" />
                 </th>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                     Quantidade
                 </th>
                 <th style="padding-left: 60px;">
-                    <input id="quantidade" name="quantidade" type="text" value="" />
+                    <input id="quantidade" name="quantidade" type="text" value="<%= solicitacao.Quantidade %>" />
                 </th>
             </tr>
         </table>

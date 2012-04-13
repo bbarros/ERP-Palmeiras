@@ -46,7 +46,9 @@ namespace ERP_Palmeiras_LA.Controllers
             c.DataEntrega = DateTime.Now.Ticks;
             c.Status = StatusCompra.ENTREGUE;
             facade.AlterarCompraMaterial(c);
-            facade.CriarMaterialClinica(c.SolicitacaoCompraMaterial.Material, c.SolicitacaoCompraMaterial.Quantidade);
+            Material m = c.SolicitacaoCompraMaterial.Material;
+            m.QuantidadeEstoque += c.SolicitacaoCompraMaterial.Quantidade;
+            facade.AlterarMaterial(m);
             return RedirectToAction("Entregas");
         }
 

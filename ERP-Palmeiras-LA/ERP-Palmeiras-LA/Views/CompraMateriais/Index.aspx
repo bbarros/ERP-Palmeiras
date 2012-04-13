@@ -37,9 +37,9 @@
                         <td><%= c.Id %></td>
 						<td><%= new DateTime(c.DataPrevista).ToString("dd/MM/yyyy") %></td>
                         <td><%= (c.DataEntrega != null && c.DataEntrega != 0)? new DateTime((long)c.DataEntrega).ToString("dd/MM/yyyy") : "" %></td>
-                        <td><%= statusStr %></td>
                         <td><%= c.SolicitacaoCompraMaterial.Material.Nome %></td>
                         <td><%= c.SolicitacaoCompraMaterial.Quantidade %></td>
+                        <td><%= statusStr %></td>
                         <td><a href="<%= Url.Action("RegistrarEntrega", "CompraMateriais", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/approveIcon.png") %>" /></a></td>
                         <td><a href="<%= Url.Action("Editar", "CompraMateriais", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
 					</tr>
