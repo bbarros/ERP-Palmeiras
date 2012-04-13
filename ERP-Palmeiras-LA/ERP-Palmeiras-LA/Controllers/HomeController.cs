@@ -33,8 +33,8 @@ namespace ERP_Palmeiras_LA.Controllers
         public ActionResult Login(String usuario, String senha)
         {
             LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
-
-            sessao.Usuario = facade.AutenticaUsuario(usuario, senha);
+            Usuario u = facade.AutenticaUsuario(usuario, senha);
+            sessao.Usuario = u;
             if (!sessao.SessaoAtiva)
             {
                 ViewData["Message"] = "Usuário inválido!";

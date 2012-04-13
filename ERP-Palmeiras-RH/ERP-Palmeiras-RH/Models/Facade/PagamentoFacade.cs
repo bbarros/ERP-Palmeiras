@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.CompilerServices;
+using System.Data;
 
 namespace ERP_Palmeiras_RH.Models.Facade
 {
@@ -11,14 +12,20 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
         public IEnumerable<Pagamento> GetPagamentos()
         {
-            ModelRH model = new ModelRH();
-
-
             IEnumerable<Pagamento> pagamentos = model.TblPagamentos.Where(p => true);
-
-
             return pagamentos;
         }
 
+        public Pagamento GetPagamento(int id)
+        {
+            Pagamento pagamento = model.TblPagamentos.Find(id);
+            return pagamento;
+        }
+
+        public void UpdatePagamento(Pagamento pagamento)
+        {
+            model.Entry(pagamento).State = EntityState.Modified;
+            model.SaveChanges();
+        }
     }
 }

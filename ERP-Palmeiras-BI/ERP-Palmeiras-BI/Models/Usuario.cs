@@ -7,20 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP_Palmeiras_LA.Models
+namespace ERP_Palmeiras_BI.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Inventario
+    public partial class Usuario
     {
-        public Inventario()
-        {
-            this.EquipamentosClinica = new HashSet<EquipamentoClinica>();
-        }
-    
         public int Id { get; set; }
-    
-        public virtual ICollection<EquipamentoClinica> EquipamentosClinica { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
     }
 }

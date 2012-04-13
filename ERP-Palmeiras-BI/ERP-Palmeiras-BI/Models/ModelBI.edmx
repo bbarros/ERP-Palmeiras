@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelBI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelBIStoreContainer">
+    <EntitySet Name="TblUsuarios" EntityType="ModelBI.Store.TblUsuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblRelatorios" EntityType="ModelBI.Store.TblRelatorios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UsuarioRelatorio" Association="ModelBI.Store.UsuarioRelatorio">
+      <End Role="Usuario" EntitySet="TblUsuarios" />
+      <End Role="Relatorio" EntitySet="TblRelatorios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TblUsuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblRelatorios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataInicio" Type="bigint" Nullable="false" />
+    <Property Name="DataFim" Type="bigint" Nullable="false" />
+    <Property Name="Tipo_Value" Type="int" Nullable="false" />
+    <Property Name="UrlImagem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="DataModificacao" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuarioRelatorio">
+    <End Role="Usuario" Type="ModelBI.Store.TblUsuarios" Multiplicity="1" />
+    <End Role="Relatorio" Type="ModelBI.Store.TblRelatorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Relatorio">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelBI" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelBIContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblUsuarios" EntityType="ModelBI.Usuario" />
+          <EntitySet Name="TblRelatorios" EntityType="ModelBI.Relatorio" />
+          <AssociationSet Name="UsuarioRelatorio" Association="ModelBI.UsuarioRelatorio">
+            <End Role="Usuario" EntitySet="TblUsuarios" />
+            <End Role="Relatorio" EntitySet="TblRelatorios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Login" Nullable="false" />
+          <Property Type="String" Name="Senha" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Relatorio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Titulo" Nullable="false" />
+          <Property Type="Int64" Name="DataInicio" Nullable="false" />
+          <Property Type="Int64" Name="DataFim" Nullable="false" />
+          <Property Name="Tipo" Type="ModelBI.TipoRelatorioWrapper" Nullable="false" />
+          <Property Type="String" Name="UrlImagem" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="ModelBI.UsuarioRelatorio" FromRole="Relatorio" ToRole="Usuario" />
+          <Property Type="Int32" Name="UsuarioId" Nullable="false" />
+          <Property Type="Int64" Name="DataModificacao" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="TipoRelatorioWrapper" >
+          <Property Type="Int32" Name="Value" Nullable="false" />
+        </ComplexType>
+        <Association Name="UsuarioRelatorio">
+          <End Type="ModelBI.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ModelBI.Relatorio" Role="Relatorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Relatorio">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelBIStoreContainer" CdmEntityContainer="ModelBIContainer">
+    <EntitySetMapping Name="TblUsuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBI.Usuario)">
+        <MappingFragment StoreEntitySet="TblUsuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblRelatorios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBI.Relatorio)">
+        <MappingFragment StoreEntitySet="TblRelatorios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+          <ComplexProperty Name="Tipo" TypeName="ModelBI.TipoRelatorioWrapper">
+            <ScalarProperty Name="Value" ColumnName="Tipo_Value" />
+          </ComplexProperty>
+          <ScalarProperty Name="UrlImagem" ColumnName="UrlImagem" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="DataModificacao" ColumnName="DataModificacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ModelBI" >
+        <EntityTypeShape EntityType="ModelBI.Usuario" Width="1.5" PointX="8.7056211832471284" PointY="0.9440020774230371" />
+        <EntityTypeShape EntityType="ModelBI.Relatorio" Width="1.5" PointX="3.5" PointY="0.75" Height="2.7494921874999996" />
+        <AssociationConnector Association="ModelBI.UsuarioRelatorio">
+          <ConnectorPoint PointX="8.75" PointY="1.797841796875" />
+          <ConnectorPoint PointX="5" PointY="1.797841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

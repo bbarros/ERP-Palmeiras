@@ -7,20 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP_Palmeiras_LA.Models
+namespace ERP_Palmeiras_BI.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Estoque
+    public partial class Relatorio
     {
-        public Estoque()
+        public Relatorio()
         {
-            this.MateriaisClinica = new HashSet<MaterialClinica>();
+            this.Tipo = new TipoRelatorioWrapper();
         }
     
         public int Id { get; set; }
+        public string Titulo { get; set; }
+        public long DataInicio { get; set; }
+        public long DataFim { get; set; }
+        public string UrlImagem { get; set; }
+        public int UsuarioId { get; set; }
+        public long DataModificacao { get; set; }
     
-        public virtual ICollection<MaterialClinica> MateriaisClinica { get; set; }
+        public TipoRelatorioWrapper Tipo { get; set; }
+    
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -33,7 +33,7 @@
                     Descrição
                 </th>
                 <th style="padding-left: 50px;">
-                    <input id="descricao" name="descricao" type="text" value="" />
+                    <input id="descricao" name="descricao" type="text" value="<%= eq.Descricao %>" />
                 </th>
                 <th style="padding-left: 15px;">
                     Fabricante

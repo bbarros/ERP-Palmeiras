@@ -23,10 +23,12 @@ namespace ERP_Palmeiras_LA.Models
         public double Preco { get; set; }
         public long DataValidade { get; set; }
         public int EquipamentoId { get; set; }
+        public int UsuarioId { get; set; }
     
         public StatusSolicitacaoCompraWrapper Status { get; set; }
     
         public virtual CompraEquipamento CompraEquipamento { get; set; }
         public virtual Equipamento Equipamento { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
