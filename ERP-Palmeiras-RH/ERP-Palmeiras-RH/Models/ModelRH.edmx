@@ -864,7 +864,10 @@
     <EntitySetMapping Name="TblPagamentos">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Pagamento)">
         <MappingFragment StoreEntitySet="TblPagamentos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+                <ScalarProperty Name="Impostos" ColumnName="Impostos" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Salario" ColumnName="Salario" />
           <ScalarProperty Name="Adicionais" ColumnName="Adicionais" />
           <ScalarProperty Name="Descontos" ColumnName="Descontos" />

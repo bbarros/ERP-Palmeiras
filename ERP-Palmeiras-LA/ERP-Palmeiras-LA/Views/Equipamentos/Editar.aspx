@@ -10,7 +10,7 @@
     %>
     <% IEnumerable<ERP_Palmeiras_LA.Models.Fabricante> fabricantes = (IEnumerable<ERP_Palmeiras_LA.Models.Fabricante>)ViewData["Fabricantes"]; %>
     <div id="formulario">
-        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Cadastrar") %>">
+        <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Alterar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
             Formulário de Informações do Equipamento</p>
         <table cellspacing="10" style="font-weight: normal;" class="formPadrao">

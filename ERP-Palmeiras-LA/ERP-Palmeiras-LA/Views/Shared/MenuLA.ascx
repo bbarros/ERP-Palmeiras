@@ -2,10 +2,10 @@
 
     <ul>
         <li class="accordion">
-            <h3>Usuários</h3>
+            <h3>Materiais</h3>
             <ul class="accordionSubItem">
-                <li><a href="<%= Url.Action("Index", "Usuarios") %>">Visualizar Usuários</a></li>
-                <li><a href="<%= Url.Action("Criar", "Usuarios") %>">Cadastrar Usuário</a></li>     
+                <li><a href="<%= Url.Action("Index", "Materiais") %>">Visualizar Materiais</a></li>
+                <li><a href="<%= Url.Action("Criar", "Materiais") %>">Cadastrar Materiais</a></li>
             </ul>
         </li>
 
