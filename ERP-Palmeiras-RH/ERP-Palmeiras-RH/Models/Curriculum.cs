@@ -7,15 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace ERP_Palmeiras_RH.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class Curriculum
     {
         public int Id { get; set; }
         public string Formacao { get; set; }
         public byte[] Arquivo { get; set; }
     }
+    
 }
