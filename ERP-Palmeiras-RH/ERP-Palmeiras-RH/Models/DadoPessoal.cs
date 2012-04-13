@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace ERP_Palmeiras_RH.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class DadoPessoal
     {
         public DadoPessoal()
@@ -32,4 +32,5 @@ namespace ERP_Palmeiras_RH.Models
         public virtual Endereco Endereco { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }
     }
+    
 }

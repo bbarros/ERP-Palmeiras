@@ -119,10 +119,13 @@
     <Property Name="Adicionais" Type="float" Nullable="false" />
     <Property Name="Descontos" Type="float" Nullable="false" />
     <Property Name="Total" Type="float" Nullable="false" />
-    <Property Name="DataPagamento" Type="datetime" Nullable="false" />
+    <Property Name="DataPagamento" Type="bigint" Nullable="false" />
     <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="funcionariosId" Type="int" Nullable="false" />
     <Property Name="DataOrdem" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="Impostos" Type="float" Nullable="false" />
+    <Property Name="Informacoes" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="TblCredenciais">
     <Key>
@@ -582,11 +585,14 @@
           <Property Type="Double" Name="Adicionais" Nullable="false" />
           <Property Type="Double" Name="Descontos" Nullable="false" />
           <Property Type="Double" Name="Total" Nullable="false" />
-          <Property Type="DateTime" Name="DataPagamento" Nullable="false" />
+          <Property Type="Int64" Name="DataPagamento" Nullable="false" />
           <Property Type="String" Name="Cargo" Nullable="false" />
           <NavigationProperty Name="Funcionario" Relationship="Model.PagamentoFuncionarios" FromRole="Pagamento" ToRole="Funcionarios" />
           <Property Type="Int32" Name="funcionariosId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
           <Property Type="Int64" Name="DataOrdem" Nullable="false" />
+          <Property Type="Int16" Name="Status" Nullable="false" />
+          <Property Type="Double" Name="Impostos" Nullable="false" />
+          <Property Type="String" Name="Informacoes" Nullable="true" />
         </EntityType>
         <EntityType Name="Credencial">
           <Key>
@@ -867,6 +873,9 @@
           <ScalarProperty Name="Cargo" ColumnName="Cargo" />
           <ScalarProperty Name="funcionariosId" ColumnName="funcionariosId" />
           <ScalarProperty Name="DataOrdem" ColumnName="DataOrdem" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Impostos" ColumnName="Impostos" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1103,7 +1112,7 @@
     <Diagrams>
       <Diagram Name="ModelRH" ZoomLevel="84" DisplayType="true" >
         <EntityTypeShape EntityType="Model.Funcionario" Width="1.5" PointX="5.625" PointY="2.875" Height="3.9033007812499996" />
-        <EntityTypeShape EntityType="Model.Pagamento" Width="1.5" PointX="4.5" PointY="10.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="Model.Pagamento" Width="2" PointX="4.5" PointY="10.75" Height="3.5186979166666656" />
         <EntityTypeShape EntityType="Model.Credencial" Width="1.5" PointX="10.25" PointY="3.25" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="Model.Permissao" Width="1.5" PointX="0.625" PointY="0.5" Height="1.4033821614583326" />
         <EntityTypeShape EntityType="Model.Curriculum" Width="1.5" PointX="0.625" PointY="2.25" Height="1.5956835937499996" />
@@ -1144,8 +1153,8 @@
           <ConnectorPoint PointX="2.125" PointY="5.3671862500000032" />
         </AssociationConnector>
         <AssociationConnector Association="Model.FuncionariosCartoesPonto" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.46094" PointY="6.77830078125" />
-          <ConnectorPoint PointX="6.46094" PointY="7.922841796875" />
+          <ConnectorPoint PointX="6.375" PointY="6.77830078125" />
+          <ConnectorPoint PointX="6.375" PointY="7.922841796875" />
           <ConnectorPoint PointX="8.6666666666666661" PointY="7.9228417968749989" />
           <ConnectorPoint PointX="8.8333333333333339" PointY="7.922841796875" />
           <ConnectorPoint PointX="10.25" PointY="7.922841796875" />
@@ -1180,8 +1189,8 @@
           <ConnectorPoint PointX="10.25" PointY="2.4778857421874996" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PagamentoFuncionarios">
-          <ConnectorPoint PointX="5.734375" PointY="10.75" />
-          <ConnectorPoint PointX="5.734375" PointY="6.77830078125" />
+          <ConnectorPoint PointX="5.9375" PointY="10.75" />
+          <ConnectorPoint PointX="5.9375" PointY="6.77830078125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Medico" Width="1.5" PointX="2.875" PointY="6" Height="1.5956835937499996" />
         <InheritanceConnector EntityType="Model.Medico" ManuallyRouted="false">

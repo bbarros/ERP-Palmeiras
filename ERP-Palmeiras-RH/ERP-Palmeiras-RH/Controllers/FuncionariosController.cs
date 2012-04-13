@@ -178,7 +178,10 @@ namespace ERP_Palmeiras_RH.Controllers
 
             Admissao adm = new Admissao();
             adm.DataAdmissao = dataadmissao.Ticks;
-            adm.DataDesligamento = datademissao.Value.Ticks;
+            if (datademissao != null)
+            {
+                adm.DataDesligamento = datademissao.Value.Ticks;
+            }
             adm.MotivoDesligamento = motivo;
             adm.UltimoSalario = ultimoSalario.ToString();
             func.Admissao = adm;

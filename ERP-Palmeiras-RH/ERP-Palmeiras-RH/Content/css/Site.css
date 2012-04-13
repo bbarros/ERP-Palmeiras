@@ -300,3 +300,12 @@ h1 {
     padding: 5% 5% 5% 5%;
     
 }
+
+#modal-pag
+{
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
