@@ -13,6 +13,6 @@ namespace ERP_Palmeiras_LA.Models
     
     public partial class StatusCompraWrapper
     {
-        public int Value { get; set; }
+        
     }
 }
