@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="pagarFunc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataPrevista" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="agencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contaCorrente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pagarFuncResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pagarFuncResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarPagamentosPendentes">
+        <s:complexType />
+      </s:element>
+      <s:element name="consultarPagamentosPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarPagamentosPendentesResult" type="tns:ArrayOfPagamentosPendentes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPagamentosPendentes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PagamentosPendentes" nillable="true" type="tns:PagamentosPendentes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PagamentosPendentes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="dataPrevista" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="agencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="contaCorrente" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="receberServico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomesExames" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomeEspecialidade" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataServico" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="CPF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="receberServicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="receberServicoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="comprarEquipamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nserie" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="data" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="comprarEquipamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="comprarEquipamentoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastraEspecialidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastraEspecialidadeResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pagarFuncSoapIn">
+    <wsdl:part name="parameters" element="tns:pagarFunc" />
+  </wsdl:message>
+  <wsdl:message name="pagarFuncSoapOut">
+    <wsdl:part name="parameters" element="tns:pagarFuncResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarPagamentosPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarPagamentosPendentes" />
+  </wsdl:message>
+  <wsdl:message name="consultarPagamentosPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarPagamentosPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="receberServicoSoapIn">
+    <wsdl:part name="parameters" element="tns:receberServico" />
+  </wsdl:message>
+  <wsdl:message name="receberServicoSoapOut">
+    <wsdl:part name="parameters" element="tns:receberServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="comprarEquipamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:comprarEquipamento" />
+  </wsdl:message>
+  <wsdl:message name="comprarEquipamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:comprarEquipamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastraEspecialidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:cadastraEspecialidade" />
+  </wsdl:message>
+  <wsdl:message name="cadastraEspecialidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:cadastraEspecialidadeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MedSoftSoap">
+    <wsdl:operation name="pagarFunc">
+      <wsdl:input message="tns:pagarFuncSoapIn" />
+      <wsdl:output message="tns:pagarFuncSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarPagamentosPendentes">
+      <wsdl:input message="tns:consultarPagamentosPendentesSoapIn" />
+      <wsdl:output message="tns:consultarPagamentosPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="receberServico">
+      <wsdl:input message="tns:receberServicoSoapIn" />
+      <wsdl:output message="tns:receberServicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="comprarEquipamento">
+      <wsdl:input message="tns:comprarEquipamentoSoapIn" />
+      <wsdl:output message="tns:comprarEquipamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastraEspecialidade">
+      <wsdl:input message="tns:cadastraEspecialidadeSoapIn" />
+      <wsdl:output message="tns:cadastraEspecialidadeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MedSoftSoap" type="tns:MedSoftSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pagarFunc">
+      <soap:operation soapAction="http://tempuri.org/pagarFunc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPagamentosPendentes">
+      <soap:operation soapAction="http://tempuri.org/consultarPagamentosPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="receberServico">
+      <soap:operation soapAction="http://tempuri.org/receberServico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="comprarEquipamento">
+      <soap:operation soapAction="http://tempuri.org/comprarEquipamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastraEspecialidade">
+      <soap:operation soapAction="http://tempuri.org/cadastraEspecialidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MedSoftSoap12" type="tns:MedSoftSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pagarFunc">
+      <soap12:operation soapAction="http://tempuri.org/pagarFunc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPagamentosPendentes">
+      <soap12:operation soapAction="http://tempuri.org/consultarPagamentosPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="receberServico">
+      <soap12:operation soapAction="http://tempuri.org/receberServico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="comprarEquipamento">
+      <soap12:operation soapAction="http://tempuri.org/comprarEquipamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastraEspecialidade">
+      <soap12:operation soapAction="http://tempuri.org/cadastraEspecialidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MedSoft">
+    <wsdl:port name="MedSoftSoap" binding="tns:MedSoftSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:9091/MedSoft.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MedSoftSoap12" binding="tns:MedSoftSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:9091/MedSoft.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

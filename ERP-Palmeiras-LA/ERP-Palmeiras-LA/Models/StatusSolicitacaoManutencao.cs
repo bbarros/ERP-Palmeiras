@@ -8,18 +8,13 @@ namespace ERP_Palmeiras_LA.Models
     public enum StatusSolicitacaoManutencao
     {
         CONCLUIDA,
-        EM_PROGRESSO
+        EM_PROGRESSO,
+        PENDENTE
     }
 
     public partial class StatusSolicitacaoManutencaoWrapper
     {
         private StatusSolicitacaoManutencao status;
-
-        public int Value
-        {
-            get { return (int)status; }
-            set { status = (StatusSolicitacaoManutencao)value; }
-        }
 
         public StatusSolicitacaoManutencao EnumValue
         {

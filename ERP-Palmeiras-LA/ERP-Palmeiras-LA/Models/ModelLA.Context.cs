@@ -26,7 +26,6 @@ namespace ERP_Palmeiras_LA.Models
         }
     
         public DbSet<Usuario> TblUsuarios { get; set; }
-        public DbSet<PendenciaManutencao> TblPendenciasManutencao { get; set; }
         public DbSet<Equipamento> TblEquipamentos { get; set; }
         public DbSet<Fabricante> TblFabricantes { get; set; }
         public DbSet<EquipamentoClinica> TblEquipamentosClinica { get; set; }

@@ -23,6 +23,9 @@ namespace ERP_Palmeiras_LA.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string CNPJ { get; set; }
+        public int Banco { get; set; }
+        public string ContaCorrente { get; set; }
+        public string Agencia { get; set; }
     
         public virtual ICollection<Equipamento> Equipamentos { get; set; }
         public virtual ICollection<Material> Materiais { get; set; }

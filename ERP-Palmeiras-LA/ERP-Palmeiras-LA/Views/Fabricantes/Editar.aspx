@@ -27,6 +27,26 @@
                     <input id="cnpj" name="cnpj" type="text" value="<%= f.CNPJ %>" />
                 </th>
             </tr>
+            <tr>
+                <th>
+                    Banco
+                </th>
+                <th style="padding-left: 50px;">
+                    <input id="banco" name="banco" type="text" value="<%= f.Banco %>" />
+                </th>
+                <th style="padding-left: 15px;">
+                    Agência
+                </th>
+                <th style="padding-left: 60px;">
+                    <input id="agencia" name="agencia" type="text" value="<%= f.Agencia %>" />
+                </th>
+                <th style="padding-left: 15px;">
+                    Conta Corrente
+                </th>
+                <th style="padding-left: 60px;">
+                    <input id="contaCorrente" name="contaCorrente" type="text" value="<%= f.ContaCorrente %>" />
+                </th>
+            </tr>
         </table>
         <br />
         <input type="hidden" name="id" value="<%= f.Id %>" />

@@ -11,7 +11,7 @@
         <th>Salário</th>
         <th>Mês/Ano</th>
         <th>Status</th>
-        <th>Pagar</th>
+        <th>Solicitar Pagamento</th>
     </tr>
 
     <% foreach (ERP_Palmeiras_RH.Models.Pagamento pagamento in ViewBag.pagamentos)
@@ -25,21 +25,21 @@
             <td>
             <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_OK)
                { %>
-                <img alt="confirmado" src="../../Content/images/status_ok.png" title="Efetuado" />
+                <img alt="confirmado" src="<%= Url.Content("~/Content/images/status_ok.png") %>" title="Efetuado" />
             <% }
                else if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_PENDENTE)
                {%>
-                <img alt="pendente" src="../../Content/images/status_forbidden.png" title="Pendente" />
+                <img alt="pendente" src="<%= Url.Content("~/Content/images/status_forbidden.png") %>" title="Pendente" />
             <% }
                else if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_EM_AVALIACAO)
                {%>
-                <img alt="em análise" src="../../Content/images/status_help.png" title="Em Análise" />
+                <img alt="em análise" src="<%= Url.Content("~/Content/images/status_help.png") %>" title="Em Análise" />
             <% } %>
             </td>
             <td>
             <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_PENDENTE)
                { %>
-                <a href="javascript: confirmarPagamento(<%= pagamento.Id %>)" ><img alt="Pagar" src="../../Content/images/pay_check.png" title="Pagar" /></a>
+                <a href="javascript: confirmarPagamento(<%= pagamento.Id %>)" ><img alt="Pagar" src="<%= Url.Content("~/Content/images/pay_check.png") %>" title="Pagar" /></a>
             <% } %>
             </td>
         </tr>
@@ -69,6 +69,7 @@
                         $("#total").maskMoney({ symbol: 'R$ ', showSymbol: true, thousands: '.', decimal: ',', symbolStay: true });
                         $("#total").mask();
                         */
+                        $("#datapag").mask("99/99/9999");
                     }
                 });
             },
