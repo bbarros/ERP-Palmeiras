@@ -43,6 +43,11 @@
             <td><button id="btn-calcular" onclick="javascript:calcularTotal();" >Calcular</button></td>
         </tr>
         <tr>
+            <td>Data de Pagamento:</td>
+            <td><input id="datapag" type="text" value="<%= new DateTime(pag.DataPagamento) %>"/></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Banco:</td>
             <td><%= pag.Funcionario.DadosBancarios.Banco %></td>
         </tr>
@@ -85,6 +90,7 @@
         var imposto = $("#imposto").val();
         var total = $("#total").val();
         var info = $("#infoad").val();
+        var datapag = $("#datapag").val();
 
         $.ajax({
             type: "POST",
@@ -95,7 +101,8 @@
                 desconto: desconto,
                 imposto: imposto,
                 total: total,
-                info: info
+                info: info,
+                datapag: datapag
             },
             success: function (data) {
                 alert(data);
@@ -112,6 +119,7 @@
         var imposto = $("#imposto").val();
         var total = $("#total").val();
         var info = $("#infoad").val();
+        var datapag = $("#datapag").val();
 
         $.ajax({
             type: "POST",
@@ -122,7 +130,8 @@
                 desconto: desconto,
                 imposto: imposto,
                 total: total,
-                info: info
+                info: info,
+                datapag: datapag
             },
             success: function (data) {
                 alert(data);

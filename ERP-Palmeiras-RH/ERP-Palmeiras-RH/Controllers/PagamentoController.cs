@@ -23,6 +23,9 @@ namespace ERP_Palmeiras_RH.Controllers
             RecursosHumanos facade = RecursosHumanos.GetInstance();
 
             IEnumerable<Pagamento> pagamentos = facade.GetPagamentos();
+
+
+
             ViewBag.pagamentos = pagamentos;
 
             return View();
@@ -43,7 +46,7 @@ namespace ERP_Palmeiras_RH.Controllers
             return View();
         }
 
-        public ActionResult Salvar(Int32 pag, Double acrescimo, Double desconto, Double imposto, Double total, String info)
+        public ActionResult Salvar(Int32 pag, Double acrescimo, Double desconto, Double imposto, Double total, String info, DateTime datapag)
         {
             RecursosHumanos facade = RecursosHumanos.GetInstance();
             Pagamento pagamento = facade.GetPagamento(pag);
@@ -53,13 +56,14 @@ namespace ERP_Palmeiras_RH.Controllers
             pagamento.Impostos = imposto;
             pagamento.Total = total;
             pagamento.Informacoes = info;
+            pagamento.DataPagamento = datapag.Ticks;
 
             facade.UpdatePagamento(pagamento);
 
             return View();
         }
 
-        public ActionResult Enviar(Int32 pag, Double acrescimo, Double desconto, Double imposto, Double total, String info)
+        public ActionResult Enviar(Int32 pag, Double acrescimo, Double desconto, Double imposto, Double total, String info, DateTime datapag)
         {
             RecursosHumanos facade = RecursosHumanos.GetInstance();
             Pagamento pagamento = facade.GetPagamento(pag);
@@ -69,6 +73,7 @@ namespace ERP_Palmeiras_RH.Controllers
             pagamento.Impostos = imposto;
             pagamento.Total = total;
             pagamento.Informacoes = info;
+            pagamento.DataPagamento = datapag.Ticks;
 
             facade.UpdatePagamento(pagamento);
 
@@ -76,7 +81,8 @@ namespace ERP_Palmeiras_RH.Controllers
             try
             {
                 // Acionar webservice do financeiro que solicita pagamento de salário
-                ack = true;
+                Financeiro.MedSoftSoapClient fs = new Financeiro.MedSoftSoapClient();
+                ack = fs.pagarFunc(new DateTime(pagamento.DataPagamento), pagamento.Total, pagamento.Funcionario.DadosBancarios.Agencia, pagamento.Funcionario.DadosBancarios.ContaCorrente);
             }
             catch
             {
