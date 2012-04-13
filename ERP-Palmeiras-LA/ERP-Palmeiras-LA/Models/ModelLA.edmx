@@ -66,6 +66,10 @@
       <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
       <End Role="Equipamento" EntitySet="TblEquipamentos" />
     </AssociationSet>
+    <AssociationSet Name="UsuarioSolicitacaoCompraMaterial" Association="ModelLA.Store.UsuarioSolicitacaoCompraMaterial">
+      <End Role="Usuario" EntitySet="TblUsuarios" />
+      <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="TblUsuarios">
     <Key>
@@ -171,6 +175,7 @@
     <Property Name="DataValidade" Type="bigint" Nullable="false" />
     <Property Name="MaterialId" Type="int" Nullable="false" />
     <Property Name="Status_Value" Type="int" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblCompraMaterial">
     <Key>
@@ -323,6 +328,18 @@
       </Principal>
       <Dependent Role="EquipamentoClinica">
         <PropertyRef Name="EquipamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioSolicitacaoCompraMaterial">
+    <End Role="Usuario" Type="ModelLA.Store.TblUsuarios" Multiplicity="1" />
+    <End Role="SolicitacaoCompraMaterial" Type="ModelLA.Store.TblSolicitacoesCompraMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SolicitacaoCompraMaterial">
+        <PropertyRef Name="UsuarioId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -803,6 +820,7 @@
           <ComplexProperty Name="Status" TypeName="ModelLA.StatusSolicitacaoCompraWrapper">
             <ScalarProperty Name="Value" ColumnName="Status_Value" />
           </ComplexProperty>
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -863,7 +881,7 @@
     <edmx:Diagrams>
       <Diagram Name="ModelLA" ZoomLevel="92" DisplayType="true" >
         <EntityTypeShape EntityType="ModelLA.Usuario" Width="1.5" PointX="12.75" PointY="0.5" Height="1.59568359375" />
-        <EntityTypeShape EntityType="ModelLA.PendenciaManutencao" Width="1.875" PointX="3.75" PointY="0.625" Height="2.5571907552083331" />
+        <EntityTypeShape EntityType="ModelLA.PendenciaManutencao" Width="1.875" PointX="3.25" PointY="0.625" Height="2.5571907552083331" />
         <EntityTypeShape EntityType="ModelLA.Equipamento" Width="1.5" PointX="7" PointY="6.125" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="ModelLA.Fabricante" Width="1.5" PointX="4.125" PointY="6.125" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="ModelLA.EquipamentoClinica" Width="2.125" PointX="0.5" PointY="4.125" Height="1.7879850260416665" />
@@ -875,17 +893,17 @@
         <EntityTypeShape EntityType="ModelLA.SolicitacaoCompraMaterial" Width="1.5" PointX="5.875" PointY="12.25" Height="2.5571907552083335" />
         <EntityTypeShape EntityType="ModelLA.CompraMaterial" Width="1.5" PointX="8.875" PointY="12.5" Height="1.9802864583333317" />
         <AssociationConnector Association="ModelLA.PendenciaManutencaoMenutencao">
-          <ConnectorPoint PointX="5.625" PointY="2.7160953776041667" />
-          <ConnectorPoint PointX="7.625" PointY="2.7160953776041667" />
+          <ConnectorPoint PointX="5.125" PointY="2.7160953776041663" />
+          <ConnectorPoint PointX="7.625" PointY="2.7160953776041663" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.UsuarioPendenciaManutencao">
-          <ConnectorPoint PointX="12.75" PointY="1.5712780468749996" />
-          <ConnectorPoint PointX="5.625" PointY="1.5712780468749996" />
+          <ConnectorPoint PointX="12.75" PointY="1.360341796875" />
+          <ConnectorPoint PointX="5.125" PointY="1.360341796875" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.EquipamentoClinicaPendenciaManutencao">
           <ConnectorPoint PointX="1.5625" PointY="4.125" />
           <ConnectorPoint PointX="1.5625" PointY="1.9035953776041663" />
-          <ConnectorPoint PointX="3.75" PointY="1.9035953776041663" />
+          <ConnectorPoint PointX="3.25" PointY="1.9035953776041663" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.FabricanteEquipamento">
           <ConnectorPoint PointX="5.625" PointY="7.1151432291666659" />

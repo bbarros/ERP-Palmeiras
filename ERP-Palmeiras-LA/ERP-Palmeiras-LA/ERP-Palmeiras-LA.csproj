@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Models\Facade\CompraMateriaisFacade.cs" />
     <Compile Include="Models\Facade\MateriaisClinicaFacade.cs" />
+    <Compile Include="Models\Facade\MateriaisFacade.cs" />
     <Compile Include="Models\Facade\SolicitacoesCompraMateriaisFacade.cs" />
     <Compile Include="Models\StatusEquipamento.cs" />
     <Compile Include="Models\Equipamento.cs">
