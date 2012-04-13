@@ -5,476 +5,476 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="TblAdmissoes" EntityType="Model.Store.TblAdmissoes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblBeneficios" EntityType="Model.Store.TblBeneficios" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblCargos" EntityType="Model.Store.TblCargos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblCartoesPonto" EntityType="Model.Store.TblCartoesPonto" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblCredenciais" EntityType="Model.Store.TblCredenciais" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblCurricula" EntityType="Model.Store.TblCurricula" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblDadosBancarios" EntityType="Model.Store.TblDadosBancarios" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblDadosPessoais" EntityType="Model.Store.TblDadosPessoais" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblEnderecos" EntityType="Model.Store.TblEnderecos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblEntradasCartaoPonto" EntityType="Model.Store.TblEntradasCartaoPonto" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblEspecialidades" EntityType="Model.Store.TblEspecialidades" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblFuncionarioBeneficio" EntityType="Model.Store.TblFuncionarioBeneficio" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblFuncionarios" EntityType="Model.Store.TblFuncionarios" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblFuncionarios_Medico" EntityType="Model.Store.TblFuncionarios_Medico" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblPagamentos" EntityType="Model.Store.TblPagamentos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblPendencias" EntityType="Model.Store.TblPendencias" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblPermissoes" EntityType="Model.Store.TblPermissoes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TblTelefones" EntityType="Model.Store.TblTelefones" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_DadoPessoalTelefone" Association="Model.Store.FK_DadoPessoalTelefone">
-            <End Role="TblDadosPessoais" EntitySet="TblDadosPessoais" />
-            <End Role="TblTelefones" EntitySet="TblTelefones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DadosPessoaisEnderecos" Association="Model.Store.FK_DadosPessoaisEnderecos">
-            <End Role="TblEnderecos" EntitySet="TblEnderecos" />
-            <End Role="TblDadosPessoais" EntitySet="TblDadosPessoais" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntradasCartaoPontoCartoesPonto" Association="Model.Store.FK_EntradasCartaoPontoCartoesPonto">
-            <End Role="TblCartoesPonto" EntitySet="TblCartoesPonto" />
-            <End Role="TblEntradasCartaoPonto" EntitySet="TblEntradasCartaoPonto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionarioBeneficio_Beneficio" Association="Model.Store.FK_FuncionarioBeneficio_Beneficio">
-            <End Role="TblBeneficios" EntitySet="TblBeneficios" />
-            <End Role="TblFuncionarioBeneficio" EntitySet="TblFuncionarioBeneficio" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionarioBeneficio_Funcionario" Association="Model.Store.FK_FuncionarioBeneficio_Funcionario">
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-            <End Role="TblFuncionarioBeneficio" EntitySet="TblFuncionarioBeneficio" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosAdmissoes" Association="Model.Store.FK_FuncionariosAdmissoes">
-            <End Role="TblAdmissoes" EntitySet="TblAdmissoes" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosCargos" Association="Model.Store.FK_FuncionariosCargos">
-            <End Role="TblCargos" EntitySet="TblCargos" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosCartoesPonto" Association="Model.Store.FK_FuncionariosCartoesPonto">
-            <End Role="TblCartoesPonto" EntitySet="TblCartoesPonto" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosCredenciais" Association="Model.Store.FK_FuncionariosCredenciais">
-            <End Role="TblCredenciais" EntitySet="TblCredenciais" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosCurricula" Association="Model.Store.FK_FuncionariosCurricula">
-            <End Role="TblCurricula" EntitySet="TblCurricula" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosDadosBancarios" Association="Model.Store.FK_FuncionariosDadosBancarios">
-            <End Role="TblDadosBancarios" EntitySet="TblDadosBancarios" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosDadosPessoais" Association="Model.Store.FK_FuncionariosDadosPessoais">
-            <End Role="TblDadosPessoais" EntitySet="TblDadosPessoais" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FuncionariosPermissoes" Association="Model.Store.FK_FuncionariosPermissoes">
-            <End Role="TblPermissoes" EntitySet="TblPermissoes" />
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Medico_inherits_Funcionario" Association="Model.Store.FK_Medico_inherits_Funcionario">
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-            <End Role="TblFuncionarios_Medico" EntitySet="TblFuncionarios_Medico" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MedicoEspecialidade" Association="Model.Store.FK_MedicoEspecialidade">
-            <End Role="TblEspecialidades" EntitySet="TblEspecialidades" />
-            <End Role="TblFuncionarios_Medico" EntitySet="TblFuncionarios_Medico" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PagamentoFuncionarios" Association="Model.Store.FK_PagamentoFuncionarios">
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-            <End Role="TblPagamentos" EntitySet="TblPagamentos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PendenciaFuncionario" Association="Model.Store.FK_PendenciaFuncionario">
-            <End Role="TblFuncionarios" EntitySet="TblFuncionarios" />
-            <End Role="TblPendencias" EntitySet="TblPendencias" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="TblAdmissoes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DataAdmissao" Type="bigint" Nullable="false" />
-          <Property Name="DataDesligamento" Type="bigint" />
-          <Property Name="MotivoDesligamento" Type="nvarchar(max)" />
-          <Property Name="UltimoSalario" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="TblBeneficios">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Valor" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblCargos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SalarioBase" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblCartoesPonto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Mes" Type="int" Nullable="false" />
-          <Property Name="Ano" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblCredenciais">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Usuario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblCurricula">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Formacao" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Arquivo" Type="varbinary(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblDadosBancarios">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Banco" Type="int" Nullable="false" />
-          <Property Name="ContaCorrente" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Agencia" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblDadosPessoais">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Sobrenome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DataNascimento" Type="bigint" Nullable="false" />
-          <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CPF" Type="bigint" Nullable="false" />
-          <Property Name="RG" Type="bigint" Nullable="false" />
-          <Property Name="CLT" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Endereco_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblEnderecos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Rua" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Numero" Type="int" Nullable="false" />
-          <Property Name="Complemento" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Bairro" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CEP" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Cidade" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Pais" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblEntradasCartaoPonto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="cartoesPontoId" Type="int" Nullable="false" />
-          <Property Name="Entrada" Type="bigint" Nullable="false" />
-          <Property Name="Saida" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblEspecialidades">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblFuncionarioBeneficio">
-          <Key>
-            <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
-            <PropertyRef Name="Beneficios_Id" />
-          </Key>
-          <Property Name="FuncionarioBeneficio_Beneficio_Id" Type="int" Nullable="false" />
-          <Property Name="Beneficios_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblFuncionarios">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Status" Type="int" Nullable="false" />
-          <Property Name="Salario" Type="float" Nullable="false" />
-          <Property Name="Ramal" Type="int" Nullable="false" />
-          <Property Name="PermissaoId" Type="int" Nullable="false" />
-          <Property Name="CargoId" Type="int" Nullable="false" />
-          <Property Name="Credencial_Id" Type="int" Nullable="false" />
-          <Property Name="Curriculum_Id" Type="int" Nullable="false" />
-          <Property Name="DadosPessoais_Id" Type="int" Nullable="false" />
-          <Property Name="CartaoPonto_Id" Type="int" Nullable="false" />
-          <Property Name="DadosBancarios_Id" Type="int" Nullable="false" />
-          <Property Name="Admissao_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblFuncionarios_Medico">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="CRM" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="EspecialidadeId" Type="int" Nullable="false" />
-          <Property Name="Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblPagamentos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Salario" Type="float" Nullable="false" />
-          <Property Name="Adicionais" Type="float" Nullable="false" />
-          <Property Name="Descontos" Type="float" Nullable="false" />
-          <Property Name="Total" Type="float" Nullable="false" />
-          <Property Name="DataPagamento" Type="bigint" Nullable="false" />
-          <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="funcionariosId" Type="int" Nullable="false" />
-          <Property Name="DataOrdem" Type="bigint" Nullable="false" />
-          <Property Name="Status" Type="smallint" Nullable="false" />
-          <Property Name="Impostos" Type="float" Nullable="false" />
-          <Property Name="Informacoes" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="TblPendencias">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Funcionario_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblPermissoes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblTelefones">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DDD" Type="int" Nullable="false" />
-          <Property Name="Numero" Type="int" Nullable="false" />
-          <Property Name="DadoPessoalId" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_DadoPessoalTelefone">
-          <End Role="TblDadosPessoais" Type="Model.Store.TblDadosPessoais" Multiplicity="1" />
-          <End Role="TblTelefones" Type="Model.Store.TblTelefones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblDadosPessoais">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblTelefones">
-              <PropertyRef Name="DadoPessoalId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DadosPessoaisEnderecos">
-          <End Role="TblEnderecos" Type="Model.Store.TblEnderecos" Multiplicity="1" />
-          <End Role="TblDadosPessoais" Type="Model.Store.TblDadosPessoais" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblEnderecos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblDadosPessoais">
-              <PropertyRef Name="Endereco_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EntradasCartaoPontoCartoesPonto">
-          <End Role="TblCartoesPonto" Type="Model.Store.TblCartoesPonto" Multiplicity="1" />
-          <End Role="TblEntradasCartaoPonto" Type="Model.Store.TblEntradasCartaoPonto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCartoesPonto">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblEntradasCartaoPonto">
-              <PropertyRef Name="cartoesPontoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionarioBeneficio_Beneficio">
-          <End Role="TblBeneficios" Type="Model.Store.TblBeneficios" Multiplicity="1" />
-          <End Role="TblFuncionarioBeneficio" Type="Model.Store.TblFuncionarioBeneficio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblBeneficios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarioBeneficio">
-              <PropertyRef Name="Beneficios_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionarioBeneficio_Funcionario">
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
-          <End Role="TblFuncionarioBeneficio" Type="Model.Store.TblFuncionarioBeneficio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblFuncionarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarioBeneficio">
-              <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosAdmissoes">
-          <End Role="TblAdmissoes" Type="Model.Store.TblAdmissoes" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblAdmissoes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="Admissao_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosCargos">
-          <End Role="TblCargos" Type="Model.Store.TblCargos" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCargos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="CargoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosCartoesPonto">
-          <End Role="TblCartoesPonto" Type="Model.Store.TblCartoesPonto" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCartoesPonto">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="CartaoPonto_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosCredenciais">
-          <End Role="TblCredenciais" Type="Model.Store.TblCredenciais" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCredenciais">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="Credencial_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosCurricula">
-          <End Role="TblCurricula" Type="Model.Store.TblCurricula" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCurricula">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="Curriculum_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosDadosBancarios">
-          <End Role="TblDadosBancarios" Type="Model.Store.TblDadosBancarios" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblDadosBancarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="DadosBancarios_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosDadosPessoais">
-          <End Role="TblDadosPessoais" Type="Model.Store.TblDadosPessoais" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblDadosPessoais">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="DadosPessoais_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FuncionariosPermissoes">
-          <End Role="TblPermissoes" Type="Model.Store.TblPermissoes" Multiplicity="1" />
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblPermissoes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios">
-              <PropertyRef Name="PermissaoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Medico_inherits_Funcionario">
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
-          <End Role="TblFuncionarios_Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TblFuncionarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios_Medico">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MedicoEspecialidade">
-          <End Role="TblEspecialidades" Type="Model.Store.TblEspecialidades" Multiplicity="1" />
-          <End Role="TblFuncionarios_Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblEspecialidades">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblFuncionarios_Medico">
-              <PropertyRef Name="EspecialidadeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PagamentoFuncionarios">
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
-          <End Role="TblPagamentos" Type="Model.Store.TblPagamentos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblFuncionarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblPagamentos">
-              <PropertyRef Name="funcionariosId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PendenciaFuncionario">
-          <End Role="TblFuncionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
-          <End Role="TblPendencias" Type="Model.Store.TblPendencias" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblFuncionarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TblPendencias">
-              <PropertyRef Name="Funcionario_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="TblFuncionarios" EntityType="Model.Store.TblFuncionarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblPagamentos" EntityType="Model.Store.TblPagamentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCredenciais" EntityType="Model.Store.TblCredenciais" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblPermissoes" EntityType="Model.Store.TblPermissoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCurricula" EntityType="Model.Store.TblCurricula" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCartoesPonto" EntityType="Model.Store.TblCartoesPonto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEntradasCartaoPonto" EntityType="Model.Store.TblEntradasCartaoPonto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblDadosPessoais" EntityType="Model.Store.TblDadosPessoais" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEnderecos" EntityType="Model.Store.TblEnderecos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblTelefones" EntityType="Model.Store.TblTelefones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblBeneficios" EntityType="Model.Store.TblBeneficios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCargos" EntityType="Model.Store.TblCargos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblEspecialidades" EntityType="Model.Store.TblEspecialidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblDadosBancarios" EntityType="Model.Store.TblDadosBancarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblAdmissoes" EntityType="Model.Store.TblAdmissoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblPendencias" EntityType="Model.Store.TblPendencias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblFuncionarios_Medico" EntityType="Model.Store.TblFuncionarios_Medico" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblFuncionarioBeneficio" EntityType="Model.Store.FuncionarioBeneficio" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EntradasCartaoPontoCartoesPonto" Association="Model.Store.EntradasCartaoPontoCartoesPonto">
+      <End Role="EntradasCartaoPonto" EntitySet="TblEntradasCartaoPonto" />
+      <End Role="CartoesPonto" EntitySet="TblCartoesPonto" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosCredenciais" Association="Model.Store.FuncionariosCredenciais">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="Credenciais" EntitySet="TblCredenciais" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosPermissoes" Association="Model.Store.FuncionariosPermissoes">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="Permissoes" EntitySet="TblPermissoes" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosCurricula" Association="Model.Store.FuncionariosCurricula">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="Curricula" EntitySet="TblCurricula" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosDadosPessoais" Association="Model.Store.FuncionariosDadosPessoais">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="DadosPessoais" EntitySet="TblDadosPessoais" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosCartoesPonto" Association="Model.Store.FuncionariosCartoesPonto">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="CartoesPonto" EntitySet="TblCartoesPonto" />
+    </AssociationSet>
+    <AssociationSet Name="DadosPessoaisEnderecos" Association="Model.Store.DadosPessoaisEnderecos">
+      <End Role="DadosPessoais" EntitySet="TblDadosPessoais" />
+      <End Role="Enderecos" EntitySet="TblEnderecos" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosCargos" Association="Model.Store.FuncionariosCargos">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="Cargos" EntitySet="TblCargos" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosDadosBancarios" Association="Model.Store.FuncionariosDadosBancarios">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="DadosBancarios" EntitySet="TblDadosBancarios" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionariosAdmissoes" Association="Model.Store.FuncionariosAdmissoes">
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+      <End Role="Admissoes" EntitySet="TblAdmissoes" />
+    </AssociationSet>
+    <AssociationSet Name="PagamentoFuncionarios" Association="Model.Store.PagamentoFuncionarios">
+      <End Role="Pagamento" EntitySet="TblPagamentos" />
+      <End Role="Funcionarios" EntitySet="TblFuncionarios" />
+    </AssociationSet>
+    <AssociationSet Name="DadoPessoalTelefone" Association="Model.Store.DadoPessoalTelefone">
+      <End Role="DadoPessoal" EntitySet="TblDadosPessoais" />
+      <End Role="Telefone" EntitySet="TblTelefones" />
+    </AssociationSet>
+    <AssociationSet Name="MedicoEspecialidade" Association="Model.Store.MedicoEspecialidade">
+      <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
+      <End Role="Especialidade" EntitySet="TblEspecialidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblFuncionarioBeneficio_Funcionario" Association="Model.Store.FK_FuncionarioBeneficio_Funcionario">
+      <End Role="Funcionario" EntitySet="TblFuncionarios" />
+      <End Role="FuncionarioBeneficio" EntitySet="TblFuncionarioBeneficio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblFuncionarioBeneficio_Beneficio" Association="Model.Store.FK_FuncionarioBeneficio_Beneficio">
+      <End Role="Beneficio" EntitySet="TblBeneficios" />
+      <End Role="FuncionarioBeneficio" EntitySet="TblFuncionarioBeneficio" />
+    </AssociationSet>
+    <AssociationSet Name="PendenciaFuncionario" Association="Model.Store.PendenciaFuncionario">
+      <End Role="Pendencia" EntitySet="TblPendencias" />
+      <End Role="Funcionario" EntitySet="TblFuncionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medico_inherits_Funcionario" Association="Model.Store.FK_Medico_inherits_Funcionario">
+      <End Role="Funcionario" EntitySet="TblFuncionarios" />
+      <End Role="Medico" EntitySet="TblFuncionarios_Medico" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TblFuncionarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Salario" Type="float" Nullable="false" />
+    <Property Name="Ramal" Type="int" Nullable="false" />
+    <Property Name="PermissaoId" Type="int" Nullable="false" />
+    <Property Name="CargoId" Type="int" Nullable="false" />
+    <Property Name="Credencial_Id" Type="int" Nullable="false" />
+    <Property Name="Curriculum_Id" Type="int" Nullable="false" />
+    <Property Name="DadosPessoais_Id" Type="int" Nullable="false" />
+    <Property Name="CartaoPonto_Id" Type="int" Nullable="false" />
+    <Property Name="DadosBancarios_Id" Type="int" Nullable="false" />
+    <Property Name="Admissao_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblPagamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Salario" Type="float" Nullable="false" />
+    <Property Name="Adicionais" Type="float" Nullable="false" />
+    <Property Name="Descontos" Type="float" Nullable="false" />
+    <Property Name="Total" Type="float" Nullable="false" />
+    <Property Name="DataPagamento" Type="bigint" Nullable="false" />
+    <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="funcionariosId" Type="int" Nullable="false" />
+    <Property Name="DataOrdem" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="Impostos" Type="float" Nullable="false" />
+    <Property Name="Informacoes" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TblCredenciais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblPermissoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCurricula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Formacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Arquivo" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCartoesPonto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mes" Type="int" Nullable="false" />
+    <Property Name="Ano" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEntradasCartaoPonto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cartoesPontoId" Type="int" Nullable="false" />
+    <Property Name="Entrada" Type="bigint" Nullable="false" />
+    <Property Name="Saida" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblDadosPessoais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sobrenome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNascimento" Type="bigint" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CPF" Type="bigint" Nullable="false" />
+    <Property Name="RG" Type="bigint" Nullable="false" />
+    <Property Name="CLT" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Endereco_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEnderecos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rua" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Bairro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CEP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pais" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblTelefones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DDD" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="DadoPessoalId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblBeneficios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Valor" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SalarioBase" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEspecialidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblDadosBancarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Banco" Type="int" Nullable="false" />
+    <Property Name="ContaCorrente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Agencia" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblAdmissoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataAdmissao" Type="bigint" Nullable="false" />
+    <Property Name="DataDesligamento" Type="bigint" Nullable="true" />
+    <Property Name="MotivoDesligamento" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UltimoSalario" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TblPendencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Funcionario_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblFuncionarios_Medico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CRM" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EspecialidadeId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FuncionarioBeneficio">
+    <Key>
+      <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
+      <PropertyRef Name="Beneficios_Id" />
+    </Key>
+    <Property Name="FuncionarioBeneficio_Beneficio_Id" Type="int" Nullable="false" />
+    <Property Name="Beneficios_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EntradasCartaoPontoCartoesPonto">
+    <End Role="EntradasCartaoPonto" Type="Model.Store.TblEntradasCartaoPonto" Multiplicity="*" />
+    <End Role="CartoesPonto" Type="Model.Store.TblCartoesPonto" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CartoesPonto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EntradasCartaoPonto">
+        <PropertyRef Name="cartoesPontoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosCredenciais">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="Credenciais" Type="Model.Store.TblCredenciais" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Credenciais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Credencial_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosPermissoes">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="Permissoes" Type="Model.Store.TblPermissoes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Permissoes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="PermissaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosCurricula">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="Curricula" Type="Model.Store.TblCurricula" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Curricula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Curriculum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosDadosPessoais">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="DadosPessoais" Type="Model.Store.TblDadosPessoais" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DadosPessoais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="DadosPessoais_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosCartoesPonto">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="CartoesPonto" Type="Model.Store.TblCartoesPonto" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CartoesPonto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="CartaoPonto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DadosPessoaisEnderecos">
+    <End Role="DadosPessoais" Type="Model.Store.TblDadosPessoais" Multiplicity="*" />
+    <End Role="Enderecos" Type="Model.Store.TblEnderecos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Enderecos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DadosPessoais">
+        <PropertyRef Name="Endereco_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosCargos">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="Cargos" Type="Model.Store.TblCargos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cargos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="CargoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosDadosBancarios">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="DadosBancarios" Type="Model.Store.TblDadosBancarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DadosBancarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="DadosBancarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionariosAdmissoes">
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="*" />
+    <End Role="Admissoes" Type="Model.Store.TblAdmissoes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Admissoes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionarios">
+        <PropertyRef Name="Admissao_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PagamentoFuncionarios">
+    <End Role="Pagamento" Type="Model.Store.TblPagamentos" Multiplicity="*" />
+    <End Role="Funcionarios" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pagamento">
+        <PropertyRef Name="funcionariosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DadoPessoalTelefone">
+    <End Role="DadoPessoal" Type="Model.Store.TblDadosPessoais" Multiplicity="1" />
+    <End Role="Telefone" Type="Model.Store.TblTelefones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DadoPessoal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="DadoPessoalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicoEspecialidade">
+    <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="*" />
+    <End Role="Especialidade" Type="Model.Store.TblEspecialidades" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="EspecialidadeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PendenciaFuncionario">
+    <End Role="Pendencia" Type="Model.Store.TblPendencias" Multiplicity="*" />
+    <End Role="Funcionario" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pendencia">
+        <PropertyRef Name="Funcionario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionarioBeneficio_Funcionario">
+    <End Role="Funcionario" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
+    <End Role="FuncionarioBeneficio" Type="Model.Store.FuncionarioBeneficio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionarioBeneficio">
+        <PropertyRef Name="FuncionarioBeneficio_Beneficio_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionarioBeneficio_Beneficio">
+    <End Role="FuncionarioBeneficio" Type="Model.Store.FuncionarioBeneficio" Multiplicity="*" />
+    <End Role="Beneficio" Type="Model.Store.TblBeneficios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionarioBeneficio">
+        <PropertyRef Name="Beneficios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medico_inherits_Funcionario">
+    <End Role="Funcionario" Type="Model.Store.TblFuncionarios" Multiplicity="1" />
+    <End Role="Medico" Type="Model.Store.TblFuncionarios_Medico" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -585,14 +585,14 @@
           <Property Type="Double" Name="Adicionais" Nullable="false" />
           <Property Type="Double" Name="Descontos" Nullable="false" />
           <Property Type="Double" Name="Total" Nullable="false" />
-          <Property Type="DateTime" Name="DataPagamento" Nullable="false" />
+          <Property Type="Int64" Name="DataPagamento" Nullable="false" />
           <Property Type="String" Name="Cargo" Nullable="false" />
           <NavigationProperty Name="Funcionario" Relationship="Model.PagamentoFuncionarios" FromRole="Pagamento" ToRole="Funcionarios" />
           <Property Type="Int32" Name="funcionariosId" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
           <Property Type="Int64" Name="DataOrdem" Nullable="false" />
           <Property Type="Int16" Name="Status" Nullable="false" />
           <Property Type="Double" Name="Impostos" Nullable="false" />
-          <Property Type="String" Name="Informacoes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Informacoes" Nullable="true" />
         </EntityType>
         <EntityType Name="Credencial">
           <Key>
@@ -876,6 +876,9 @@
           <ScalarProperty Name="Cargo" ColumnName="Cargo" />
           <ScalarProperty Name="funcionariosId" ColumnName="funcionariosId" />
           <ScalarProperty Name="DataOrdem" ColumnName="DataOrdem" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Impostos" ColumnName="Impostos" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1112,7 +1115,7 @@
     <Diagrams>
       <Diagram Name="ModelRH" ZoomLevel="84" DisplayType="true" >
         <EntityTypeShape EntityType="Model.Funcionario" Width="1.5" PointX="5.625" PointY="2.875" Height="3.9033007812499996" />
-        <EntityTypeShape EntityType="Model.Pagamento" Width="1.5" PointX="4.5" PointY="10.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="Model.Pagamento" Width="2" PointX="4.5" PointY="10.75" Height="3.5186979166666656" />
         <EntityTypeShape EntityType="Model.Credencial" Width="1.5" PointX="10.25" PointY="3.25" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="Model.Permissao" Width="1.5" PointX="0.625" PointY="0.5" Height="1.4033821614583326" />
         <EntityTypeShape EntityType="Model.Curriculum" Width="1.5" PointX="0.625" PointY="2.25" Height="1.5956835937499996" />
@@ -1153,8 +1156,8 @@
           <ConnectorPoint PointX="2.125" PointY="5.3671862500000032" />
         </AssociationConnector>
         <AssociationConnector Association="Model.FuncionariosCartoesPonto" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.5000025" PointY="6.77830078125" />
-          <ConnectorPoint PointX="6.5000025" PointY="7.922841796875" />
+          <ConnectorPoint PointX="6.375" PointY="6.77830078125" />
+          <ConnectorPoint PointX="6.375" PointY="7.922841796875" />
           <ConnectorPoint PointX="8.6666666666666661" PointY="7.9228417968749989" />
           <ConnectorPoint PointX="8.8333333333333339" PointY="7.922841796875" />
           <ConnectorPoint PointX="10.25" PointY="7.922841796875" />
@@ -1189,8 +1192,8 @@
           <ConnectorPoint PointX="10.25" PointY="2.4778857421874996" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PagamentoFuncionarios">
-          <ConnectorPoint PointX="5.8125" PointY="10.75" />
-          <ConnectorPoint PointX="5.8125" PointY="6.77830078125" />
+          <ConnectorPoint PointX="5.9375" PointY="10.75" />
+          <ConnectorPoint PointX="5.9375" PointY="6.77830078125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Medico" Width="1.5" PointX="2.875" PointY="6" Height="1.5956835937499996" />
         <InheritanceConnector EntityType="Model.Medico" ManuallyRouted="false">

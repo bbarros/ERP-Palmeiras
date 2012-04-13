@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace ERP_Palmeiras_RH.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class DadoBancario
     {
         public int Id { get; set; }
@@ -19,4 +19,5 @@ namespace ERP_Palmeiras_RH.Models
         public string ContaCorrente { get; set; }
         public string Agencia { get; set; }
     }
+    
 }

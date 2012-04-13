@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ERP_Palmeiras_RH.Models;
 using System.Threading;
+using ERP_Palmeiras_RH.Controllers;
 
 namespace ERP_Palmeiras_RH
 {
@@ -40,7 +41,7 @@ namespace ERP_Palmeiras_RH
 
             // Inicia Thread Periódica para geração de ordens de pagamentos de salários
             Thread geraOrdemPag = new Thread(GeraOrdemPagamento);
-            //geraOrdemPag.Start();
+            geraOrdemPag.Start();
         }
 
         private void GeraOrdemPagamento()
@@ -66,6 +67,7 @@ namespace ERP_Palmeiras_RH
                         pagamentoFunc.Cargo = funcionario.Cargo.Nome;
                         pagamentoFunc.Salario = funcionario.Salario;
                         pagamentoFunc.DataOrdem = current.Ticks;
+                        pagamentoFunc.Status = PagamentoController.PAGAMENTO_PENDENTE;
                         model.TblPagamentos.Add(pagamentoFunc);
                         model.SaveChanges();
                     }
