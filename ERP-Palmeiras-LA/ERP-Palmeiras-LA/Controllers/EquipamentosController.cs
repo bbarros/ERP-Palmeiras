@@ -65,5 +65,37 @@ namespace ERP_Palmeiras_LA.Controllers
             facade.AlterarEquipamento(eq);
             return View();
         }
+
+        public ActionResult SolicitarManutencao()
+        {
+
+            IEnumerable<Equipamento> equipamentos = facade.BuscarEquipamentos();
+            if (equipamentos == null)
+                equipamentos = new List<Equipamento>();
+            ViewBag.equipamentos = equipamentos;
+            return View();
+
+        }
+
+        public ActionResult CadastrarManutencao(Int32 equipamentoId, Int32 custo, DateTime dataprevista, String motivo )
+        {
+
+            SolicitacaoManutencao solmanu = new SolicitacaoManutencao();
+           
+            GerenciadorDeSessao sessao = GerenciadorDeSessao.GetInstance();
+
+            solmanu.UsuarioId = sessao.Usuario.Id;
+            solmanu.EquipamentoClinicaId = equipamentoId;
+            solmanu.DataPrevista = dataprevista.Ticks;
+            solmanu.Motivo = motivo;
+            solmanu.Custo = custo;
+            
+
+            facade.CriarManutencao(solmanu);
+
+            return View();
+        }
+
+
     }
 }

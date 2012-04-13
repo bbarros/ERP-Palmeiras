@@ -119,16 +119,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelLA.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\PendenciaManutencao.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SolicitacaoCompraEquipamento.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SolicitacaoCompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SolicitacaoMenutencao.cs">
+    <Compile Include="Models\SolicitacaoManutencao.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StatusCompra.cs" />
@@ -204,6 +201,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Equipamentos\SolicitarManutencao.aspx" />
     <Content Include="Views\Fabricantes\Alterar.aspx" />
     <Content Include="Views\Fabricantes\Cadastrar.aspx" />
     <Content Include="Views\Fabricantes\Criar.aspx" />

@@ -15,12 +15,6 @@ namespace ERP_Palmeiras_LA.Models
     {
         private StatusPendenciaManutencao status;
 
-        public int Value
-        {
-            get { return (int)status; }
-            set { status = (StatusPendenciaManutencao)value; }
-        }
-
         public StatusPendenciaManutencao EnumValue
         {
             get { return status; }
