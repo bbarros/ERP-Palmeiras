@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CompraEquipamentosController.cs" />
+    <Compile Include="Controllers\CompraMateriaisController.cs" />
+    <Compile Include="Controllers\MateriaisClinicaController.cs" />
+    <Compile Include="Controllers\SolicitacoesCompraMateriaisController.cs" />
     <Compile Include="Controllers\EquipamentosClinicaController.cs" />
     <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
@@ -82,6 +85,9 @@
     <Compile Include="Models\CompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\CompraMateriaisFacade.cs" />
+    <Compile Include="Models\Facade\MateriaisClinicaFacade.cs" />
+    <Compile Include="Models\Facade\SolicitacoesCompraMateriaisFacade.cs" />
     <Compile Include="Models\StatusEquipamento.cs" />
     <Compile Include="Models\Equipamento.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
@@ -224,6 +230,15 @@
     <Content Include="Views\CompraEquipamentos\Alterar.aspx" />
     <Content Include="Views\CompraEquipamentos\Editar.aspx" />
     <Content Include="Views\CompraEquipamentos\Index.aspx" />
+    <Content Include="Views\CompraMateriais\Alterar.aspx" />
+    <Content Include="Views\CompraMateriais\Editar.aspx" />
+    <Content Include="Views\CompraMateriais\Index.aspx" />
+    <Content Include="Views\MateriaisClinica\Index.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Alterar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Cadastrar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Criar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Editar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Index.aspx" />
     <Content Include="Views\EquipamentosClinica\Index.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Alterar.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Cadastrar.aspx" />

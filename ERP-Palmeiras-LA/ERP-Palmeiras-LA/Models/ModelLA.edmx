@@ -391,6 +391,10 @@
             <End Role="EquipamentoClinica" EntitySet="TblEquipamentosClinica" />
             <End Role="Equipamento" EntitySet="TblEquipamentos" />
           </AssociationSet>
+          <AssociationSet Name="UsuarioSolicitacaoCompraMaterial" Association="ModelLA.UsuarioSolicitacaoCompraMaterial">
+            <End Role="Usuario" EntitySet="TblUsuarios" />
+            <End Role="SolicitacaoCompraMaterial" EntitySet="TblSolicitacoesCompraMaterial" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Usuario">
           <Key>
@@ -510,6 +514,8 @@
           <NavigationProperty Name="Material" Relationship="ModelLA.MaterialSolicitacaoCompraMaterial" FromRole="SolicitacaoCompraMaterial" ToRole="Material" />
           <Property Type="Int32" Name="MaterialId" Nullable="false" />
           <Property Name="Status" Type="ModelLA.StatusSolicitacaoCompraWrapper" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="ModelLA.UsuarioSolicitacaoCompraMaterial" FromRole="SolicitacaoCompraMaterial" ToRole="Usuario" />
+          <Property Type="Int32" Name="UsuarioId" Nullable="false" />
         </EntityType>
         <EntityType Name="CompraMaterial">
           <Key>
@@ -656,6 +662,18 @@
         <ComplexType Name="StatusEquipamentoWrapper" >
           <Property Type="Int32" Name="Value" Nullable="false" />
         </ComplexType>
+        <Association Name="UsuarioSolicitacaoCompraMaterial">
+          <End Type="ModelLA.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ModelLA.SolicitacaoCompraMaterial" Role="SolicitacaoCompraMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SolicitacaoCompraMaterial">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -887,6 +905,8 @@
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.SolicitacaoCompraEquipamentoCompraEquipamento">
           <ConnectorPoint PointX="12.625" PointY="6.1151432291666667" />
+          <ConnectorPoint PointX="12.807289166666665" PointY="6.1151432291666659" />
+          <ConnectorPoint PointX="12.973955833333333" PointY="6.1151432291666667" />
           <ConnectorPoint PointX="13.010416666666666" PointY="6.1151432291666659" />
           <ConnectorPoint PointX="13.177083333333334" PointY="6.1151432291666667" />
           <ConnectorPoint PointX="13.5" PointY="6.1151432291666667" />
@@ -902,13 +922,20 @@
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.UsuarioSolicitacaoCompraEquipamento">
           <ConnectorPoint PointX="13.09375" PointY="2.09568359375" />
-          <ConnectorPoint PointX="13.09375" PointY="7.4586393229166674" />
-          <ConnectorPoint PointX="12.625" PointY="7.4586393229166674" />
+          <ConnectorPoint PointX="13.09375" PointY="7.4586393229166665" />
+          <ConnectorPoint PointX="12.973955833333333" PointY="7.4586393229166656" />
+          <ConnectorPoint PointX="12.807289166666665" PointY="7.4586393229166665" />
+          <ConnectorPoint PointX="12.625" PointY="7.4586393229166665" />
         </AssociationConnector>
         <AssociationConnector Association="ModelLA.EquipamentoClinicaEquipamento">
           <ConnectorPoint PointX="2.625" PointY="5.2951871744791674" />
           <ConnectorPoint PointX="7.28125" PointY="5.2951871744791674" />
           <ConnectorPoint PointX="7.28125" PointY="6.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelLA.UsuarioSolicitacaoCompraMaterial">
+          <ConnectorPoint PointX="12.8906225" PointY="2.09568359375" />
+          <ConnectorPoint PointX="12.8906225" PointY="14.8672900390625" />
+          <ConnectorPoint PointX="7.375" PointY="14.8672900390625" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

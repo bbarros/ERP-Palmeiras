@@ -24,10 +24,12 @@ namespace ERP_Palmeiras_LA.Models
         public int Quantidade { get; set; }
         public long DataValidade { get; set; }
         public int MaterialId { get; set; }
+        public int UsuarioId { get; set; }
     
         public StatusSolicitacaoCompraWrapper Status { get; set; }
     
         public virtual CompraMaterial CompraMaterial { get; set; }
         public virtual Material Material { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

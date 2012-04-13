@@ -9,7 +9,7 @@
     <div id="formulario">
         <form method="post" enctype="multipart/form-data" action="<%= Url.Action("Alterar") %>">
         <p style="font: verdana; color: #434343; font-size: large;">
-            Formulário de Informações do Equipamento</p>
+            Formulário de Informações da Compra de Equipamentos</p>
         <table cellspacing="10" style="font-weight: normal;" class="formPadrao">
             <tr>
                 <th>

@@ -48,6 +48,30 @@
                 <li><a href="<%= Url.Action("Index", "EquipamentosClinica") %>">Todos os Equipamentos</a></li>
             </ul>
         </li>
+
+        <li class="accordion">
+            <h3>Compra de Materiais</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Criar", "SolicitacoesCompraMateriais") %>">Cadastrar Solicitação</a></li>     
+                <li><a href="<%= Url.Action("Pendencias", "SolicitacoesCompraMateriais") %>">Solicitações Pendentes</a></li>
+                <li><a href="<%= Url.Action("Aprovadas", "SolicitacoesCompraMateriais") %>">Solicitações Aprovadas</a></li>
+                <li><a href="<%= Url.Action("Reprovadas", "SolicitacoesCompraMateriais") %>">Solicitações Reprovadas</a></li>
+                <li><a href="<%= Url.Action("Index", "SolicitacoesCompraMateriais") %>">Todas as Solicitações</a></li>
+                
+                <li><a href="<%= Url.Action("Solicitadas", "CompraMateriais") %>">Compras Solicitadas</a></li> 
+                <li><a href="<%= Url.Action("Entregas", "CompraMateriais") %>">Compras Entregues</a></li> 
+                <li><a href="<%= Url.Action("Index", "CompraMateriais") %>">Todas as Compras</a></li> 
+            </ul>
+        </li>
+
+        <li class="accordion">
+            <h3>Estoque</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Index", "MateriaisClinica") %>">Todos os Equipamentos</a></li>
+            </ul>
+        </li>
+
+
     </ul>
 
 
