@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.CompilerServices;
 using ERP_Palmeiras_BI.Core;
-//using ERP_Palmeiras_BI.Models;
+using ERP_Palmeiras_BI.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -16,7 +16,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
     public partial class BusinessIntelligence
     {
         private static volatile BusinessIntelligence instance;
-        //private ModelLAContainer model;
+        private ModelBIContainer model;
 
         private BusinessIntelligence() { }
 
@@ -26,23 +26,23 @@ namespace ERP_Palmeiras_BI.Models.Facade
             if (instance == null)
             {
                 instance = new BusinessIntelligence();
-                //instance.model = new ModelLAContainer();
+                instance.model = new ModelBIContainer();
             }
 
             return instance;
         }
 
-        //public Usuario AutenticaUsuario(string username, string password)
-        //{
-        //    ModelLAContainer model = new ModelLAContainer();
-        //    IEnumerable<Usuario> result = model.TblUsuarios.Where(user => user.Login == username && user.Senha == password);
+        public Usuario AutenticaUsuario(string username, string password)
+        {
+            ModelBIContainer model = new ModelBIContainer();
+            IEnumerable<Usuario> result = model.TblUsuarios.Where(user => user.Login == username && user.Senha == password);
 
-        //    if (result != null && result.Count<Usuario>() > 0)
-        //        return result.First<Usuario>();
-        //    else 
-        //         return null;
+            if (result != null && result.Count<Usuario>() > 0)
+                return result.First<Usuario>();
+            else
+                return null;
 
-        //}
+        }
 
     }
 }

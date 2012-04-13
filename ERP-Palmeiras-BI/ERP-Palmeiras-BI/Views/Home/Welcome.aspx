@@ -7,6 +7,6 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
-    <% Html.RenderPartial("MenuLA"); %>
+    <% Html.RenderPartial("MenuBI"); %>
 </asp:Content>
 
