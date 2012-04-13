@@ -17,7 +17,7 @@
         <th>Nome</th>
         <th>Fabricante</th>
         <th>Descrição</th>
-        <th>Excluir</th>
+        <th>Editar</th>
     </tr>
 
     <% foreach (ERP_Palmeiras_LA.Models.Material mat in ViewBag.materiais)
@@ -25,15 +25,9 @@
         <tr>
             <td><%= mat.Codigo%></td>
             <td><%= mat.Nome%></td>
-            <td>
-                <select id="fabricantes" name="fabricantes" multiple="multiple">
-                    <% foreach (ERP_Palmeiras_LA.Models.Fabricante fab in ViewBag.fabricantes) { %>
-                        <option <%= (mat.Fabricante.Where<ERP_Palmeiras_LA.Models.Fabricante>(f => f.Id == fab.Id).Count<ERP_Palmeiras_LA.Models.Fabricante>() > 0)? "SELECTED" : "" %> value="<%= fab.Id %>">
-                        <%= fab.Nome %></option>
-                    <% } %>
-                </select>
-            </td>
-            <td><a href="<%= Url.Action("Excluir", "Materiais", new {eid = mat.Id}) %>" ><img alt="Excluir material" class="icon" src="<%= Url.Content("~/Content/images/deleteIcon.png") %>" /></a></td>
+            <td><%= mat.Fabricante.Nome %></td>
+            <td><%= mat.Descricao %></td>
+            <td><a href="<%= Url.Action("Editar", "Materiais", new {materialID = mat.Id}) %>" ><img alt="Editar material" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a>
         </tr>
     <%  } %>
 

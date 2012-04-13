@@ -24,14 +24,23 @@ namespace ERP_Palmeiras_LA.Controllers
             return View();
         }
 
-        public ActionResult Criar(String codigo, String nome, Fabricante fabricante, String descricao)
+        public ActionResult Criar()
         {
-            if (codigo != null)
+            IEnumerable<Fabricante> fabricantes = facade.BuscarFabricantes();
+            ViewBag.fabricantes = fabricantes;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(String codigo, String nome, Int32 fabricante, String descricao)
+        {
+            if (!String.IsNullOrEmpty(codigo))
             {
                 Material material = new Material();
                 material.Codigo = codigo;
                 material.Nome = nome;
-                material.Fabricante = fabricante;
+                material.FabricanteId = fabricante;
                 material.Descricao = descricao;
 
                 facade.InserirMaterial(material);
@@ -42,7 +51,28 @@ namespace ERP_Palmeiras_LA.Controllers
             IEnumerable<Fabricante> fabricantes = facade.BuscarFabricantes();
             ViewBag.fabricantes = fabricantes;
 
+            return RedirectToAction("Criar");
+        }
+
+        public ActionResult Editar(Int32 materialID)
+        {
+            IEnumerable<Fabricante> fabricantes = facade.BuscarFabricantes();
+            Material mat = facade.BuscarMaterial(materialID);
+            ViewBag.fabricantes = fabricantes;
+            ViewBag.mat = mat;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Alterar(Int32 materialID, String codigo, String nome, String descricao, Int32 fabricante)
+        {
+            Material mat = facade.BuscarMaterial(materialID);
+            mat.Codigo = codigo;
+            mat.Nome = nome;
+            mat.Descricao = descricao;
+            mat.FabricanteId = fabricante;
+            facade.AlterarMaterial(mat);
+            return RedirectToAction("Index");
         }
     }
 }

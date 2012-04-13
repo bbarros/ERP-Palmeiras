@@ -69,5 +69,11 @@ namespace ERP_Palmeiras_LA.Models.Facade
             model.SaveChanges();
         }
 
+        public void AlterarMaterial(Material mat)
+        {
+            model.TblMateriais.Attach(mat);
+            model.Entry(mat).State = EntityState.Modified;
+            model.SaveChanges();
+        }
     }
 }

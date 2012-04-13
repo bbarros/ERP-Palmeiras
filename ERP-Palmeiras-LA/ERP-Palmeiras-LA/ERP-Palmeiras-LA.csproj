@@ -220,6 +220,7 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Materiais\Criar.aspx" />
+    <Content Include="Views\Materiais\Editar.aspx" />
     <Content Include="Views\Materiais\Excluir.aspx" />
     <Content Include="Views\Materiais\Index.aspx" />
     <Content Include="Views\CompraEquipamentos\Alterar.aspx" />
