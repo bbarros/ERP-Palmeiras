@@ -102,6 +102,10 @@
       <DependentUpon>ModelBI.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebServices\UsuariosWS.asmx.cs">
+      <DependentUpon>UsuariosWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\Site.css" />
@@ -197,11 +201,11 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="WebServices\UsuariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Graphics\" />
-    <Folder Include="WebServices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
