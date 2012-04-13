@@ -24,9 +24,12 @@ namespace ERP_Palmeiras_LA.Models
         public string Motivo { get; set; }
         public double Custo { get; set; }
         public long DataTerminoManutencao { get; set; }
+        public int UsuarioId { get; set; }
+        public int EquipamentoClinicaId { get; set; }
     
         public StatusSolicitacaoManutencaoWrapper Status { get; set; }
     
-        public virtual PendenciaManutencao PendenciaManutencao { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual EquipamentoClinica EquipamentoClinica { get; set; }
     }
 }

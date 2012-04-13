@@ -43,6 +43,12 @@ namespace ERP_Palmeiras_LA.Models.Facade
             model.SaveChanges();
         }
 
+        public void CriarManutencao(SolicitacaoManutencao manu)
+        {
+            model.TblSolicitacoesManutencao.Add(manu);
+            model.SaveChanges();
+        }
+
         public IEnumerable<Equipamento> BuscarEquipamentos()
         {
             return model.TblEquipamentos.Where<Equipamento>(eq => true);

@@ -16,12 +16,6 @@ namespace ERP_Palmeiras_LA.Models
     {
         private StatusSolicitacaoCompra status;
 
-        public int Value
-        {
-            get { return (int)status; }
-            set { status = (StatusSolicitacaoCompra)value; }
-        }
-
         public StatusSolicitacaoCompra EnumValue
         {
             get { return status; }

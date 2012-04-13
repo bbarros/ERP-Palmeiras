@@ -12,7 +12,6 @@ namespace ERP_Palmeiras_LA.Models
     using System;
     
     public partial class StatusCompraWrapper
-    {
 
     }
 }

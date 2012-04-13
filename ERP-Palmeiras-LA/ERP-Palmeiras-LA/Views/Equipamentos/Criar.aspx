@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
     <% Html.RenderPartial("MenuLA"); %>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% IEnumerable<ERP_Palmeiras_LA.Models.Fabricante> fabricantes = (IEnumerable<ERP_Palmeiras_LA.Models.Fabricante>)ViewData["Fabricantes"]; %>
     <div id="formulario">
