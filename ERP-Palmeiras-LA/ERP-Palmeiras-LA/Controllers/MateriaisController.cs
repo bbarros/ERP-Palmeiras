@@ -17,6 +17,7 @@ namespace ERP_Palmeiras_LA.Controllers
         public ActionResult Index()
         {
             IEnumerable<Material> materiais = facade.BuscarMateriais();
+            IEnumerable<Fabricante> fabricantes = facade.BuscarFabricantes();
             
             ViewBag.materiais = materiais;
             ViewBag.fabricantes = fabricantes;
@@ -37,6 +38,9 @@ namespace ERP_Palmeiras_LA.Controllers
 
                 return RedirectToAction("Index");
             }
+
+            IEnumerable<Fabricante> fabricantes = facade.BuscarFabricantes();
+            ViewBag.fabricantes = fabricantes;
 
             return View();
         }

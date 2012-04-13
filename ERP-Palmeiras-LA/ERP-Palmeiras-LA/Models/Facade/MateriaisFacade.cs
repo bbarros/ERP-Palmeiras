@@ -18,14 +18,14 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public IEnumerable<Material> BuscarMateriais()
         {
-            return model.TblMaterial.Where<Material>(e => true);
+            return model.TblMateriais.Where<Material>(e => true);
         }
 
         public Material BuscarMaterial(int id)
         {
             try
             {
-                return model.TblMaterial.Where<Material>(b => b.Id == id).First<Material>();
+                return model.TblMateriais.Where<Material>(b => b.Id == id).First<Material>();
             }
             catch (Exception)
             {
@@ -35,7 +35,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public Material BuscarMaterial(String nome)
         {
-             IEnumerable<Material> result = model.TblMaterial.Where<Material>(b => b.Nome == nome);
+             IEnumerable<Material> result = model.TblMateriais.Where<Material>(b => b.Nome == nome);
              if (result == null || result.Count<Material>() == 0)
              {
                  return null;
@@ -48,8 +48,8 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public void ExcluirMaterial(Int32 eid)
         {
-            Material e = model.TblMaterial.Find(eid);
-            model.TblMaterial.Remove(e);
+            Material e = model.TblMateriais.Find(eid);
+            model.TblMateriais.Remove(e);
             model.SaveChanges();
         }
 
@@ -59,7 +59,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
             if (result == null)
             {
-                model.TblMaterial.Add(espec);
+                model.TblMateriais.Add(espec);
             }
             else
             {

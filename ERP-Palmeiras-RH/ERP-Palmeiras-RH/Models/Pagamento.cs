@@ -23,6 +23,9 @@ namespace ERP_Palmeiras_RH.Models
         public string Cargo { get; set; }
         internal int funcionariosId { get; set; }
         public long DataOrdem { get; set; }
+        public short Status { get; set; }
+        public double Impostos { get; set; }
+        public string Informacoes { get; set; }
     
         public virtual Funcionario Funcionario { get; set; }
     }
