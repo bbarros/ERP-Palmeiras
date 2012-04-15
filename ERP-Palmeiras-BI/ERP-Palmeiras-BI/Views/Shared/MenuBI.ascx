@@ -18,4 +18,5 @@
         </li>
     </ul>
 
+    <form id="FormLogoff" action="<%= Url.Action("Logout","Home") %>" method="post"><input id="logoffSubmit" name="Logout" type="submit" value=" Logout " /></form>
 

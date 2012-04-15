@@ -27,13 +27,16 @@ namespace ERP_Palmeiras_LA.Controllers
             return View();
         }
 
-        public ActionResult Cadastrar(String nome, String cnpj)
+        public ActionResult Cadastrar(String nome, String cnpj, int banco, String agencia, String contaCorrente)
         {
             if (!String.IsNullOrEmpty(cnpj))
             {
                 Fabricante f = new Fabricante();
                 f.Nome = nome;
                 f.CNPJ = cnpj;
+                f.Banco = banco;
+                f.Agencia = agencia;
+                f.ContaCorrente = contaCorrente;
                 facade.CriarFabricante(f);
 
                 return RedirectToAction("Index");
@@ -49,11 +52,14 @@ namespace ERP_Palmeiras_LA.Controllers
         }
 
         [HttpPost]
-        public ActionResult Alterar(int id, String nome, String cnpj)
+        public ActionResult Alterar(int id, String nome, String cnpj, int banco, String agencia, String contaCorrente)
         {
-            Fabricante f = new Fabricante();
+            Fabricante f = facade.BuscarFabricante(id);
             f.Nome = nome;
             f.CNPJ = cnpj;
+            f.Banco = banco;
+            f.Agencia = agencia;
+            f.ContaCorrente = contaCorrente;
             facade.AlterarFabricante(f);
             return View();
         }

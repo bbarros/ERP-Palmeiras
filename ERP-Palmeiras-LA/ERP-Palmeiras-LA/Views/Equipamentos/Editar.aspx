@@ -39,7 +39,7 @@
                     Fabricante
                 </th>
                 <th style="padding-left: 60px;">
-                    <select id="fabricante" name="fabricante">
+                    <select id="fabricanteId" name="fabricanteId">
                         <% foreach (ERP_Palmeiras_LA.Models.Fabricante f in fabricantes)
                            { %>
                         <option <%= (eq.FabricanteId == f.Id)? "SELECTED" : "" %> value="<%= f.Id %>" >
@@ -50,6 +50,7 @@
             </tr>
         </table>
         <br />
+        <input type="hidden" name="id" value="<%= eq.Id %>" />
         <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />
         </form>
     </div>

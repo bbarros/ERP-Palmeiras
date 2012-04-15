@@ -65,6 +65,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MateriaisController.cs" />
     <Compile Include="Controllers\CompraEquipamentosController.cs" />
+    <Compile Include="Controllers\CompraMateriaisController.cs" />
+    <Compile Include="Controllers\SolicitacoesCompraMateriaisController.cs" />
     <Compile Include="Controllers\EquipamentosClinicaController.cs" />
     <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
@@ -83,6 +85,9 @@
     <Compile Include="Models\CompraMaterial.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facade\CompraMateriaisFacade.cs" />
+    <Compile Include="Models\Facade\MateriaisFacade.cs" />
+    <Compile Include="Models\Facade\SolicitacoesCompraMateriaisFacade.cs" />
     <Compile Include="Models\StatusEquipamento.cs" />
     <Compile Include="Models\Equipamento.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
@@ -93,7 +98,6 @@
     <Compile Include="Models\Fabricante.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Facade\MateriaisFacade.cs" />
     <Compile Include="Models\Facade\CompraEquipamentosFacade.cs" />
     <Compile Include="Models\Facade\EquipamentosClinicaFacade.cs" />
     <Compile Include="Models\Facade\SolicitacoesCompraEquipamentosFacade.cs" />
@@ -102,9 +106,6 @@
     <Compile Include="Models\Facade\UsuariosFacade.cs" />
     <Compile Include="Models\Facade\LogisticaAbastecimento.cs" />
     <Compile Include="Models\Material.cs">
-      <DependentUpon>ModelLA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MaterialClinica.cs">
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelLA.Context.cs">
@@ -154,6 +155,11 @@
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebServices\MateriaisWS.asmx.cs">
+      <DependentUpon>MateriaisWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServices\MaterialClinicaDTO.cs" />
     <Compile Include="WebServices\EquipamentoClinicaDTO.cs" />
     <Compile Include="WebServices\EquipamentosWS.asmx.cs">
       <DependentUpon>EquipamentosWS.asmx</DependentUpon>
@@ -220,11 +226,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-
-
     <Content Include="Views\Equipamentos\SolicitarManutencao.aspx" />
-
-
     <Content Include="Views\Materiais\Criar.aspx" />
     <Content Include="Views\Materiais\Editar.aspx" />
     <Content Include="Views\Materiais\Excluir.aspx" />
@@ -232,6 +234,14 @@
     <Content Include="Views\CompraEquipamentos\Alterar.aspx" />
     <Content Include="Views\CompraEquipamentos\Editar.aspx" />
     <Content Include="Views\CompraEquipamentos\Index.aspx" />
+    <Content Include="Views\CompraMateriais\Alterar.aspx" />
+    <Content Include="Views\CompraMateriais\Editar.aspx" />
+    <Content Include="Views\CompraMateriais\Index.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Alterar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Cadastrar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Criar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Editar.aspx" />
+    <Content Include="Views\SolicitacoesCompraMateriais\Index.aspx" />
     <Content Include="Views\EquipamentosClinica\Index.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Alterar.aspx" />
     <Content Include="Views\SolicitacoesCompraEquipamentos\Cadastrar.aspx" />
@@ -284,6 +294,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="WebServices\EquipamentosWS.asmx" />
+    <Content Include="WebServices\MateriaisWS.asmx" />
     <Content Include="WebServices\UsuariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>

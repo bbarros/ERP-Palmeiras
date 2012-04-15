@@ -98,8 +98,8 @@ namespace ERP_Palmeiras_LA.Controllers
         {
             SolicitacaoCompraEquipamento s = facade.BuscarSolicitacaoCompraEquipamento(id);
             s.Status = StatusSolicitacaoCompra.APROVADO;
-            facade.AlterarSolicitacaoCompraEquipamento(s);
             facade.CriarCompraEquipamento(s, new DateTime(s.DataValidade));
+            facade.AlterarSolicitacaoCompraEquipamento(s);
             return RedirectToAction("Aprovadas");
         }
     }

@@ -29,10 +29,7 @@ namespace ERP_Palmeiras_LA.Models
         public DbSet<Equipamento> TblEquipamentos { get; set; }
         public DbSet<Fabricante> TblFabricantes { get; set; }
         public DbSet<EquipamentoClinica> TblEquipamentosClinica { get; set; }
-        public DbSet<Inventario> TblInventario { get; set; }
-        public DbSet<Estoque> TblEstoque { get; set; }
         public DbSet<Material> TblMateriais { get; set; }
-        public DbSet<MaterialClinica> TblMateriaisClinica { get; set; }
         public DbSet<SolicitacaoManutencao> TblSolicitacoesManutencao { get; set; }
         public DbSet<SolicitacaoCompraEquipamento> TblSolicitacoesCompraEquipamento { get; set; }
         public DbSet<CompraEquipamento> TblCompraEquipamento { get; set; }

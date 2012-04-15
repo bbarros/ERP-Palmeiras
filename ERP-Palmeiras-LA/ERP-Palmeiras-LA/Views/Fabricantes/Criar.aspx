@@ -23,6 +23,26 @@
                     <input id="cnpj" name="cnpj" type="text" value="" />
                 </th>
             </tr>
+            <tr>
+                <th>
+                    Banco
+                </th>
+                <th style="padding-left: 50px;">
+                    <input id="banco" name="banco" type="text" value="" />
+                </th>
+                <th style="padding-left: 15px;">
+                    Agência
+                </th>
+                <th style="padding-left: 60px;">
+                    <input id="agencia" name="agencia" type="text" value="" />
+                </th>
+                <th style="padding-left: 15px;">
+                    Conta Corrente
+                </th>
+                <th style="padding-left: 60px;">
+                    <input id="contaCorrente" name="contaCorrente" type="text" value="" />
+                </th>
+            </tr>
         </table>
         <br />
         <input id="botaoSalvar" type="submit" value="Salvar" style="float: right; margin-right: 9px;" />

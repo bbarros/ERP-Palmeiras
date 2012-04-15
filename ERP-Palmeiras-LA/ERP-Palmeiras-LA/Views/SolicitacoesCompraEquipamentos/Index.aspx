@@ -16,8 +16,8 @@
 <table id="funcionariosTable" class="decoratedTable">
                     <tr>
 						<th>ID</th>
-                        <th>Equipamento</th>
-                        <th>Preço</th>
+                        <th>Material</th>
+                        <th>Preço Unitário</th>
                         <th>Status</th>
                         <th>Data Validade</th>
                         <th>Aprovar</th>

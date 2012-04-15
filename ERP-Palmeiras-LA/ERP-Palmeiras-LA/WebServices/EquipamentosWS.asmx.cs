@@ -28,7 +28,6 @@ namespace ERP_Palmeiras_LA.WebServices
             if(ec.Status == StatusEquipamento.FUNCIONANDO)
             {
                 ec.Status = StatusEquipamento.QUEBRADO;
-                // TODO: Criar Pendencia de Manutencao
                 facade.AlterarEquipamentoClinica(ec);
             }
         }

@@ -12,7 +12,7 @@
     });
 </script>
 
-<h2>Compras em Andamento</h2>
+<h2>Inventário de Equipamentos</h2>
 <table id="funcionariosTable" class="decoratedTable">
                     <tr>
 						<th>ID</th>

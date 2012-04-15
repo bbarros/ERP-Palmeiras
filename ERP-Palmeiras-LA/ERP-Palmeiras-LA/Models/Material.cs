@@ -19,6 +19,7 @@ namespace ERP_Palmeiras_LA.Models
         public string Descricao { get; set; }
         public string Codigo { get; set; }
         public int FabricanteId { get; set; }
+        public int QuantidadeEstoque { get; set; }
     
         public virtual Fabricante Fabricante { get; set; }
     }

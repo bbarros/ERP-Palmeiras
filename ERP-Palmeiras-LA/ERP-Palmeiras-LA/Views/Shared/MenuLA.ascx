@@ -4,7 +4,7 @@
         <li class="accordion">
             <h3>Materiais</h3>
             <ul class="accordionSubItem">
-                <li><a href="<%= Url.Action("Index", "Materiais") %>">Visualizar Materiais</a></li>
+                <li><a href="<%= Url.Action("Index", "Materiais") %>">Estoque</a></li>
                 <li><a href="<%= Url.Action("Criar", "Materiais") %>">Cadastrar Materiais</a></li>
             </ul>
         </li>
@@ -25,9 +25,6 @@
                 <li><a href="<%= Url.Action("Criar", "Fabricantes") %>">Cadastrar Fabricante</a></li>     
             </ul>
         </li>
-
-
-        <form id="FormLogoff" action="<%= Url.Action("Logout","Home") %>" method="post" style="padding-left: 35%"><input id="logoffSubmit" name="Logout" type="submit" value=" Logout " /></form> 
 
         <li class="accordion">
             <h3>Compra de Equipamentos</h3>
@@ -53,6 +50,22 @@
             </ul>
         </li>
 
+        <li class="accordion">
+            <h3>Compra de Materiais</h3>
+            <ul class="accordionSubItem">
+                <li><a href="<%= Url.Action("Criar", "SolicitacoesCompraMateriais") %>">Cadastrar Solicitação</a></li>     
+                <li><a href="<%= Url.Action("Pendencias", "SolicitacoesCompraMateriais") %>">Solicitações Pendentes</a></li>
+                <li><a href="<%= Url.Action("Aprovadas", "SolicitacoesCompraMateriais") %>">Solicitações Aprovadas</a></li>
+                <li><a href="<%= Url.Action("Reprovadas", "SolicitacoesCompraMateriais") %>">Solicitações Reprovadas</a></li>
+                <li><a href="<%= Url.Action("Index", "SolicitacoesCompraMateriais") %>">Todas as Solicitações</a></li>
+                
+                <li><a href="<%= Url.Action("Solicitadas", "CompraMateriais") %>">Compras Solicitadas</a></li> 
+                <li><a href="<%= Url.Action("Entregas", "CompraMateriais") %>">Compras Entregues</a></li> 
+                <li><a href="<%= Url.Action("Index", "CompraMateriais") %>">Todas as Compras</a></li> 
+            </ul>
+        </li>
     </ul>
+
+    <form id="FormLogoff" action="<%= Url.Action("Logout","Home") %>" method="post"><input id="logoffSubmit" name="Logout" type="submit" value=" Logout " /></form>
 
 
