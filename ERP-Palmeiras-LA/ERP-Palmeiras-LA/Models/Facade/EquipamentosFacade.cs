@@ -39,6 +39,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public void CriarEquipamento(Equipamento eq)
         {
+            Equipamento e = BuscarEquipamento(eq.NumeroSerie);
+            if (e == null)
+                throw new ERPException("Equipamento com número de série: " + eq.NumeroSerie + " já cadastrado.");
             model.TblEquipamentos.Add(eq);
             model.SaveChanges();
         }

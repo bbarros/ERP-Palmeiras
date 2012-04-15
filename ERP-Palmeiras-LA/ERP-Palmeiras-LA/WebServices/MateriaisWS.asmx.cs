@@ -39,6 +39,25 @@ namespace ERP_Palmeiras_LA.WebServices
             return dtos;
         }
 
+        /// <summary>
+        /// Retorna a quantidade de um material.
+        /// </summary>
+        /// <param name="materialId">Id do Material</param>
+        /// <returns>Quantidade em caso de sucesso; -1 em caso de falha</returns>
+        [WebMethod]
+        public int BuscarQuantidadeMaterial(int materialId)
+        {
+            try
+            {
+                Material m = facade.BuscarMaterial(materialId);
+                return m.QuantidadeEstoque;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         [WebMethod]
         public bool DescartarMateriais(int materialId, int quantidadeDescartada)
         {

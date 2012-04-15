@@ -33,9 +33,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
             }
         }
 
-        public Material BuscarMaterial(String nome)
+        public Material BuscarMaterial(String codigo)
         {
-             IEnumerable<Material> result = model.TblMateriais.Where<Material>(b => b.Nome == nome);
+             IEnumerable<Material> result = model.TblMateriais.Where<Material>(b => b.Codigo == codigo);
              if (result == null || result.Count<Material>() == 0)
              {
                  return null;
@@ -53,13 +53,13 @@ namespace ERP_Palmeiras_LA.Models.Facade
             model.SaveChanges();
         }
 
-        public void InserirMaterial(Material espec)
+        public void InserirMaterial(Material mat)
         {
-            Material result = BuscarMaterial(espec.Codigo);
+            Material result = BuscarMaterial(mat.Codigo);
 
             if (result == null)
             {
-                model.TblMateriais.Add(espec);
+                model.TblMateriais.Add(mat);
             }
             else
             {
