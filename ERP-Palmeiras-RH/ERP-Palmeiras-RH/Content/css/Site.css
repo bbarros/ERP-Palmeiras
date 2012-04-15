@@ -301,6 +301,9 @@ h1 {
     
 }
 
+
+/*/////////////////// Modal ///////////////////////*/
+
 #modal-pag
 {
     width: 450px;
@@ -308,4 +311,19 @@ h1 {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/*/////////////////// Holerite ///////////////////*/
+#main-holerite
+{
+    background-image: url(../images/holerite.png);
+    width: 718px;
+    height: 1097px;
+}
+
+.h-field
+{
+    font-family: Courier;
+    font-size: 12px;
 }

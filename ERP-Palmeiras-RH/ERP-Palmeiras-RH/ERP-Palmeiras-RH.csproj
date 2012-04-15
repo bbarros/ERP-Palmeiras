@@ -234,6 +234,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebServices\MedicoDTO.cs" />
+    <Compile Include="WebServices\PagamentoWS.asmx.cs">
+      <DependentUpon>PagamentoWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebServices\UsuariosWS.asmx.cs">
       <DependentUpon>UsuariosWS.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -246,6 +250,7 @@
     <Content Include="Content\images\bg_navi_hover.png" />
     <Content Include="Content\images\border.png" />
     <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\holerite.png" />
     <Content Include="Content\images\pay_check.png" />
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\deleteIcon.png" />
@@ -259,6 +264,7 @@
     <Content Include="Content\images\logo_opf.png" />
     <Content Include="Content\images\logo_rhf.png" />
     <Content Include="Content\images\navi_separator.png" />
+    <Content Include="Content\images\print_ico.gif" />
     <Content Include="Content\images\status_error.png" />
     <Content Include="Content\images\status_forbidden.png" />
     <Content Include="Content\images\status_help.png" />
@@ -301,6 +307,7 @@
     <Content Include="Scripts\jquery.colorbox-min.js" />
     <Content Include="Scripts\jquery.maskedinput-1.3.min.js" />
     <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\jquery.printElement.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -322,6 +329,7 @@
     <Content Include="Views\Cargos\Index.aspx" />
     <Content Include="Views\Pagamento\Confirmar.aspx" />
     <Content Include="Views\Pagamento\Enviar.aspx" />
+    <Content Include="Views\Pagamento\Holerite.aspx" />
     <Content Include="Views\Pagamento\Salvar.aspx" />
     <Content Include="Views\Pendencias\Index.aspx" />
     <Content Include="Views\Especialidades\Criar.aspx" />
@@ -367,6 +375,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="WebServices\FuncionariosWS.asmx" />
+    <Content Include="WebServices\PagamentoWS.asmx" />
     <Content Include="WebServices\UsuariosWS.asmx" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,8 @@
         <th>Salário</th>
         <th>Mês/Ano</th>
         <th>Status</th>
-        <th>Solicitar Pagamento</th>
+        <th>Solicitar</th>
+        <th>Holerite</th>
     </tr>
 
     <% foreach (ERP_Palmeiras_RH.Models.Pagamento pagamento in ViewBag.pagamentos)
@@ -40,6 +41,12 @@
             <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_PENDENTE)
                { %>
                 <a href="javascript: confirmarPagamento(<%= pagamento.Id %>)" ><img alt="Pagar" src="<%= Url.Content("~/Content/images/pay_check.png") %>" title="Pagar" /></a>
+            <% } %>
+            </td>
+            <td>
+            <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_OK)
+               { %>
+                <a href="javascript:holerite(<%= pagamento.Id %>)"><img src="<%: Url.Content("~/Content/images/print_ico.gif") %>" alt="imprimir" /></a>
             <% } %>
             </td>
         </tr>
@@ -77,6 +84,20 @@
                 alert("Ocorreu um erro na Confirmação do Pagamento");
             }
         });
+    }
+
+    function holerite(pagId) {
+        $.ajax({
+            type: "POST",
+            url: 'Pagamento/Holerite',
+            data: { pag: pagId },
+            success: function (data) {
+                $.colorbox({ html: data });
+            },
+            error: function () {
+                alert("Ocorreu um erro na geração do holerite.");
+            }
+        });        
     }
 </script>
 

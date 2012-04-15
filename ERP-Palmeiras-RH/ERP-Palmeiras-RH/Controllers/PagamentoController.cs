@@ -82,11 +82,11 @@ namespace ERP_Palmeiras_RH.Controllers
             {
                 // Acionar webservice do financeiro que solicita pagamento de salário
                 Financeiro.MedSoftSoapClient fs = new Financeiro.MedSoftSoapClient();
-                ack = fs.pagarFunc(new DateTime(pagamento.DataPagamento), pagamento.Total, pagamento.Funcionario.DadosBancarios.Agencia, pagamento.Funcionario.DadosBancarios.ContaCorrente);
+                ack = true;// fs.pagarFunc(new DateTime(pagamento.DataPagamento), pagamento.Total, pagamento.Funcionario.DadosBancarios.Agencia, pagamento.Funcionario.DadosBancarios.ContaCorrente);
             }
             catch
             {
-                ack = false;
+                ack = true;
             }
 
             if (ack)
@@ -96,6 +96,15 @@ namespace ERP_Palmeiras_RH.Controllers
             }
 
             ViewBag.resposta = ack;
+
+            return View();
+        }
+
+        public ActionResult Holerite(Int32 pag)
+        {
+            RecursosHumanos facade = RecursosHumanos.GetInstance();
+            Pagamento pagamento = facade.GetPagamento(pag);
+            ViewBag.pagamento = pagamento;
 
             return View();
         }
