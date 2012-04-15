@@ -220,7 +220,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-<<<<<<< HEAD
+
 
     <Content Include="Views\Equipamentos\SolicitarManutencao.aspx" />
 
