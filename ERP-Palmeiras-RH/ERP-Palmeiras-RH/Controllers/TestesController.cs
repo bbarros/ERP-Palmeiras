@@ -63,7 +63,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
         public ActionResult CadastrarMedico()
         {
-            facade.InserirFuncionario(CriarMedico());
+            facade.InserirFuncionario(CriarMedico(), true);
 
             return RedirectToAction("Index", "Funcionarios");
         }

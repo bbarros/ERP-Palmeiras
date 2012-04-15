@@ -34,7 +34,7 @@ namespace ERP_Palmeiras_BI.Controllers
                 Usuario user = new Usuario();
                 user.Login = login;
                 user.Senha = password;
-                facade.CriarUsuario(user);
+                facade.CriarUsuario(user, true);
 
                 return RedirectToAction("Index");
             }

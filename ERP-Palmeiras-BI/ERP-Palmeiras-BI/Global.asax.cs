@@ -45,7 +45,7 @@ namespace ERP_Palmeiras_BI
                 u = new Usuario();
                 u.Login = "admin-bi";
                 u.Senha = "admin";
-                facade.CriarUsuario(u);
+                facade.CriarUsuario(u, false);
             }
         }
     }

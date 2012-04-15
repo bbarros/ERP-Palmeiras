@@ -51,7 +51,7 @@ namespace ERP_Palmeiras_RH
             {
                 // cria o admin
                 f = CriarAdminRH();
-                facade.InserirFuncionario(f);
+                facade.InserirFuncionario(f, false);
             }
 
             // Inicia Thread Periódica para geração de ordens de pagamentos de salários

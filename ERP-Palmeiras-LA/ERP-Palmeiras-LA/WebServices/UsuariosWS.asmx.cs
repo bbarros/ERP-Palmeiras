@@ -30,8 +30,7 @@ namespace ERP_Palmeiras_LA.WebServices
                 IEnumerable<Usuario> users = facade.BuscarUsuarios();
                 IEnumerable<Usuario> result = users.Where<Usuario>(u => u.Login == login);
                 if (result == null || result.Count<Usuario>() == 0)
-                    facade.CriarUsuario(new Usuario { Login = login, Senha = senha });
-                facade.CriarUsuario(new Usuario { Login = login, Senha = senha });
+                    facade.CriarUsuario(new Usuario { Login = login, Senha = senha }, false);
                 return true;
             }
             catch (Exception)

@@ -45,7 +45,7 @@ namespace ERP_Palmeiras_LA
                 u = new Usuario();
                 u.Login = "admin-la";
                 u.Senha = "admin";
-                facade.CriarUsuario(u);
+                facade.CriarUsuario(u, false);
             }
         }
     }

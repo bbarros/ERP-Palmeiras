@@ -46,7 +46,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
                 throw new ERPException("Usuário " + login + " não encontrado.");
         }
 
-        public void CriarUsuario(Usuario user)
+        public void CriarUsuario(Usuario user, bool requestOtherModules)
         {
             model.TblUsuarios.Add(user);
             model.SaveChanges();
