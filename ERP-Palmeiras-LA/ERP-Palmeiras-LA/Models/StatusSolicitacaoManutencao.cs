@@ -9,7 +9,8 @@ namespace ERP_Palmeiras_LA.Models
     {
         CONCLUIDA,
         EM_PROGRESSO,
-        PENDENTE
+        PENDENTE,
+        PAGA
     }
 
     public partial class StatusSolicitacaoManutencaoWrapper

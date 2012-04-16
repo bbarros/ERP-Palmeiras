@@ -53,5 +53,22 @@ namespace ERP_Palmeiras_LA.WebServices
                 return false;
             }
         }
+
+        [WebMethod]
+        public bool ManutencaoPaga(int idSolicitacao)
+        {
+            try
+            {
+                SolicitacaoManutencao se = facade.BuscarManutencao(idSolicitacao);
+                se.Status = StatusSolicitacaoManutencao.PAGA;
+                se.DataTerminoManutencao = DateTime.Now.Ticks;
+                facade.AlterarManutencao(se);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
