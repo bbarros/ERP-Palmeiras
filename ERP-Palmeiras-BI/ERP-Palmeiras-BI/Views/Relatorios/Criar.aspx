@@ -38,7 +38,7 @@
                     Data de Fim
                 </th>
                 <th style="padding-left: 60px;">
-                    <input id="dataFim" name="dataFim" type="password" value="" />
+                    <input id="dataFim" name="dataFim" type="text" value="" />
                 </th>
             </tr>
         </table>

@@ -14,10 +14,6 @@ namespace ERP_Palmeiras_RH.Controllers
     public class PagamentoController : BaseController
     {
 
-        public const int PAGAMENTO_OK = 1;
-        public const int PAGAMENTO_PENDENTE = 2;
-        public const int PAGAMENTO_EM_AVALIACAO = 3;
-
         public ActionResult Index()
         {
             RecursosHumanos facade = RecursosHumanos.GetInstance();
@@ -91,7 +87,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
             if (ack)
             {
-                pagamento.Status = PagamentoController.PAGAMENTO_EM_AVALIACAO;
+                pagamento.Status = RecursosHumanos.PAGAMENTO_EM_AVALIACAO;
                 facade.UpdatePagamento(pagamento);
             }
 

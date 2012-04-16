@@ -26,7 +26,7 @@ namespace ERP_Palmeiras_RH.WebServices
             RecursosHumanos facade = RecursosHumanos.GetInstance();
             Pagamento pag = facade.GetPagamento(pagamentoId);
 
-            pag.Status = PagamentoController.PAGAMENTO_OK;
+            pag.Status = RecursosHumanos.PAGAMENTO_OK;
             
             facade.UpdatePagamento(pag);
             

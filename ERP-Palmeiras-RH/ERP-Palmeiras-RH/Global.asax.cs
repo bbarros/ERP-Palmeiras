@@ -82,7 +82,7 @@ namespace ERP_Palmeiras_RH
                         pagamentoFunc.Cargo = funcionario.Cargo.Nome;
                         pagamentoFunc.Salario = funcionario.Salario;
                         pagamentoFunc.DataOrdem = current.Ticks;
-                        pagamentoFunc.Status = PagamentoController.PAGAMENTO_PENDENTE;
+                        pagamentoFunc.Status = RecursosHumanos.PAGAMENTO_PENDENTE;
                         model.TblPagamentos.Add(pagamentoFunc);
                         model.SaveChanges();
                     }

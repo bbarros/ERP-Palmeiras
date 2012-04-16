@@ -7,6 +7,8 @@ using System.Drawing;
 using ERP_Palmeiras_BI.Core;
 using System.Data;
 using System.IO;
+using ERP_Palmeiras_BI.RHFuncionarios;
+using ERP_Palmeiras_BI.InfoOperacional;
 
 namespace ERP_Palmeiras_BI.Models.Facade
 {
@@ -15,6 +17,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
 
         private const String CHART_AREA_NAME = "ChartArea1";
         private const String SERIE_NAME = "Serie1";
+        public const String GRAPHICS_PATH = @"~/Graphics/";
 
         public Relatorio BuscarRelatorio(int id)
         {
@@ -38,7 +41,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
                 r.DataInicio = dataInicio.Ticks;
                 r.DataFim = dataFim.Ticks;
                 Chart c = GerarGrafico(tipo, titulo, dataInicio, dataFim);
-                String filePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/Graphics"), fileName);
+                String filePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(GRAPHICS_PATH), fileName);
                 c.SaveImage(filePath, ChartImageFormat.Png);
                 Stream file = new FileStream(filePath, FileMode.Open);
                 r.UrlImagem = urlImagem;
@@ -49,7 +52,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
                 throw new ERPException("Relatório " + id + " não encontrado.");
         }
 
-        public void CriarRelatorio(TipoRelatorio tipo, DateTime dataInicio, DateTime dataFim, String titulo, Usuario user, String urlImagem, String fileName)
+        public Relatorio CriarRelatorio(TipoRelatorio tipo, DateTime dataInicio, DateTime dataFim, String titulo, Usuario user, String urlImagem, String fileName)
         {
             Relatorio r = new Relatorio();
             r.Titulo = titulo;
@@ -59,12 +62,13 @@ namespace ERP_Palmeiras_BI.Models.Facade
             r.DataInicio = dataInicio.Ticks;
             r.DataFim = dataFim.Ticks;
             Chart c = GerarGrafico(tipo, titulo, dataInicio, dataFim);
-            String filePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/Graphics"), fileName);
+            String filePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(GRAPHICS_PATH), fileName);
             c.SaveImage(filePath, ChartImageFormat.Png);
             Stream file = new FileStream(filePath, FileMode.Open);
             r.UrlImagem = urlImagem;
             model.TblRelatorios.Add(r);
             model.SaveChanges();
+            return r;
         }
 
         public IEnumerable<Relatorio> BuscarRelatorios()
@@ -94,26 +98,28 @@ namespace ERP_Palmeiras_BI.Models.Facade
             c.ChartAreas[CHART_AREA_NAME].AxisX.MajorGrid.Interval = 1;
             c.ChartAreas[CHART_AREA_NAME].AxisX.MajorTickMark.Interval = 1;
 
-            //List<Consulta> consultas = gerenciadorDeConsultas.BuscarConsultas(dataInicio, dataFim);
+            Consulta[] consultas = infoOpClient.GetInfoConsultas(dataInicio, dataFim);
 
-            //Dictionary<Medico, int> points = new Dictionary<Medico, int>();
 
-            //foreach (Consulta con in consultas)
-            //{
-            //    if (con.Status == StatusConsulta.Finalizada)
-            //    {
-            //        if (points.ContainsKey(con.Medico))
-            //        {
-            //            points[con.Medico]++;
-            //        }
-            //        else
-            //        {
-            //            points.Add(con.Medico, 1);
-            //        }
-            //    }
-            //}
+            Dictionary<String, int> points = new Dictionary<String, int>();
 
-            //c.Series[SERIE_NAME].Points.DataBindXY(points.Keys, "CRM", points, "Value");
+            foreach (Consulta con in consultas)
+            {
+                if (con.Finalizada)
+                {
+                    MedicoDTO mDto = funcClient.BuscarMedico(con.IDMedico);
+                    if (points.ContainsKey(mDto.Especialidade))
+                    {
+                        points[mDto.Especialidade]++;
+                    }
+                    else
+                    {
+                        points.Add(mDto.Especialidade, 1);
+                    }
+                }
+            }
+
+            c.Series[SERIE_NAME].Points.DataBindXY(points.Keys, "Especialidade", points, "Value");
 
             return c;
         }
@@ -128,26 +134,27 @@ namespace ERP_Palmeiras_BI.Models.Facade
             c.ChartAreas[CHART_AREA_NAME].AxisX.MajorGrid.Interval = 1;
             c.ChartAreas[CHART_AREA_NAME].AxisX.MajorTickMark.Interval = 1;
 
-            //List<Consulta> consultas = gerenciadorDeConsultas.BuscarConsultas(dataInicio, dataFim);
+            Consulta[] consultas = infoOpClient.GetInfoConsultas(dataInicio, dataFim);
 
-            //Dictionary<Medico, int> points = new Dictionary<Medico, int>();
 
-            //foreach (Consulta con in consultas)
-            //{
-            //    if (con.Status == StatusConsulta.Finalizada)
-            //    {
-            //        if (points.ContainsKey(con.Medico))
-            //        {
-            //            points[con.Medico]++;
-            //        }
-            //        else
-            //        {
-            //            points.Add(con.Medico, 1);
-            //        }
-            //    }
-            //}
+            Dictionary<String, int> points = new Dictionary<String, int>();
 
-            //c.Series[SERIE_NAME].Points.DataBindXY(points.Keys, "CRM", points, "Value");
+            foreach (Consulta con in consultas)
+            {
+                if (con.Finalizada)
+                {
+                    if (points.ContainsKey(con.Data.ToString("dd/MM/yyyy")))
+                    {
+                        points[con.Data.ToString("dd/MM/yyyy")]++;
+                    }
+                    else
+                    {
+                        points.Add(con.Data.ToString("dd/MM/yyyy"), 1);
+                    }
+                }
+            }
+
+            c.Series[SERIE_NAME].Points.DataBindXY(points.Keys, "Data", points, "Value");
 
             return c;
         }
@@ -161,16 +168,16 @@ namespace ERP_Palmeiras_BI.Models.Facade
             chart.BorderColor = Color.FromArgb(26, 59, 105);
             chart.BorderlineDashStyle = ChartDashStyle.Solid;
             chart.Palette = ChartColorPalette.BrightPastel;
-            chart.BackSecondaryColor = Color.White;
+            chart.BackSecondaryColor = Color.FromArgb(0xCC, 0xCC, 0xCC);
             chart.BackGradientStyle = GradientStyle.TopBottom;
             chart.BorderWidth = 2;
-            chart.Width = 444;
-            chart.Height = 618;
+            chart.Width = 800;
+            chart.Height = 400;
             chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
 
             Title title = new Title();
             title.Alignment = ContentAlignment.TopCenter;
-            title.Font = new Font("Arial", 12f, FontStyle.Underline);
+            title.Font = new Font("Arial", 18f, FontStyle.Underline);
             title.ForeColor = Color.DarkBlue;
             title.Text = titleStr;
             chart.Titles.Add(title);

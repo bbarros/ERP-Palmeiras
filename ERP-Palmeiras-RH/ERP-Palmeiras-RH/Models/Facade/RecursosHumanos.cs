@@ -17,6 +17,8 @@ namespace ERP_Palmeiras_RH.Models.Facade
     {
         private static volatile RecursosHumanos instance;
         private ModelRH model;
+        private Financeiro.MedSoftSoapClient finClient;
+        private Operacional.ControleUsuariosSoapClient opClient;
 
         private RecursosHumanos() { }
 
@@ -27,6 +29,8 @@ namespace ERP_Palmeiras_RH.Models.Facade
             {
                 instance = new RecursosHumanos();
                 instance.model = new ModelRH();
+                instance.finClient = new Financeiro.MedSoftSoapClient();
+                instance.opClient = new Operacional.ControleUsuariosSoapClient();
             }
 
             return instance;

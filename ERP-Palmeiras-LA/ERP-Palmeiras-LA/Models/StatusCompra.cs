@@ -8,7 +8,9 @@ namespace ERP_Palmeiras_LA.Models
     public enum StatusCompra
     {
         ENTREGUE,
-        COMPRA_SOLICITADA
+        COMPRA_SOLICITADA,
+        ERRO_ORDEM_COMPRA,
+        COMPRA_CONCLUIDA
     }
 
     public partial class StatusCompraWrapper

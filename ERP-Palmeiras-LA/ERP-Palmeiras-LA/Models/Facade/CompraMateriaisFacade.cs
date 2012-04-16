@@ -22,7 +22,24 @@ namespace ERP_Palmeiras_LA.Models.Facade
             s.CompraMaterial = c;
             model.TblCompraMaterial.Add(c);
             model.SaveChanges();
-            // TODO: Criar requisicao no Financeiro!
+
+            SolicitarCompra(c);
+        }
+
+        public void SolicitarCompra(CompraMaterial c)
+        {
+            model.TblCompraMaterial.Attach(c);
+            // TODO: UTILIZAR NOVOS METODOS DE FINANCEIRO
+            //bool compraExternaSuccess = finClient.comprarEquipamento(
+            //    c.SolicitacaoCompraEquipamento.Equipamento.Nome,
+            //    c.SolicitacaoCompraEquipamento.Equipamento.Descricao,
+            //    c.SolicitacaoCompraEquipamento.Equipamento.NumeroSerie,
+            //    DateTime.Now, // quero comprar AGORA né?
+            //    c.SolicitacaoCompraEquipamento.Preco);
+            //if (!compraExternaSuccess)
+            //{
+            //    c.Status = StatusCompra.COMPRA_RECUSADA;
+            //}
         }
 
         public void AlterarCompraMaterial(CompraMaterial c)

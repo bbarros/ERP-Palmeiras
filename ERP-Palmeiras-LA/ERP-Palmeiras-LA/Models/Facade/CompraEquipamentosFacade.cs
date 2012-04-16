@@ -22,7 +22,23 @@ namespace ERP_Palmeiras_LA.Models.Facade
             s.CompraEquipamento = c;
             model.TblCompraEquipamento.Add(c);
             model.SaveChanges();
-            // TODO: Criar requisicao no Financeiro!
+            SolicitarCompra(c);
+        }
+
+        public void SolicitarCompra(CompraEquipamento c)
+        {
+            model.TblCompraEquipamento.Attach(c);
+            // TODO: UTILIZAR NOVOS METODOS DE FINANCEIRO
+            //bool compraExternaSuccess = finClient.comprarEquipamento(
+            //    c.SolicitacaoCompraEquipamento.Equipamento.Nome,
+            //    c.SolicitacaoCompraEquipamento.Equipamento.Descricao,
+            //    c.SolicitacaoCompraEquipamento.Equipamento.NumeroSerie,
+            //    DateTime.Now, // quero comprar AGORA né?
+            //    c.SolicitacaoCompraEquipamento.Preco);
+            //if (!compraExternaSuccess)
+            //{
+            //    c.Status = StatusCompra.COMPRA_RECUSADA;
+            //}
         }
 
         public void AlterarCompraEquipamento(CompraEquipamento c)
@@ -44,7 +60,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public IEnumerable<CompraEquipamento> BuscarComprasEquipamento(StatusCompra status)
         {
-            return model.TblCompraEquipamento.Where<CompraEquipamento>(c => c.Status.Value == (int) status);
+            return model.TblCompraEquipamento.Where<CompraEquipamento>(c => c.Status.Value == (int)status);
         }
     }
 }

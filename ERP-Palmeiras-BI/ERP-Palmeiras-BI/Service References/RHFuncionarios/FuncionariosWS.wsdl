@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="BuscarEspecialidades">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscarEspecialidadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarEspecialidadesResult" type="tns:ArrayOfEspecialidadeDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEspecialidadeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EspecialidadeDTO" nillable="true" type="tns:EspecialidadeDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EspecialidadeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarMedicos">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscarMedicosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarMedicosResult" type="tns:ArrayOfMedicoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMedicoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MedicoDTO" nillable="true" type="tns:MedicoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedicoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:FuncionarioDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Crm" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Especialidade" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FuncionarioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sobrenome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cpf" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMedico" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cargo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarMedico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cpf" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarMedicoResult" type="tns:MedicoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarFuncionario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarFuncionarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarFuncionarioResult" type="tns:FuncionarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarEspecialidadesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarEspecialidades" />
+  </wsdl:message>
+  <wsdl:message name="BuscarEspecialidadesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarEspecialidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicosSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarMedicos" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicosSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarMedicosResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarMedico" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarFuncionarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="BuscarFuncionarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FuncionariosWSSoap">
+    <wsdl:operation name="BuscarEspecialidades">
+      <wsdl:input message="tns:BuscarEspecialidadesSoapIn" />
+      <wsdl:output message="tns:BuscarEspecialidadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicos">
+      <wsdl:input message="tns:BuscarMedicosSoapIn" />
+      <wsdl:output message="tns:BuscarMedicosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedico">
+      <wsdl:input message="tns:BuscarMedicoSoapIn" />
+      <wsdl:output message="tns:BuscarMedicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFuncionario">
+      <wsdl:input message="tns:BuscarFuncionarioSoapIn" />
+      <wsdl:output message="tns:BuscarFuncionarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FuncionariosWSSoap" type="tns:FuncionariosWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarEspecialidades">
+      <soap:operation soapAction="http://tempuri.org/BuscarEspecialidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicos">
+      <soap:operation soapAction="http://tempuri.org/BuscarMedicos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedico">
+      <soap:operation soapAction="http://tempuri.org/BuscarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFuncionario">
+      <soap:operation soapAction="http://tempuri.org/BuscarFuncionario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FuncionariosWSSoap12" type="tns:FuncionariosWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarEspecialidades">
+      <soap12:operation soapAction="http://tempuri.org/BuscarEspecialidades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicos">
+      <soap12:operation soapAction="http://tempuri.org/BuscarMedicos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedico">
+      <soap12:operation soapAction="http://tempuri.org/BuscarMedico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFuncionario">
+      <soap12:operation soapAction="http://tempuri.org/BuscarFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FuncionariosWS">
+    <wsdl:port name="FuncionariosWSSoap" binding="tns:FuncionariosWSSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:9092/rh/WebServices/FuncionariosWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FuncionariosWSSoap12" binding="tns:FuncionariosWSSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:9092/rh/WebServices/FuncionariosWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

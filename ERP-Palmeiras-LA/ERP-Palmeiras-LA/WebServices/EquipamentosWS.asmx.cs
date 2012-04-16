@@ -22,14 +22,23 @@ namespace ERP_Palmeiras_LA.WebServices
         LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
 
         [WebMethod]
-        public void ReportarEquipamentoDefeituoso(int equipamentoId)
+        public bool ReportarEquipamentoDefeituoso(int equipamentoId)
         {
             EquipamentoClinica ec = facade.BuscarEquipamentoClinica(equipamentoId);
             if(ec.Status == StatusEquipamento.FUNCIONANDO)
             {
                 ec.Status = StatusEquipamento.QUEBRADO;
-                facade.AlterarEquipamentoClinica(ec);
+                try
+                {
+                    facade.AlterarEquipamentoClinica(ec);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
+            return true;
         }
 
         [WebMethod]

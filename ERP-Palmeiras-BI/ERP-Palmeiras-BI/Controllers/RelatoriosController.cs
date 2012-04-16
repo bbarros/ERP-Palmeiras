@@ -27,15 +27,16 @@ namespace ERP_Palmeiras_BI.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Cadastrar(String titulo, TipoRelatorio tipo, DateTime dataInicio, DateTime dataFim)
         {
             if (!String.IsNullOrEmpty(titulo))
             {
                 GerenciadorDeSessao sessao = GerenciadorDeSessao.GetInstance();
                 String fileName = "RLT" + DateTime.Now.Ticks.ToString() + ".png";
-                String imgUrl = Url.Content("@/Graphics/" + fileName);
-                facade.CriarRelatorio(tipo, dataInicio, dataFim, titulo, sessao.Usuario, imgUrl, fileName);
-                return RedirectToAction("Index");
+                String imgUrl = Url.Content(BusinessIntelligence.GRAPHICS_PATH + fileName);
+                Relatorio r = facade.CriarRelatorio(tipo, dataInicio, dataFim, titulo, sessao.Usuario, imgUrl, fileName);
+                return RedirectToAction("Visualizar", new { id = r.Id });
             }
             else
                 throw new ERPException("Título inválido.");
@@ -43,8 +44,14 @@ namespace ERP_Palmeiras_BI.Controllers
 
         public ActionResult Editar(int id)
         {
-            Usuario u = facade.BuscarUsuario(id);
-            return View(u);
+            Relatorio r = facade.BuscarRelatorio(id);
+            return View(r);
+        }
+
+        public ActionResult Visualizar(int id)
+        {
+            Relatorio r = facade.BuscarRelatorio(id);
+            return View(r);
         }
 
         [HttpPost]
@@ -54,7 +61,7 @@ namespace ERP_Palmeiras_BI.Controllers
             {
                 GerenciadorDeSessao sessao = GerenciadorDeSessao.GetInstance();
                 String fileName = "RLT" + DateTime.Now.Ticks.ToString() + ".png";
-                String imgUrl = Url.Content("@/Graphics/" + fileName);
+                String imgUrl = Url.Content(BusinessIntelligence.GRAPHICS_PATH + fileName);
                 facade.AlterarRelatorio(id, tipo, dataInicio, dataFim, titulo, sessao.Usuario, imgUrl, fileName);
                 return RedirectToAction("Index");
             }

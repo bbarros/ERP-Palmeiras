@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://labsoft.pcs.usp.br:9093/WebServices/ControleUsuarios.asmx?wsdl" docRef="http://labsoft.pcs.usp.br:9093/WebServices/ControleUsuarios.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://labsoft.pcs.usp.br:9093/WebServices/ControleUsuarios.asmx" xmlns:q1="http://tempuri.org/" binding="q1:ControleUsuariosSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://labsoft.pcs.usp.br:9093/WebServices/ControleUsuarios.asmx" xmlns:q2="http://tempuri.org/" binding="q2:ControleUsuariosSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

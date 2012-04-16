@@ -36,11 +36,13 @@ namespace ERP_Palmeiras_BI.Models.Facade
             if (result != null && result.Count<Usuario>() > 0)
             {
                 Usuario user = result.First<Usuario>();
+                String loginAntigo = user.Login;
                 user.Login = login;
                 user.Senha = senha;
                 model.Entry(user).State = EntityState.Modified;
                 model.SaveChanges();
-                // TODO: Chamar WS do RH
+                rhClient.AlterarUsuario(user.Login, loginAntigo, user.Senha);
+                opClient.AlterarUsuario(user.Login, loginAntigo, user.Senha);
             }
             else
                 throw new ERPException("Usuário " + login + " não encontrado.");
@@ -50,7 +52,8 @@ namespace ERP_Palmeiras_BI.Models.Facade
         {
             model.TblUsuarios.Add(user);
             model.SaveChanges();
-            // TODO: Chamar WS do RH
+            rhClient.InserirUsuario(user.Login, user.Senha);
+            opClient.InserirUsuario(user.Login, user.Senha, 0);
         }
 
         public IEnumerable<Usuario> BuscarUsuarios()
