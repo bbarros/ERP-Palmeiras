@@ -55,6 +55,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
             if (requestOtherModules)
             {
                 rhClient.InserirUsuario(user.Login, user.Senha);
+                laClient.InserirUsuario(user.Login, user.Senha);
                 opClient.InserirUsuario(user.Login, user.Senha, 0);
             }
         }

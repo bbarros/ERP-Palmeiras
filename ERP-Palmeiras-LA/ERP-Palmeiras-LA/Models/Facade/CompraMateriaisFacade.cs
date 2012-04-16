@@ -29,13 +29,11 @@ namespace ERP_Palmeiras_LA.Models.Facade
         public void SolicitarCompra(CompraMaterial c)
         {
             model.TblCompraMaterial.Attach(c);
-            bool compraExternaSuccess = finClient.comprarEquipamento(
-                c.SolicitacaoCompraMaterial.Material.Nome,
+            bool compraExternaSuccess = finClient.comprarMaterial(
+                DateTime.Now,
+                c.SolicitacaoCompraMaterial.PrecoUnitario * c.SolicitacaoCompraMaterial.Quantidade,
                 c.SolicitacaoCompraMaterial.Quantidade + "x " +
                 c.SolicitacaoCompraMaterial.Material.Descricao,
-                c.SolicitacaoCompraMaterial.Material.Codigo,
-                DateTime.Now, // quero comprar AGORA né?
-                c.SolicitacaoCompraMaterial.PrecoUnitario * c.SolicitacaoCompraMaterial.Quantidade,
                 c.SolicitacaoCompraMaterial.Material.Fabricante.Banco.ToString(),
                 c.SolicitacaoCompraMaterial.Material.Fabricante.Agencia,
                 c.SolicitacaoCompraMaterial.Material.Fabricante.ContaCorrente,

@@ -33,6 +33,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             {
                 opClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha, 0);
                 biClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha);
+                laClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha);
             }
         }
 
@@ -45,6 +46,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             model.SaveChanges();
             opClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
             biClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
+            laClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
         }
 
         public IEnumerable<Funcionario> BuscarFuncionarios()
