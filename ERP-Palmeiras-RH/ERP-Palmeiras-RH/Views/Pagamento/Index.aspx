@@ -24,27 +24,27 @@
             <td><%= pagamento.Salario %></td>
             <td><%= dataOrdem.Month.ToString() +"/"+ dataOrdem.Year.ToString() %></td>
             <td>
-            <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_OK)
+            <% if (pagamento.Status == ERP_Palmeiras_RH.Models.Facade.RecursosHumanos.PAGAMENTO_OK)
                { %>
                 <img alt="confirmado" src="<%= Url.Content("~/Content/images/status_ok.png") %>" title="Efetuado" />
             <% }
-               else if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_PENDENTE)
+               else if (pagamento.Status == ERP_Palmeiras_RH.Models.Facade.RecursosHumanos.PAGAMENTO_PENDENTE)
                {%>
                 <img alt="pendente" src="<%= Url.Content("~/Content/images/status_forbidden.png") %>" title="Pendente" />
             <% }
-               else if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_EM_AVALIACAO)
+               else if (pagamento.Status == ERP_Palmeiras_RH.Models.Facade.RecursosHumanos.PAGAMENTO_EM_AVALIACAO)
                {%>
                 <img alt="em análise" src="<%= Url.Content("~/Content/images/status_help.png") %>" title="Em Análise" />
             <% } %>
             </td>
             <td>
-            <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_PENDENTE)
+            <% if (pagamento.Status == ERP_Palmeiras_RH.Models.Facade.RecursosHumanos.PAGAMENTO_PENDENTE)
                { %>
                 <a href="javascript: confirmarPagamento(<%= pagamento.Id %>)" ><img alt="Pagar" src="<%= Url.Content("~/Content/images/pay_check.png") %>" title="Pagar" /></a>
             <% } %>
             </td>
             <td>
-            <% if (pagamento.Status == ERP_Palmeiras_RH.Controllers.PagamentoController.PAGAMENTO_OK)
+            <% if (pagamento.Status == ERP_Palmeiras_RH.Models.Facade.RecursosHumanos.PAGAMENTO_OK)
                { %>
                 <a href="javascript:holerite(<%= pagamento.Id %>)"><img src="<%: Url.Content("~/Content/images/print_ico.gif") %>" alt="imprimir" /></a>
             <% } %>

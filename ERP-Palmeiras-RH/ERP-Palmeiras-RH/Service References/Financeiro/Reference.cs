@@ -15,97 +15,6 @@ namespace ERP_Palmeiras_RH.Financeiro {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PagamentosPendentes", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class PagamentosPendentes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.DateTime dataPrevistaField;
-        
-        private double valorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string agenciaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string contaCorrenteField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.DateTime dataPrevista {
-            get {
-                return this.dataPrevistaField;
-            }
-            set {
-                if ((this.dataPrevistaField.Equals(value) != true)) {
-                    this.dataPrevistaField = value;
-                    this.RaisePropertyChanged("dataPrevista");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public double valor {
-            get {
-                return this.valorField;
-            }
-            set {
-                if ((this.valorField.Equals(value) != true)) {
-                    this.valorField = value;
-                    this.RaisePropertyChanged("valor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string agencia {
-            get {
-                return this.agenciaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.agenciaField, value) != true)) {
-                    this.agenciaField = value;
-                    this.RaisePropertyChanged("agencia");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string contaCorrente {
-            get {
-                return this.contaCorrenteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.contaCorrenteField, value) != true)) {
-                    this.contaCorrenteField = value;
-                    this.RaisePropertyChanged("contaCorrente");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
     [System.SerializableAttribute()]
     public class ArrayOfString : System.Collections.Generic.List<string> {
@@ -115,13 +24,9 @@ namespace ERP_Palmeiras_RH.Financeiro {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Financeiro.MedSoftSoap")]
     public interface MedSoftSoap {
         
-        // CODEGEN: Generating message contract since element name agencia from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name banco from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/pagarFunc", ReplyAction="*")]
         ERP_Palmeiras_RH.Financeiro.pagarFuncResponse pagarFunc(ERP_Palmeiras_RH.Financeiro.pagarFuncRequest request);
-        
-        // CODEGEN: Generating message contract since element name consultarPagamentosPendentesResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/consultarPagamentosPendentes", ReplyAction="*")]
-        ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesResponse consultarPagamentosPendentes(ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequest request);
         
         // CODEGEN: Generating message contract since element name nomesExames from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/receberServico", ReplyAction="*")]
@@ -130,6 +35,14 @@ namespace ERP_Palmeiras_RH.Financeiro {
         // CODEGEN: Generating message contract since element name nome from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/comprarEquipamento", ReplyAction="*")]
         ERP_Palmeiras_RH.Financeiro.comprarEquipamentoResponse comprarEquipamento(ERP_Palmeiras_RH.Financeiro.comprarEquipamentoRequest request);
+        
+        // CODEGEN: Generating message contract since element name descricao from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/comprarMaterial", ReplyAction="*")]
+        ERP_Palmeiras_RH.Financeiro.comprarMaterialResponse comprarMaterial(ERP_Palmeiras_RH.Financeiro.comprarMaterialRequest request);
+        
+        // CODEGEN: Generating message contract since element name descricao from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/contaAPagar", ReplyAction="*")]
+        ERP_Palmeiras_RH.Financeiro.contaAPagarResponse contaAPagar(ERP_Palmeiras_RH.Financeiro.contaAPagarRequest request);
         
         // CODEGEN: Generating message contract since element name nome from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/cadastraEspecialidade", ReplyAction="*")]
@@ -166,19 +79,27 @@ namespace ERP_Palmeiras_RH.Financeiro {
         public double valor;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string agencia;
+        public string banco;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string agencia;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public string contaCorrente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int idSolicitacao;
         
         public pagarFuncRequestBody() {
         }
         
-        public pagarFuncRequestBody(System.DateTime dataPrevista, double valor, string agencia, string contaCorrente) {
+        public pagarFuncRequestBody(System.DateTime dataPrevista, double valor, string banco, string agencia, string contaCorrente, int idSolicitacao) {
             this.dataPrevista = dataPrevista;
             this.valor = valor;
+            this.banco = banco;
             this.agencia = agencia;
             this.contaCorrente = contaCorrente;
+            this.idSolicitacao = idSolicitacao;
         }
     }
     
@@ -213,67 +134,6 @@ namespace ERP_Palmeiras_RH.Financeiro {
         
         public pagarFuncResponseBody(bool pagarFuncResult) {
             this.pagarFuncResult = pagarFuncResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class consultarPagamentosPendentesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="consultarPagamentosPendentes", Namespace="http://tempuri.org/", Order=0)]
-        public ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequestBody Body;
-        
-        public consultarPagamentosPendentesRequest() {
-        }
-        
-        public consultarPagamentosPendentesRequest(ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class consultarPagamentosPendentesRequestBody {
-        
-        public consultarPagamentosPendentesRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class consultarPagamentosPendentesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="consultarPagamentosPendentesResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesResponseBody Body;
-        
-        public consultarPagamentosPendentesResponse() {
-        }
-        
-        public consultarPagamentosPendentesResponse(ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class consultarPagamentosPendentesResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ERP_Palmeiras_RH.Financeiro.PagamentosPendentes[] consultarPagamentosPendentesResult;
-        
-        public consultarPagamentosPendentesResponseBody() {
-        }
-        
-        public consultarPagamentosPendentesResponseBody(ERP_Palmeiras_RH.Financeiro.PagamentosPendentes[] consultarPagamentosPendentesResult) {
-            this.consultarPagamentosPendentesResult = consultarPagamentosPendentesResult;
         }
     }
     
@@ -398,20 +258,36 @@ namespace ERP_Palmeiras_RH.Financeiro {
         public string nserie;
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public System.DateTime data;
+        public System.DateTime dataPrevista;
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public double valor;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string banco;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string agencia;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string contaCorrente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public int idSolicitacao;
+        
         public comprarEquipamentoRequestBody() {
         }
         
-        public comprarEquipamentoRequestBody(string nome, string descricao, string nserie, System.DateTime data, double valor) {
+        public comprarEquipamentoRequestBody(string nome, string descricao, string nserie, System.DateTime dataPrevista, double valor, string banco, string agencia, string contaCorrente, int idSolicitacao) {
             this.nome = nome;
             this.descricao = descricao;
             this.nserie = nserie;
-            this.data = data;
+            this.dataPrevista = dataPrevista;
             this.valor = valor;
+            this.banco = banco;
+            this.agencia = agencia;
+            this.contaCorrente = contaCorrente;
+            this.idSolicitacao = idSolicitacao;
         }
     }
     
@@ -446,6 +322,190 @@ namespace ERP_Palmeiras_RH.Financeiro {
         
         public comprarEquipamentoResponseBody(bool comprarEquipamentoResult) {
             this.comprarEquipamentoResult = comprarEquipamentoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class comprarMaterialRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="comprarMaterial", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_RH.Financeiro.comprarMaterialRequestBody Body;
+        
+        public comprarMaterialRequest() {
+        }
+        
+        public comprarMaterialRequest(ERP_Palmeiras_RH.Financeiro.comprarMaterialRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class comprarMaterialRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.DateTime dataPrevista;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public double valor;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string descricao;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string banco;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string agencia;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string contaCorrente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public int idSolicitacao;
+        
+        public comprarMaterialRequestBody() {
+        }
+        
+        public comprarMaterialRequestBody(System.DateTime dataPrevista, double valor, string descricao, string banco, string agencia, string contaCorrente, int idSolicitacao) {
+            this.dataPrevista = dataPrevista;
+            this.valor = valor;
+            this.descricao = descricao;
+            this.banco = banco;
+            this.agencia = agencia;
+            this.contaCorrente = contaCorrente;
+            this.idSolicitacao = idSolicitacao;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class comprarMaterialResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="comprarMaterialResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_RH.Financeiro.comprarMaterialResponseBody Body;
+        
+        public comprarMaterialResponse() {
+        }
+        
+        public comprarMaterialResponse(ERP_Palmeiras_RH.Financeiro.comprarMaterialResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class comprarMaterialResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool comprarMaterialResult;
+        
+        public comprarMaterialResponseBody() {
+        }
+        
+        public comprarMaterialResponseBody(bool comprarMaterialResult) {
+            this.comprarMaterialResult = comprarMaterialResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class contaAPagarRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="contaAPagar", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_RH.Financeiro.contaAPagarRequestBody Body;
+        
+        public contaAPagarRequest() {
+        }
+        
+        public contaAPagarRequest(ERP_Palmeiras_RH.Financeiro.contaAPagarRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class contaAPagarRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.DateTime dataPrevista;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public double valor;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string descricao;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string banco;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string agencia;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string contaCorrente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public int idSolicitacao;
+        
+        public contaAPagarRequestBody() {
+        }
+        
+        public contaAPagarRequestBody(System.DateTime dataPrevista, double valor, string descricao, string banco, string agencia, string contaCorrente, int idSolicitacao) {
+            this.dataPrevista = dataPrevista;
+            this.valor = valor;
+            this.descricao = descricao;
+            this.banco = banco;
+            this.agencia = agencia;
+            this.contaCorrente = contaCorrente;
+            this.idSolicitacao = idSolicitacao;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class contaAPagarResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="contaAPagarResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_RH.Financeiro.contaAPagarResponseBody Body;
+        
+        public contaAPagarResponse() {
+        }
+        
+        public contaAPagarResponse(ERP_Palmeiras_RH.Financeiro.contaAPagarResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class contaAPagarResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool contaAPagarResult;
+        
+        public contaAPagarResponseBody() {
+        }
+        
+        public contaAPagarResponseBody(bool contaAPagarResult) {
+            this.contaAPagarResult = contaAPagarResult;
         }
     }
     
@@ -542,27 +602,17 @@ namespace ERP_Palmeiras_RH.Financeiro {
             return base.Channel.pagarFunc(request);
         }
         
-        public bool pagarFunc(System.DateTime dataPrevista, double valor, string agencia, string contaCorrente) {
+        public bool pagarFunc(System.DateTime dataPrevista, double valor, string banco, string agencia, string contaCorrente, int idSolicitacao) {
             ERP_Palmeiras_RH.Financeiro.pagarFuncRequest inValue = new ERP_Palmeiras_RH.Financeiro.pagarFuncRequest();
             inValue.Body = new ERP_Palmeiras_RH.Financeiro.pagarFuncRequestBody();
             inValue.Body.dataPrevista = dataPrevista;
             inValue.Body.valor = valor;
+            inValue.Body.banco = banco;
             inValue.Body.agencia = agencia;
             inValue.Body.contaCorrente = contaCorrente;
+            inValue.Body.idSolicitacao = idSolicitacao;
             ERP_Palmeiras_RH.Financeiro.pagarFuncResponse retVal = ((ERP_Palmeiras_RH.Financeiro.MedSoftSoap)(this)).pagarFunc(inValue);
             return retVal.Body.pagarFuncResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesResponse ERP_Palmeiras_RH.Financeiro.MedSoftSoap.consultarPagamentosPendentes(ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequest request) {
-            return base.Channel.consultarPagamentosPendentes(request);
-        }
-        
-        public ERP_Palmeiras_RH.Financeiro.PagamentosPendentes[] consultarPagamentosPendentes() {
-            ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequest inValue = new ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequest();
-            inValue.Body = new ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesRequestBody();
-            ERP_Palmeiras_RH.Financeiro.consultarPagamentosPendentesResponse retVal = ((ERP_Palmeiras_RH.Financeiro.MedSoftSoap)(this)).consultarPagamentosPendentes(inValue);
-            return retVal.Body.consultarPagamentosPendentesResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -588,16 +638,58 @@ namespace ERP_Palmeiras_RH.Financeiro {
             return base.Channel.comprarEquipamento(request);
         }
         
-        public bool comprarEquipamento(string nome, string descricao, string nserie, System.DateTime data, double valor) {
+        public bool comprarEquipamento(string nome, string descricao, string nserie, System.DateTime dataPrevista, double valor, string banco, string agencia, string contaCorrente, int idSolicitacao) {
             ERP_Palmeiras_RH.Financeiro.comprarEquipamentoRequest inValue = new ERP_Palmeiras_RH.Financeiro.comprarEquipamentoRequest();
             inValue.Body = new ERP_Palmeiras_RH.Financeiro.comprarEquipamentoRequestBody();
             inValue.Body.nome = nome;
             inValue.Body.descricao = descricao;
             inValue.Body.nserie = nserie;
-            inValue.Body.data = data;
+            inValue.Body.dataPrevista = dataPrevista;
             inValue.Body.valor = valor;
+            inValue.Body.banco = banco;
+            inValue.Body.agencia = agencia;
+            inValue.Body.contaCorrente = contaCorrente;
+            inValue.Body.idSolicitacao = idSolicitacao;
             ERP_Palmeiras_RH.Financeiro.comprarEquipamentoResponse retVal = ((ERP_Palmeiras_RH.Financeiro.MedSoftSoap)(this)).comprarEquipamento(inValue);
             return retVal.Body.comprarEquipamentoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERP_Palmeiras_RH.Financeiro.comprarMaterialResponse ERP_Palmeiras_RH.Financeiro.MedSoftSoap.comprarMaterial(ERP_Palmeiras_RH.Financeiro.comprarMaterialRequest request) {
+            return base.Channel.comprarMaterial(request);
+        }
+        
+        public bool comprarMaterial(System.DateTime dataPrevista, double valor, string descricao, string banco, string agencia, string contaCorrente, int idSolicitacao) {
+            ERP_Palmeiras_RH.Financeiro.comprarMaterialRequest inValue = new ERP_Palmeiras_RH.Financeiro.comprarMaterialRequest();
+            inValue.Body = new ERP_Palmeiras_RH.Financeiro.comprarMaterialRequestBody();
+            inValue.Body.dataPrevista = dataPrevista;
+            inValue.Body.valor = valor;
+            inValue.Body.descricao = descricao;
+            inValue.Body.banco = banco;
+            inValue.Body.agencia = agencia;
+            inValue.Body.contaCorrente = contaCorrente;
+            inValue.Body.idSolicitacao = idSolicitacao;
+            ERP_Palmeiras_RH.Financeiro.comprarMaterialResponse retVal = ((ERP_Palmeiras_RH.Financeiro.MedSoftSoap)(this)).comprarMaterial(inValue);
+            return retVal.Body.comprarMaterialResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERP_Palmeiras_RH.Financeiro.contaAPagarResponse ERP_Palmeiras_RH.Financeiro.MedSoftSoap.contaAPagar(ERP_Palmeiras_RH.Financeiro.contaAPagarRequest request) {
+            return base.Channel.contaAPagar(request);
+        }
+        
+        public bool contaAPagar(System.DateTime dataPrevista, double valor, string descricao, string banco, string agencia, string contaCorrente, int idSolicitacao) {
+            ERP_Palmeiras_RH.Financeiro.contaAPagarRequest inValue = new ERP_Palmeiras_RH.Financeiro.contaAPagarRequest();
+            inValue.Body = new ERP_Palmeiras_RH.Financeiro.contaAPagarRequestBody();
+            inValue.Body.dataPrevista = dataPrevista;
+            inValue.Body.valor = valor;
+            inValue.Body.descricao = descricao;
+            inValue.Body.banco = banco;
+            inValue.Body.agencia = agencia;
+            inValue.Body.contaCorrente = contaCorrente;
+            inValue.Body.idSolicitacao = idSolicitacao;
+            ERP_Palmeiras_RH.Financeiro.contaAPagarResponse retVal = ((ERP_Palmeiras_RH.Financeiro.MedSoftSoap)(this)).contaAPagar(inValue);
+            return retVal.Body.contaAPagarResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

@@ -78,7 +78,7 @@ namespace ERP_Palmeiras_RH.Controllers
             {
                 // Acionar webservice do financeiro que solicita pagamento de salário
                 Financeiro.MedSoftSoapClient fs = new Financeiro.MedSoftSoapClient();
-                ack = true;// fs.pagarFunc(new DateTime(pagamento.DataPagamento), pagamento.Total, pagamento.Funcionario.DadosBancarios.Agencia, pagamento.Funcionario.DadosBancarios.ContaCorrente);
+                ack = fs.pagarFunc(new DateTime(pagamento.DataPagamento), pagamento.Total, pagamento.Funcionario.DadosBancarios.Banco.ToString(), pagamento.Funcionario.DadosBancarios.Agencia, pagamento.Funcionario.DadosBancarios.ContaCorrente, pagamento.Id);
             }
             catch
             {
