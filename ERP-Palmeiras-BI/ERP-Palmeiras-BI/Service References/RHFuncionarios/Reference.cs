@@ -233,9 +233,13 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BuscarMedicos", ReplyAction="*")]
         ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicosResponse BuscarMedicos(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicosRequest request);
         
-        // CODEGEN: Generating message contract since element name BuscarMedicoResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BuscarMedico", ReplyAction="*")]
-        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoResponse BuscarMedico(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequest request);
+        // CODEGEN: Generating message contract since element name BuscarMedicoPorCpfResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BuscarMedicoPorCpf", ReplyAction="*")]
+        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfResponse BuscarMedicoPorCpf(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequest request);
+        
+        // CODEGEN: Generating message contract since element name BuscarMedicoPorIdResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BuscarMedicoPorId", ReplyAction="*")]
+        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdResponse BuscarMedicoPorId(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequest request);
         
         // CODEGEN: Generating message contract since element name login from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BuscarFuncionario", ReplyAction="*")]
@@ -368,15 +372,15 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class BuscarMedicoRequest {
+    public partial class BuscarMedicoPorCpfRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedico", Namespace="http://tempuri.org/", Order=0)]
-        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedicoPorCpf", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequestBody Body;
         
-        public BuscarMedicoRequest() {
+        public BuscarMedicoPorCpfRequest() {
         }
         
-        public BuscarMedicoRequest(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequestBody Body) {
+        public BuscarMedicoPorCpfRequest(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -385,15 +389,15 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class BuscarMedicoRequestBody {
+    public partial class BuscarMedicoPorCpfRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public long cpf;
         
-        public BuscarMedicoRequestBody() {
+        public BuscarMedicoPorCpfRequestBody() {
         }
         
-        public BuscarMedicoRequestBody(long cpf) {
+        public BuscarMedicoPorCpfRequestBody(long cpf) {
             this.cpf = cpf;
         }
     }
@@ -402,15 +406,15 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class BuscarMedicoResponse {
+    public partial class BuscarMedicoPorCpfResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedicoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedicoPorCpfResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfResponseBody Body;
         
-        public BuscarMedicoResponse() {
+        public BuscarMedicoPorCpfResponse() {
         }
         
-        public BuscarMedicoResponse(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoResponseBody Body) {
+        public BuscarMedicoPorCpfResponse(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -419,16 +423,84 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class BuscarMedicoResponseBody {
+    public partial class BuscarMedicoPorCpfResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoResult;
+        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorCpfResult;
         
-        public BuscarMedicoResponseBody() {
+        public BuscarMedicoPorCpfResponseBody() {
         }
         
-        public BuscarMedicoResponseBody(ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoResult) {
-            this.BuscarMedicoResult = BuscarMedicoResult;
+        public BuscarMedicoPorCpfResponseBody(ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorCpfResult) {
+            this.BuscarMedicoPorCpfResult = BuscarMedicoPorCpfResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class BuscarMedicoPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedicoPorId", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequestBody Body;
+        
+        public BuscarMedicoPorIdRequest() {
+        }
+        
+        public BuscarMedicoPorIdRequest(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class BuscarMedicoPorIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int medicoId;
+        
+        public BuscarMedicoPorIdRequestBody() {
+        }
+        
+        public BuscarMedicoPorIdRequestBody(int medicoId) {
+            this.medicoId = medicoId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class BuscarMedicoPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarMedicoPorIdResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdResponseBody Body;
+        
+        public BuscarMedicoPorIdResponse() {
+        }
+        
+        public BuscarMedicoPorIdResponse(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class BuscarMedicoPorIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorIdResult;
+        
+        public BuscarMedicoPorIdResponseBody() {
+        }
+        
+        public BuscarMedicoPorIdResponseBody(ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorIdResult) {
+            this.BuscarMedicoPorIdResult = BuscarMedicoPorIdResult;
         }
     }
     
@@ -552,16 +624,29 @@ namespace ERP_Palmeiras_BI.RHFuncionarios {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoResponse ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap.BuscarMedico(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequest request) {
-            return base.Channel.BuscarMedico(request);
+        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfResponse ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap.BuscarMedicoPorCpf(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequest request) {
+            return base.Channel.BuscarMedicoPorCpf(request);
         }
         
-        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedico(long cpf) {
-            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequest inValue = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequest();
-            inValue.Body = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoRequestBody();
+        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorCpf(long cpf) {
+            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequest inValue = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequest();
+            inValue.Body = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfRequestBody();
             inValue.Body.cpf = cpf;
-            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoResponse retVal = ((ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap)(this)).BuscarMedico(inValue);
-            return retVal.Body.BuscarMedicoResult;
+            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorCpfResponse retVal = ((ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap)(this)).BuscarMedicoPorCpf(inValue);
+            return retVal.Body.BuscarMedicoPorCpfResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdResponse ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap.BuscarMedicoPorId(ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequest request) {
+            return base.Channel.BuscarMedicoPorId(request);
+        }
+        
+        public ERP_Palmeiras_BI.RHFuncionarios.MedicoDTO BuscarMedicoPorId(int medicoId) {
+            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequest inValue = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequest();
+            inValue.Body = new ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdRequestBody();
+            inValue.Body.medicoId = medicoId;
+            ERP_Palmeiras_BI.RHFuncionarios.BuscarMedicoPorIdResponse retVal = ((ERP_Palmeiras_BI.RHFuncionarios.FuncionariosWSSoap)(this)).BuscarMedicoPorId(inValue);
+            return retVal.Body.BuscarMedicoPorIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

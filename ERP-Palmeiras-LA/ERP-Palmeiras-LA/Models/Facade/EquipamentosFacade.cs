@@ -60,6 +60,22 @@ namespace ERP_Palmeiras_LA.Models.Facade
         {
             model.TblSolicitacoesManutencao.Add(manu);
             model.SaveChanges();
+            bool success = finClient.contaAPagar(
+                new DateTime(manu.DataPrevista),
+                manu.Custo,
+                manu.Motivo,
+                manu.EquipamentoClinica.Equipamento.Fabricante.Banco.ToString(),
+                manu.EquipamentoClinica.Equipamento.Fabricante.Agencia,
+                manu.EquipamentoClinica.Equipamento.Fabricante.CNPJ,
+                manu.Id);
+            if (success)
+            {
+                manu.Status = StatusSolicitacaoManutencao.EM_PROGRESSO;
+            }
+            else
+            {
+                manu.Status = StatusSolicitacaoManutencao.PENDENTE;
+            }
         }
 
         public void AlterarManutencao(SolicitacaoManutencao manu)

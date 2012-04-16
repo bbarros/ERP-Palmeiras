@@ -43,6 +43,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
                 model.SaveChanges();
                 rhClient.AlterarUsuario(user.Login, loginAntigo, user.Senha);
                 opClient.AlterarUsuario(user.Login, loginAntigo, user.Senha);
+                biClient.AlterarUsuario(user.Login, loginAntigo, user.Senha);
             }
             else
                 throw new ERPException("Usuário " + login + " não encontrado.");
@@ -52,8 +53,12 @@ namespace ERP_Palmeiras_LA.Models.Facade
         {
             model.TblUsuarios.Add(user);
             model.SaveChanges();
-            rhClient.InserirUsuario(user.Login, user.Senha);
-            opClient.InserirUsuario(user.Login, user.Senha, 0);
+            if (requestOtherModules)
+            {
+                rhClient.InserirUsuario(user.Login, user.Senha);
+                opClient.InserirUsuario(user.Login, user.Senha, 0);
+                biClient.InserirUsuario(user.Login, user.Senha);
+            }
         }
 
         public IEnumerable<Usuario> BuscarUsuarios()

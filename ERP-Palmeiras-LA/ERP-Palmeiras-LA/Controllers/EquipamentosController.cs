@@ -135,7 +135,7 @@ namespace ERP_Palmeiras_LA.Controllers
 
             SolicitacaoManutencao solicitacao = facade.BuscarManutencao(id);
 
-            solicitacao.Custo = custo;
+            //solicitacao.Custo = custo;
             solicitacao.DataPrevista = dataprevista.Ticks;
             if (status == "CONCLUIDA")
                 solicitacao.Status = StatusSolicitacaoManutencao.CONCLUIDA;

@@ -31,6 +31,15 @@ namespace ERP_Palmeiras_LA.Controllers
             return View("Index");
         }
 
+        public ActionResult EmErro()
+        {
+            IEnumerable<CompraEquipamento> compras = facade.BuscarComprasEquipamento(StatusCompra.ERRO_ORDEM_COMPRA);
+            if (compras == null)
+                compras = new List<CompraEquipamento>();
+            ViewBag.compras = compras;
+            return View("Index");
+        }
+
         public ActionResult Entregas()
         {
             IEnumerable<CompraEquipamento> compras = facade.BuscarComprasEquipamento(StatusCompra.ENTREGUE);
@@ -69,6 +78,8 @@ namespace ERP_Palmeiras_LA.Controllers
         {
             CompraEquipamento ce = facade.BuscarCompraEquipamento(id);
             facade.SolicitarCompra(ce);
+            if (ce.Status == StatusCompra.ERRO_ORDEM_COMPRA)
+                return RedirectToAction("EmErro");
             return RedirectToAction("Solicitadas");
         }
     }

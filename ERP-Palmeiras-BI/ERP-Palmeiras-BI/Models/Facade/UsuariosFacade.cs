@@ -52,8 +52,11 @@ namespace ERP_Palmeiras_BI.Models.Facade
         {
             model.TblUsuarios.Add(user);
             model.SaveChanges();
-            rhClient.InserirUsuario(user.Login, user.Senha);
-            opClient.InserirUsuario(user.Login, user.Senha, 0);
+            if (requestOtherModules)
+            {
+                rhClient.InserirUsuario(user.Login, user.Senha);
+                opClient.InserirUsuario(user.Login, user.Senha, 0);
+            }
         }
 
         public IEnumerable<Usuario> BuscarUsuarios()

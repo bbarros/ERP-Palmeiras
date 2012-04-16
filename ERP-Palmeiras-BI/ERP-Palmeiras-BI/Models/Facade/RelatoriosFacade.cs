@@ -107,7 +107,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
             {
                 if (con.Finalizada)
                 {
-                    MedicoDTO mDto = funcClient.BuscarMedico(con.IDMedico);
+                    MedicoDTO mDto = funcClient.BuscarMedicoPorId(con.IDMedico);
                     if (points.ContainsKey(mDto.Especialidade))
                     {
                         points[mDto.Especialidade]++;

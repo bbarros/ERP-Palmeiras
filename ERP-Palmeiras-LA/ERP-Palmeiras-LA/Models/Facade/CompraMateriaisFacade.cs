@@ -29,17 +29,27 @@ namespace ERP_Palmeiras_LA.Models.Facade
         public void SolicitarCompra(CompraMaterial c)
         {
             model.TblCompraMaterial.Attach(c);
-            // TODO: UTILIZAR NOVOS METODOS DE FINANCEIRO
-            //bool compraExternaSuccess = finClient.comprarEquipamento(
-            //    c.SolicitacaoCompraEquipamento.Equipamento.Nome,
-            //    c.SolicitacaoCompraEquipamento.Equipamento.Descricao,
-            //    c.SolicitacaoCompraEquipamento.Equipamento.NumeroSerie,
-            //    DateTime.Now, // quero comprar AGORA né?
-            //    c.SolicitacaoCompraEquipamento.Preco);
-            //if (!compraExternaSuccess)
-            //{
-            //    c.Status = StatusCompra.COMPRA_RECUSADA;
-            //}
+            bool compraExternaSuccess = finClient.comprarEquipamento(
+                c.SolicitacaoCompraMaterial.Material.Nome,
+                c.SolicitacaoCompraMaterial.Quantidade + "x " +
+                c.SolicitacaoCompraMaterial.Material.Descricao,
+                c.SolicitacaoCompraMaterial.Material.Codigo,
+                DateTime.Now, // quero comprar AGORA né?
+                c.SolicitacaoCompraMaterial.PrecoUnitario * c.SolicitacaoCompraMaterial.Quantidade,
+                c.SolicitacaoCompraMaterial.Material.Fabricante.Banco.ToString(),
+                c.SolicitacaoCompraMaterial.Material.Fabricante.Agencia,
+                c.SolicitacaoCompraMaterial.Material.Fabricante.ContaCorrente,
+                c.Id);
+            if (!compraExternaSuccess)
+            {
+                c.Status = StatusCompra.ERRO_ORDEM_COMPRA;
+            }
+            else
+            {
+                c.Status = StatusCompra.COMPRA_SOLICITADA;
+            }
+            model.Entry(c).State = EntityState.Modified;
+            model.SaveChanges();
         }
 
         public void AlterarCompraMaterial(CompraMaterial c)

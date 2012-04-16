@@ -57,17 +57,31 @@
           <s:element minOccurs="0" maxOccurs="1" name="Cargo" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="BuscarMedico">
+      <s:element name="BuscarMedicoPorCpf">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="cpf" type="s:long" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="BuscarMedicoResponse">
+      <s:element name="BuscarMedicoPorCpfResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="BuscarMedicoResult" type="tns:MedicoDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarMedicoPorCpfResult" type="tns:MedicoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarMedicoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medicoId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarMedicoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarMedicoPorIdResult" type="tns:MedicoDTO" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -99,11 +113,17 @@
   <wsdl:message name="BuscarMedicosSoapOut">
     <wsdl:part name="parameters" element="tns:BuscarMedicosResponse" />
   </wsdl:message>
-  <wsdl:message name="BuscarMedicoSoapIn">
-    <wsdl:part name="parameters" element="tns:BuscarMedico" />
+  <wsdl:message name="BuscarMedicoPorCpfSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarMedicoPorCpf" />
   </wsdl:message>
-  <wsdl:message name="BuscarMedicoSoapOut">
-    <wsdl:part name="parameters" element="tns:BuscarMedicoResponse" />
+  <wsdl:message name="BuscarMedicoPorCpfSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarMedicoPorCpfResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarMedicoPorId" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMedicoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarMedicoPorIdResponse" />
   </wsdl:message>
   <wsdl:message name="BuscarFuncionarioSoapIn">
     <wsdl:part name="parameters" element="tns:BuscarFuncionario" />
@@ -120,9 +140,13 @@
       <wsdl:input message="tns:BuscarMedicosSoapIn" />
       <wsdl:output message="tns:BuscarMedicosSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="BuscarMedico">
-      <wsdl:input message="tns:BuscarMedicoSoapIn" />
-      <wsdl:output message="tns:BuscarMedicoSoapOut" />
+    <wsdl:operation name="BuscarMedicoPorCpf">
+      <wsdl:input message="tns:BuscarMedicoPorCpfSoapIn" />
+      <wsdl:output message="tns:BuscarMedicoPorCpfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicoPorId">
+      <wsdl:input message="tns:BuscarMedicoPorIdSoapIn" />
+      <wsdl:output message="tns:BuscarMedicoPorIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="BuscarFuncionario">
       <wsdl:input message="tns:BuscarFuncionarioSoapIn" />
@@ -149,8 +173,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="BuscarMedico">
-      <soap:operation soapAction="http://tempuri.org/BuscarMedico" style="document" />
+    <wsdl:operation name="BuscarMedicoPorCpf">
+      <soap:operation soapAction="http://tempuri.org/BuscarMedicoPorCpf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicoPorId">
+      <soap:operation soapAction="http://tempuri.org/BuscarMedicoPorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -188,8 +221,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="BuscarMedico">
-      <soap12:operation soapAction="http://tempuri.org/BuscarMedico" style="document" />
+    <wsdl:operation name="BuscarMedicoPorCpf">
+      <soap12:operation soapAction="http://tempuri.org/BuscarMedicoPorCpf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMedicoPorId">
+      <soap12:operation soapAction="http://tempuri.org/BuscarMedicoPorId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
