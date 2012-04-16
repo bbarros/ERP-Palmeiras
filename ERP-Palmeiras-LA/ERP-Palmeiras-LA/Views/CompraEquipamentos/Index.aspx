@@ -18,8 +18,8 @@
 						<th>ID</th>
                         <th>Data Prevista</th>
                         <th>Data Entrega</th>
-                        <th>Equipamento</th>
                         <th>Status</th>
+                        <th>Equipamento</th>
                         <th>Registrar Entrega</th>
                         <th>Refazer Pedido</th>
                         <th>Editar</th>
