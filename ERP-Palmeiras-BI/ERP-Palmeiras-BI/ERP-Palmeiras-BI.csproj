@@ -173,6 +173,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\LogisticaAbastecimento\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\Operacional\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,6 +259,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\InfoOperacional\InfoOperacional.wsdl" />
+    <None Include="Service References\LogisticaAbastecimento\UsuariosWS.wsdl" />
     <None Include="Service References\Operacional\ControleUsuarios.wsdl" />
     <None Include="Service References\Operacional\ERP_Palmeiras_BI.Operacional.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -292,6 +298,13 @@
     <None Include="Service References\RHFuncionarios\configuration91.svcinfo" />
     <None Include="Service References\RHFuncionarios\configuration.svcinfo" />
     <None Include="Service References\RHFuncionarios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LogisticaAbastecimento\UsuariosWS.disco" />
+    <None Include="Service References\LogisticaAbastecimento\configuration91.svcinfo" />
+    <None Include="Service References\LogisticaAbastecimento\configuration.svcinfo" />
+    <None Include="Service References\LogisticaAbastecimento\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -369,6 +382,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\InfoOperacional\" />
+    <WCFMetadataStorage Include="Service References\LogisticaAbastecimento\" />
     <WCFMetadataStorage Include="Service References\Operacional\" />
     <WCFMetadataStorage Include="Service References\RecursosHumanos\" />
     <WCFMetadataStorage Include="Service References\RHFuncionarios\" />

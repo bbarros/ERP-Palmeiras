@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InserirUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirUsuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginNovo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginAntigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senhaNova" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AlterarUsuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InserirUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="InserirUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AlterarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UsuariosWSSoap">
+    <wsdl:operation name="InserirUsuario">
+      <wsdl:input message="tns:InserirUsuarioSoapIn" />
+      <wsdl:output message="tns:InserirUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input message="tns:AlterarUsuarioSoapIn" />
+      <wsdl:output message="tns:AlterarUsuarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsuariosWSSoap" type="tns:UsuariosWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirUsuario">
+      <soap:operation soapAction="http://tempuri.org/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://tempuri.org/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UsuariosWSSoap12" type="tns:UsuariosWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirUsuario">
+      <soap12:operation soapAction="http://tempuri.org/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UsuariosWS">
+    <wsdl:port name="UsuariosWSSoap" binding="tns:UsuariosWSSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:9092/la/WebServices/UsuariosWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UsuariosWSSoap12" binding="tns:UsuariosWSSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:9092/la/WebServices/UsuariosWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

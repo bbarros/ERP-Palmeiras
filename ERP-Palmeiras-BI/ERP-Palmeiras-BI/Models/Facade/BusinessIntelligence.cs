@@ -18,6 +18,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
         private static volatile BusinessIntelligence instance;
         private ModelBIContainer model;
         private RecursosHumanos.UsuariosWSSoapClient rhClient;
+        private LogisticaAbastecimento.UsuariosWSSoapClient laClient;
         private RHFuncionarios.FuncionariosWSSoapClient funcClient;
         private Operacional.ControleUsuariosSoapClient opClient;
         private InfoOperacional.InfoOperacionalSoapClient infoOpClient;
@@ -32,6 +33,7 @@ namespace ERP_Palmeiras_BI.Models.Facade
                 instance = new BusinessIntelligence();
                 instance.model = new ModelBIContainer();
                 instance.rhClient = new RecursosHumanos.UsuariosWSSoapClient();
+                instance.laClient = new LogisticaAbastecimento.UsuariosWSSoapClient();
                 instance.opClient = new Operacional.ControleUsuariosSoapClient();
                 instance.infoOpClient = new InfoOperacional.InfoOperacionalSoapClient();
                 instance.funcClient = new RHFuncionarios.FuncionariosWSSoapClient();
