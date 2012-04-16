@@ -27,6 +27,7 @@ namespace ERP_Palmeiras_LA.WebServices
             {
                 CompraEquipamento ce = facade.BuscarCompraEquipamento(idCompra);
                 ce.Status = StatusCompra.COMPRA_CONCLUIDA;
+                ce.DataEntrega = DateTime.Now.Ticks;
                 facade.AlterarCompraEquipamento(ce);
                 return true;
             }
@@ -43,6 +44,7 @@ namespace ERP_Palmeiras_LA.WebServices
             {
                 CompraMaterial ce = facade.BuscarCompraMaterial(idCompra);
                 ce.Status = StatusCompra.COMPRA_CONCLUIDA;
+                ce.DataEntrega = DateTime.Now.Ticks;
                 facade.AlterarCompraMaterial(ce);
                 return true;
             }
