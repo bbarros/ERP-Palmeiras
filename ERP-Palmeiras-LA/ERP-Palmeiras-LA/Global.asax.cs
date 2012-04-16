@@ -8,7 +8,7 @@ using ERP_Palmeiras_LA.Models.Facade;
 using ERP_Palmeiras_LA.Models;
 using System.Threading;
 
-namespace ERP_Palmeiras_LA
+namespace ERP_Palmeiras_BI
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
