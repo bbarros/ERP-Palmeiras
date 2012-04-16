@@ -10,6 +10,7 @@ bin/
 obj/
 *.csproj.user
 *.suo
+*.Publish.xml
 
 # Packages #
 ############
