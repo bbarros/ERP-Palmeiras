@@ -87,6 +87,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="pagarManutencao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataPrevista" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contaCorrente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSolicitacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pagarManutencaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pagarManutencaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="contaAPagar">
         <s:complexType>
           <s:sequence>
@@ -143,6 +163,12 @@
   <wsdl:message name="comprarMaterialSoapOut">
     <wsdl:part name="parameters" element="tns:comprarMaterialResponse" />
   </wsdl:message>
+  <wsdl:message name="pagarManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:pagarManutencao" />
+  </wsdl:message>
+  <wsdl:message name="pagarManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:pagarManutencaoResponse" />
+  </wsdl:message>
   <wsdl:message name="contaAPagarSoapIn">
     <wsdl:part name="parameters" element="tns:contaAPagar" />
   </wsdl:message>
@@ -171,6 +197,10 @@
     <wsdl:operation name="comprarMaterial">
       <wsdl:input message="tns:comprarMaterialSoapIn" />
       <wsdl:output message="tns:comprarMaterialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <wsdl:input message="tns:pagarManutencaoSoapIn" />
+      <wsdl:output message="tns:pagarManutencaoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="contaAPagar">
       <wsdl:input message="tns:contaAPagarSoapIn" />
@@ -212,6 +242,15 @@
     </wsdl:operation>
     <wsdl:operation name="comprarMaterial">
       <soap:operation soapAction="http://tempuri.org/comprarMaterial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <soap:operation soapAction="http://tempuri.org/pagarManutencao" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -269,6 +308,15 @@
     </wsdl:operation>
     <wsdl:operation name="comprarMaterial">
       <soap12:operation soapAction="http://tempuri.org/comprarMaterial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <soap12:operation soapAction="http://tempuri.org/pagarManutencao" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
