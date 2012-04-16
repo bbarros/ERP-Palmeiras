@@ -65,13 +65,13 @@ namespace ERP_Palmeiras_LA.Models.Facade
 
         public void EnviarSolicitacaoManutencao(SolicitacaoManutencao manu)
         {
-            bool success = finClient.contaAPagar(
+            bool success = finClient.pagarManutencao(
                 new DateTime(manu.DataPrevista),
                 manu.Custo,
                 manu.Motivo,
                 manu.EquipamentoClinica.Equipamento.Fabricante.Banco.ToString(),
                 manu.EquipamentoClinica.Equipamento.Fabricante.Agencia,
-                manu.EquipamentoClinica.Equipamento.Fabricante.CNPJ,
+                manu.EquipamentoClinica.Equipamento.Fabricante.ContaCorrente,
                 manu.Id);
             if (success)
             {

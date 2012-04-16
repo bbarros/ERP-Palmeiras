@@ -34,7 +34,7 @@
                         <td><%= eq.Status.EnumValue %></td>
                         <% String data = new DateTime(eq.DataPrevista).ToString("dd/MM/yyyy"); %>
                         <td><%= data %></td>
-                        <td><a href="<%= Url.Action("RefazerPedido", "Equipamentos", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/warningIcon.png") %>" /></a></td>
+                        <td><a href="<%= Url.Action("RefazerPedido", "Equipamentos", new { id = eq.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/warningIcon.png") %>" /></a></td>
                         <td><a href="<%= Url.Action("EditarManutencao", "Equipamentos", new { id = eq.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>
