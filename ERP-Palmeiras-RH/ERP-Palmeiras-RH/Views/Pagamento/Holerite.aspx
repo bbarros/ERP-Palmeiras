@@ -53,10 +53,10 @@
             <div id="Div10" class="h-field" style="float: right; padding-right:120px;"><%= "R$ " + pagamento.Total.ToString() + ",00"%></div>
         </div>
 
-        <div style="clear:left; padding-top: 40px;">
+        <div style="clear:left; padding-top: 35px;">
             <div id="Div11" class="h-field" style="float: left; padding-left:20px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
-            <div id="Div12" class="h-field" style="float: left; padding-left:60px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
-            <div id="Div13" class="h-field" style="float: right; padding-right:400px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
+            <div id="Div12" class="h-field" style="float: left; padding-left:45px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
+            <div id="Div13" class="h-field" style="float: right; padding-right:380px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
         </div>
     </div>
 
@@ -104,10 +104,10 @@
             <div id="Div30" class="h-field" style="float: right; padding-right:120px;"><%= "R$ " + pagamento.Total.ToString() + ",00"%></div>
         </div>
 
-        <div style="clear:left; padding-top: 45px;">
+        <div style="clear:left; padding-top: 40px;">
             <div id="Div31" class="h-field" style="float: left; padding-left:20px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
-            <div id="Div32" class="h-field" style="float: left; padding-left:60px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
-            <div id="Div33" class="h-field" style="float: right; padding-right:400px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
+            <div id="Div32" class="h-field" style="float: left; padding-left:45px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
+            <div id="Div33" class="h-field" style="float: right; padding-right:380px;"><%= "R$ " + pagamento.Salario.ToString() + ",00"%></div>
         </div>
     </div>
 </div>
