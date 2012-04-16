@@ -14,6 +14,7 @@
             <ul class="accordionSubItem">
                 <li><a href="<%= Url.Action("Index", "Equipamentos") %>">Visualizar Equipamentos</a></li>
                 <li><a href="<%= Url.Action("Criar", "Equipamentos") %>">Cadastrar Equipamento</a></li> 
+                <li><a href="<%= Url.Action("IndexManutencao", "Equipamentos") %>">Visualizar Manutenções</a></li> 
                 <li><a href="<%= Url.Action("SolicitarManutencao", "Equipamentos") %>">Solicitar Manutenção</a></li>    
             </ul>
         </li>
