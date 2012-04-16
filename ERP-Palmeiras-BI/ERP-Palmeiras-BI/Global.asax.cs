@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ERP_Palmeiras_BI.Models.Facade;
+using ERP_Palmeiras_BI.Models;
 
 namespace ERP_Palmeiras_BI
 {
@@ -35,6 +37,16 @@ namespace ERP_Palmeiras_BI
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            BusinessIntelligence facade = BusinessIntelligence.GetInstance();
+            Usuario u = facade.BuscarUsuario("admin-bi");
+            if (u == null)
+            {
+                u = new Usuario();
+                u.Login = "admin-bi";
+                u.Senha = "admin";
+                facade.CriarUsuario(u, false);
+            }
         }
     }
 }

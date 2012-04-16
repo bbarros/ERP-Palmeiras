@@ -36,7 +36,7 @@ namespace ERP_Palmeiras_RH.WebServices
             try
             {
                 Funcionario f = CriarFuncionarioExterno(login, senha);
-                facade.InserirFuncionario(f);
+                facade.InserirFuncionario(f, false);
 
                 Pendencia p = new Pendencia();
                 p.Funcionario = f;

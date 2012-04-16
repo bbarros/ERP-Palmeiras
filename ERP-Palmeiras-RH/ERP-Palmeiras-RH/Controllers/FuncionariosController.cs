@@ -52,7 +52,7 @@ namespace ERP_Palmeiras_RH.Controllers
             Funcionario func = CriarFuncionarioOuMedico(nome, sobrenome, ramal, salario, 0.0f, sexo, nascimento, emailpes, rua, num, telefone, complemento, cep, bairro, cidade, estado, pais, cpf, rg, crm, formacao, flCurriculum, banco, agencia, conta, beneficios, status, carteira, dataadmissao, motivo, datademissao, especialidade, cargo, usuario, senha, permissao);
             func.CartaoPonto = new CartaoPonto();
 
-            facade.InserirFuncionario(func);
+            facade.InserirFuncionario(func, true);
 
             return View();
         }

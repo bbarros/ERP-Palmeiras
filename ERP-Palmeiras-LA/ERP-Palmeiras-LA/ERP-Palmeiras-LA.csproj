@@ -71,6 +71,7 @@
     <Compile Include="Controllers\SolicitacoesCompraEquipamentosController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\EquipamentosController.cs" />
+    <Compile Include="Controllers\TestesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\GerenciadorDeSessao.cs" />
     <Compile Include="Controllers\HandleERPException.cs" />

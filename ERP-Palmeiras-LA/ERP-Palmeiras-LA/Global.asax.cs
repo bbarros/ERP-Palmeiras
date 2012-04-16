@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ERP_Palmeiras_LA.Models.Facade;
+using ERP_Palmeiras_LA.Models;
 
 namespace ERP_Palmeiras_LA
 {
@@ -35,6 +37,16 @@ namespace ERP_Palmeiras_LA
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            LogisticaAbastecimento facade = LogisticaAbastecimento.GetInstance();
+            Usuario u = facade.BuscarUsuario("admin-la");
+            if (u == null)
+            {
+                u = new Usuario();
+                u.Login = "admin-la";
+                u.Senha = "admin";
+                facade.CriarUsuario(u, false);
+            }
         }
     }
 }

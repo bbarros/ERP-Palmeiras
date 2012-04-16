@@ -17,6 +17,11 @@ namespace ERP_Palmeiras_RH.Controllers
 
         public ActionResult CadastrarCenario()
         {
+            // verifica se o cenario ja foi criado..
+            IEnumerable<Permissao> pp1 = facade.BuscarPermissoes();
+            if(pp1 == null || pp1.Count<Permissao>() > 0)
+                return RedirectToAction("CadastrarMedico");
+
             Permissao p1 = new Permissao();
             p1.Nome = "Administrador";
             facade.InserirPermissao(p1);
@@ -58,7 +63,7 @@ namespace ERP_Palmeiras_RH.Controllers
 
         public ActionResult CadastrarMedico()
         {
-            facade.InserirFuncionario(CriarMedico());
+            facade.InserirFuncionario(CriarMedico(), true);
 
             return RedirectToAction("Index", "Funcionarios");
         }

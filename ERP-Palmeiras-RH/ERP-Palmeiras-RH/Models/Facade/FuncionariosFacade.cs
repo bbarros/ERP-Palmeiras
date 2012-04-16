@@ -11,9 +11,9 @@ namespace ERP_Palmeiras_RH.Models.Facade
     public partial class RecursosHumanos
     {
 
-        public void InserirFuncionario(Funcionario funcionario)
+        public void InserirFuncionario(Funcionario funcionario, bool requestOtherModules)
         {
-            IEnumerable<Funcionario> result = model.TblFuncionarios.Where(f => f.DadosPessoais.CPF == funcionario.DadosPessoais.CPF);
+            IEnumerable<Funcionario> result = model.TblFuncionarios.Where(f => f.DadosPessoais.CPF == funcionario.DadosPessoais.CPF || f.Credencial.Usuario == funcionario.Credencial.Usuario);
 
             if (result == null || result.Count<Funcionario>() == 0)
             {
