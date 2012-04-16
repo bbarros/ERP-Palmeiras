@@ -226,6 +226,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Equipamentos\EditarManutencao.aspx" />
+    <Content Include="Views\Equipamentos\IndexManutencao.aspx" />
     <Content Include="Views\Equipamentos\SolicitarManutencao.aspx" />
     <Content Include="Views\Materiais\Criar.aspx" />
     <Content Include="Views\Materiais\Editar.aspx" />

@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <% 
+        IEnumerable<ERP_Palmeiras_LA.Models.SolicitacaoManutencao> solicitacoes = (IEnumerable<ERP_Palmeiras_LA.Models.SolicitacaoManutencao>)ViewBag.solicitacoes;  
+    %>
 
 
     <script type="text/javascript">
@@ -30,14 +33,14 @@
         <p>Pendencia</p>
         <tr>
             <td>Usuário:</td>
-            <td style="padding-left: 50px;"><input id="usuario" name="usuario" type="text"/></td>
+            <td style="padding-left: 50px;"><input id="usuario" name="usuario" type="text" value="<%= (String)ViewBag.usuario %>" readonly disabled /></td>
             <td>Equipamento:</td>
             <th style="padding-left: 50px;">
             <select id="equipamentoId" name="equipamentoId" style=" width: 180px; overflow:hidden;">
-                <% foreach (ERP_Palmeiras_LA.Models.Equipamento e in ViewBag.equipamentos)
+                <% foreach (ERP_Palmeiras_LA.Models.EquipamentoClinica e in ViewBag.equipamentos)
                     { %>
                 <option value="<%= e.Id %>">
-                    <%= e.Nome %></option>
+                    <%= e.Id+"-"+e.Equipamento.Nome %></option>
                 <% } %>
             </select>
          </th>

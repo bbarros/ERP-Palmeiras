@@ -30,6 +30,16 @@ namespace ERP_Palmeiras_LA.Models.Facade
                 return null;
         }
 
+        public SolicitacaoManutencao BuscarManutencao(int id)
+        {
+            IEnumerable<SolicitacaoManutencao> result = model.TblSolicitacoesManutencao.Where(eq => eq.Id == id);
+            if (result != null && result.Count<SolicitacaoManutencao>() > 0)
+                return result.First<SolicitacaoManutencao>();
+            else
+                return null;
+        }
+
+
         public void AlterarEquipamento(Equipamento eq)
         {
             model.TblEquipamentos.Attach(eq);
@@ -49,9 +59,21 @@ namespace ERP_Palmeiras_LA.Models.Facade
             model.SaveChanges();
         }
 
+        public void AlterarManutencao(SolicitacaoManutencao manu)
+        {
+            model.TblSolicitacoesManutencao.Attach(manu);
+            model.Entry(manu).State = EntityState.Modified;
+            model.SaveChanges();
+        }
+
         public IEnumerable<Equipamento> BuscarEquipamentos()
         {
             return model.TblEquipamentos.Where<Equipamento>(eq => true);
+        }
+
+        public IEnumerable<SolicitacaoManutencao> BuscarManutencao()
+        {
+            return model.TblSolicitacoesManutencao.Where<SolicitacaoManutencao>(eq => true);
         }
     }
 }
