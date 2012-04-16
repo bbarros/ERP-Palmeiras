@@ -29,7 +29,11 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
 
             model.SaveChanges();
-            opClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha, 0);
+            if (requestOtherModules)
+            {
+                opClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha, 0);
+                biClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha);
+            }
         }
 
         public void AtualizarFuncionario(Funcionario funcionario)
@@ -40,6 +44,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             model.Entry(funcionario).State = EntityState.Modified;
             model.SaveChanges();
             opClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
+            biClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
         }
 
         public IEnumerable<Funcionario> BuscarFuncionarios()

@@ -31,6 +31,15 @@ namespace ERP_Palmeiras_LA.Controllers
             return View("Index");
         }
 
+        public ActionResult EmErro()
+        {
+            IEnumerable<CompraMaterial> compras = facade.BuscarComprasMaterial(StatusCompra.ERRO_ORDEM_COMPRA);
+            if (compras == null)
+                compras = new List<CompraMaterial>();
+            ViewBag.compras = compras;
+            return View("Index");
+        }
+
         public ActionResult Entregas()
         {
             IEnumerable<CompraMaterial> compras = facade.BuscarComprasMaterial(StatusCompra.ENTREGUE);
@@ -71,6 +80,8 @@ namespace ERP_Palmeiras_LA.Controllers
         {
             CompraMaterial ce = facade.BuscarCompraMaterial(id);
             facade.SolicitarCompra(ce);
+            if(ce.Status == StatusCompra.ERRO_ORDEM_COMPRA)
+                return RedirectToAction("EmErro");
             return RedirectToAction("Solicitadas");
         }
     }

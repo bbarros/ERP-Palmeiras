@@ -43,6 +43,7 @@
                 <li><a href="<%= Url.Action("Reprovadas", "SolicitacoesCompraEquipamentos") %>">Solicitações Reprovadas</a></li>
                 <li><a href="<%= Url.Action("Index", "SolicitacoesCompraEquipamentos") %>">Todas as Solicitações</a></li>
                 
+                <li><a href="<%= Url.Action("EmErro", "CompraEquipamentos") %>">Compras Em Erro</a></li> 
                 <li><a href="<%= Url.Action("Solicitadas", "CompraEquipamentos") %>">Compras Solicitadas</a></li> 
                 <li><a href="<%= Url.Action("Entregas", "CompraEquipamentos") %>">Compras Entregues</a></li> 
                 <li><a href="<%= Url.Action("Index", "CompraEquipamentos") %>">Todas as Compras</a></li> 
@@ -67,6 +68,7 @@
                 <li><a href="<%= Url.Action("Reprovadas", "SolicitacoesCompraMateriais") %>">Solicitações Reprovadas</a></li>
                 <li><a href="<%= Url.Action("Index", "SolicitacoesCompraMateriais") %>">Todas as Solicitações</a></li>
                 
+                <li><a href="<%= Url.Action("EmErro", "CompraMateriais") %>">Compras Em Erro</a></li> 
                 <li><a href="<%= Url.Action("Solicitadas", "CompraMateriais") %>">Compras Solicitadas</a></li> 
                 <li><a href="<%= Url.Action("Entregas", "CompraMateriais") %>">Compras Entregues</a></li> 
                 <li><a href="<%= Url.Action("Index", "CompraMateriais") %>">Todas as Compras</a></li> 

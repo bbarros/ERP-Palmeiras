@@ -28,17 +28,26 @@ namespace ERP_Palmeiras_LA.Models.Facade
         public void SolicitarCompra(CompraEquipamento c)
         {
             model.TblCompraEquipamento.Attach(c);
-            // TODO: UTILIZAR NOVOS METODOS DE FINANCEIRO
-            //bool compraExternaSuccess = finClient.comprarEquipamento(
-            //    c.SolicitacaoCompraEquipamento.Equipamento.Nome,
-            //    c.SolicitacaoCompraEquipamento.Equipamento.Descricao,
-            //    c.SolicitacaoCompraEquipamento.Equipamento.NumeroSerie,
-            //    DateTime.Now, // quero comprar AGORA né?
-            //    c.SolicitacaoCompraEquipamento.Preco);
-            //if (!compraExternaSuccess)
-            //{
-            //    c.Status = StatusCompra.COMPRA_RECUSADA;
-            //}
+            bool compraExternaSuccess = finClient.comprarEquipamento(
+                c.SolicitacaoCompraEquipamento.Equipamento.Nome,
+                c.SolicitacaoCompraEquipamento.Equipamento.Descricao,
+                c.SolicitacaoCompraEquipamento.Equipamento.NumeroSerie,
+                DateTime.Now, // quero comprar AGORA né?
+                c.SolicitacaoCompraEquipamento.Preco,
+                c.SolicitacaoCompraEquipamento.Equipamento.Fabricante.Banco.ToString(),
+                c.SolicitacaoCompraEquipamento.Equipamento.Fabricante.Agencia,
+                c.SolicitacaoCompraEquipamento.Equipamento.Fabricante.ContaCorrente,
+                c.Id);
+            if (!compraExternaSuccess)
+            {
+                c.Status = StatusCompra.ERRO_ORDEM_COMPRA;
+            }
+            else
+            {
+                c.Status = StatusCompra.COMPRA_SOLICITADA;
+            }
+            model.Entry(c).State = EntityState.Modified;
+            model.SaveChanges();
         }
 
         public void AlterarCompraEquipamento(CompraEquipamento c)

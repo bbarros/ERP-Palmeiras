@@ -19,6 +19,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
         private ModelRH model;
         private Financeiro.MedSoftSoapClient finClient;
         private Operacional.ControleUsuariosSoapClient opClient;
+        private BusinessIntelligence.UsuariosWSSoapClient biClient;
 
         private RecursosHumanos() { }
 
@@ -31,6 +32,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
                 instance.model = new ModelRH();
                 instance.finClient = new Financeiro.MedSoftSoapClient();
                 instance.opClient = new Operacional.ControleUsuariosSoapClient();
+                instance.biClient = new BusinessIntelligence.UsuariosWSSoapClient();
             }
 
             return instance;

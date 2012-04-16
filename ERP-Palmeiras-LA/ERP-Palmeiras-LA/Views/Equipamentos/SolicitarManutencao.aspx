@@ -46,8 +46,8 @@
          </th>
         </tr>
         <tr>
-            <td>Custo:</td>
-            <td style="padding-left: 50px;"><input id="custo" name="custo" type="text"/></td>
+            <%--<td>Custo:</td>
+            <td style="padding-left: 50px;"><input id="custo" name="custo" type="text"/></td>--%>
             <td>Data Prevista:</td>
             <td style="padding-left: 50px;"><input id="dataprevista" name="dataprevista" type="date" onkeyup="FormataData(this,event)" maxlength="10"/></td>
         

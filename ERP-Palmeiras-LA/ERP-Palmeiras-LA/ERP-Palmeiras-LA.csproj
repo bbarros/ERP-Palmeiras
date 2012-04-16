@@ -157,6 +157,11 @@
       <DependentUpon>ModelLA.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\BusinessIntelligence\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\Financeiro\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -247,11 +252,16 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <None Include="Service References\BusinessIntelligence\UsuariosWS.disco" />
+    <None Include="Service References\BusinessIntelligence\configuration91.svcinfo" />
+    <None Include="Service References\BusinessIntelligence\configuration.svcinfo" />
+    <None Include="Service References\BusinessIntelligence\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Views\Equipamentos\EditarManutencao.aspx" />
     <Content Include="Views\Equipamentos\IndexManutencao.aspx" />
-    <None Include="Service References\Financeiro\ERP_Palmeiras_LA.Financeiro.PagamentosPendentes.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Service References\BusinessIntelligence\UsuariosWS.wsdl" />
     <None Include="Service References\Financeiro\MedSoft.wsdl" />
     <None Include="Service References\Operacional\ControleUsuarios.wsdl" />
     <None Include="Service References\Operacional\ERP_Palmeiras_LA.Operacional.Usuario.datasource">
@@ -380,6 +390,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BusinessIntelligence\" />
     <WCFMetadataStorage Include="Service References\Financeiro\" />
     <WCFMetadataStorage Include="Service References\Operacional\" />
     <WCFMetadataStorage Include="Service References\RecursosHumanos\" />

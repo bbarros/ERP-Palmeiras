@@ -20,6 +20,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
         RecursosHumanos.UsuariosWSSoapClient rhClient;
         Financeiro.MedSoftSoapClient finClient;
         Operacional.ControleUsuariosSoapClient opClient;
+        BusinessIntelligence.UsuariosWSSoapClient biClient;
 
         private LogisticaAbastecimento() { }
 
@@ -33,6 +34,7 @@ namespace ERP_Palmeiras_LA.Models.Facade
                 instance.rhClient = new RecursosHumanos.UsuariosWSSoapClient();
                 instance.finClient = new Financeiro.MedSoftSoapClient();
                 instance.opClient = new Operacional.ControleUsuariosSoapClient();
+                instance.biClient = new BusinessIntelligence.UsuariosWSSoapClient();
             }
 
             return instance;
