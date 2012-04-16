@@ -18,6 +18,8 @@
 						<th>ID</th>
                         <th>Título</th>
                         <th>Data de Modificação</th>
+                        <th>Último Autor</th>
+                        <th>Visualizar</th>
                         <th>Editar</th>
 					</tr>
  
@@ -27,6 +29,8 @@
 						<td><%= r.Id %></td>
                         <td><%= r.Titulo %></td>
                         <td><%= new DateTime(r.DataModificacao).ToString("dd/MM/yyyy") %></td>
+                        <td><%= r.Usuario.Login %></td>
+                        <td><a href="<%= Url.Action("Visualizar", "Relatorios", new { id = r.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/previewIcon.png") %>" /></a></td>
                         <td><a href="<%= Url.Action("Editar", "Relatorios", new { id = r.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>

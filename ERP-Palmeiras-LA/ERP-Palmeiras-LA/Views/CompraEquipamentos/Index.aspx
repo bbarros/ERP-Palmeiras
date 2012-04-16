@@ -21,6 +21,7 @@
                         <th>Equipamento</th>
                         <th>Status</th>
                         <th>Registrar Entrega</th>
+                        <th>Refazer Pedido</th>
                         <th>Editar</th>
 					</tr>
  
@@ -31,6 +32,14 @@
                    {
                        statusStr = "Entregue";
                    }
+                   if (c.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusCompra.COMPRA_CONCLUIDA)
+                   {
+                       statusStr = "Compra Concluída";
+                   }
+                   if (c.Status.EnumValue == ERP_Palmeiras_LA.Models.StatusCompra.ERRO_ORDEM_COMPRA)
+                   {
+                       statusStr = "Erro na Compra";
+                   }
                    %>
 					<tr>
                         <td><%= c.Id %></td>
@@ -39,6 +48,7 @@
                         <td><%= statusStr %></td>
                         <td><%= c.SolicitacaoCompraEquipamento.Equipamento.Nome %></td>
                         <td><a href="<%= Url.Action("RegistrarEntrega", "CompraEquipamentos", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/approveIcon.png") %>" /></a></td>
+                        <td><a href="<%= Url.Action("RefazerCompra", "CompraEquipamentos", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/warningIcon.png") %>" /></a></td>
                         <td><a href="<%= Url.Action("Editar", "CompraEquipamentos", new { id = c.Id }) %>"><img alt="Editar dados" class="icon" src="<%= Url.Content("~/Content/images/editIcon.png") %>" /></a></td>
 					</tr>
                 <% } %>

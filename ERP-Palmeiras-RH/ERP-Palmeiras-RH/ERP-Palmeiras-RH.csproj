@@ -227,10 +227,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\Operacional\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="WebServices\EspecialidadeDTO.cs" />
     <Compile Include="WebServices\FuncionarioDTO.cs" />
     <Compile Include="WebServices\FuncionariosWS.asmx.cs">
       <DependentUpon>FuncionariosWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServices\InfoPagamentoWS.asmx.cs">
+      <DependentUpon>InfoPagamentoWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebServices\MedicoDTO.cs" />
@@ -323,6 +332,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\Operacional\ControleUsuarios.disco" />
+    <None Include="Service References\Operacional\configuration91.svcinfo" />
+    <None Include="Service References\Operacional\configuration.svcinfo" />
+    <None Include="Service References\Operacional\ERP_Palmeiras_RH.Operacional.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Operacional\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Views\Beneficios\Criar.aspx" />
     <Content Include="Views\Beneficios\Index.aspx" />
     <Content Include="Views\Cargos\Criar.aspx" />
@@ -376,7 +395,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="WebServices\FuncionariosWS.asmx" />
     <Content Include="WebServices\PagamentoWS.asmx" />
+    <Content Include="WebServices\InfoPagamentoWS.asmx" />
     <Content Include="WebServices\UsuariosWS.asmx" />
+    <None Include="Service References\Operacional\ControleUsuarios.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -413,6 +434,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Financeiro\" />
+    <WCFMetadataStorage Include="Service References\Operacional\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

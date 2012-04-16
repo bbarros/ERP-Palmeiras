@@ -4,12 +4,13 @@
     <%
         ERP_Palmeiras_BI.Models.Relatorio r = (ERP_Palmeiras_BI.Models.Relatorio)ViewData.Model;
     %>
-<h2>Relatório criado com sucesso!</h2>
 
-<p>
-<img src="<%= r.UrlImagem %>" alt="<%= r.Titulo %>" />
+<p align="center" style="margin: 30px 15% 30px 15%;" >
+    <img src="<%= Url.Content(r.UrlImagem) %>" alt="<%= r.Titulo %>" height="400" />
 </p>
-
+<p align="left" style="margin: 30px;">
+    Gerado em: <%= new DateTime(r.DataModificacao).ToString("dd/MM/yyyy : hh:mm:ss") %>
+</p>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="SideMenu" runat="server">

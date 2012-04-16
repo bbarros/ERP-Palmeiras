@@ -29,13 +29,17 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
 
             model.SaveChanges();
+            opClient.InserirUsuario(funcionario.Credencial.Usuario, funcionario.Credencial.Senha, 0);
         }
 
         public void AtualizarFuncionario(Funcionario funcionario)
         {
+            Credencial antiga = model.TblCredenciais.Find(funcionario.Credencial.Id);
+            String loginAntigo = antiga.Usuario;
             model.TblFuncionarios.Attach(funcionario);
             model.Entry(funcionario).State = EntityState.Modified;
             model.SaveChanges();
+            opClient.AlterarUsuario(funcionario.Credencial.Usuario, loginAntigo, funcionario.Credencial.Senha);
         }
 
         public IEnumerable<Funcionario> BuscarFuncionarios()

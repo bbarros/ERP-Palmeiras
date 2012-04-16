@@ -28,17 +28,24 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public List<EspecialidadeDTO> BuscarEspecialidades()
         {
-            IEnumerable<Especialidade> result = facade.BuscarEspecialidades();
-            List<EspecialidadeDTO> dtos = new List<EspecialidadeDTO>();
-            if (result != null && result.Count<Especialidade>() > 0)
+            try
             {
-                foreach (Especialidade e in result)
+                IEnumerable<Especialidade> result = facade.BuscarEspecialidades();
+                List<EspecialidadeDTO> dtos = new List<EspecialidadeDTO>();
+                if (result != null && result.Count<Especialidade>() > 0)
                 {
-                    dtos.Add(new EspecialidadeDTO(e.Nome));
+                    foreach (Especialidade e in result)
+                    {
+                        dtos.Add(new EspecialidadeDTO(e.Nome));
+                    }
                 }
-            }
 
-            return dtos;
+                return dtos;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -48,27 +55,34 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public List<MedicoDTO> BuscarMedicos()
         {
-            IEnumerable<Funcionario> result = facade.BuscarFuncionarios();
-            List<MedicoDTO> dtos = new List<MedicoDTO>();
-            if (result != null && result.Count<Funcionario>() > 0)
+            try
             {
-                foreach (Funcionario f in result)
+                IEnumerable<Funcionario> result = facade.BuscarFuncionarios();
+                List<MedicoDTO> dtos = new List<MedicoDTO>();
+                if (result != null && result.Count<Funcionario>() > 0)
                 {
-                    if (f is Medico)
+                    foreach (Funcionario f in result)
                     {
-                        Medico m = (Medico)f;
-                        dtos.Add(new MedicoDTO(m.DadosPessoais.Nome,
-                            m.DadosPessoais.Sobrenome,
-                            m.DadosPessoais.CPF,
-                            m.Credencial.Usuario,
-                            m.Cargo.Nome,
-                            m.CRM,
-                            m.Especialidade.Nome));
+                        if (f is Medico)
+                        {
+                            Medico m = (Medico)f;
+                            dtos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                                m.DadosPessoais.Sobrenome,
+                                m.DadosPessoais.CPF,
+                                m.Credencial.Usuario,
+                                m.Cargo.Nome,
+                                m.CRM,
+                                m.Especialidade.Nome));
+                        }
                     }
                 }
-            }
 
-            return dtos;
+                return dtos;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -77,25 +91,65 @@ namespace ERP_Palmeiras_RH.WebServices
         /// <param name="cpf">Cpf</param>
         /// <returns>MedicoDTO ou null.</returns>
         [WebMethod]
-        public MedicoDTO BuscarMedico(long cpf)
+        public MedicoDTO BuscarMedicoPorCpf(long cpf)
         {
-            Funcionario result = facade.BuscarFuncionario(cpf);
-            if (result != null)
+            try
             {
-                if (result is Medico)
+                Funcionario result = facade.BuscarFuncionario(cpf);
+                if (result != null)
                 {
-                    Medico m = (Medico)result;
-                    return new MedicoDTO(m.DadosPessoais.Nome,
-                        m.DadosPessoais.Sobrenome,
-                        m.DadosPessoais.CPF,
-                        m.Credencial.Usuario,
-                        m.Cargo.Nome,
-                        m.CRM,
-                        m.Especialidade.Nome);
+                    if (result is Medico)
+                    {
+                        Medico m = (Medico)result;
+                        return new MedicoDTO(m.DadosPessoais.Nome,
+                            m.DadosPessoais.Sobrenome,
+                            m.DadosPessoais.CPF,
+                            m.Credencial.Usuario,
+                            m.Cargo.Nome,
+                            m.CRM,
+                            m.Especialidade.Nome);
+                    }
                 }
-            }
 
-            return null;
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Busca um médico pelo seu cpf.
+        /// </summary>
+        /// <param name="medicoId">Id do medico</param>
+        /// <returns>MedicoDTO ou null.</returns>
+        [WebMethod]
+        public MedicoDTO BuscarMedicoPorId(int medicoId)
+        {
+            try
+            {
+                Funcionario result = facade.BuscarFuncionario(medicoId);
+                if (result != null)
+                {
+                    if (result is Medico)
+                    {
+                        Medico m = (Medico)result;
+                        return new MedicoDTO(m.DadosPessoais.Nome,
+                            m.DadosPessoais.Sobrenome,
+                            m.DadosPessoais.CPF,
+                            m.Credencial.Usuario,
+                            m.Cargo.Nome,
+                            m.CRM,
+                            m.Especialidade.Nome);
+                    }
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -106,32 +160,39 @@ namespace ERP_Palmeiras_RH.WebServices
         [WebMethod]
         public FuncionarioDTO BuscarFuncionario(String login)
         {
-            Funcionario result = facade.BuscarFuncionario(login);
-            if (result != null)
+            try
             {
-                if (result is Medico)
+                Funcionario result = facade.BuscarFuncionario(login);
+                if (result != null)
                 {
-                    Medico m = (Medico)result;
-                    return new MedicoDTO(m.DadosPessoais.Nome,
-                        m.DadosPessoais.Sobrenome,
-                        m.DadosPessoais.CPF,
-                        m.Credencial.Usuario,
-                        m.Cargo.Nome,
-                        m.CRM,
-                        m.Especialidade.Nome);
+                    if (result is Medico)
+                    {
+                        Medico m = (Medico)result;
+                        return new MedicoDTO(m.DadosPessoais.Nome,
+                            m.DadosPessoais.Sobrenome,
+                            m.DadosPessoais.CPF,
+                            m.Credencial.Usuario,
+                            m.Cargo.Nome,
+                            m.CRM,
+                            m.Especialidade.Nome);
+                    }
+                    else
+                    {
+                        return new FuncionarioDTO(result.DadosPessoais.Nome,
+                            result.DadosPessoais.Sobrenome,
+                            result.DadosPessoais.CPF,
+                            result.Credencial.Usuario,
+                            result.Cargo.Nome,
+                            false);
+                    }
                 }
-                else
-                {
-                    return new FuncionarioDTO(result.DadosPessoais.Nome,
-                        result.DadosPessoais.Sobrenome,
-                        result.DadosPessoais.CPF,
-                        result.Credencial.Usuario,
-                        result.Cargo.Nome,
-                        false);
-                }
-            }
 
-            return null;
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

@@ -17,6 +17,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
     {
         private static volatile LogisticaAbastecimento instance;
         private ModelLAContainer model;
+        RecursosHumanos.UsuariosWSSoapClient rhClient;
+        Financeiro.MedSoftSoapClient finClient;
+        Operacional.ControleUsuariosSoapClient opClient;
 
         private LogisticaAbastecimento() { }
 
@@ -27,6 +30,9 @@ namespace ERP_Palmeiras_LA.Models.Facade
             {
                 instance = new LogisticaAbastecimento();
                 instance.model = new ModelLAContainer();
+                instance.rhClient = new RecursosHumanos.UsuariosWSSoapClient();
+                instance.finClient = new Financeiro.MedSoftSoapClient();
+                instance.opClient = new Operacional.ControleUsuariosSoapClient();
             }
 
             return instance;

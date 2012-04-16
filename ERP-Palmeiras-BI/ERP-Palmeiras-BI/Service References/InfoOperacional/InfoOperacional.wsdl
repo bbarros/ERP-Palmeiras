@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetInfoConsultas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoConsultasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoConsultasResult" type="tns:ArrayOfConsulta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConsulta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Consulta" nillable="true" type="tns:Consulta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Consulta">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDPaciente" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDMedico" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomePaciente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeMedico" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Finalizada" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="PedidoExames" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PedidoReceitas" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MedicosReference" type="tns:EntityReferenceOfMedicos" />
+              <s:element minOccurs="0" maxOccurs="1" name="PacientesReference" type="tns:EntityReferenceOfPacientes" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfMedicos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:complexType name="EntityReferenceOfPacientes">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetInfoConsultasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoConsultas" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoConsultasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoConsultasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InfoOperacionalSoap">
+    <wsdl:operation name="GetInfoConsultas">
+      <wsdl:input message="tns:GetInfoConsultasSoapIn" />
+      <wsdl:output message="tns:GetInfoConsultasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InfoOperacionalSoap" type="tns:InfoOperacionalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInfoConsultas">
+      <soap:operation soapAction="http://tempuri.org/GetInfoConsultas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InfoOperacionalSoap12" type="tns:InfoOperacionalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInfoConsultas">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoConsultas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InfoOperacional">
+    <wsdl:port name="InfoOperacionalSoap" binding="tns:InfoOperacionalSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:9093/WebServices/InfoOperacional.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InfoOperacionalSoap12" binding="tns:InfoOperacionalSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:9093/WebServices/InfoOperacional.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

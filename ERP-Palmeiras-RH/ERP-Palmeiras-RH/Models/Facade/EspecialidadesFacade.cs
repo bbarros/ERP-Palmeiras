@@ -53,6 +53,8 @@ namespace ERP_Palmeiras_RH.Models.Facade
 
             if (result == null)
             {
+                // sabe deus para que eles precisam disso....
+                finClient.cadastraEspecialidade(espec.Nome); 
                 model.TblEspecialidades.Add(espec);
             }
             else

@@ -64,5 +64,12 @@ namespace ERP_Palmeiras_LA.Controllers
             facade.AlterarCompraEquipamento(c);
             return View();
         }
+
+        public ActionResult RefazerCompra(int id)
+        {
+            CompraEquipamento ce = facade.BuscarCompraEquipamento(id);
+            facade.SolicitarCompra(ce);
+            return RedirectToAction("Solicitadas");
+        }
     }
 }
