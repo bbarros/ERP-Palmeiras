@@ -60,6 +60,11 @@ namespace ERP_Palmeiras_LA.Models.Facade
         {
             model.TblSolicitacoesManutencao.Add(manu);
             model.SaveChanges();
+            EnviarSolicitacaoManutencao(manu);
+        }
+
+        public void EnviarSolicitacaoManutencao(SolicitacaoManutencao manu)
+        {
             bool success = finClient.contaAPagar(
                 new DateTime(manu.DataPrevista),
                 manu.Custo,

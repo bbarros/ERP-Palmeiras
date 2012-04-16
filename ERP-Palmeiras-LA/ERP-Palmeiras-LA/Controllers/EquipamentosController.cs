@@ -87,10 +87,7 @@ namespace ERP_Palmeiras_LA.Controllers
                 equipamentosClinica = new List<EquipamentoClinica>();
             ViewBag.equipamentos = equipamentosClinica;        
             ViewBag.usuario = sessao.Usuario.Login;
-            return View();
-
-            
-
+            return View();      
         }
 
         public ActionResult CadastrarManutencao(Int32 equipamentoId, Int32 custo, DateTime dataprevista, String motivo )
@@ -114,7 +111,12 @@ namespace ERP_Palmeiras_LA.Controllers
             return RedirectToAction("IndexManutencao");
         }
 
-
+        public ActionResult RefazerPedido(int id)
+        {
+            SolicitacaoManutencao solmanu = facade.BuscarManutencao(id);
+            facade.EnviarSolicitacaoManutencao(solmanu);
+            return RedirectToAction("IndexManutencao");
+        }
 
         public ActionResult EditarManutencao(int id)
         {
