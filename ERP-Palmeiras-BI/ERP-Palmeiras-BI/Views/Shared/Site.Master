@@ -37,7 +37,6 @@
 							<li id="itemFIN"><a href="http://labsoft.pcs.usp.br:9093/">Finanças</a></li>
 							<li id="itemOP"><a href="http://labsoft.pcs.usp.br:9091/">Operacional</a></li>
 							<li id="itemHOME"><a href="<%= Url.Action("Index", "Home") %>">Home</a></li>
-                            <li><form id="FormLogoff" action="<%= Url.Action("Logout","Home") %>" method="post"><input id="logoffSubmit" name="Logout" type="submit" value=" Logout " /></form> </li>
 						</ul>
 			            <!-- #mainMenu -->
 					</div>
