@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <p>Aqui é Palmeiras, porra!</p>
+    <p>Bem vindo!</p>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="SideMenu" runat="server">
