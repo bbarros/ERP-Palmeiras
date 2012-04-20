@@ -34,8 +34,8 @@
 							<li id="itemBI"><a href="http://labsoft.pcs.usp.br:9092/bi">BI</a></li>
 							<li id="itemRH"><a href="http://labsoft.pcs.usp.br:9092/rh">RH</a></li>
 							<li id="itemLA"><a href="http://labsoft.pcs.usp.br:9092/la">L&A</a></li>
-							<li id="itemFIN"><a href="http://labsoft.pcs.usp.br:9093/">Finanças</a></li>
-							<li id="itemOP"><a href="http://labsoft.pcs.usp.br:9091/">Operacional</a></li>
+							<li id="itemFIN"><a href="http://labsoft.pcs.usp.br:9091/">Finanças</a></li>
+							<li id="itemOP"><a href="http://labsoft.pcs.usp.br:9093/">Operacional</a></li>
 							<li id="itemHOME"><a href="<%= Url.Action("Index", "Home") %>">Home</a></li>
 						</ul>
 			            <!-- #mainMenu -->
