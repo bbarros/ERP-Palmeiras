@@ -276,7 +276,7 @@ namespace ERP_Palmeiras_RH.WebServices
         {
             Especialidade e = facade.BuscarEspecialidade(id);
             if (e != null)
-                return new EspecialidadeDTO(e.Nome);
+                return new EspecialidadeDTO(e.Nome, e.Id);
             return null;
         }
     }
