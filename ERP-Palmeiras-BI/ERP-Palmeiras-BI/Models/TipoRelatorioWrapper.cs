@@ -13,6 +13,5 @@ namespace ERP_Palmeiras_BI.Models
     
     public partial class TipoRelatorioWrapper
     {
-
     }
 }

@@ -10,8 +10,8 @@ namespace ERP_Palmeiras_RH.WebServices
         public String Crm;
         public String Especialidade;
 
-        public MedicoDTO(String nome, String sobrenome, long cpf, String login, String cargo, String crm, String especialidade)
-            : base(nome, sobrenome, cpf, login, cargo, true)
+        public MedicoDTO(Int32 id, String nome, String sobrenome, long cpf, String login, String cargo, String crm, String especialidade)
+            : base(id, nome, sobrenome, cpf, login, cargo, true)
         {
             Crm = crm;
             Especialidade = especialidade;

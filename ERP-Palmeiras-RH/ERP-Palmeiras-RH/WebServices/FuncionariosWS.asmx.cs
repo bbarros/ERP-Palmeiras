@@ -66,7 +66,7 @@ namespace ERP_Palmeiras_RH.WebServices
                         if (f is Medico)
                         {
                             Medico m = (Medico)f;
-                            dtos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                            dtos.Add(new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                                 m.DadosPessoais.Sobrenome,
                                 m.DadosPessoais.CPF,
                                 m.Credencial.Usuario,
@@ -101,7 +101,7 @@ namespace ERP_Palmeiras_RH.WebServices
                     if (result is Medico)
                     {
                         Medico m = (Medico)result;
-                        return new MedicoDTO(m.DadosPessoais.Nome,
+                        return new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                             m.DadosPessoais.Sobrenome,
                             m.DadosPessoais.CPF,
                             m.Credencial.Usuario,
@@ -135,7 +135,7 @@ namespace ERP_Palmeiras_RH.WebServices
                     if (result is Medico)
                     {
                         Medico m = (Medico)result;
-                        return new MedicoDTO(m.DadosPessoais.Nome,
+                        return new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                             m.DadosPessoais.Sobrenome,
                             m.DadosPessoais.CPF,
                             m.Credencial.Usuario,
@@ -173,7 +173,7 @@ namespace ERP_Palmeiras_RH.WebServices
                         if (funcionario is Medico)
                         {
                             Medico m = (Medico)funcionario;
-                            medicos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                            medicos.Add(new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                                 m.DadosPessoais.Sobrenome,
                                 m.DadosPessoais.CPF,
                                 m.Credencial.Usuario,
@@ -210,7 +210,7 @@ namespace ERP_Palmeiras_RH.WebServices
                 {
                     foreach (Medico m in result)
                     {
-                        medicos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                        medicos.Add(new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                             m.DadosPessoais.Sobrenome,
                             m.DadosPessoais.CPF,
                             m.Credencial.Usuario,
@@ -244,7 +244,7 @@ namespace ERP_Palmeiras_RH.WebServices
                     if (result is Medico)
                     {
                         Medico m = (Medico)result;
-                        return new MedicoDTO(m.DadosPessoais.Nome,
+                        return new MedicoDTO(m.Id, m.DadosPessoais.Nome,
                             m.DadosPessoais.Sobrenome,
                             m.DadosPessoais.CPF,
                             m.Credencial.Usuario,
@@ -254,7 +254,7 @@ namespace ERP_Palmeiras_RH.WebServices
                     }
                     else
                     {
-                        return new FuncionarioDTO(result.DadosPessoais.Nome,
+                        return new FuncionarioDTO(result.Id, result.DadosPessoais.Nome,
                             result.DadosPessoais.Sobrenome,
                             result.DadosPessoais.CPF,
                             result.Credencial.Usuario,
