@@ -26,8 +26,6 @@ namespace ERP_Palmeiras_RH.Controllers
                 Especialidade espec = new Especialidade();
                 espec.Nome = nome;
                 facade.InserirEspecialidade(espec);
-                Financeiro.MedSoftSoapClient fc = new Financeiro.MedSoftSoapClient();
-                fc.cadastraEspecialidade(nome);
                 return RedirectToAction("Index");
             }
 

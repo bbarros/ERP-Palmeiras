@@ -144,7 +144,10 @@ namespace ERP_Palmeiras_RH.Controllers
             f.Status = status;
             f.Admissao.DataAdmissao = dataadmissao.Ticks;
             f.Admissao.MotivoDesligamento = motivo;
-            f.Admissao.DataDesligamento = datademissao.Value.Ticks;
+            if(datademissao.HasValue)
+            {
+                f.Admissao.DataDesligamento = datademissao.Value.Ticks;
+            }
             f.CargoId = cargo;
             f.PermissaoId = permissao;
             f.Credencial.Usuario = usuario;

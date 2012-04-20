@@ -45,6 +45,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             Especialidade e = model.TblEspecialidades.Find(eid);
             model.TblEspecialidades.Remove(e);
             model.SaveChanges();
+            finClient.excluiEspecialidade(eid);
         }
 
         public void InserirEspecialidade(Especialidade espec)
@@ -54,7 +55,6 @@ namespace ERP_Palmeiras_RH.Models.Facade
             if (result == null)
             {
                 // sabe deus para que eles precisam disso....
-                finClient.cadastraEspecialidade(espec.Nome); 
                 model.TblEspecialidades.Add(espec);
             }
             else
@@ -63,6 +63,7 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
 
             model.SaveChanges();
+            finClient.cadastraEspecialidade(espec.Id, espec.Nome); 
         }
 
     }
