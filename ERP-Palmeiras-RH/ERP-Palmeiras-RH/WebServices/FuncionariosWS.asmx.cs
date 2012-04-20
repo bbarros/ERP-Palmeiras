@@ -36,7 +36,7 @@ namespace ERP_Palmeiras_RH.WebServices
                 {
                     foreach (Especialidade e in result)
                     {
-                        dtos.Add(new EspecialidadeDTO(e.Nome));
+                        dtos.Add(new EspecialidadeDTO(e.Nome, e.Id));
                     }
                 }
 
@@ -145,6 +145,82 @@ namespace ERP_Palmeiras_RH.WebServices
                     }
                 }
                 return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Busca um médico pelo seu Nome.
+        /// </summary>
+        /// <param name="medicoNome">Nome do medico</param>
+        /// <returns>List{MedicoDTO} ou null.</returns>
+        [WebMethod]
+        public List<MedicoDTO> BuscarMedicosPorNome(String medicoNome)
+        {
+            try
+            {
+                IEnumerable<Funcionario> result = facade.BuscarFuncionarios(medicoNome);
+
+                List<MedicoDTO> medicos = new List<MedicoDTO>();
+                
+                if (result != null)
+                {
+                    foreach (Funcionario funcionario in result)
+                    {
+                        if (funcionario is Medico)
+                        {
+                            Medico m = (Medico)funcionario;
+                            medicos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                                m.DadosPessoais.Sobrenome,
+                                m.DadosPessoais.CPF,
+                                m.Credencial.Usuario,
+                                m.Cargo.Nome,
+                                m.CRM,
+                                m.Especialidade.Nome));
+                        }
+                    }
+                }
+
+                return medicos;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Busca médicos pela Especialidade.
+        /// </summary>
+        /// <param name="especid">Id da Especialidade</param>
+        /// <returns>List{MedicoDTO}</MedicoDTO> ou null.</returns>
+        [WebMethod]
+        public List<MedicoDTO> BuscarMedicosPorEspecialidade(int especId)
+        {
+            try
+            {
+                IEnumerable<Funcionario> result = facade.BuscarMedicosPorEspec(especId);
+
+                List<MedicoDTO> medicos = new List<MedicoDTO>();
+
+                if (result != null)
+                {
+                    foreach (Medico m in result)
+                    {
+                        medicos.Add(new MedicoDTO(m.DadosPessoais.Nome,
+                            m.DadosPessoais.Sobrenome,
+                            m.DadosPessoais.CPF,
+                            m.Credencial.Usuario,
+                            m.Cargo.Nome,
+                            m.CRM,
+                            m.Especialidade.Nome));
+                    }
+                }
+
+                return medicos;
             }
             catch (Exception)
             {

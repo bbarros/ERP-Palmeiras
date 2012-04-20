@@ -69,6 +69,43 @@ namespace ERP_Palmeiras_RH.Models.Facade
             }
         }
 
+        public IEnumerable<Funcionario> BuscarFuncionarios(String nome)
+        {
+            try
+            {
+                IEnumerable<Funcionario> funcionarios = model.TblFuncionarios.Where<Funcionario>(f => f.DadosPessoais.Nome.Contains(nome) && (f is Medico));
+                return funcionarios;
+            }
+            catch (Exception)
+            {
+                throw new ERPException("Nenhum médico foi encontrado para o nome =" + nome);
+            }
+        }
+
+        public IEnumerable<Funcionario> BuscarMedicosPorEspec(int especId)
+        {
+            try
+            {
+                IEnumerable<Funcionario> funcionarios = model.TblFuncionarios.Where<Funcionario>(f => (f is Medico));
+                
+                List<Medico> result = new List<Medico>();
+
+                foreach(Medico medico in funcionarios)
+                {
+                    if (medico.Especialidade.Id == especId)
+                    {
+                        result.Add(medico);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw new ERPException("Nenhum médico foi encontrado para a especialização de id =" + especId);
+            }
+        }
+
         public Funcionario BuscarFuncionario(long cpf)
         {
             try

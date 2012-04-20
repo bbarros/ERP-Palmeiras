@@ -8,10 +8,12 @@ namespace ERP_Palmeiras_RH.WebServices
     public class EspecialidadeDTO
     {
         public String Nome;
+        public Int32 Id;
 
-        public EspecialidadeDTO(String nome)
+        public EspecialidadeDTO(String nome, Int32 id)
         {
             Nome = nome;
+            Id = id;
         }
 
         public EspecialidadeDTO() { }
