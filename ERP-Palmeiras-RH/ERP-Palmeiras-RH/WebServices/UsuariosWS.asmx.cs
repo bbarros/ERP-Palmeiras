@@ -122,8 +122,8 @@ namespace ERP_Palmeiras_RH.WebServices
             end.Bairro = "??";
 
             Telefone tel = new Telefone();
-            String ddd = "00";
-            String telStr = "00000000";
+            String ddd = "11";
+            String telStr = "11111111";
             tel.DDD = int.Parse(ddd);
             tel.Numero = int.Parse(telStr);
             dp.Telefones.Add(tel);
