@@ -126,7 +126,7 @@
                         Data de Nascimento
                     </th>
                     <th style="padding-left: 60px;">
-                        <input id="nascimento" name="nascimento" value="<%= func.DadosPessoais.DataNascimento.ToString("dd/MM/yyyy") %>"
+                        <input id="nascimento" name="nascimento" value="<%= new DateTime(func.DadosPessoais.DataNascimento).ToString("dd/MM/yyyy") %>"
                             type="text" onkeyup="FormataData(this,event)" maxlength="10" />
                     </th>
                 </tr>
@@ -347,7 +347,7 @@
                     </th>
                     <th style="padding-left: 55px;">
                         <input id="dataadmissao" name="dataadmissao" type="text" onkeyup="FormataData(this,event)"
-                            maxlength="10" value="<%= func.Admissao.DataAdmissao.ToString("dd/MM/yyyy") %>" />
+                            maxlength="10" value="<%= new DateTime(func.Admissao.DataAdmissao).ToString("dd/MM/yyyy") %>" />
                     </th>
                 </tr>
                 <tr>
@@ -356,7 +356,7 @@
                     </th>
                     <th style="padding-left: 55px;">
                         <input id="datademissao" name="datademissao" type="text" onkeyup="FormataData(this,event)"
-                            maxlength="10" value="<%= func.Admissao.DataDesligamento %>" />
+                            maxlength="10" value="<%= (func.Admissao.DataDesligamento != null)? (new DateTime((long)func.Admissao.DataDesligamento).ToString("dd/MM/yyyy")) : "" %>" />
                     </th>
                 </tr>
                 <tr>

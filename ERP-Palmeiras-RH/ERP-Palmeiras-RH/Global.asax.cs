@@ -143,7 +143,7 @@ namespace ERP_Palmeiras_RH
 
             Telefone tel = new Telefone();
             String ddd = "00";
-            String telStr = "1111-1111";
+            String telStr = "11111111";
             tel.DDD = int.Parse(ddd);
             tel.Numero = int.Parse(telStr);
             dp.Telefones.Add(tel);

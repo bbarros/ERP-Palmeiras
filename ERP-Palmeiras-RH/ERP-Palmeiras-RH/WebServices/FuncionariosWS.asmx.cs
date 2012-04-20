@@ -194,5 +194,14 @@ namespace ERP_Palmeiras_RH.WebServices
                 return null;
             }
         }
+
+        [WebMethod]
+        public EspecialidadeDTO BuscarEspecialidade(int id)
+        {
+            Especialidade e = facade.BuscarEspecialidade(id);
+            if (e != null)
+                return new EspecialidadeDTO(e.Nome);
+            return null;
+        }
     }
 }

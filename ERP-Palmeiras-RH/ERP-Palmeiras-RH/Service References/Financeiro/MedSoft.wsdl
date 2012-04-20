@@ -87,6 +87,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="pagarManutencao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataPrevista" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contaCorrente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSolicitacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pagarManutencaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pagarManutencaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="contaAPagar">
         <s:complexType>
           <s:sequence>
@@ -110,11 +130,33 @@
       <s:element name="cadastraEspecialidade">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="cadastraEspecialidadeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="editaEspecialidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="novoNome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editaEspecialidadeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="excluiEspecialidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="excluiEspecialidadeResponse">
         <s:complexType />
       </s:element>
     </s:schema>
@@ -143,6 +185,12 @@
   <wsdl:message name="comprarMaterialSoapOut">
     <wsdl:part name="parameters" element="tns:comprarMaterialResponse" />
   </wsdl:message>
+  <wsdl:message name="pagarManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:pagarManutencao" />
+  </wsdl:message>
+  <wsdl:message name="pagarManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:pagarManutencaoResponse" />
+  </wsdl:message>
   <wsdl:message name="contaAPagarSoapIn">
     <wsdl:part name="parameters" element="tns:contaAPagar" />
   </wsdl:message>
@@ -154,6 +202,18 @@
   </wsdl:message>
   <wsdl:message name="cadastraEspecialidadeSoapOut">
     <wsdl:part name="parameters" element="tns:cadastraEspecialidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="editaEspecialidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:editaEspecialidade" />
+  </wsdl:message>
+  <wsdl:message name="editaEspecialidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:editaEspecialidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="excluiEspecialidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:excluiEspecialidade" />
+  </wsdl:message>
+  <wsdl:message name="excluiEspecialidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:excluiEspecialidadeResponse" />
   </wsdl:message>
   <wsdl:portType name="MedSoftSoap">
     <wsdl:operation name="pagarFunc">
@@ -172,6 +232,10 @@
       <wsdl:input message="tns:comprarMaterialSoapIn" />
       <wsdl:output message="tns:comprarMaterialSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <wsdl:input message="tns:pagarManutencaoSoapIn" />
+      <wsdl:output message="tns:pagarManutencaoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="contaAPagar">
       <wsdl:input message="tns:contaAPagarSoapIn" />
       <wsdl:output message="tns:contaAPagarSoapOut" />
@@ -179,6 +243,14 @@
     <wsdl:operation name="cadastraEspecialidade">
       <wsdl:input message="tns:cadastraEspecialidadeSoapIn" />
       <wsdl:output message="tns:cadastraEspecialidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editaEspecialidade">
+      <wsdl:input message="tns:editaEspecialidadeSoapIn" />
+      <wsdl:output message="tns:editaEspecialidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="excluiEspecialidade">
+      <wsdl:input message="tns:excluiEspecialidadeSoapIn" />
+      <wsdl:output message="tns:excluiEspecialidadeSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MedSoftSoap" type="tns:MedSoftSoap">
@@ -219,6 +291,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <soap:operation soapAction="http://tempuri.org/pagarManutencao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="contaAPagar">
       <soap:operation soapAction="http://tempuri.org/contaAPagar" style="document" />
       <wsdl:input>
@@ -230,6 +311,24 @@
     </wsdl:operation>
     <wsdl:operation name="cadastraEspecialidade">
       <soap:operation soapAction="http://tempuri.org/cadastraEspecialidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaEspecialidade">
+      <soap:operation soapAction="http://tempuri.org/editaEspecialidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluiEspecialidade">
+      <soap:operation soapAction="http://tempuri.org/excluiEspecialidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -276,6 +375,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="pagarManutencao">
+      <soap12:operation soapAction="http://tempuri.org/pagarManutencao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="contaAPagar">
       <soap12:operation soapAction="http://tempuri.org/contaAPagar" style="document" />
       <wsdl:input>
@@ -287,6 +395,24 @@
     </wsdl:operation>
     <wsdl:operation name="cadastraEspecialidade">
       <soap12:operation soapAction="http://tempuri.org/cadastraEspecialidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaEspecialidade">
+      <soap12:operation soapAction="http://tempuri.org/editaEspecialidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluiEspecialidade">
+      <soap12:operation soapAction="http://tempuri.org/excluiEspecialidade" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
